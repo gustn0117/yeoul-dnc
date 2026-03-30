@@ -67,8 +67,8 @@ export default function ProcessPage() {
         <div className="absolute top-20 right-1/4 w-96 h-96 bg-accent-blue/10 rounded-full blur-[128px]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <p className="text-accent-blue font-semibold text-sm tracking-widest uppercase mb-4">Process</p>
-          <h1 className="text-3xl lg:text-5xl font-extrabold text-white mb-5 tracking-tight">진행절차</h1>
-          <p className="text-lg text-slate-300/90 max-w-2xl leading-relaxed">
+          <h1 className="text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-5 tracking-tight">진행절차</h1>
+          <p className="text-lg text-slate-300/90 max-w-2xl">
             문의부터 광고 운영까지 어떤 식으로 진행되는지 안내드립니다
           </p>
           <p className="text-sm text-slate-400/80 mt-3">
@@ -101,8 +101,8 @@ export default function ProcessPage() {
                       <span className="text-xs text-accent-blue font-bold tracking-widest uppercase">{s.step}</span>
                     </div>
                     <h3 className="text-lg font-bold text-deep-navy mb-2">{s.title}</h3>
-                    <p className="text-slate-700 mb-2 leading-relaxed">{s.desc}</p>
-                    <p className="text-sm text-slate-500 leading-relaxed">{s.detail}</p>
+                    <p className="text-slate-700 mb-2">{s.desc}</p>
+                    <p className="text-sm text-slate-500">{s.detail}</p>
                   </div>
                 </div>
               ))}
@@ -120,7 +120,7 @@ export default function ProcessPage() {
                 <div className="w-12 h-12 mx-auto bg-accent-blue/10 rounded-2xl flex items-center justify-center mb-4">
                   <IconCheck className="w-5 h-5 text-accent-blue" />
                 </div>
-                <p className="text-sm font-medium text-slate-700 leading-relaxed">{text}</p>
+                <p className="text-sm font-medium text-slate-700">{text}</p>
               </div>
             ))}
           </div>

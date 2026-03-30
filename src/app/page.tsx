@@ -70,16 +70,16 @@ export default function Home() {
           </div>
 
           {/* Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] mb-6 text-white tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-hero mb-6 text-white tracking-tight">
             온라인 광고,<br />
             <span className="gradient-text">결과</span>로 말합니다
           </h1>
 
           {/* Sub copy */}
-          <p className="text-base lg:text-lg text-slate-300/90 mb-2 leading-relaxed">
+          <p className="text-base lg:text-lg text-slate-300/90 mb-2">
             유입부터 상담 전환까지 설계하는 광고 실행 파트너
           </p>
-          <p className="text-sm text-slate-500 mb-10 leading-relaxed max-w-md mx-auto">
+          <p className="text-sm text-slate-500 mb-10 max-w-md mx-auto">
             카카오, 네이버, 메타, 유튜브, 구글 등 다양한 광고 채널을<br />
             업종과 예산에 맞게 제안하고 실행합니다
           </p>
@@ -145,10 +145,10 @@ export default function Home() {
           {/* Header */}
           <div className="max-w-xl mb-16">
             <p className="text-accent-blue font-semibold text-xs tracking-widest uppercase mb-3">Why us</p>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-deep-navy mb-4 leading-tight">
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-deep-navy mb-4">
               왜 여울디앤씨인가
             </h2>
-            <p className="text-slate-500 leading-relaxed">
+            <p className="text-slate-500">
               업종과 목적에 맞는 채널을 선별해 효율적으로 운영합니다.
             </p>
           </div>
@@ -164,7 +164,7 @@ export default function Home() {
                   <span className="text-[11px] font-bold text-slate-300 tracking-wider">{item.num}</span>
                 </div>
                 <h3 className="text-base font-bold text-deep-navy mb-2">{item.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+                <p className="text-sm text-slate-500">{item.desc}</p>
               </div>
             ))}
             {/* CTA cell */}
@@ -201,7 +201,7 @@ export default function Home() {
                   <ch.Icon className="w-5 h-5 text-slate-400 group-hover:text-accent-blue transition-colors duration-300" />
                 </div>
                 <h3 className="font-semibold text-deep-navy text-sm mb-1">{ch.name}</h3>
-                <p className="text-xs text-slate-400 leading-relaxed">{ch.desc}</p>
+                <p className="text-xs text-slate-400">{ch.desc}</p>
               </Link>
             ))}
           </div>
@@ -221,10 +221,10 @@ export default function Home() {
             {/* Left - 2cols */}
             <div className="lg:col-span-2 mb-12 lg:mb-0">
               <p className="text-accent-blue font-semibold text-xs tracking-widest uppercase mb-3">For you</p>
-              <h2 className="text-3xl lg:text-4xl font-extrabold text-deep-navy mb-5 leading-tight">
+              <h2 className="text-3xl lg:text-4xl font-extrabold text-deep-navy mb-5">
                 이런 분들에게<br />필요합니다
               </h2>
-              <p className="text-slate-500 text-sm leading-relaxed mb-8">
+              <p className="text-slate-500 text-sm mb-8">
                 현재 광고가 잘 안 되고 있다면, 여울디앤씨가 방향부터 함께 정리해드립니다.
               </p>
               <Link

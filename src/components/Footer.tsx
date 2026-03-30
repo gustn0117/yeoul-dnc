@@ -17,7 +17,7 @@ export default function Footer() {
                 className="h-10 w-auto object-contain"
               />
             </Link>
-            <p className="text-slate-500 text-sm mb-6 leading-relaxed max-w-xs">
+            <p className="text-slate-500 text-sm mb-6 max-w-xs">
               유입부터 상담 전환까지 설계하는<br />온라인 광고 실행 파트너
             </p>
             <div className="space-y-1.5 text-[13px] text-slate-600">

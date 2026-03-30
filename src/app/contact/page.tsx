@@ -40,8 +40,8 @@ export default function ContactPage() {
         <div className="absolute top-20 right-1/4 w-96 h-96 bg-accent-blue/10 rounded-full blur-[128px]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <p className="text-accent-blue font-semibold text-sm tracking-widest uppercase mb-4">Contact</p>
-          <h1 className="text-3xl lg:text-5xl font-extrabold text-white mb-5 tracking-tight">문의하기</h1>
-          <p className="text-lg text-slate-300/90 max-w-2xl leading-relaxed">
+          <h1 className="text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-5 tracking-tight">문의하기</h1>
+          <p className="text-lg text-slate-300/90 max-w-2xl">
             광고가 처음이셔도 괜찮습니다
           </p>
           <p className="text-sm text-slate-400/80 mt-3">
@@ -59,7 +59,7 @@ export default function ContactPage() {
                 <IconCheck className="w-8 h-8 text-green-500" />
               </div>
               <h2 className="text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4">문의가 접수되었습니다</h2>
-              <p className="text-slate-500 mb-8 leading-relaxed">
+              <p className="text-slate-500 mb-8">
                 빠른 시일 내에 담당자가 연락드리겠습니다.<br />
                 감사합니다.
               </p>
@@ -179,7 +179,7 @@ export default function ContactPage() {
               <div className="pt-8 border-t border-slate-100">
                 <label className="flex items-start gap-3 cursor-pointer">
                   <input type="checkbox" required className="mt-1 accent-accent-blue w-4 h-4" />
-                  <span className="text-sm text-slate-500 leading-relaxed">
+                  <span className="text-sm text-slate-500">
                     개인정보 수집 및 이용에 동의합니다. 수집된 정보는 상담 목적으로만 사용되며, 상담 완료 후 즉시 파기됩니다.
                   </span>
                 </label>

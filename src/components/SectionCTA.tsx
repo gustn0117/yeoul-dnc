@@ -30,7 +30,7 @@ export default function SectionCTA({
         <h2 className={`text-2xl lg:text-3xl font-extrabold mb-4 ${isDark ? "text-white" : "text-deep-navy"}`}>
           {title}
         </h2>
-        <p className={`text-sm lg:text-base mb-10 max-w-md mx-auto leading-relaxed ${isDark ? "text-slate-400" : "text-slate-500"}`}>
+        <p className={`text-sm lg:text-base mb-10 max-w-md mx-auto ${isDark ? "text-slate-400" : "text-slate-500"}`}>
           {description}
         </p>
         <Link

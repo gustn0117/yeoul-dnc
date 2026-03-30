@@ -72,8 +72,8 @@ export default function CasesPage() {
         <div className="absolute top-20 right-1/4 w-96 h-96 bg-accent-blue/10 rounded-full blur-[128px]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <p className="text-accent-blue font-semibold text-sm tracking-widest uppercase mb-4">Cases</p>
-          <h1 className="text-3xl lg:text-5xl font-extrabold text-white mb-5 tracking-tight">광고사례</h1>
-          <p className="text-lg text-slate-300/90 max-w-2xl leading-relaxed">
+          <h1 className="text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-5 tracking-tight">광고사례</h1>
+          <p className="text-lg text-slate-300/90 max-w-2xl">
             실제 운영 사례를 통해 광고 진행 방식을 확인하실 수 있습니다
           </p>
           <p className="text-sm text-slate-400/80 mt-3">
@@ -114,7 +114,7 @@ export default function CasesPage() {
                 </div>
 
                 <div className="pt-5 border-t border-slate-100">
-                  <p className="text-sm text-slate-500 italic leading-relaxed">&ldquo;{c.comment}&rdquo;</p>
+                  <p className="text-sm text-slate-500 italic">&ldquo;{c.comment}&rdquo;</p>
                 </div>
               </div>
             ))}

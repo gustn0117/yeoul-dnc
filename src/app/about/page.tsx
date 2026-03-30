@@ -33,8 +33,8 @@ export default function AboutPage() {
         <div className="absolute top-20 right-1/4 w-96 h-96 bg-accent-blue/10 rounded-full blur-[128px]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <p className="text-accent-blue font-semibold text-sm tracking-widest uppercase mb-4">About Us</p>
-          <h1 className="text-3xl lg:text-5xl font-extrabold text-white mb-5 tracking-tight">회사소개</h1>
-          <p className="text-lg lg:text-xl text-slate-300/90 max-w-2xl leading-relaxed">
+          <h1 className="text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-5 tracking-tight">회사소개</h1>
+          <p className="text-lg lg:text-xl text-slate-300/90 max-w-2xl">
             여울디앤씨는 유입부터 상담 전환까지 설계하는<br />
             온라인 광고 실행사입니다
           </p>
@@ -62,10 +62,10 @@ export default function AboutPage() {
               <h2 className="text-3xl lg:text-4xl font-extrabold text-deep-navy mb-6 tracking-tight">
                 시장 흐름의 방향과 속도를<br />만들어내는 전략적 움직임
               </h2>
-              <p className="text-slate-500 leading-relaxed mb-4">
+              <p className="text-slate-500 mb-4">
                 여울디앤씨의 로고는 대표 이니셜 Y자 형태로 시장 흐름의 방향과 속도를 만들어내는 전략적 움직임을 시각화한 로고입니다.
               </p>
-              <p className="text-slate-500 leading-relaxed">
+              <p className="text-slate-500">
                 &ldquo;광고를 해주는 회사&rdquo;가 아니라, 유입부터 상담 전환까지 설계하고 실행하는 온라인 광고 실행사입니다.
               </p>
             </div>
@@ -89,7 +89,7 @@ export default function AboutPage() {
                   <task.Icon className="w-5 h-5 text-accent-blue" />
                 </div>
                 <h3 className="text-lg font-bold text-deep-navy mb-2">{task.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">{task.desc}</p>
+                <p className="text-sm text-slate-500">{task.desc}</p>
               </div>
             ))}
           </div>
@@ -109,7 +109,7 @@ export default function AboutPage() {
                 <div className="w-10 h-10 bg-accent-blue rounded-xl flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform duration-300">
                   <IconCheck className="w-4 h-4 text-white" />
                 </div>
-                <p className="text-slate-700 font-medium leading-relaxed">{text}</p>
+                <p className="text-slate-700 font-medium">{text}</p>
               </div>
             ))}
           </div>

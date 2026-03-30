@@ -77,6 +77,23 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+/* Heading line-height override - Tailwind text-size utilities include built-in line-height
+   that overrides leading-* classes. Use !important to ensure readable spacing.
+   Elements with inline style or [style*="line-height"] will still override via specificity. */
+h2, h3 {
+  line-height: 1.35 !important;
+}
+
+/* Body text readability */
+p, li {
+  line-height: 1.75 !important;
+}
+
+/* Hero / display headings opt-out via utility class */
+.leading-hero {
+  line-height: 1.1 !important;
+}
+
 /* Gradient text */
 .gradient-text {
   background: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
