@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { IconArrowRight } from "@/components/Icons";
 
 interface SectionCTAProps {
@@ -19,11 +20,18 @@ export default function SectionCTA({
   const isDark = variant === "dark";
 
   return (
-    <section className={`relative py-24 lg:py-32 overflow-hidden ${isDark ? "bg-[#0a1425]" : "bg-slate-50"}`}>
+    <section className={`relative py-24 lg:py-32 overflow-hidden ${isDark ? "" : "bg-slate-50"}`}>
       {isDark && (
         <>
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent-blue/5 rounded-full blur-[120px]" />
+          <Image
+            src="/images/stock/team-strategy.jpg"
+            alt=""
+            fill
+            className="object-cover"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-[#070d1a]/90" />
+          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(37,99,235,0.06) 0%, transparent 70%)" }} />
         </>
       )}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

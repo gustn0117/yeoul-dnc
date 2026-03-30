@@ -45,14 +45,22 @@ export default function Home() {
     <>
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* BG layers */}
-        <div className="absolute inset-0 bg-[#070d1a]" />
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(37,99,235,0.08) 0%, transparent 70%)" }} />
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 50% 50% at 70% 80%, rgba(249,115,22,0.04) 0%, transparent 70%)" }} />
-        {/* Subtle noise texture */}
-        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")" }} />
+        {/* Background photo - dark building */}
+        <Image
+          src="/images/stock/hero-building.jpg"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+          aria-hidden="true"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-[#070d1a]/85" />
+        {/* Color overlays */}
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(37,99,235,0.10) 0%, transparent 70%)" }} />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 50% 50% at 70% 80%, rgba(249,115,22,0.05) 0%, transparent 70%)" }} />
         {/* Floating logo */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[55%] opacity-[0.025] pointer-events-none animate-float">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[55%] opacity-[0.03] pointer-events-none animate-float">
           <Image src="/images/logo-mark-white.png" alt="" width={650} height={570} className="w-100 lg:w-150 h-auto" aria-hidden="true" />
         </div>
         {/* Horizontal gradient lines */}
@@ -63,28 +71,25 @@ export default function Home() {
           {/* Badges */}
           <div className="flex flex-wrap justify-center gap-2.5 mb-8">
             {["상담 중심", "전환 중심", "업종 맞춤 운영"].map((badge) => (
-              <span key={badge} className="px-3 py-1 text-[10px] font-semibold tracking-[0.15em] uppercase text-accent-blue/80 border border-accent-blue/15 rounded-full bg-accent-blue/5">
+              <span key={badge} className="px-3 py-1 text-[10px] font-semibold tracking-[0.15em] uppercase text-accent-blue/80 border border-accent-blue/15 rounded-full bg-accent-blue/5 backdrop-blur-sm">
                 {badge}
               </span>
             ))}
           </div>
 
-          {/* Heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-hero mb-6 text-white tracking-tight">
             온라인 광고,<br />
             <span className="gradient-text">결과</span>로 말합니다
           </h1>
 
-          {/* Sub copy */}
           <p className="text-base lg:text-lg text-slate-300/90 mb-2">
             유입부터 상담 전환까지 설계하는 광고 실행 파트너
           </p>
-          <p className="text-sm text-slate-500 mb-10 max-w-md mx-auto">
+          <p className="text-sm text-slate-400 mb-10 max-w-md mx-auto">
             카카오, 네이버, 메타, 유튜브, 구글 등 다양한 광고 채널을<br />
             업종과 예산에 맞게 제안하고 실행합니다
           </p>
 
-          {/* CTA */}
           <div className="flex flex-wrap justify-center gap-3 mb-14">
             <Link
               href="/contact"
@@ -93,15 +98,14 @@ export default function Home() {
               광고 문의하기
               <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <Link href="/services" className="px-8 py-3.5 text-sm text-white/70 font-medium rounded-xl border border-white/10 hover:border-white/20 hover:text-white/90 transition-all duration-300">
+            <Link href="/services" className="px-8 py-3.5 text-sm text-white/70 font-medium rounded-xl border border-white/10 hover:border-white/20 hover:text-white/90 backdrop-blur-sm transition-all duration-300">
               서비스 보기
             </Link>
-            <Link href="/cases" className="px-8 py-3.5 text-sm text-white/70 font-medium rounded-xl border border-white/10 hover:border-white/20 hover:text-white/90 transition-all duration-300">
+            <Link href="/cases" className="px-8 py-3.5 text-sm text-white/70 font-medium rounded-xl border border-white/10 hover:border-white/20 hover:text-white/90 backdrop-blur-sm transition-all duration-300">
               광고사례 보기
             </Link>
           </div>
 
-          {/* Platform icons row */}
           <div className="flex items-center justify-center gap-1">
             {[
               { name: "카카오", Icon: IconKakao },
@@ -111,16 +115,16 @@ export default function Home() {
               { name: "구글", Icon: IconGlobe },
               { name: "당근", Icon: IconCarrot },
             ].map((m) => (
-              <div key={m.name} className="w-9 h-9 rounded-lg bg-white/3 border border-white/6 flex items-center justify-center" title={m.name}>
-                <m.Icon className="w-4 h-4 text-slate-500" />
+              <div key={m.name} className="w-9 h-9 rounded-lg bg-white/3 border border-white/6 backdrop-blur-sm flex items-center justify-center" title={m.name}>
+                <m.Icon className="w-4 h-4 text-slate-400" />
               </div>
             ))}
-            <span className="text-[11px] text-slate-600 ml-2">외 다수 채널</span>
+            <span className="text-[11px] text-slate-500 ml-2">외 다수 채널</span>
           </div>
         </div>
 
-        {/* Bottom stats bar - integrated into hero */}
-        <div className="absolute bottom-0 left-0 right-0 border-t border-white/5 bg-white/2 backdrop-blur-sm">
+        {/* Bottom stats bar */}
+        <div className="absolute bottom-0 left-0 right-0 border-t border-white/5 bg-black/30 backdrop-blur-md">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-4 divide-x divide-white/5">
               {[
@@ -131,7 +135,7 @@ export default function Home() {
               ].map((s) => (
                 <div key={s.label} className="py-5 lg:py-6 text-center">
                   <p className="text-sm lg:text-base font-bold text-white/90">{s.number}</p>
-                  <p className="text-[10px] lg:text-[11px] text-slate-500 mt-0.5">{s.label}</p>
+                  <p className="text-[10px] lg:text-[11px] text-slate-400 mt-0.5">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -139,10 +143,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── WHY US ── */}
-      <section className="py-24 lg:py-36 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
+      {/* ── WHY US ── with subtle background image */}
+      <section className="relative py-24 lg:py-36 bg-white overflow-hidden">
+        {/* Subtle workspace image in background */}
+        <div className="absolute right-0 top-0 w-1/2 h-full opacity-[0.03] pointer-events-none hidden lg:block">
+          <Image src="/images/stock/workspace.jpg" alt="" fill className="object-cover object-center" aria-hidden="true" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-xl mb-16">
             <p className="text-accent-blue font-semibold text-xs tracking-widest uppercase mb-3">Why us</p>
             <h2 className="text-3xl lg:text-4xl font-extrabold text-deep-navy mb-4">
@@ -153,7 +161,6 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-slate-100 rounded-3xl overflow-hidden border border-slate-100">
             {strengths.map((item) => (
               <div key={item.num} className="bg-white p-8 lg:p-10 hover:bg-slate-50/50 transition-colors duration-300">
@@ -167,7 +174,6 @@ export default function Home() {
                 <p className="text-sm text-slate-500">{item.desc}</p>
               </div>
             ))}
-            {/* CTA cell */}
             <div className="bg-accent-blue/4 p-8 lg:p-10 flex flex-col justify-center">
               <p className="text-sm text-slate-600 mb-4">우리 업종에 맞는 채널이 궁금하신가요?</p>
               <Link href="/contact" className="group inline-flex items-center gap-2 text-accent-blue text-sm font-semibold">
@@ -214,19 +220,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TARGET AUDIENCE ── */}
-      <section className="py-24 lg:py-36 bg-white">
+      {/* ── TARGET AUDIENCE ── with data image */}
+      <section className="relative py-24 lg:py-36 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-5 lg:gap-20 lg:items-center">
-            {/* Left - 2cols */}
+          <div className="lg:grid lg:grid-cols-5 lg:gap-16 lg:items-center">
+            {/* Left */}
             <div className="lg:col-span-2 mb-12 lg:mb-0">
               <p className="text-accent-blue font-semibold text-xs tracking-widest uppercase mb-3">For you</p>
               <h2 className="text-3xl lg:text-4xl font-extrabold text-deep-navy mb-5">
                 이런 분들에게<br />필요합니다
               </h2>
-              <p className="text-slate-500 text-sm mb-8">
+              <p className="text-slate-500 text-sm mb-6">
                 현재 광고가 잘 안 되고 있다면, 여울디앤씨가 방향부터 함께 정리해드립니다.
               </p>
+              {/* Inline image - data analytics */}
+              <div className="rounded-2xl overflow-hidden mb-8 opacity-90">
+                <Image
+                  src="/images/stock/marketing-laptop.jpg"
+                  alt="데이터 기반 광고 운영"
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto"
+                />
+              </div>
               <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2 px-6 py-3 bg-deep-navy text-white text-sm font-semibold rounded-xl hover:bg-deep-navy/90 transition-all duration-300"
@@ -236,7 +252,7 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Right - 3cols */}
+            {/* Right */}
             <div className="lg:col-span-3 space-y-3">
               {[
                 "광고는 하고 있는데 문의가 적은 업체",
@@ -247,7 +263,7 @@ export default function Home() {
               ].map((text, i) => (
                 <div
                   key={i}
-                  className="group flex items-center gap-4 p-4 lg:p-5 rounded-xl border border-slate-100 hover:border-accent-blue/15 hover:bg-accent-blue/[0.02] transition-all duration-300"
+                  className="group flex items-center gap-4 p-4 lg:p-5 rounded-xl border border-slate-100 hover:border-accent-blue/15 hover:bg-accent-blue/2 transition-all duration-300"
                 >
                   <div className="w-8 h-8 rounded-lg bg-accent-blue/8 flex items-center justify-center shrink-0 group-hover:bg-accent-blue transition-all duration-300">
                     <IconCheck className="w-3.5 h-3.5 text-accent-blue group-hover:text-white transition-colors duration-300" />
@@ -260,8 +276,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PROCESS ── */}
-      <section className="relative py-24 lg:py-36 overflow-hidden bg-[#0a1425]">
+      {/* ── PROCESS ── with subtle analytics bg */}
+      <section className="relative py-24 lg:py-36 overflow-hidden">
+        {/* Background photo - data dashboard */}
+        <Image
+          src="/images/stock/data-analytics.jpg"
+          alt=""
+          fill
+          className="object-cover"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-[#070d1a]/92" />
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-120 h-120 bg-accent-blue/6 rounded-full blur-[150px]" />
 
@@ -274,7 +299,6 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Steps - horizontal flow */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-4">
             {processSteps.map((s, i) => (
               <div key={i} className="glass rounded-2xl p-6 text-center group hover:bg-white/6 transition-all duration-300">
@@ -334,7 +358,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FINAL CTA ── */}
+      {/* ── FINAL CTA ── with team image bg */}
       <SectionCTA
         title="어떤 광고가 우리 업종에 맞는지 궁금하신가요?"
         description="여울디앤씨가 업종에 맞는 광고 방향부터 정리해드립니다"
