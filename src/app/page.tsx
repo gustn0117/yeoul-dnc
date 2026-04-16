@@ -51,7 +51,7 @@ export default function Home() {
         <div className="absolute top-20 right-1/4 w-64 h-64 rounded-full bg-orange-200/20 blur-[80px]" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center min-h-[calc(100vh-72px)]">
+          <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-4.5rem)]">
 
             {/* ── Left: copy ── */}
             <div className="lg:col-span-6 py-20 lg:py-0">

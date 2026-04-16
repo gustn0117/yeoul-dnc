@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import FloatingButtons from "@/components/FloatingButtons";
+import LayoutShell from "@/components/LayoutShell";
 
 export const metadata: Metadata = {
   title: "여울디앤씨 | 온라인 광고 실행 파트너",
@@ -19,10 +17,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
-        <Header />
-        <main className="flex-1 pt-16 lg:pt-18">{children}</main>
-        <Footer />
-        <FloatingButtons />
+        <LayoutShell>{children}</LayoutShell>
       </body>
     </html>
   );
