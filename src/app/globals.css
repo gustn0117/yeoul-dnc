@@ -10,9 +10,7 @@
   --font-sans: "Pretendard", system-ui, -apple-system, sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background: #ffffff;
@@ -22,82 +20,101 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-::selection {
-  background: rgba(37, 99, 235, 0.15);
-  color: #0f1d32;
+::selection { background: rgba(37, 99, 235, 0.12); color: #0f1d32; }
+
+/* ── Typography overrides ── */
+h1 { line-height: 1.15 !important; }
+h2, h3 { line-height: 1.35 !important; }
+p, li { line-height: 1.75 !important; }
+.leading-hero { line-height: 1.12 !important; }
+
+/* ── Gradient text ── */
+.gradient-text {
+  background: linear-gradient(135deg, #2563eb 0%, #60a5fa 50%, #2563eb 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-text 4s ease-in-out infinite;
 }
 
-/* Divider */
-.section-divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #e2e8f0 20%, #e2e8f0 80%, transparent);
+/* ── Glass card ── */
+.glass {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.07);
 }
 
-@keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ── Section label line ── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-label::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: #2563eb;
+  border-radius: 1px;
 }
 
+/* ── Card shine effect ── */
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+.card-shine::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0) 40%,
+    rgba(255,255,255,0.05) 50%,
+    rgba(255,255,255,0) 60%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: rotate(-45deg);
+  transition: transform 0.6s ease;
+}
+.card-shine:hover::after {
+  transform: rotate(-45deg) translate(50%, 50%);
+}
+
+/* ── Animations ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(1deg); }
+}
+@keyframes shimmer-text {
+  0% { background-position: 0% center; }
+  50% { background-position: 200% center; }
+  100% { background-position: 0% center; }
+}
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out forwards;
-}
-
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out forwards;
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-shimmer {
-  background-size: 200% 100%;
-  animation: shimmer 3s linear infinite;
-}
-
-/* Glass card effect */
-.glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-/* Heading line-height override - Tailwind text-size utilities include built-in line-height
-   that overrides leading-* classes. Use !important to ensure readable spacing.
-   Elements with inline style or [style*="line-height"] will still override via specificity. */
-h2, h3 {
-  line-height: 1.35 !important;
-}
-
-/* Body text readability */
-p, li {
-  line-height: 1.75 !important;
-}
-
-/* Hero / display headings opt-out via utility class */
-.leading-hero {
-  line-height: 1.1 !important;
-}
-
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+.animate-float { animation: float 5s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+.animate-fade-in { animation: fade-in 0.5s ease-out forwards; }
+.animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; }
+.animate-pulse-soft { animation: pulse-soft 3s ease-in-out infinite; }
