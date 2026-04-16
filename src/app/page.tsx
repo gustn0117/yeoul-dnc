@@ -86,18 +86,10 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Media bar */}
-              <div className="flex items-center gap-4 flex-wrap">
-                {[
-                  { name: "Kakao", Icon: IconKakao },
-                  { name: "NAVER", Icon: IconSearch },
-                  { name: "Meta", Icon: IconMeta },
-                  { name: "YouTube", Icon: IconYoutube },
-                  { name: "Google", Icon: IconGlobe },
-                ].map((m) => (
-                  <div key={m.name} className="flex items-center gap-1.5 text-xs text-slate-400 opacity-60">
-                    <m.Icon className="w-4 h-4" /> {m.name}
-                  </div>
+              {/* Media bar - real logos */}
+              <div className="flex items-center gap-5 flex-wrap opacity-40">
+                {["naver", "kakaotalk", "meta", "youtube", "google", "instagram"].map((name) => (
+                  <img key={name} src={`/images/logos/${name}.svg`} alt={name} className="h-4 w-auto grayscale" />
                 ))}
               </div>
             </div>
