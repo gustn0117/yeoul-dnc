@@ -10,7 +10,7 @@ const navItems = [
   { label: "메인", href: "/" },
   { label: "회사소개", href: "/about" },
   { label: "광고상품 / 서비스", href: "/services" },
-  { label: "광고사례", href: "/cases" },
+  { label: "포트폴리오", href: "/cases" },
   { label: "진행절차", href: "/process" },
   { label: "문의하기", href: "/contact" },
 ];

@@ -35,7 +35,7 @@ export default function Footer() {
               {[
                 { href: "/about", label: "회사소개" },
                 { href: "/services", label: "광고상품 / 서비스" },
-                { href: "/cases", label: "광고사례" },
+                { href: "/cases", label: "포트폴리오" },
                 { href: "/process", label: "진행절차" },
               ].map((item) => (
                 <Link key={item.href} href={item.href} className="block text-sm text-slate-500 hover:text-white transition-colors">
