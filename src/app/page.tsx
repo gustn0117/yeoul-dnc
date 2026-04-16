@@ -9,14 +9,14 @@ import {
 } from "@/components/Icons";
 
 const channels = [
-  { name: "메타 광고", purpose: "관심사 기반 타겟팅과 리드 수집", Icon: IconMeta, color: "from-blue-500 to-indigo-600" },
-  { name: "네이버 광고", purpose: "검색 수요 기반 문의 확보", Icon: IconSearch, color: "from-green-500 to-emerald-600" },
-  { name: "카카오 광고", purpose: "상담 유입과 재접촉 운영", Icon: IconKakao, color: "from-yellow-400 to-amber-500" },
-  { name: "유튜브 광고", purpose: "브랜드 인지도와 신뢰 형성", Icon: IconYoutube, color: "from-red-500 to-rose-600" },
-  { name: "구글 광고", purpose: "검색+디스플레이+리타겟팅 확장", Icon: IconGlobe, color: "from-sky-500 to-cyan-600" },
-  { name: "문자 마케팅", purpose: "기존 고객 재접촉 및 안내", Icon: IconMail, color: "from-violet-500 to-purple-600" },
-  { name: "당근/지역 광고", purpose: "생활권 고객 유입", Icon: IconCarrot, color: "from-orange-400 to-orange-600" },
-  { name: "부동산 특화", purpose: "분양 임대 실수요 타겟", Icon: IconBuilding, color: "from-teal-500 to-teal-600" },
+  { name: "메타 광고", purpose: "관심사 기반 타겟팅과 리드 수집", logos: ["instagram", "facebook"], color: "from-blue-500 to-indigo-600" },
+  { name: "네이버 광고", purpose: "검색 수요 기반 문의 확보", logos: ["naver"], color: "from-green-500 to-emerald-600" },
+  { name: "카카오 광고", purpose: "상담 유입과 재접촉 운영", logos: ["kakaotalk"], color: "from-yellow-400 to-amber-500" },
+  { name: "유튜브 광고", purpose: "브랜드 인지도와 신뢰 형성", logos: ["youtube"], color: "from-red-500 to-rose-600" },
+  { name: "구글 광고", purpose: "검색+디스플레이+리타겟팅 확장", logos: ["google", "google-ads"], color: "from-sky-500 to-cyan-600" },
+  { name: "문자 마케팅", purpose: "기존 고객 재접촉 및 안내", logos: [], Icon: IconMail, color: "from-violet-500 to-purple-600" },
+  { name: "당근/지역 광고", purpose: "생활권 고객 유입", logos: ["danggeun"], color: "from-orange-400 to-orange-600" },
+  { name: "부동산 특화", purpose: "분양 임대 실수요 타겟", logos: [], Icon: IconBuilding, color: "from-teal-500 to-teal-600" },
 ];
 
 const whyUs = [
@@ -249,8 +249,17 @@ export default function Home() {
               <Link key={ch.name} href="/services" className="group relative bg-white rounded-2xl p-6 card-3d gradient-border overflow-hidden">
                 <div className={`absolute inset-0 bg-linear-to-br ${ch.color} opacity-0 group-hover:opacity-[0.04] transition-opacity duration-500`} />
                 <div className="relative">
-                  <div className={`w-12 h-12 rounded-2xl bg-linear-to-br ${ch.color} flex items-center justify-center mb-4 shadow-md opacity-80 group-hover:opacity-100 transition-opacity duration-300`}>
-                    <ch.Icon className="w-5 h-5 text-white" />
+                  {/* Logo area */}
+                  <div className="flex items-center gap-2 mb-4 h-10">
+                    {ch.logos && ch.logos.length > 0 ? (
+                      ch.logos.map((logo) => (
+                        <img key={logo} src={`/images/logos/${logo}.svg`} alt={logo} className="h-7 w-auto" />
+                      ))
+                    ) : ch.Icon ? (
+                      <div className={`w-10 h-10 rounded-xl bg-linear-to-br ${ch.color} flex items-center justify-center shadow-sm`}>
+                        <ch.Icon className="w-5 h-5 text-white" />
+                      </div>
+                    ) : null}
                   </div>
                   <h3 className="font-bold text-deep-navy text-sm mb-1">{ch.name}</h3>
                   <p className="text-[11px] text-slate-400 mb-3">{ch.purpose}</p>
