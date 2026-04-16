@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import SectionCTA from "@/components/SectionCTA";
+import { IllustChart, IllustTarget, IllustPhone } from "@/components/Illustrations";
 import {
   IconKakao, IconSearch, IconMeta, IconYoutube, IconGlobe, IconMail, IconCarrot, IconBuilding,
   IconTarget, IconLayers, IconBarChart, IconRefresh, IconCheck, IconArrowRight, IconZap,
@@ -102,21 +103,21 @@ export default function Home() {
             </div>
 
             {/* ── Right: visual ── */}
-            <div className="lg:col-span-6 relative hidden lg:flex items-center justify-center py-16">
-              {/* Decorative ring */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full border border-accent-blue/10 animate-pulse-soft" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full border border-accent-blue/5" />
+            <div className="lg:col-span-6 relative hidden lg:flex items-center justify-center py-12">
+              {/* Main SVG chart illustration */}
+              <div className="relative z-10 card-3d glow-blue rounded-3xl overflow-visible">
+                <IllustChart className="w-full max-w-md h-auto" />
+              </div>
 
-              {/* Main image */}
-              <div className="relative w-72 h-96 rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/15 border-4 border-white z-10">
-                <Image src="/images/stock/woman-professional.jpg" alt="광고 전문가" fill className="object-cover" priority />
-                <div className="absolute inset-0 bg-linear-to-t from-deep-navy/30 via-transparent to-transparent" />
+              {/* Floating phone mockup */}
+              <div className="absolute -left-4 top-8 z-20 animate-float-slow w-28">
+                <IllustPhone className="w-full h-auto drop-shadow-2xl" />
               </div>
 
               {/* Floating card: 전환율 */}
-              <div className="absolute top-8 right-4 bg-white rounded-2xl shadow-xl shadow-blue-900/8 p-4 border border-slate-100 z-20 animate-float">
+              <div className="absolute top-4 right-0 bg-white rounded-2xl shadow-xl shadow-blue-900/10 p-4 border border-slate-100 z-20 animate-float gradient-border">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-linear-to-br from-emerald-400 to-emerald-500 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-linear-to-br from-emerald-400 to-emerald-500 flex items-center justify-center shadow-md shadow-emerald-500/20">
                     <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /></svg>
                   </div>
                   <div>
@@ -127,30 +128,28 @@ export default function Home() {
               </div>
 
               {/* Floating card: ROAS */}
-              <div className="absolute top-1/2 -right-2 bg-white rounded-2xl shadow-xl shadow-blue-900/8 p-4 border border-slate-100 z-20 animate-float-slow">
+              <div className="absolute bottom-16 -right-2 bg-white rounded-2xl shadow-xl shadow-blue-900/10 p-4 border border-slate-100 z-20 gradient-border" style={{ animation: "float 5s ease-in-out infinite 2s" }}>
                 <p className="text-[10px] text-slate-400 mb-1">광고 효율 (ROAS)</p>
                 <div className="flex items-baseline gap-1">
                   <p className="text-2xl font-extrabold text-accent-blue">4.8</p>
                   <p className="text-xs font-bold text-slate-400">배</p>
                 </div>
-                {/* Mini bar chart */}
                 <div className="flex items-end gap-1 mt-2 h-6">
                   {[40, 55, 35, 70, 60, 80, 90].map((h, i) => (
-                    <div key={i} className="w-2 rounded-sm bg-accent-blue/20" style={{ height: `${h}%` }} />
+                    <div key={i} className="w-2 rounded-t-sm bg-linear-to-t from-accent-blue/40 to-accent-blue/20" style={{ height: `${h}%` }} />
                   ))}
                 </div>
               </div>
 
               {/* Floating card: 문의 증가 */}
-              <div className="absolute bottom-12 left-0 bg-white rounded-2xl shadow-xl shadow-blue-900/8 p-4 border border-slate-100 z-20" style={{ animation: "float 5s ease-in-out infinite 1.5s" }}>
+              <div className="absolute bottom-4 left-16 bg-white rounded-2xl shadow-xl shadow-blue-900/10 p-4 border border-slate-100 z-20 gradient-border" style={{ animation: "float 5s ease-in-out infinite 1s" }}>
                 <p className="text-[10px] text-slate-400 mb-1">문의 증가</p>
                 <p className="text-lg font-extrabold text-deep-navy">+56%<span className="text-emerald-500 text-xs font-bold ml-1">↑</span></p>
               </div>
 
-              {/* Mini dashboard */}
-              <div className="absolute bottom-4 right-8 w-36 rounded-xl overflow-hidden shadow-lg border-2 border-white z-20" style={{ animation: "float-slow 7s ease-in-out infinite 2s" }}>
-                <Image src="/images/stock/dashboard.jpg" alt="" width={400} height={280} className="w-full h-auto" aria-hidden="true" />
-              </div>
+              {/* Decorative blurs */}
+              <div className="absolute top-0 right-0 w-48 h-48 bg-accent-blue/8 rounded-full blur-[80px] -z-10" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-cta-orange/6 rounded-full blur-[60px] -z-10" />
             </div>
 
           </div>
@@ -172,12 +171,12 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {whyUs.map((item, i) => (
-              <div key={item.title} className="group relative p-7 rounded-2xl border border-slate-100 bg-white hover:border-accent-blue/20 hover:shadow-xl hover:shadow-accent-blue/8 transition-all duration-500 hover:-translate-y-1">
-                <div className="absolute top-6 right-6 text-6xl font-black text-slate-50 group-hover:text-accent-blue/5 transition-colors duration-500">
+              <div key={item.title} className="group relative p-7 rounded-2xl border border-slate-100 bg-white card-3d gradient-border hover:shadow-xl hover:shadow-accent-blue/8 transition-all duration-500">
+                <div className="absolute top-5 right-5 text-5xl font-black text-slate-50 group-hover:text-accent-blue/5 transition-colors duration-500 select-none">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <div className="relative">
-                  <div className="w-12 h-12 rounded-2xl bg-accent-blue/8 group-hover:bg-accent-blue flex items-center justify-center mb-5 transition-all duration-500">
+                  <div className="w-12 h-12 rounded-2xl bg-linear-to-br from-accent-blue/10 to-accent-blue/5 group-hover:from-accent-blue group-hover:to-blue-600 flex items-center justify-center mb-5 transition-all duration-500 shadow-sm group-hover:shadow-lg group-hover:shadow-accent-blue/20">
                     <item.Icon className="w-5 h-5 text-accent-blue group-hover:text-white transition-colors duration-500" />
                   </div>
                   <h3 className="text-base font-bold text-deep-navy mb-2">{item.title}</h3>
@@ -253,18 +252,17 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
             {channels.map((ch) => (
-              <Link key={ch.name} href="/services" className="group relative bg-white rounded-2xl p-5 border border-slate-100 hover:border-transparent hover:shadow-xl hover:shadow-slate-200/60 transition-all duration-500 hover:-translate-y-1 overflow-hidden">
-                {/* Hover gradient overlay */}
-                <div className={`absolute inset-0 bg-linear-to-br ${ch.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+              <Link key={ch.name} href="/services" className="group relative bg-white rounded-2xl p-6 card-3d gradient-border overflow-hidden">
+                <div className={`absolute inset-0 bg-linear-to-br ${ch.color} opacity-0 group-hover:opacity-[0.04] transition-opacity duration-500`} />
                 <div className="relative">
-                  <div className="w-11 h-11 rounded-xl bg-slate-50 group-hover:bg-white flex items-center justify-center mb-3 transition-colors duration-300 shadow-sm group-hover:shadow-md">
-                    <ch.Icon className="w-5 h-5 text-slate-400 group-hover:text-accent-blue transition-colors duration-300" />
+                  <div className={`w-12 h-12 rounded-2xl bg-linear-to-br ${ch.color} flex items-center justify-center mb-4 shadow-md opacity-80 group-hover:opacity-100 transition-opacity duration-300`}>
+                    <ch.Icon className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="font-bold text-deep-navy text-sm mb-0.5">{ch.name}</h3>
-                  <p className="text-[11px] text-slate-400">{ch.purpose}</p>
-                  <div className="mt-3 flex items-center gap-1 text-[10px] text-accent-blue font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h3 className="font-bold text-deep-navy text-sm mb-1">{ch.name}</h3>
+                  <p className="text-[11px] text-slate-400 mb-3">{ch.purpose}</p>
+                  <div className="flex items-center gap-1 text-[10px] text-accent-blue font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
                     자세히 보기 <IconArrowRight className="w-3 h-3" />
                   </div>
                 </div>
@@ -283,10 +281,11 @@ export default function Home() {
               <h2 className="text-2xl lg:text-3xl font-extrabold text-deep-navy mb-5">
                 이런 고민이 있다면,<br />지금 광고 방향부터<br />다시 점검해야 합니다
               </h2>
-              <p className="text-sm text-slate-500 mb-8">
-                광고는 하고 있는데 문의가 적다면, 채널이 아니라 구조를 점검해야 합니다.
-              </p>
-              <Link href="/contact" className="group inline-flex items-center gap-2 px-7 py-3.5 bg-deep-navy text-white text-sm font-bold rounded-xl hover:shadow-lg hover:shadow-deep-navy/25 transition-all duration-300">
+              {/* Target SVG illustration */}
+              <div className="hidden lg:block mb-6">
+                <IllustTarget className="w-48 h-48" />
+              </div>
+              <Link href="/contact" className="group inline-flex items-center gap-2 px-7 py-3.5 bg-linear-to-r from-deep-navy to-slate-800 text-white text-sm font-bold rounded-xl hover:shadow-lg hover:shadow-deep-navy/25 transition-all duration-300">
                 맞는 광고 방향 상담받기 <IconArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
@@ -328,7 +327,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {caseStudies.map((c, i) => (
-              <div key={i} className="group relative p-7 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500 hover:-translate-y-1 overflow-hidden">
+              <div key={i} className="group relative p-7 rounded-2xl bg-white card-3d gradient-border overflow-hidden">
                 <div className={`absolute top-0 left-0 w-1 h-full ${c.color} rounded-r-full`} />
                 <div className="relative pl-4">
                   <div className={`inline-block px-3 py-1 rounded-full text-[10px] font-bold text-white ${c.color} mb-4`}>
