@@ -135,6 +135,99 @@ export function IllustPhone({ className = "w-full h-auto" }: { className?: strin
   );
 }
 
+export function IllustLaptop({ className = "w-full h-auto" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 440 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="scr" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#f8fafc" /><stop offset="100%" stopColor="#f1f5f9" /></linearGradient>
+        <filter id="ls"><feDropShadow dx="0" dy="12" stdDeviation="20" floodOpacity="0.1" /></filter>
+      </defs>
+      <g filter="url(#ls)">
+        {/* Screen */}
+        <rect x="60" y="10" width="320" height="200" rx="12" fill="#1e293b" />
+        <rect x="68" y="18" width="304" height="180" rx="6" fill="url(#scr)" />
+        {/* Screen content */}
+        <rect x="80" y="30" width="120" height="10" rx="5" fill="#e2e8f0" />
+        <rect x="80" y="50" width="280" height="80" rx="8" fill="#2563eb" opacity="0.08" />
+        <rect x="92" y="62" width="100" height="8" rx="4" fill="#2563eb" opacity="0.3" />
+        <rect x="92" y="78" width="70" height="6" rx="3" fill="#94a3b8" opacity="0.2" />
+        <rect x="92" y="94" width="50" height="16" rx="8" fill="#2563eb" />
+        <rect x="240" y="60" width="108" height="60" rx="6" fill="white" stroke="#e2e8f0" strokeWidth="1" />
+        {/* Mini chart in screen */}
+        <rect x="252" y="72" width="8" height="30" rx="2" fill="#2563eb" opacity="0.3" />
+        <rect x="266" y="62" width="8" height="40" rx="2" fill="#2563eb" opacity="0.5" />
+        <rect x="280" y="76" width="8" height="26" rx="2" fill="#2563eb" opacity="0.3" />
+        <rect x="294" y="56" width="8" height="46" rx="2" fill="#2563eb" opacity="0.7" />
+        <rect x="308" y="48" width="8" height="54" rx="2" fill="#2563eb" />
+        <rect x="80" y="145" width="130" height="40" rx="6" fill="white" stroke="#e2e8f0" strokeWidth="1" />
+        <rect x="220" y="145" width="130" height="40" rx="6" fill="white" stroke="#e2e8f0" strokeWidth="1" />
+        {/* Base */}
+        <path d="M30 210 L60 210 L80 230 L360 230 L380 210 L410 210 L420 240 L20 240 Z" fill="#334155" />
+        <rect x="170" y="232" width="100" height="4" rx="2" fill="#475569" />
+      </g>
+    </svg>
+  );
+}
+
+export function IllustRocket({ className = "w-full h-auto" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="rk1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#2563eb" /><stop offset="100%" stopColor="#1d4ed8" /></linearGradient>
+        <linearGradient id="rk2" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stopColor="#f97316" /><stop offset="100%" stopColor="#fbbf24" /></linearGradient>
+        <filter id="rs"><feDropShadow dx="0" dy="4" stdDeviation="8" floodOpacity="0.12" /></filter>
+      </defs>
+      {/* Orbit circles */}
+      <circle cx="100" cy="100" r="80" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="6 4" />
+      <circle cx="100" cy="100" r="55" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="4 6" />
+      {/* Rocket body */}
+      <g filter="url(#rs)" transform="translate(70,40) rotate(30,30,60)">
+        <ellipse cx="30" cy="30" rx="16" ry="28" fill="url(#rk1)" />
+        <ellipse cx="30" cy="24" rx="10" ry="6" fill="white" opacity="0.3" />
+        {/* Fins */}
+        <path d="M14 45 L8 60 L20 50 Z" fill="#60a5fa" />
+        <path d="M46 45 L52 60 L40 50 Z" fill="#60a5fa" />
+        {/* Fire */}
+        <ellipse cx="30" cy="60" rx="8" ry="14" fill="url(#rk2)" opacity="0.8" />
+        <ellipse cx="30" cy="62" rx="4" ry="8" fill="#fef3c7" />
+      </g>
+      {/* Floating dots */}
+      <circle cx="40" cy="50" r="3" fill="#2563eb" opacity="0.2" />
+      <circle cx="160" cy="70" r="4" fill="#f97316" opacity="0.2" />
+      <circle cx="150" cy="150" r="3" fill="#2563eb" opacity="0.15" />
+      <circle cx="50" cy="160" r="5" fill="#60a5fa" opacity="0.1" />
+    </svg>
+  );
+}
+
+export function IllustPieChart({ className = "w-full h-auto" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="pc"><feDropShadow dx="0" dy="4" stdDeviation="8" floodOpacity="0.08" /></filter>
+      </defs>
+      <g filter="url(#pc)">
+        {/* Pie segments */}
+        <circle cx="100" cy="100" r="70" fill="#dbeafe" />
+        <path d="M100 100 L100 30 A70 70 0 0 1 160.62 65 Z" fill="#2563eb" />
+        <path d="M100 100 L160.62 65 A70 70 0 0 1 145 155 Z" fill="#60a5fa" />
+        <path d="M100 100 L145 155 A70 70 0 0 1 55 155 Z" fill="#93c5fd" />
+        {/* Center hole */}
+        <circle cx="100" cy="100" r="35" fill="white" />
+        <text x="100" y="96" textAnchor="middle" fill="#1e293b" fontSize="14" fontWeight="800">68%</text>
+        <text x="100" y="112" textAnchor="middle" fill="#94a3b8" fontSize="8">전환율</text>
+      </g>
+      {/* Legend dots */}
+      <circle cx="30" cy="180" r="4" fill="#2563eb" />
+      <text x="40" y="184" fill="#64748b" fontSize="8">검색</text>
+      <circle cx="80" cy="180" r="4" fill="#60a5fa" />
+      <text x="90" y="184" fill="#64748b" fontSize="8">SNS</text>
+      <circle cx="130" cy="180" r="4" fill="#93c5fd" />
+      <text x="140" y="184" fill="#64748b" fontSize="8">리타겟팅</text>
+    </svg>
+  );
+}
+
 export function Illust3DArrow({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
