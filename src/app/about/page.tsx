@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 };
 
 const coreValues = [
-  { title: "데이터 중심 운영", desc: "화려한 제안보다 실제 반응과 문의로 이어지는 방향을 우선합니다.", Icon: IconBarChart, color: "from-blue-500 to-blue-600" },
-  { title: "실행력 있는 대응", desc: "빠른 실행과 수정으로 광고 효율을 지속적으로 개선합니다.", Icon: IconTarget, color: "from-indigo-500 to-indigo-600" },
-  { title: "정직한 성과 설계", desc: "과장된 숫자 대신, 업종에 맞는 현실적인 운영 방식을 제안합니다.", Icon: IconLayers, color: "from-violet-500 to-violet-600" },
+  { title: "데이터 중심 운영", desc: "화려한 제안보다 실제 반응과 문의로 이어지는 방향을 우선합니다.", Icon: IconBarChart },
+  { title: "실행력 있는 대응", desc: "빠른 실행과 수정으로 광고 효율을 지속적으로 개선합니다.", Icon: IconTarget },
+  { title: "정직한 성과 설계", desc: "과장된 숫자 대신, 업종에 맞는 현실적인 운영 방식을 제안합니다.", Icon: IconLayers },
 ];
 
 const strengths = [
@@ -214,7 +214,7 @@ export default function AboutPage() {
             backgroundSize: "56px 56px",
           }}
         />
-        <div className="absolute top-1/2 -translate-y-1/2 left-0 w-96 h-96 bg-violet-200/25 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 -translate-y-1/2 left-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14">
@@ -235,33 +235,25 @@ export default function AboutPage() {
                 className="group relative"
                 style={{ animation: `fade-in-up 0.6s ease-out ${i * 0.1}s backwards` }}
               >
-                {/* 3D depth layers */}
-                <div className={`absolute inset-0 translate-x-1.5 translate-y-2.5 rounded-2xl bg-linear-to-br ${v.color} opacity-50 blur-[3px]`} />
-                <div className={`absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-linear-to-br ${v.color} opacity-25`} />
+                <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-accent-blue/20 blur-[2px]" />
 
-                {/* Front card */}
                 <div className="relative bg-white p-6 sm:p-8 rounded-2xl border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-all duration-300 overflow-hidden min-h-60">
-                  {/* Huge index */}
-                  <div className={`absolute -top-4 -right-2 text-[7rem] sm:text-[8rem] font-black bg-linear-to-br ${v.color} bg-clip-text text-transparent opacity-[0.08] leading-none select-none`}>
+                  <div className="absolute -top-4 -right-2 text-[7rem] sm:text-[8rem] font-black text-slate-50 leading-none select-none">
                     {i + 1}
                   </div>
-                  {/* Corner blob */}
-                  <div className={`absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-linear-to-br ${v.color} opacity-10 blur-2xl`} />
 
                   <div className="relative">
-                    {/* Isometric icon */}
                     <div className="relative w-14 h-14 sm:w-16 sm:h-16 mb-5 sm:mb-6">
-                      <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-2xl bg-linear-to-br ${v.color} opacity-60 blur-[1px]`} />
-                      <div className={`relative w-full h-full rounded-2xl bg-linear-to-br ${v.color} flex items-center justify-center shadow-lg`}>
+                      <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-2xl bg-accent-blue/50 blur-[1px]" />
+                      <div className="relative w-full h-full rounded-2xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-lg">
                         <v.Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                       </div>
                     </div>
                     <h3 className="text-[15px] sm:text-base font-extrabold text-deep-navy mb-2 sm:mb-2.5">{v.title}</h3>
                     <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed">{v.desc}</p>
 
-                    {/* Footer tag */}
                     <div className="mt-5 sm:mt-6 pt-4 border-t border-slate-100">
-                      <span className={`inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-extrabold bg-linear-to-br ${v.color} bg-clip-text text-transparent`}>
+                      <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-extrabold text-accent-blue">
                         VALUE {String(i + 1).padStart(2, "0")}
                       </span>
                     </div>
@@ -296,28 +288,25 @@ export default function AboutPage() {
               </p>
               <div className="space-y-3 sm:space-y-4">
                 {[
-                  { text: "업종별 타겟 이해", color: "from-blue-500 to-indigo-600", num: "01" },
-                  { text: "소재 제작과 운영 통합", color: "from-violet-500 to-purple-600", num: "02" },
-                  { text: "문의 이후 재접촉까지 고려한 설계", color: "from-emerald-500 to-teal-600", num: "03" },
+                  { text: "업종별 타겟 이해", num: "01" },
+                  { text: "소재 제작과 운영 통합", num: "02" },
+                  { text: "문의 이후 재접촉까지 고려한 설계", num: "03" },
                 ].map((item, i) => (
                   <div
                     key={item.text}
                     className="group relative"
                     style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
                   >
-                    <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-xl bg-linear-to-br ${item.color} opacity-20`} />
+                    <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-accent-blue/15" />
                     <div className="relative flex items-center gap-4 p-4 sm:p-5 rounded-xl bg-white border border-slate-100 shadow-sm group-hover:shadow-lg group-hover:-translate-y-0.5 transition-all duration-300">
-                      {/* Big number */}
-                      <div className={`text-3xl sm:text-4xl font-black bg-linear-to-br ${item.color} bg-clip-text text-transparent leading-none tracking-tight shrink-0`}>
+                      <div className="text-3xl sm:text-4xl font-black text-accent-blue leading-none tracking-tight shrink-0">
                         {item.num}
                       </div>
-                      {/* Divider */}
-                      <div className={`w-0.5 h-10 bg-linear-to-b ${item.color} rounded-full shrink-0`} />
+                      <div className="w-0.5 h-10 bg-linear-to-b from-accent-blue to-blue-600 rounded-full shrink-0" />
                       <div className="flex-1">
                         <p className="text-[13px] sm:text-sm text-deep-navy font-bold">{item.text}</p>
                       </div>
-                      {/* Check badge */}
-                      <div className={`w-9 h-9 rounded-xl bg-linear-to-br ${item.color} flex items-center justify-center shadow-md shrink-0`}>
+                      <div className="w-9 h-9 rounded-xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-md shrink-0">
                         <IconCheck className="w-4 h-4 text-white" />
                       </div>
                     </div>
@@ -445,8 +434,7 @@ export default function AboutPage() {
 
       {/* 5. Case summary (3D isometric) */}
       <section className="relative py-16 sm:py-20 lg:py-28 bg-linear-to-b from-white via-[#f5f9ff] to-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-100/30 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/25 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14">
@@ -461,42 +449,34 @@ export default function AboutPage() {
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
-            {caseSummary.map((c, i) => {
-              const colors = ["from-blue-500 to-indigo-600", "from-emerald-500 to-teal-600", "from-orange-500 to-red-500"];
-              const color = colors[i % 3];
-              return (
-                <div
-                  key={c.industry}
-                  className="group relative"
-                  style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
-                >
-                  {/* 3D depth */}
-                  <div className={`absolute inset-0 translate-x-1.5 translate-y-2 rounded-2xl bg-linear-to-br ${color} opacity-25 blur-[2px]`} />
-                  <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-2xl bg-linear-to-br ${color} opacity-15`} />
+            {caseSummary.map((c, i) => (
+              <div
+                key={c.industry}
+                className="group relative"
+                style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
+              >
+                <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-accent-blue/15 blur-[2px]" />
 
-                  <div className="relative bg-white p-6 sm:p-7 rounded-2xl border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden min-h-48">
-                    <div className={`absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-linear-to-br ${color} opacity-10 blur-2xl`} />
-
-                    <div className="relative">
-                      <div className={`inline-flex items-center gap-1 mb-3 px-2.5 py-1 rounded-full bg-linear-to-br ${color} shadow-sm`}>
-                        <span className="text-[10px] font-extrabold text-white tracking-wider uppercase">{c.industry}</span>
-                      </div>
-                      <div className="flex items-center gap-2 mb-3 bg-slate-50 rounded-lg px-2.5 py-1.5 w-fit">
-                        {c.logos.map((logo) => (
-                          <img key={logo} src={`/images/logos/${logo}.svg`} alt={logo} className="h-4 w-auto" />
-                        ))}
-                      </div>
-                      <p className="text-[13px] sm:text-sm text-slate-600 leading-relaxed mb-4">{c.desc}</p>
-                      <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                        <span className={`text-[10px] font-extrabold bg-linear-to-br ${color} bg-clip-text text-transparent tracking-widest`}>
-                          CASE {String(i + 1).padStart(2, "0")}
-                        </span>
-                      </div>
+                <div className="relative bg-white p-6 sm:p-7 rounded-2xl border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden min-h-48">
+                  <div className="relative">
+                    <div className="inline-flex items-center gap-1 mb-3 px-2.5 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20">
+                      <span className="text-[10px] font-extrabold text-accent-blue tracking-wider uppercase">{c.industry}</span>
+                    </div>
+                    <div className="flex items-center gap-2 mb-3 bg-slate-50 rounded-lg px-2.5 py-1.5 w-fit">
+                      {c.logos.map((logo) => (
+                        <img key={logo} src={`/images/logos/${logo}.svg`} alt={logo} className="h-4 w-auto" />
+                      ))}
+                    </div>
+                    <p className="text-[13px] sm:text-sm text-slate-600 leading-relaxed mb-4">{c.desc}</p>
+                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                      <span className="text-[10px] font-extrabold text-accent-blue tracking-widest">
+                        CASE {String(i + 1).padStart(2, "0")}
+                      </span>
                     </div>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -510,7 +490,7 @@ export default function AboutPage() {
             backgroundSize: "56px 56px",
           }}
         />
-        <div className="absolute top-1/2 -translate-y-1/2 right-0 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 -translate-y-1/2 right-0 w-96 h-96 bg-blue-100/25 rounded-full blur-3xl" />
 
         <div className="relative max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-16">
@@ -544,7 +524,6 @@ export default function AboutPage() {
                   label: "LISTEN",
                   title: "먼저 듣습니다",
                   desc: "현재 상황과 목표부터 정확히 파악합니다. 무조건적인 제안보다, 상황에 맞는 질문을 먼저 합니다.",
-                  color: "from-blue-500 to-indigo-600",
                   icon: (
                     <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
@@ -557,7 +536,6 @@ export default function AboutPage() {
                   label: "BUILD",
                   title: "구조를 만듭니다",
                   desc: "필요한 채널만 선별하고, 소재부터 운영까지 일관된 흐름을 설계합니다. 실행 중심으로 준비합니다.",
-                  color: "from-violet-500 to-purple-600",
                   icon: (
                     <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
@@ -570,7 +548,6 @@ export default function AboutPage() {
                   label: "IMPROVE",
                   title: "보완을 반복합니다",
                   desc: "데이터로 판단하고, 효율이 나오는 방향으로 조정합니다. 끝난 뒤에도 다음 방향까지 연결합니다.",
-                  color: "from-emerald-500 to-teal-600",
                   icon: (
                     <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -584,33 +561,21 @@ export default function AboutPage() {
                   className="relative group"
                   style={{ animation: `fade-in-up 0.6s ease-out ${i * 0.12}s backwards` }}
                 >
-                  {/* 3D depth */}
-                  <div className={`absolute inset-0 translate-x-1.5 translate-y-2.5 rounded-2xl bg-linear-to-br ${p.color} opacity-25 blur-[3px]`} />
-                  <div className={`absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-linear-to-br ${p.color} opacity-15`} />
+                  <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-accent-blue/15 blur-[2px]" />
 
                   <div className="relative bg-white rounded-2xl p-6 sm:p-7 border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden">
-                    <div className={`absolute -top-10 -right-10 w-32 h-32 rounded-full bg-linear-to-br ${p.color} opacity-10 blur-2xl`} />
-
-                    {/* Number + icon with dot on line */}
                     <div className="relative flex items-center gap-4 mb-5">
-                      {/* Dot marker on the horizontal line */}
-                      <div className="hidden md:block absolute top-8 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-                        <div className="relative">
-                          <div className={`absolute inset-0 rounded-full bg-linear-to-br ${p.color} opacity-30 blur-sm animate-pulse-soft`} />
-                        </div>
-                      </div>
-
                       <div className="relative w-16 h-16 shrink-0">
-                        <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-2xl bg-linear-to-br ${p.color} opacity-60 blur-[1px]`} />
-                        <div className={`relative w-full h-full rounded-2xl bg-linear-to-br ${p.color} flex items-center justify-center shadow-lg`}>
+                        <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-2xl bg-accent-blue/50 blur-[1px]" />
+                        <div className="relative w-full h-full rounded-2xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-lg">
                           {p.icon}
                         </div>
                       </div>
                       <div>
-                        <p className={`text-[10px] font-extrabold bg-linear-to-br ${p.color} bg-clip-text text-transparent tracking-[0.2em]`}>
+                        <p className="text-[10px] font-extrabold text-accent-blue tracking-[0.2em]">
                           {p.label}
                         </p>
-                        <p className={`text-3xl font-black bg-linear-to-br ${p.color} bg-clip-text text-transparent leading-none tracking-tight`}>
+                        <p className="text-3xl font-black text-accent-blue leading-none tracking-tight">
                           {p.step}
                         </p>
                       </div>
@@ -619,11 +584,10 @@ export default function AboutPage() {
                     <h3 className="text-base sm:text-lg font-extrabold text-deep-navy mb-2 leading-tight">{p.title}</h3>
                     <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed mb-4">{p.desc}</p>
 
-                    {/* Tags */}
                     <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
                       {p.tags.map((t) => (
-                        <span key={t} className={`px-2.5 py-1 rounded-full text-[10px] font-bold bg-linear-to-br ${p.color.replace("500", "50").replace("600", "100").replace("400", "50")} border border-slate-100`}>
-                          <span className={`bg-linear-to-br ${p.color} bg-clip-text text-transparent`}>{t}</span>
+                        <span key={t} className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-50 border border-slate-100 text-slate-600">
+                          {t}
                         </span>
                       ))}
                     </div>

@@ -21,10 +21,10 @@ const channels = [
 ];
 
 const whyUs = [
-  { title: "업종 맞춤\n채널 제안", desc: "업종과 목적에 맞는 채널만 선별해 제안합니다. 불필요한 채널을 권유하지 않습니다.", Icon: IconTarget, color: "from-blue-500 to-indigo-600", light: "from-blue-50 to-indigo-50", text: "text-blue-600" },
-  { title: "문의 전환\n중심 운영", desc: "노출이 아니라 실제 문의와 상담 전환을 설계합니다. 클릭만 많은 광고는 의미 없습니다.", Icon: IconZap, color: "from-amber-500 to-orange-500", light: "from-amber-50 to-orange-50", text: "text-amber-600" },
-  { title: "소재 제작부터\n운영까지", desc: "광고 소재 제작, 세팅, 운영, 최적화까지 한 번에 진행합니다.", Icon: IconLayers, color: "from-violet-500 to-purple-600", light: "from-violet-50 to-purple-50", text: "text-violet-600" },
-  { title: "데이터 기반\n최적화", desc: "반응 데이터를 분석하고, 효율이 나오는 방향으로 지속적으로 보완합니다.", Icon: IconBarChart, color: "from-emerald-500 to-teal-600", light: "from-emerald-50 to-teal-50", text: "text-emerald-600" },
+  { title: "업종 맞춤\n채널 제안", desc: "업종과 목적에 맞는 채널만 선별해 제안합니다. 불필요한 채널을 권유하지 않습니다.", Icon: IconTarget },
+  { title: "문의 전환\n중심 운영", desc: "노출이 아니라 실제 문의와 상담 전환을 설계합니다. 클릭만 많은 광고는 의미 없습니다.", Icon: IconZap },
+  { title: "소재 제작부터\n운영까지", desc: "광고 소재 제작, 세팅, 운영, 최적화까지 한 번에 진행합니다.", Icon: IconLayers },
+  { title: "데이터 기반\n최적화", desc: "반응 데이터를 분석하고, 효율이 나오는 방향으로 지속적으로 보완합니다.", Icon: IconBarChart },
 ];
 
 const processSteps = [
@@ -234,28 +234,27 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
-              { value: "100+", label: "누적 캠페인", sub: "다양한 업종 운영", icon: <IconBarChart className="w-5 h-5" />, color: "from-blue-500 to-indigo-600" },
-              { value: "4.8x", label: "평균 ROAS", sub: "광고비 대비 수익", icon: <IconZap className="w-5 h-5" />, color: "from-emerald-500 to-teal-600" },
-              { value: "+56%", label: "문의 증가율", sub: "운영 후 평균치", icon: <IconTarget className="w-5 h-5" />, color: "from-amber-500 to-orange-500" },
-              { value: "24h", label: "빠른 응답", sub: "영업일 기준", icon: <IconRefresh className="w-5 h-5" />, color: "from-violet-500 to-purple-600" },
+              { value: "100+", label: "누적 캠페인", sub: "다양한 업종 운영", icon: <IconBarChart className="w-5 h-5" /> },
+              { value: "4.8x", label: "평균 ROAS", sub: "광고비 대비 수익", icon: <IconZap className="w-5 h-5" />, positive: true },
+              { value: "+56%", label: "문의 증가율", sub: "운영 후 평균치", icon: <IconTarget className="w-5 h-5" />, positive: true },
+              { value: "24h", label: "빠른 응답", sub: "영업일 기준", icon: <IconRefresh className="w-5 h-5" /> },
             ].map((s, i) => (
               <div
                 key={i}
                 className="group relative"
                 style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.08}s backwards` }}
               >
-                <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-linear-to-br ${s.color} opacity-15 blur-[2px]`} />
+                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/15 blur-[2px]" />
                 <div className="relative bg-white rounded-2xl p-4 sm:p-5 border border-white shadow-3d overflow-hidden bevel-edge hover:-translate-y-0.5 transition-transform duration-300">
-                  <div className={`absolute -top-6 -right-6 w-20 h-20 rounded-full bg-linear-to-br ${s.color} opacity-10 blur-xl`} />
                   <div className="relative flex items-center gap-3 sm:gap-4">
                     <div className="relative shrink-0">
-                      <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-linear-to-br ${s.color} opacity-50 blur-[1px]`} />
-                      <div className={`relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-linear-to-br ${s.color} flex items-center justify-center shadow-md text-white`}>
+                      <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/50 blur-[1px]" />
+                      <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-md text-white">
                         {s.icon}
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className={`text-2xl sm:text-3xl font-black bg-linear-to-br ${s.color} bg-clip-text text-transparent leading-none tracking-tight`}>{s.value}</p>
+                      <p className={`text-2xl sm:text-3xl font-black leading-none tracking-tight ${s.positive ? "text-emerald-600" : "text-deep-navy"}`}>{s.value}</p>
                       <p className="text-[12px] sm:text-sm font-bold text-deep-navy mt-1">{s.label}</p>
                       <p className="text-[10px] sm:text-[11px] text-slate-400">{s.sub}</p>
                     </div>
@@ -270,7 +269,6 @@ export default function Home() {
       {/* ━━━━━━━━━━━━━ WHY ━━━━━━━━━━━━━ */}
       <section className="relative py-20 sm:py-24 lg:py-32 bg-linear-to-b from-white via-white to-[#f5f9ff] overflow-hidden">
         <div className="absolute top-20 right-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-100/30 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-14">
@@ -297,20 +295,18 @@ export default function Home() {
                 className="group relative"
                 style={{ animation: `fade-in-up 0.6s ease-out ${i * 0.1}s backwards` }}
               >
-                {/* Depth layers */}
-                <div className={`absolute inset-0 translate-x-1 translate-y-2 rounded-2xl bg-linear-to-br ${item.color} opacity-60 blur-[2px]`} />
-                <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-linear-to-br ${item.color} opacity-30`} />
+                {/* Subtle blue depth */}
+                <div className="absolute inset-0 translate-x-0.5 translate-y-1.5 rounded-2xl bg-accent-blue/20 blur-[2px]" />
 
                 <div className="relative bg-white rounded-2xl p-5 sm:p-7 border border-white shadow-3d overflow-hidden bevel-edge hover:-translate-y-1 transition-transform duration-300">
-                  <div className={`absolute -top-3 -right-3 text-6xl sm:text-7xl font-black bg-linear-to-br ${item.light} bg-clip-text text-transparent opacity-80 select-none leading-none`}>
+                  <div className="absolute -top-3 -right-3 text-6xl sm:text-7xl font-black text-slate-50 select-none leading-none">
                     0{i + 1}
                   </div>
-                  <div className={`absolute -bottom-10 -right-10 w-24 h-24 rounded-full bg-linear-to-br ${item.color} opacity-10 blur-2xl`} />
 
                   <div className="relative">
                     <div className="relative w-11 h-11 sm:w-14 sm:h-14 mb-4 sm:mb-5">
-                      <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl sm:rounded-2xl bg-linear-to-br ${item.color} opacity-60 blur-[1px]`} />
-                      <div className={`relative w-full h-full rounded-xl sm:rounded-2xl bg-linear-to-br ${item.color} flex items-center justify-center shadow-lg`}>
+                      <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl sm:rounded-2xl bg-accent-blue/50 blur-[1px]" />
+                      <div className="relative w-full h-full rounded-xl sm:rounded-2xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-lg">
                         <item.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                       </div>
                     </div>
@@ -318,7 +314,7 @@ export default function Home() {
                     <p className="text-[11px] sm:text-xs text-slate-500 leading-relaxed">{item.desc}</p>
 
                     <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-slate-100">
-                      <span className={`inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold ${item.text}`}>
+                      <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold text-accent-blue">
                         POINT {String(i + 1).padStart(2, "0")} <IconArrowRight className="w-3 h-3" />
                       </span>
                     </div>
@@ -506,8 +502,7 @@ export default function Home() {
 
       {/* ━━━━━━━━━━━━━ TARGET (isometric check cards) ━━━━━━━━━━━━━ */}
       <section className="relative py-20 sm:py-24 lg:py-32 bg-linear-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
-        <div className="absolute top-20 left-0 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-violet-100/40 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-5 lg:gap-16 lg:items-start">
@@ -556,33 +551,31 @@ export default function Home() {
 
             <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {[
-                { text: "광고는 하고 있는데 문의가 적은 업체", color: "from-blue-500 to-indigo-600", tag: "문의 부족" },
-                { text: "어떤 광고부터 시작해야 할지 고민인 업체", color: "from-violet-500 to-purple-600", tag: "초기 진입" },
-                { text: "제작과 운영을 한 번에 맡기고 싶은 업체", color: "from-emerald-500 to-teal-600", tag: "통합 운영" },
-                { text: "상담과 방문 전환이 중요한 업종", color: "from-amber-500 to-orange-500", tag: "전환 중심" },
-                { text: "기존 고객 재접촉이 필요한 업종", color: "from-pink-500 to-rose-500", tag: "재마케팅" },
-                { text: "예산 대비 효율이 중요한 광고주", color: "from-sky-500 to-cyan-500", tag: "효율 관리" },
+                { text: "광고는 하고 있는데 문의가 적은 업체", tag: "문의 부족" },
+                { text: "어떤 광고부터 시작해야 할지 고민인 업체", tag: "초기 진입" },
+                { text: "제작과 운영을 한 번에 맡기고 싶은 업체", tag: "통합 운영" },
+                { text: "상담과 방문 전환이 중요한 업종", tag: "전환 중심" },
+                { text: "기존 고객 재접촉이 필요한 업종", tag: "재마케팅" },
+                { text: "예산 대비 효율이 중요한 광고주", tag: "효율 관리" },
               ].map((item, i) => (
                 <div
                   key={i}
                   className="group relative"
                   style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.07}s backwards` }}
                 >
-                  {/* 3D depth */}
-                  <div className={`absolute inset-0 translate-x-1 translate-y-1.5 rounded-xl bg-linear-to-br ${item.color} opacity-25 blur-[2px]`} />
+                  <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-accent-blue/15 blur-[2px]" />
 
                   <div className="relative bg-white rounded-xl p-4 sm:p-5 border border-white shadow-lg shadow-deep-navy/5 group-hover:-translate-y-0.5 transition-transform duration-300">
                     <div className="flex items-start gap-3">
-                      {/* Isometric check icon */}
                       <div className="relative w-10 h-10 shrink-0">
-                        <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-linear-to-br ${item.color} opacity-60 blur-[1px]`} />
-                        <div className={`relative w-full h-full rounded-xl bg-linear-to-br ${item.color} flex items-center justify-center shadow-md`}>
+                        <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/40 blur-[1px]" />
+                        <div className="relative w-full h-full rounded-xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-md">
                           <IconCheck className="w-5 h-5 text-white" />
                         </div>
                       </div>
 
                       <div className="flex-1 min-w-0">
-                        <span className={`inline-block text-[9px] font-extrabold bg-linear-to-br ${item.color} bg-clip-text text-transparent tracking-widest mb-1`}>
+                        <span className="inline-block text-[9px] font-extrabold text-accent-blue tracking-widest mb-1">
                           {item.tag}
                         </span>
                         <p className="text-[13px] sm:text-sm text-deep-navy font-semibold leading-snug">{item.text}</p>
@@ -621,54 +614,46 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
-            {caseStudies.map((c, i) => {
-              const gradient = c.color.replace("bg-", "from-").replace("-500", "-500 to-") + (c.color.includes("blue") ? "indigo-600" : c.color.includes("emerald") ? "teal-600" : "orange-600");
-              return (
-                <div
-                  key={i}
-                  className="group relative"
-                  style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
-                >
-                  <div className={`absolute inset-0 translate-x-1.5 translate-y-2 rounded-2xl bg-linear-to-br ${gradient} opacity-30 blur-[3px]`} />
-                  <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-2xl bg-linear-to-br ${gradient} opacity-15`} />
+            {caseStudies.map((c, i) => (
+              <div
+                key={i}
+                className="group relative"
+                style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
+              >
+                <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-accent-blue/15 blur-[2px]" />
 
-                  <div className="relative bg-white rounded-2xl p-6 sm:p-7 border border-white shadow-3d overflow-hidden min-h-52 bevel-edge group-hover:-translate-y-1 transition-transform duration-300">
-                    {/* Huge bg number */}
-                    <div className={`absolute -bottom-6 -right-4 text-[8rem] font-black bg-linear-to-br ${gradient} bg-clip-text text-transparent opacity-[0.06] leading-none select-none`}>
-                      {String(i + 1).padStart(2, "0")}
+                <div className="relative bg-white rounded-2xl p-6 sm:p-7 border border-white shadow-3d overflow-hidden min-h-52 bevel-edge group-hover:-translate-y-1 transition-transform duration-300">
+                  <div className="absolute -bottom-6 -right-4 text-[8rem] font-black text-slate-50 leading-none select-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+
+                  <div className="relative">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold text-accent-blue bg-accent-blue/10 border border-accent-blue/20 mb-4">
+                      <span className="w-1 h-1 rounded-full bg-accent-blue" />
+                      {c.industry}
                     </div>
-                    {/* Corner gradient */}
-                    <div className={`absolute -top-10 -right-10 w-32 h-32 rounded-full bg-linear-to-br ${gradient} opacity-10 blur-2xl`} />
+                    <p className="text-base font-extrabold text-deep-navy mb-2 leading-tight">{c.channel}</p>
+                    <p className="text-xs text-slate-500 leading-relaxed mb-4">{c.desc}</p>
 
-                    <div className="relative">
-                      <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold text-white bg-linear-to-br ${gradient} mb-4 shadow-md`}>
-                        <span className="w-1 h-1 rounded-full bg-white/80" />
-                        {c.industry}
-                      </div>
-                      <p className="text-base font-extrabold text-deep-navy mb-2 leading-tight">{c.channel}</p>
-                      <p className="text-xs text-slate-500 leading-relaxed mb-4">{c.desc}</p>
-
-                      <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                        <span className={`text-[10px] font-extrabold bg-linear-to-br ${gradient} bg-clip-text text-transparent tracking-widest`}>
-                          CASE {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <div className={`w-7 h-7 rounded-full bg-slate-50 group-hover:bg-linear-to-br group-hover:${gradient} flex items-center justify-center transition-all`}>
-                          <IconArrowRight className="w-3 h-3 text-slate-400 group-hover:text-white transition-colors" />
-                        </div>
+                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                      <span className="text-[10px] font-extrabold text-accent-blue tracking-widest">
+                        CASE {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div className="w-7 h-7 rounded-full bg-slate-50 group-hover:bg-accent-blue flex items-center justify-center transition-colors">
+                        <IconArrowRight className="w-3 h-3 text-slate-400 group-hover:text-white transition-colors" />
                       </div>
                     </div>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ━━━━━━━━━━━━━ TESTIMONIALS ━━━━━━━━━━━━━ */}
       <section className="relative py-20 sm:py-24 lg:py-32 bg-linear-to-b from-white via-[#f5f9ff] to-white overflow-hidden">
-        <div className="absolute top-20 left-0 w-96 h-96 bg-violet-100/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-100/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-14">
@@ -693,7 +678,6 @@ export default function Home() {
                 summary: "예약 문의가 눈에 띄게 늘었어요",
                 quote: "광고만 돌리는 곳이 아니라, 어떤 채널이 우리에게 맞는지 처음부터 같이 정리해주셨어요. 예약 문의가 두 배 가까이 늘었습니다.",
                 role: "원장",
-                color: "from-emerald-500 to-teal-600",
                 stat: { label: "예약 문의", value: "+128%" },
               },
               {
@@ -701,7 +685,6 @@ export default function Home() {
                 summary: "DB 유입 구조가 안정됐습니다",
                 quote: "리드폼만 하고 끝나는게 아니라, 후속 문자까지 흐름을 잡아주셔서 실제 상담 전환율이 좋아졌습니다.",
                 role: "마케팅 팀장",
-                color: "from-blue-500 to-indigo-600",
                 stat: { label: "전환율", value: "+32.8%" },
               },
               {
@@ -709,7 +692,6 @@ export default function Home() {
                 summary: "지역 단골이 늘었어요",
                 quote: "당근하고 메타 조합으로 동네 사람들이 가게를 알아보기 시작했어요. 작은 예산이지만 효율은 확실히 다릅니다.",
                 role: "대표",
-                color: "from-orange-500 to-red-500",
                 stat: { label: "방문 증가", value: "+56%" },
               },
             ].map((t, i) => (
@@ -718,24 +700,19 @@ export default function Home() {
                 className="group relative"
                 style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
               >
-                <div className={`absolute inset-0 translate-x-1.5 translate-y-2 rounded-2xl bg-linear-to-br ${t.color} opacity-25 blur-[3px]`} />
-                <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-2xl bg-linear-to-br ${t.color} opacity-15`} />
+                <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-accent-blue/15 blur-[2px]" />
 
                 <div className="relative bg-white rounded-2xl p-6 sm:p-7 border border-white shadow-3d overflow-hidden h-full flex flex-col bevel-edge group-hover:-translate-y-1 transition-transform duration-300">
-                  <div className={`absolute -top-10 -right-10 w-32 h-32 rounded-full bg-linear-to-br ${t.color} opacity-10 blur-2xl`} />
-
                   {/* Quote mark */}
-                  <div className={`absolute top-3 right-4 text-7xl font-black bg-linear-to-br ${t.color} bg-clip-text text-transparent opacity-25 leading-none select-none`}>
+                  <div className="absolute top-3 right-4 text-7xl font-black text-accent-blue/10 leading-none select-none">
                     &ldquo;
                   </div>
 
                   <div className="relative flex-1">
-                    {/* Industry badge */}
                     <div className="inline-flex items-center gap-1.5 mb-4">
-                      <div className={`px-2.5 py-1 rounded-full bg-linear-to-br ${t.color} shadow-sm`}>
-                        <span className="text-[10px] font-extrabold text-white tracking-wider uppercase">{t.industry}</span>
+                      <div className="px-2.5 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20">
+                        <span className="text-[10px] font-extrabold text-accent-blue tracking-wider uppercase">{t.industry}</span>
                       </div>
-                      {/* Star rating */}
                       <div className="flex gap-0.5 ml-1">
                         {[...Array(5)].map((_, n) => (
                           <svg key={n} className="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
@@ -751,17 +728,16 @@ export default function Home() {
                     </p>
                   </div>
 
-                  {/* Footer with stat */}
                   <div className="relative pt-4 border-t border-slate-100 flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <div className={`w-7 h-7 rounded-full bg-linear-to-br ${t.color} flex items-center justify-center shadow-sm`}>
+                      <div className="w-7 h-7 rounded-full bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-sm">
                         <span className="text-white text-[10px] font-black">{t.industry.charAt(0)}</span>
                       </div>
                       <span className="text-[11px] text-slate-500 font-medium">{t.industry} {t.role}</span>
                     </div>
                     <div className="text-right">
                       <p className="text-[9px] text-slate-400">{t.stat.label}</p>
-                      <p className={`text-sm font-extrabold bg-linear-to-br ${t.color} bg-clip-text text-transparent`}>{t.stat.value}</p>
+                      <p className="text-sm font-extrabold text-emerald-600">{t.stat.value}</p>
                     </div>
                   </div>
                 </div>

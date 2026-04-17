@@ -878,24 +878,22 @@ export default function ServicesPage() {
               </h2>
               <div className="space-y-3">
                 {[
-                  { industry: "분양", desc: "DB 유입과 후속 문자 구조", logos: ["meta"], color: "from-blue-500 to-indigo-600" },
-                  { industry: "병원", desc: "예약 문의와 신뢰 형성", logos: ["naver", "instagram"], color: "from-emerald-500 to-teal-600" },
-                  { industry: "교육", desc: "수강 상담, 카카오 채널 연결", logos: ["kakaotalk"], color: "from-amber-500 to-orange-500" },
-                  { industry: "지역 자영업", desc: "생활권 고객 유입", logos: ["danggeun"], color: "from-orange-500 to-red-500" },
-                  { industry: "상담형 서비스", desc: "문의 전환, 리드폼 활용", logos: ["google"], color: "from-sky-500 to-blue-500" },
+                  { industry: "분양", desc: "DB 유입과 후속 문자 구조", logos: ["meta"] },
+                  { industry: "병원", desc: "예약 문의와 신뢰 형성", logos: ["naver", "instagram"] },
+                  { industry: "교육", desc: "수강 상담, 카카오 채널 연결", logos: ["kakaotalk"] },
+                  { industry: "지역 자영업", desc: "생활권 고객 유입", logos: ["danggeun"] },
+                  { industry: "상담형 서비스", desc: "문의 전환, 리드폼 활용", logos: ["google"] },
                 ].map((item, i) => (
                   <div
                     key={item.industry}
                     className="group relative"
                     style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.08}s backwards` }}
                   >
-                    <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-xl bg-linear-to-br ${item.color} opacity-15`} />
+                    <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-accent-blue/10" />
                     <div className="relative flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-white border border-white shadow-md shadow-deep-navy/5 group-hover:-translate-y-0.5 transition-transform duration-300">
-                      {/* Large industry number */}
-                      <div className={`text-2xl font-black bg-linear-to-br ${item.color} bg-clip-text text-transparent shrink-0 leading-none tracking-tight`}>
+                      <div className="text-2xl font-black text-accent-blue shrink-0 leading-none tracking-tight">
                         {String(i + 1).padStart(2, "0")}
                       </div>
-                      {/* Logos */}
                       <div className="flex items-center gap-1.5 shrink-0 bg-slate-50 rounded-lg px-2 py-1.5">
                         {item.logos.map((l) => <img key={l} src={`/images/logos/${l}.svg`} alt={l} className="h-3.5 sm:h-4 w-auto" />)}
                       </div>
@@ -938,21 +936,17 @@ export default function ServicesPage() {
 
               {/* Step chips */}
               <div className="space-y-2">
-                {["전략 수립", "소재 제작", "채널 세팅", "운영 및 최적화", "결과 체크"].map((step, i) => {
-                  const colors = ["from-blue-500 to-indigo-600", "from-violet-500 to-purple-600", "from-emerald-500 to-teal-600", "from-amber-500 to-orange-500", "from-pink-500 to-rose-500"];
-                  const color = colors[i];
-                  return (
-                    <div key={step} className="flex items-center gap-2">
-                      <div className={`w-8 h-8 rounded-lg bg-linear-to-br ${color} flex items-center justify-center shadow-md shrink-0`}>
-                        <span className="text-white text-[10px] font-black">{i + 1}</span>
-                      </div>
-                      <span className="text-[12px] sm:text-sm font-bold text-deep-navy">{step}</span>
-                      {i < 4 && (
-                        <div className="flex-1 h-px bg-linear-to-r from-slate-200 to-transparent" />
-                      )}
+                {["전략 수립", "소재 제작", "채널 세팅", "운영 및 최적화", "결과 체크"].map((step, i) => (
+                  <div key={step} className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-md shrink-0">
+                      <span className="text-white text-[10px] font-black">{i + 1}</span>
                     </div>
-                  );
-                })}
+                    <span className="text-[12px] sm:text-sm font-bold text-deep-navy">{step}</span>
+                    {i < 4 && (
+                      <div className="flex-1 h-px bg-linear-to-r from-slate-200 to-transparent" />
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
           </div>

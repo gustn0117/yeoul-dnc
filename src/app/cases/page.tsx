@@ -117,33 +117,22 @@ export default function CasesPage() {
             {" "}방향을 제안합니다
           </p>
           <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3">
-            {industries.map((ind, i) => {
-              const colors = [
-                "from-blue-500 to-indigo-600",
-                "from-emerald-500 to-teal-600",
-                "from-violet-500 to-purple-600",
-                "from-orange-500 to-red-500",
-                "from-sky-500 to-cyan-500",
-              ];
-              const color = colors[i % colors.length];
-              return (
-                <div key={ind} className="relative group">
-                  <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-full bg-linear-to-br ${color} opacity-30 blur-[2px]`} />
-                  <span className={`relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-white shadow-md shadow-deep-navy/5 text-[13px] sm:text-sm font-bold text-deep-navy group-hover:-translate-y-0.5 transition-transform duration-300`}>
-                    <span className={`w-1.5 h-1.5 rounded-full bg-linear-to-br ${color}`} />
-                    {ind}
-                  </span>
-                </div>
-              );
-            })}
+            {industries.map((ind) => (
+              <div key={ind} className="relative group">
+                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-full bg-accent-blue/15 blur-[2px]" />
+                <span className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-white shadow-md shadow-deep-navy/5 text-[13px] sm:text-sm font-bold text-deep-navy group-hover:-translate-y-0.5 transition-transform duration-300">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
+                  {ind}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* 2. 운영 방식 예시 - 3D isometric cards */}
       <section className="relative py-16 sm:py-20 lg:py-28 bg-linear-to-b from-white via-[#f5f9ff] to-slate-50 overflow-hidden">
-        <div className="absolute top-20 right-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-0 w-80 h-80 bg-emerald-100/30 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14">
@@ -263,60 +252,46 @@ export default function CasesPage() {
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-            {works.map((w, i) => {
-              const colors = [
-                "from-blue-500 to-indigo-600",
-                "from-emerald-500 to-teal-600",
-                "from-orange-500 to-red-500",
-                "from-violet-500 to-purple-600",
-              ];
-              const color = colors[i % 4];
-              return (
-                <div
-                  key={w.title}
-                  className="group relative"
-                  style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.08}s backwards` }}
-                >
-                  <div className={`absolute inset-0 translate-x-1 translate-y-2 rounded-2xl bg-linear-to-br ${color} opacity-25 blur-[2px]`} />
-                  <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-linear-to-br ${color} opacity-15`} />
+            {works.map((w, i) => (
+              <div
+                key={w.title}
+                className="group relative"
+                style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.08}s backwards` }}
+              >
+                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/15 blur-[2px]" />
 
-                  <div className="relative rounded-2xl overflow-hidden border border-white bg-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-all duration-300">
-                    <div className="aspect-4/3 relative overflow-hidden">
-                      <Image src={w.img} alt={w.title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-                      <div className="absolute inset-0 bg-linear-to-t from-deep-navy/80 via-deep-navy/30 to-transparent" />
+                <div className="relative rounded-2xl overflow-hidden border border-white bg-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-all duration-300">
+                  <div className="aspect-4/3 relative overflow-hidden">
+                    <Image src={w.img} alt={w.title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-linear-to-t from-deep-navy/80 via-deep-navy/30 to-transparent" />
 
-                      {/* Type badge - floating */}
-                      <div className="absolute top-3 left-3">
-                        <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-md bg-linear-to-br ${color} opacity-50 blur-[1px]`} />
-                        <span className={`relative inline-block px-2 py-0.5 bg-linear-to-br ${color} text-white text-[9px] font-extrabold rounded-md uppercase tracking-wider shadow-md`}>
-                          {w.type}
-                        </span>
-                      </div>
-
-                      {/* Index corner */}
-                      <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md">
-                        <span className={`text-[10px] font-black bg-linear-to-br ${color} bg-clip-text text-transparent`}>{String(i + 1).padStart(2, "0")}</span>
-                      </div>
+                    <div className="absolute top-3 left-3">
+                      <span className="relative inline-block px-2 py-0.5 bg-white/95 text-accent-blue text-[9px] font-extrabold rounded-md uppercase tracking-wider shadow-md">
+                        {w.type}
+                      </span>
                     </div>
 
-                    {/* Bottom label */}
-                    <div className="p-3 sm:p-4 bg-white">
-                      <p className="text-[11px] sm:text-sm font-extrabold text-deep-navy leading-tight">{w.title}</p>
-                      <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-100">
-                        <span className={`text-[9px] font-bold bg-linear-to-br ${color} bg-clip-text text-transparent tracking-widest`}>
-                          WORK {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <div className={`w-5 h-5 rounded-full bg-slate-50 group-hover:bg-linear-to-br group-hover:${color} flex items-center justify-center transition-all`}>
-                          <svg className="w-2.5 h-2.5 text-slate-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
+                    <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-md">
+                      <span className="text-[10px] font-black text-accent-blue">{String(i + 1).padStart(2, "0")}</span>
+                    </div>
+                  </div>
+
+                  <div className="p-3 sm:p-4 bg-white">
+                    <p className="text-[11px] sm:text-sm font-extrabold text-deep-navy leading-tight">{w.title}</p>
+                    <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-100">
+                      <span className="text-[9px] font-bold text-accent-blue tracking-widest">
+                        WORK {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div className="w-5 h-5 rounded-full bg-slate-50 group-hover:bg-accent-blue flex items-center justify-center transition-colors">
+                        <svg className="w-2.5 h-2.5 text-slate-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
                       </div>
                     </div>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
 
           <p className="text-center text-[11px] sm:text-xs text-slate-400 mt-8 sm:mt-12 leading-relaxed">
