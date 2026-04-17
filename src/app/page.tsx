@@ -114,11 +114,8 @@ export default function Home() {
 
             {/* ── Right: visual (3D perspective scene) ── */}
             <div className="lg:col-span-6 relative hidden lg:flex items-center justify-center py-16 perspective-1200">
-              {/* 3D floor grid (below image) */}
-              <div className="absolute bottom-8 left-0 right-0 h-64 floor-grid opacity-50 -z-10" />
-
-              {/* Main image with 3D tilt */}
-              <div className="relative w-full max-w-130 preserve-3d" style={{ transform: "rotateY(-8deg) rotateX(4deg)" }}>
+              {/* Main image (subtle 3D) */}
+              <div className="relative w-full max-w-130 preserve-3d" style={{ transform: "rotateY(-3deg) rotateX(2deg)" }}>
                 <div className="relative rounded-[28px] overflow-hidden shadow-3d-lg ring-1 ring-white/60">
                   <div className="relative aspect-5/6">
                     <Image
@@ -141,13 +138,13 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Floating card: 전환율 (top right, pops forward) */}
+                {/* Floating card: 전환율 (top right) */}
                 <div
-                  className="absolute top-10 -right-10 bg-white rounded-2xl shadow-3d-lg px-4 py-3 border border-blue-100/80 z-20 animate-float backdrop-blur-sm bevel-edge"
-                  style={{ transform: "translateZ(60px) rotateY(6deg)", transformStyle: "preserve-3d" }}
+                  className="absolute top-10 -right-6 bg-white rounded-2xl shadow-3d px-4 py-3 border border-blue-100/80 z-20 animate-float backdrop-blur-sm bevel-edge"
+                  style={{ transform: "translateZ(20px)", transformStyle: "preserve-3d" }}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="relative w-11 h-11 rounded-xl bg-linear-to-br from-emerald-400 to-emerald-500 flex items-center justify-center shadow-md shadow-emerald-500/30" style={{ transform: "translateZ(10px)" }}>
+                    <div className="relative w-11 h-11 rounded-xl bg-linear-to-br from-emerald-400 to-emerald-500 flex items-center justify-center shadow-md shadow-emerald-500/30">
                       <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                         <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
@@ -161,8 +158,8 @@ export default function Home() {
 
                 {/* Floating card: ROAS (middle right) */}
                 <div
-                  className="absolute top-1/2 -translate-y-1/2 -right-16 bg-white rounded-2xl shadow-3d-lg px-4 py-3.5 border border-blue-100/80 z-20 backdrop-blur-sm bevel-edge"
-                  style={{ transform: "translateZ(80px) rotateY(8deg)", transformStyle: "preserve-3d", animation: "float 5s ease-in-out infinite 2s" }}
+                  className="absolute top-1/2 -translate-y-1/2 -right-10 bg-white rounded-2xl shadow-3d px-4 py-3.5 border border-blue-100/80 z-20 backdrop-blur-sm bevel-edge"
+                  style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d", animation: "float 5s ease-in-out infinite 2s" }}
                 >
                   <p className="text-[10px] text-slate-400 font-medium mb-1">광고 효율 (ROAS)</p>
                   <div className="flex items-baseline gap-1 mb-2">
@@ -176,10 +173,10 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Floating card: 문의 증가 (bottom left, tilted other way) */}
+                {/* Floating card: 문의 증가 (bottom left) */}
                 <div
-                  className="absolute bottom-12 -left-12 bg-white rounded-2xl shadow-3d-lg px-4 py-3 border border-blue-100/80 z-20 backdrop-blur-sm bevel-edge"
-                  style={{ transform: "translateZ(50px) rotateY(-8deg)", transformStyle: "preserve-3d", animation: "float 5s ease-in-out infinite 1s" }}
+                  className="absolute bottom-12 -left-6 bg-white rounded-2xl shadow-3d px-4 py-3 border border-blue-100/80 z-20 backdrop-blur-sm bevel-edge"
+                  style={{ transform: "translateZ(20px)", transformStyle: "preserve-3d", animation: "float 5s ease-in-out infinite 1s" }}
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-11 h-11 rounded-xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-md shadow-accent-blue/30">
@@ -195,16 +192,6 @@ export default function Home() {
                 {/* Decorative rings */}
                 <div className="absolute -inset-4 rounded-4xl border border-blue-200/40 -z-10" />
                 <div className="absolute -inset-8 rounded-[36px] border border-blue-200/20 -z-10" />
-              </div>
-
-              {/* Rotating 3D cube in background */}
-              <div className="absolute top-6 left-0 cube-3d opacity-20 -z-10">
-                <div className="face front bg-accent-blue/40" />
-                <div className="face back bg-accent-blue/40" />
-                <div className="face right bg-blue-400/40" />
-                <div className="face left bg-blue-400/40" />
-                <div className="face top bg-sky-300/40" />
-                <div className="face bottom bg-indigo-500/40" />
               </div>
 
               {/* Background blur */}
@@ -245,7 +232,7 @@ export default function Home() {
       <section className="relative py-12 sm:py-16 bg-white border-y border-slate-100 overflow-hidden">
         <div className="absolute inset-0 bg-linear-to-r from-blue-50/40 via-white to-amber-50/30" />
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 perspective-1200">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               { value: "100+", label: "누적 캠페인", sub: "다양한 업종 운영", icon: <IconBarChart className="w-5 h-5" />, color: "from-blue-500 to-indigo-600" },
               { value: "4.8x", label: "평균 ROAS", sub: "광고비 대비 수익", icon: <IconZap className="w-5 h-5" />, color: "from-emerald-500 to-teal-600" },
@@ -254,27 +241,21 @@ export default function Home() {
             ].map((s, i) => (
               <div
                 key={i}
-                className="group relative preserve-3d"
+                className="group relative"
                 style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.08}s backwards` }}
               >
                 <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-linear-to-br ${s.color} opacity-15 blur-[2px]`} />
-                <div
-                  className="relative bg-white rounded-2xl p-4 sm:p-5 border border-white shadow-3d overflow-hidden bevel-edge preserve-3d transition-transform duration-500"
-                  style={{
-                    transform: `perspective(900px) rotateY(${(i - 1.5) * 2}deg) rotateX(2deg)`,
-                    transformStyle: "preserve-3d",
-                  }}
-                >
+                <div className="relative bg-white rounded-2xl p-4 sm:p-5 border border-white shadow-3d overflow-hidden bevel-edge hover:-translate-y-0.5 transition-transform duration-300">
                   <div className={`absolute -top-6 -right-6 w-20 h-20 rounded-full bg-linear-to-br ${s.color} opacity-10 blur-xl`} />
-                  <div className="relative flex items-center gap-3 sm:gap-4 preserve-3d">
-                    <div className="relative shrink-0" style={{ transform: "translateZ(20px)" }}>
+                  <div className="relative flex items-center gap-3 sm:gap-4">
+                    <div className="relative shrink-0">
                       <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-linear-to-br ${s.color} opacity-50 blur-[1px]`} />
-                      <div className={`relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-linear-to-br ${s.color} flex items-center justify-center shadow-md text-white bevel-edge`}>
+                      <div className={`relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-linear-to-br ${s.color} flex items-center justify-center shadow-md text-white`}>
                         {s.icon}
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className={`text-2xl sm:text-3xl font-black bg-linear-to-br ${s.color} bg-clip-text text-transparent leading-none tracking-tight`} style={{ transform: "translateZ(10px)" }}>{s.value}</p>
+                      <p className={`text-2xl sm:text-3xl font-black bg-linear-to-br ${s.color} bg-clip-text text-transparent leading-none tracking-tight`}>{s.value}</p>
                       <p className="text-[12px] sm:text-sm font-bold text-deep-navy mt-1">{s.label}</p>
                       <p className="text-[10px] sm:text-[11px] text-slate-400">{s.sub}</p>
                     </div>
@@ -309,47 +290,33 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 perspective-1200">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {whyUs.map((item, i) => (
               <div
                 key={item.title}
-                className="group relative preserve-3d"
+                className="group relative"
                 style={{ animation: `fade-in-up 0.6s ease-out ${i * 0.1}s backwards` }}
               >
-                {/* 3D depth layers */}
+                {/* Depth layers */}
                 <div className={`absolute inset-0 translate-x-1 translate-y-2 rounded-2xl bg-linear-to-br ${item.color} opacity-60 blur-[2px]`} />
                 <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-linear-to-br ${item.color} opacity-30`} />
 
-                {/* Front card with real 3D tilt */}
-                <div
-                  className="relative bg-white rounded-2xl p-5 sm:p-7 border border-white shadow-3d overflow-hidden bevel-edge preserve-3d transition-transform duration-500"
-                  style={{
-                    transform: `perspective(1000px) rotateY(${i % 2 === 0 ? -4 : 4}deg) rotateX(3deg)`,
-                    transformStyle: "preserve-3d",
-                  }}
-                >
-                  {/* Decorative number */}
+                <div className="relative bg-white rounded-2xl p-5 sm:p-7 border border-white shadow-3d overflow-hidden bevel-edge hover:-translate-y-1 transition-transform duration-300">
                   <div className={`absolute -top-3 -right-3 text-6xl sm:text-7xl font-black bg-linear-to-br ${item.light} bg-clip-text text-transparent opacity-80 select-none leading-none`}>
                     0{i + 1}
                   </div>
-                  {/* Gradient corner accent */}
                   <div className={`absolute -bottom-10 -right-10 w-24 h-24 rounded-full bg-linear-to-br ${item.color} opacity-10 blur-2xl`} />
 
-                  <div className="relative preserve-3d">
-                    {/* Icon - pops forward in 3D */}
-                    <div
-                      className="relative w-11 h-11 sm:w-14 sm:h-14 mb-4 sm:mb-5 preserve-3d"
-                      style={{ transform: "translateZ(24px)", transformStyle: "preserve-3d" }}
-                    >
+                  <div className="relative">
+                    <div className="relative w-11 h-11 sm:w-14 sm:h-14 mb-4 sm:mb-5">
                       <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl sm:rounded-2xl bg-linear-to-br ${item.color} opacity-60 blur-[1px]`} />
-                      <div className={`relative w-full h-full rounded-xl sm:rounded-2xl bg-linear-to-br ${item.color} flex items-center justify-center shadow-lg bevel-edge`}>
+                      <div className={`relative w-full h-full rounded-xl sm:rounded-2xl bg-linear-to-br ${item.color} flex items-center justify-center shadow-lg`}>
                         <item.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                       </div>
                     </div>
-                    <h3 className="text-[13px] sm:text-base font-extrabold text-deep-navy mb-1.5 sm:mb-2 whitespace-pre-line leading-tight" style={{ transform: "translateZ(12px)" }}>{item.title}</h3>
-                    <p className="text-[11px] sm:text-xs text-slate-500 leading-relaxed" style={{ transform: "translateZ(6px)" }}>{item.desc}</p>
+                    <h3 className="text-[13px] sm:text-base font-extrabold text-deep-navy mb-1.5 sm:mb-2 whitespace-pre-line leading-tight">{item.title}</h3>
+                    <p className="text-[11px] sm:text-xs text-slate-500 leading-relaxed">{item.desc}</p>
 
-                    {/* Bottom accent line */}
                     <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-slate-100">
                       <span className={`inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold ${item.text}`}>
                         POINT {String(i + 1).padStart(2, "0")} <IconArrowRight className="w-3 h-3" />
@@ -373,17 +340,14 @@ export default function Home() {
       <section className="relative py-20 sm:py-24 lg:py-32 overflow-hidden bg-[#060e1e]">
         <Image src="/images/stock/dashboard.jpg" alt="" fill className="object-cover opacity-20" aria-hidden="true" />
         <div className="absolute inset-0 bg-linear-to-br from-[#060e1e] via-[#0a1428] to-[#060e1e]" />
-        {/* 3D perspective floor grid */}
-        <div className="absolute bottom-0 left-0 right-0 h-96 floor-grid opacity-40" />
-        {/* Ceiling grid (inverted) */}
-        <div className="absolute top-0 left-0 right-0 h-96 opacity-30" style={{
-          backgroundImage: "linear-gradient(to right, rgba(96, 165, 250, 0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(96, 165, 250, 0.12) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-          transform: "perspective(600px) rotateX(-60deg)",
-          transformOrigin: "center bottom",
-          maskImage: "linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 80%)",
-          WebkitMaskImage: "linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 80%)",
-        }} />
+        {/* Standard subtle grid */}
+        <div
+          className="absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage: "linear-gradient(to right, #60a5fa 1px, transparent 1px), linear-gradient(to bottom, #60a5fa 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+          }}
+        />
         <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-accent-blue/10 to-transparent" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-accent-blue/15 rounded-full blur-[120px]" />
 
@@ -414,46 +378,31 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 perspective-1200">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5">
               {processSteps.map((s, i) => (
                 <div
                   key={i}
-                  className={`relative group preserve-3d ${i === 4 ? "col-span-2 sm:col-span-1 max-w-[calc(50%-8px)] sm:max-w-none mx-auto sm:mx-0" : ""}`}
+                  className={`relative group ${i === 4 ? "col-span-2 sm:col-span-1 max-w-[calc(50%-8px)] sm:max-w-none mx-auto sm:mx-0" : ""}`}
                   style={{ animation: `fade-in-up 0.6s ease-out ${i * 0.1}s backwards` }}
                 >
-                  {/* 3D depth glow */}
                   <div className="absolute inset-0 translate-y-2 rounded-2xl bg-accent-blue/30 opacity-40 blur-xl group-hover:opacity-70 transition-opacity" />
 
-                  {/* Glass card with 3D tilt alternating */}
-                  <div
-                    className="relative glass-3d-dark rounded-2xl p-5 sm:p-6 text-center border border-white/10 group-hover:border-accent-blue/40 transition-all duration-500 overflow-hidden bevel-edge preserve-3d"
-                    style={{
-                      transform: `perspective(800px) rotateY(${(i - 2) * 3}deg) rotateX(3deg)`,
-                      transformStyle: "preserve-3d",
-                    }}
-                  >
-                    {/* Shine effect */}
+                  <div className="relative glass-3d-dark rounded-2xl p-5 sm:p-6 text-center border border-white/10 group-hover:border-accent-blue/40 group-hover:-translate-y-1 transition-all duration-300 overflow-hidden bevel-edge">
                     <div className="absolute inset-0 bg-linear-to-br from-accent-blue/0 via-accent-blue/5 to-accent-blue/0 opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                    {/* Icon - pops forward */}
-                    <div
-                      className="relative w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 preserve-3d"
-                      style={{ transform: "translateZ(28px)", transformStyle: "preserve-3d" }}
-                    >
+                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4">
                       <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-2xl bg-linear-to-br from-accent-blue to-blue-600 opacity-50 blur-[1px]" />
-                      <div className="relative w-full h-full rounded-2xl bg-linear-to-br from-accent-blue/20 to-accent-blue/5 border border-accent-blue/30 group-hover:from-accent-blue group-hover:to-blue-600 flex items-center justify-center transition-all duration-500 shadow-lg shadow-accent-blue/20 bevel-edge">
+                      <div className="relative w-full h-full rounded-2xl bg-linear-to-br from-accent-blue/20 to-accent-blue/5 border border-accent-blue/30 group-hover:from-accent-blue group-hover:to-blue-600 flex items-center justify-center transition-all duration-500 shadow-lg shadow-accent-blue/20">
                         <s.Icon className="w-6 h-6 sm:w-7 sm:h-7 text-accent-blue group-hover:text-white transition-colors duration-300" />
                       </div>
-                      {/* Step number badge */}
                       <div className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-linear-to-br from-white to-slate-200 text-deep-navy text-[10px] font-black flex items-center justify-center shadow-lg">
                         {i + 1}
                       </div>
                     </div>
 
-                    <p className="text-[13px] sm:text-sm font-extrabold text-white mb-1" style={{ transform: "translateZ(12px)" }}>{s.title}</p>
+                    <p className="text-[13px] sm:text-sm font-extrabold text-white mb-1">{s.title}</p>
                     <p className="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">{s.sub}</p>
 
-                    {/* Bottom accent */}
                     <div className="mt-3 pt-3 border-t border-white/5">
                       <span className="text-[9px] font-bold text-accent-blue tracking-widest">STEP {String(i + 1).padStart(2, "0")}</span>
                     </div>
@@ -500,28 +449,18 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 perspective-1200">
-            {channels.map((ch, i) => {
-              const tiltY = ((i % 4) - 1.5) * 3; // staggered tilt across row
-              return (
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+            {channels.map((ch, i) => (
               <Link
                 key={ch.name}
                 href="/services"
-                className="group relative preserve-3d"
+                className="group relative"
                 style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.06}s backwards` }}
               >
-                {/* Isometric depth layers */}
                 <div className={`absolute inset-0 translate-x-1 translate-y-2 rounded-2xl bg-linear-to-br ${ch.color} opacity-40 blur-[2px]`} />
                 <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-linear-to-br ${ch.color} opacity-25`} />
 
-                {/* Front card with 3D tilt */}
-                <div
-                  className="relative bg-white rounded-2xl p-4 sm:p-5 border border-white shadow-3d overflow-hidden bevel-edge preserve-3d transition-transform duration-500"
-                  style={{
-                    transform: `perspective(900px) rotateY(${tiltY}deg) rotateX(2deg)`,
-                    transformStyle: "preserve-3d",
-                  }}
-                >
+                <div className="relative bg-white rounded-2xl p-4 sm:p-5 border border-white shadow-3d overflow-hidden bevel-edge group-hover:-translate-y-1 transition-transform duration-300">
                   {/* Corner color blob */}
                   <div className={`absolute -top-8 -right-8 w-20 h-20 rounded-full bg-linear-to-br ${ch.color} opacity-10 blur-xl`} />
 
@@ -560,8 +499,7 @@ export default function Home() {
                   </div>
                 </div>
               </Link>
-              );
-            })}
+            ))}
           </div>
         </div>
       </section>
@@ -589,31 +527,21 @@ export default function Home() {
                 {" "}해결해드립니다.
               </p>
 
-              {/* 3D target mark with perspective layers */}
-              <div className="hidden lg:block mb-8 relative w-56 h-56 perspective-800">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-accent-blue/15 rounded-full blur-2xl" />
-                <div
-                  className="relative w-full h-full preserve-3d"
-                  style={{ transform: "rotateX(55deg) rotateZ(-25deg)", transformStyle: "preserve-3d" }}
-                >
-                  {/* Outermost ring */}
-                  <div className="absolute inset-0 rounded-full border-4 border-accent-blue/10 bg-white shadow-3d-lg" style={{ transform: "translateZ(0)" }}>
-                    {/* Mid ring */}
-                    <div className="absolute inset-4 rounded-full border-4 border-accent-blue/20" style={{ transform: "translateZ(18px)" }}>
-                      {/* Inner ring */}
-                      <div className="absolute inset-4 rounded-full border-4 border-accent-blue/40" style={{ transform: "translateZ(36px)" }}>
-                        {/* Bullseye - the top of the 3D stack */}
-                        <div className="absolute inset-3 rounded-full bg-linear-to-br from-accent-blue to-blue-600 shadow-lg shadow-accent-blue/40 flex items-center justify-center" style={{ transform: "translateZ(56px)" }}>
-                          <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                          </svg>
-                        </div>
+              {/* Target mark (subtle isometric) */}
+              <div className="hidden lg:block mb-8 relative w-48 h-48">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-accent-blue/10 rounded-full blur-2xl" />
+                <div className="relative">
+                  <div className="absolute inset-0 translate-x-2 translate-y-2 rounded-full bg-accent-blue/20 blur-sm" />
+                  <div className="relative w-full h-full rounded-full bg-white border-4 border-accent-blue/10 flex items-center justify-center shadow-3d">
+                    <div className="w-32 h-32 rounded-full border-4 border-accent-blue/20 flex items-center justify-center">
+                      <div className="w-20 h-20 rounded-full border-4 border-accent-blue/40 flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-full bg-linear-to-br from-accent-blue to-blue-600 shadow-lg shadow-accent-blue/40" />
                       </div>
                     </div>
                   </div>
-                  {/* Flying arrow hitting the center */}
-                  <div className="absolute top-[35%] left-[40%]" style={{ transform: "translateZ(80px) rotate(-35deg)" }}>
-                    <svg className="w-10 h-10 drop-shadow-lg" viewBox="0 0 24 24" fill="none">
+                  {/* Small arrow accent */}
+                  <div className="absolute top-2 right-2 rotate-stamp">
+                    <svg className="w-7 h-7 drop-shadow-sm" viewBox="0 0 24 24" fill="none">
                       <path d="M14 4 L20 4 L20 10" stroke="#f97316" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                       <path d="M20 4 L10 14" stroke="#f97316" strokeWidth="2.5" strokeLinecap="round" />
                     </svg>
@@ -692,26 +620,19 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 perspective-1200">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
             {caseStudies.map((c, i) => {
               const gradient = c.color.replace("bg-", "from-").replace("-500", "-500 to-") + (c.color.includes("blue") ? "indigo-600" : c.color.includes("emerald") ? "teal-600" : "orange-600");
               return (
                 <div
                   key={i}
-                  className="group relative preserve-3d"
+                  className="group relative"
                   style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
                 >
-                  {/* 3D depth */}
                   <div className={`absolute inset-0 translate-x-1.5 translate-y-2 rounded-2xl bg-linear-to-br ${gradient} opacity-30 blur-[3px]`} />
                   <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-2xl bg-linear-to-br ${gradient} opacity-15`} />
 
-                  <div
-                    className="relative bg-white rounded-2xl p-6 sm:p-7 border border-white shadow-3d overflow-hidden min-h-52 bevel-edge preserve-3d transition-transform duration-500"
-                    style={{
-                      transform: `perspective(1000px) rotateY(${(i - 1) * 6}deg) rotateX(3deg)`,
-                      transformStyle: "preserve-3d",
-                    }}
-                  >
+                  <div className="relative bg-white rounded-2xl p-6 sm:p-7 border border-white shadow-3d overflow-hidden min-h-52 bevel-edge group-hover:-translate-y-1 transition-transform duration-300">
                     {/* Huge bg number */}
                     <div className={`absolute -bottom-6 -right-4 text-[8rem] font-black bg-linear-to-br ${gradient} bg-clip-text text-transparent opacity-[0.06] leading-none select-none`}>
                       {String(i + 1).padStart(2, "0")}
@@ -765,7 +686,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 perspective-1200">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {[
               {
                 industry: "병원",
@@ -794,19 +715,13 @@ export default function Home() {
             ].map((t, i) => (
               <div
                 key={i}
-                className="group relative preserve-3d"
+                className="group relative"
                 style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
               >
                 <div className={`absolute inset-0 translate-x-1.5 translate-y-2 rounded-2xl bg-linear-to-br ${t.color} opacity-25 blur-[3px]`} />
                 <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-2xl bg-linear-to-br ${t.color} opacity-15`} />
 
-                <div
-                  className="relative bg-white rounded-2xl p-6 sm:p-7 border border-white shadow-3d overflow-hidden h-full flex flex-col bevel-edge preserve-3d transition-transform duration-500"
-                  style={{
-                    transform: `perspective(1000px) rotateY(${(i - 1) * 5}deg) rotateX(3deg)`,
-                    transformStyle: "preserve-3d",
-                  }}
-                >
+                <div className="relative bg-white rounded-2xl p-6 sm:p-7 border border-white shadow-3d overflow-hidden h-full flex flex-col bevel-edge group-hover:-translate-y-1 transition-transform duration-300">
                   <div className={`absolute -top-10 -right-10 w-32 h-32 rounded-full bg-linear-to-br ${t.color} opacity-10 blur-2xl`} />
 
                   {/* Quote mark */}
