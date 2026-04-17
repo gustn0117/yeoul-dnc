@@ -483,7 +483,141 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 6. CTA */}
+      {/* 6. Approach timeline (our way of working) */}
+      <section className="relative py-16 sm:py-20 lg:py-28 bg-linear-to-b from-white via-[#f5f9ff] to-white overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage: "linear-gradient(to right, #2563eb 1px, transparent 1px), linear-gradient(to bottom, #2563eb 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+          }}
+        />
+        <div className="absolute top-1/2 -translate-y-1/2 right-0 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl" />
+
+        <div className="relative max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-16">
+            <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">OUR APPROACH</p>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
+              우리가 일하는 방식은<br className="sm:hidden" />
+              {" "}<span className="relative inline-block">
+                <span className="relative z-10">3가지 원칙</span>
+                <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
+              </span>
+              을 따릅니다
+            </h2>
+            <p className="text-slate-500 text-sm max-w-lg mx-auto leading-relaxed">
+              과정보다 결과, 수치보다 흐름.<br className="sm:hidden" />
+              {" "}우리가 놓치지 않는 3가지 기준입니다.
+            </p>
+          </div>
+
+          {/* 3 principles - isometric connected */}
+          <div className="relative">
+            {/* Desktop: horizontal connector line */}
+            <div className="hidden md:block absolute top-16 left-[12%] right-[12%] h-0.5">
+              <div className="absolute inset-0 bg-linear-to-r from-transparent via-accent-blue/40 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-r from-transparent via-sky-300/40 to-transparent blur-sm" />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative">
+              {[
+                {
+                  step: "01",
+                  label: "LISTEN",
+                  title: "먼저 듣습니다",
+                  desc: "현재 상황과 목표부터 정확히 파악합니다. 무조건적인 제안보다, 상황에 맞는 질문을 먼저 합니다.",
+                  color: "from-blue-500 to-indigo-600",
+                  icon: (
+                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                    </svg>
+                  ),
+                  tags: ["업종 이해", "목표 정리", "예산 확인"],
+                },
+                {
+                  step: "02",
+                  label: "BUILD",
+                  title: "구조를 만듭니다",
+                  desc: "필요한 채널만 선별하고, 소재부터 운영까지 일관된 흐름을 설계합니다. 실행 중심으로 준비합니다.",
+                  color: "from-violet-500 to-purple-600",
+                  icon: (
+                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                    </svg>
+                  ),
+                  tags: ["채널 선별", "소재 제작", "운영 세팅"],
+                },
+                {
+                  step: "03",
+                  label: "IMPROVE",
+                  title: "보완을 반복합니다",
+                  desc: "데이터로 판단하고, 효율이 나오는 방향으로 조정합니다. 끝난 뒤에도 다음 방향까지 연결합니다.",
+                  color: "from-emerald-500 to-teal-600",
+                  icon: (
+                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                  ),
+                  tags: ["반응 확인", "효율 개선", "리포트"],
+                },
+              ].map((p, i) => (
+                <div
+                  key={p.step}
+                  className="relative group"
+                  style={{ animation: `fade-in-up 0.6s ease-out ${i * 0.12}s backwards` }}
+                >
+                  {/* 3D depth */}
+                  <div className={`absolute inset-0 translate-x-1.5 translate-y-2.5 rounded-2xl bg-linear-to-br ${p.color} opacity-25 blur-[3px]`} />
+                  <div className={`absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-linear-to-br ${p.color} opacity-15`} />
+
+                  <div className="relative bg-white rounded-2xl p-6 sm:p-7 border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden">
+                    <div className={`absolute -top-10 -right-10 w-32 h-32 rounded-full bg-linear-to-br ${p.color} opacity-10 blur-2xl`} />
+
+                    {/* Number + icon with dot on line */}
+                    <div className="relative flex items-center gap-4 mb-5">
+                      {/* Dot marker on the horizontal line */}
+                      <div className="hidden md:block absolute top-8 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                        <div className="relative">
+                          <div className={`absolute inset-0 rounded-full bg-linear-to-br ${p.color} opacity-30 blur-sm animate-pulse-soft`} />
+                        </div>
+                      </div>
+
+                      <div className="relative w-16 h-16 shrink-0">
+                        <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-2xl bg-linear-to-br ${p.color} opacity-60 blur-[1px]`} />
+                        <div className={`relative w-full h-full rounded-2xl bg-linear-to-br ${p.color} flex items-center justify-center shadow-lg`}>
+                          {p.icon}
+                        </div>
+                      </div>
+                      <div>
+                        <p className={`text-[10px] font-extrabold bg-linear-to-br ${p.color} bg-clip-text text-transparent tracking-[0.2em]`}>
+                          {p.label}
+                        </p>
+                        <p className={`text-3xl font-black bg-linear-to-br ${p.color} bg-clip-text text-transparent leading-none tracking-tight`}>
+                          {p.step}
+                        </p>
+                      </div>
+                    </div>
+
+                    <h3 className="text-base sm:text-lg font-extrabold text-deep-navy mb-2 leading-tight">{p.title}</h3>
+                    <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed mb-4">{p.desc}</p>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+                      {p.tags.map((t) => (
+                        <span key={t} className={`px-2.5 py-1 rounded-full text-[10px] font-bold bg-linear-to-br ${p.color.replace("500", "50").replace("600", "100").replace("400", "50")} border border-slate-100`}>
+                          <span className={`bg-linear-to-br ${p.color} bg-clip-text text-transparent`}>{t}</span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. CTA */}
       <SectionCTA
         title="말보다 실행이 중요한 광고, 이제 방향부터 제대로 잡아보세요"
         description="업종에 맞는 광고 구조가 궁금하시다면 여울디앤씨가 먼저 정리해드립니다."

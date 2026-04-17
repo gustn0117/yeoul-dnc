@@ -227,3 +227,79 @@ p, li { line-height: 1.75 !important; }
     overflow-x: hidden;
   }
 }
+
+/* ── Shimmer highlight on hover ── */
+@keyframes shimmer-pass {
+  from { transform: translateX(-100%) skewX(-12deg); }
+  to { transform: translateX(200%) skewX(-12deg); }
+}
+.shimmer-hover { position: relative; overflow: hidden; }
+.shimmer-hover::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  transform: translateX(-100%) skewX(-12deg);
+  transition: none;
+}
+.shimmer-hover:hover::before {
+  animation: shimmer-pass 0.8s ease-out;
+}
+
+/* ── Accordion expand ── */
+@keyframes accordion-down {
+  from { max-height: 0; opacity: 0; }
+  to { max-height: 500px; opacity: 1; }
+}
+.animate-accordion { animation: accordion-down 0.35s ease-out forwards; overflow: hidden; }
+
+/* ── Number counter pop ── */
+@keyframes number-pop {
+  0% { transform: scale(0.7); opacity: 0; }
+  70% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-number-pop { animation: number-pop 0.6s ease-out forwards; }
+
+/* ── Glow pulse (for CTAs) ── */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(249, 115, 22, 0); }
+}
+.glow-pulse-orange { animation: glow-pulse 2.4s ease-in-out infinite; }
+
+@keyframes glow-pulse-blue {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(37, 99, 235, 0); }
+}
+.glow-pulse-blue { animation: glow-pulse-blue 2.4s ease-in-out infinite; }
+
+/* ── Scroll progress (top bar) ── */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  z-index: 60;
+  background: transparent;
+  pointer-events: none;
+}
+.scroll-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #60a5fa, #f97316);
+  transform-origin: 0 50%;
+  transform: scaleX(var(--progress, 0));
+  transition: transform 0.1s ease-out;
+}
+
+/* ── Marquee strip ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 28s linear infinite; }
+
+/* ── Stamp effect ── */
+.rotate-stamp {
+  transform: rotate(-6deg);
+}

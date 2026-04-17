@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import SectionCTA from "@/components/SectionCTA";
+import FAQSection from "@/components/FAQSection";
 import { IllustChart, IllustTarget, IllustPhone } from "@/components/Illustrations";
 import {
   IconKakao, IconSearch, IconMeta, IconYoutube, IconGlobe, IconMail, IconCarrot, IconBuilding,
@@ -763,6 +764,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ━━━━━━━━━━━━━ FAQ ━━━━━━━━━━━━━ */}
+      <FAQSection />
 
       {/* ━━━━━━━━━━━━━ CTA ━━━━━━━━━━━━━ */}
       <SectionCTA

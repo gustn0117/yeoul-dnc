@@ -18,10 +18,17 @@ const navItems = [
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [progress, setProgress] = useState(0);
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+      const doc = document.documentElement;
+      const max = (doc.scrollHeight - doc.clientHeight) || 1;
+      setProgress(Math.min(window.scrollY / max, 1));
+    };
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -40,6 +47,11 @@ export default function Header() {
   }, [mobileOpen]);
 
   return (
+    <>
+      {/* Scroll progress bar */}
+      <div className="scroll-progress">
+        <div className="scroll-progress-bar" style={{ "--progress": progress } as React.CSSProperties} />
+      </div>
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-white/70 backdrop-blur-sm"}`}>
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-18">
@@ -131,5 +143,6 @@ export default function Header() {
         </>
       )}
     </header>
+    </>
   );
 }

@@ -965,6 +965,177 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* ━━━━ 업종 × 채널 매칭 매트릭스 ━━━━ */}
+      <section className="relative py-16 sm:py-20 lg:py-28 bg-linear-to-br from-[#f5f9ff] via-white to-[#f0f5ff] overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage: "linear-gradient(to right, #2563eb 1px, transparent 1px), linear-gradient(to bottom, #2563eb 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+          }}
+        />
+        <div className="absolute top-40 right-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl" />
+
+        <div className="relative max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14">
+            <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">MATCHING</p>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
+              우리 업종에는<br className="sm:hidden" />
+              {" "}<span className="relative inline-block">
+                <span className="relative z-10">어떤 채널이 맞을까요</span>
+                <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
+              </span>
+              ?
+            </h2>
+            <p className="text-slate-500 text-sm max-w-lg mx-auto leading-relaxed">
+              업종별로 자주 권장되는 채널 조합을<br className="sm:hidden" />
+              {" "}한눈에 확인해보세요.
+            </p>
+          </div>
+
+          {/* Matrix */}
+          <div className="relative">
+            <div className="absolute inset-0 translate-x-1.5 translate-y-2 rounded-3xl bg-accent-blue/15 blur-[3px]" />
+            <div className="relative bg-white rounded-3xl border border-white shadow-2xl shadow-deep-navy/5 overflow-hidden">
+              {/* Header row - desktop only */}
+              <div className="hidden sm:grid grid-cols-8 gap-0 border-b border-slate-100 bg-linear-to-r from-slate-50 to-white">
+                <div className="col-span-2 px-4 py-4 text-[11px] font-extrabold text-slate-400 tracking-widest uppercase">업종</div>
+                {[
+                  { name: "naver", label: "네이버" },
+                  { name: "meta", label: "메타" },
+                  { name: "kakaotalk", label: "카카오" },
+                  { name: "youtube", label: "유튜브" },
+                  { name: "google", label: "구글" },
+                  { name: "danggeun", label: "당근" },
+                ].map((ch) => (
+                  <div key={ch.name} className="px-2 py-4 flex flex-col items-center gap-1.5">
+                    <img src={`/images/logos/${ch.name}.svg`} alt="" className="h-5 w-auto" />
+                    <span className="text-[10px] font-bold text-slate-500">{ch.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Desktop rows */}
+              <div className="hidden sm:block divide-y divide-slate-100">
+                {[
+                  { industry: "분양", color: "from-blue-500 to-indigo-600", tag: "DB 수집", matches: { naver: 2, meta: 3, kakaotalk: 2, youtube: 1, google: 2, danggeun: 0 } },
+                  { industry: "병원", color: "from-emerald-500 to-teal-600", tag: "예약 문의", matches: { naver: 3, meta: 2, kakaotalk: 2, youtube: 1, google: 2, danggeun: 1 } },
+                  { industry: "교육", color: "from-violet-500 to-purple-600", tag: "상담 전환", matches: { naver: 2, meta: 2, kakaotalk: 3, youtube: 2, google: 2, danggeun: 0 } },
+                  { industry: "지역 자영업", color: "from-orange-500 to-red-500", tag: "생활권", matches: { naver: 1, meta: 2, kakaotalk: 1, youtube: 0, google: 1, danggeun: 3 } },
+                  { industry: "상담형 서비스", color: "from-sky-500 to-cyan-500", tag: "리드 수집", matches: { naver: 2, meta: 3, kakaotalk: 2, youtube: 1, google: 3, danggeun: 0 } },
+                ].map((row, i) => (
+                  <div key={row.industry} className="grid grid-cols-8 gap-0 hover:bg-slate-50/50 transition-colors">
+                    <div className="col-span-2 px-4 py-4 flex items-center gap-3">
+                      <div className="relative">
+                        <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-lg bg-linear-to-br ${row.color} opacity-50 blur-[1px]`} />
+                        <div className={`relative w-9 h-9 rounded-lg bg-linear-to-br ${row.color} flex items-center justify-center shadow-md`}>
+                          <span className="text-white font-black text-xs">{String(i + 1).padStart(2, "0")}</span>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-sm font-extrabold text-deep-navy">{row.industry}</p>
+                        <p className={`text-[10px] font-bold bg-linear-to-br ${row.color} bg-clip-text text-transparent tracking-wider`}>{row.tag}</p>
+                      </div>
+                    </div>
+                    {Object.entries(row.matches).map(([ch, level]) => (
+                      <div key={ch} className="px-2 py-4 flex items-center justify-center">
+                        {level === 3 ? (
+                          <div className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-linear-to-br ${row.color} shadow-sm`}>
+                            <span className="text-[9px] font-extrabold text-white">추천</span>
+                          </div>
+                        ) : level === 2 ? (
+                          <div className="flex gap-0.5">
+                            {[1, 2].map((n) => <span key={n} className={`w-1.5 h-3 rounded-full bg-linear-to-br ${row.color}`} />)}
+                            <span className="w-1.5 h-3 rounded-full bg-slate-100" />
+                          </div>
+                        ) : level === 1 ? (
+                          <div className="flex gap-0.5">
+                            <span className={`w-1.5 h-3 rounded-full bg-linear-to-br ${row.color} opacity-60`} />
+                            <span className="w-1.5 h-3 rounded-full bg-slate-100" />
+                            <span className="w-1.5 h-3 rounded-full bg-slate-100" />
+                          </div>
+                        ) : (
+                          <span className="text-[10px] text-slate-300 font-bold">—</span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+
+              {/* Mobile cards */}
+              <div className="sm:hidden divide-y divide-slate-100">
+                {[
+                  { industry: "분양", color: "from-blue-500 to-indigo-600", tag: "DB 수집", top: ["meta", "naver", "kakaotalk"] },
+                  { industry: "병원", color: "from-emerald-500 to-teal-600", tag: "예약 문의", top: ["naver", "meta", "kakaotalk"] },
+                  { industry: "교육", color: "from-violet-500 to-purple-600", tag: "상담 전환", top: ["kakaotalk", "naver", "meta"] },
+                  { industry: "지역 자영업", color: "from-orange-500 to-red-500", tag: "생활권", top: ["danggeun", "meta", "google"] },
+                  { industry: "상담형 서비스", color: "from-sky-500 to-cyan-500", tag: "리드 수집", top: ["meta", "google", "naver"] },
+                ].map((row, i) => (
+                  <div key={row.industry} className="p-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className={`relative w-9 h-9 rounded-lg bg-linear-to-br ${row.color} flex items-center justify-center shadow-md shrink-0`}>
+                        <span className="text-white font-black text-xs">{String(i + 1).padStart(2, "0")}</span>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-extrabold text-deep-navy">{row.industry}</p>
+                        <p className={`text-[10px] font-bold bg-linear-to-br ${row.color} bg-clip-text text-transparent tracking-wider`}>{row.tag}</p>
+                      </div>
+                      <span className="text-[9px] text-slate-400 font-bold tracking-widest uppercase">추천 채널</span>
+                    </div>
+                    <div className="flex items-center gap-2 pl-12">
+                      {row.top.map((ch) => (
+                        <div key={ch} className="relative">
+                          <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-lg bg-linear-to-br ${row.color} opacity-30 blur-[1px]`} />
+                          <div className="relative w-8 h-8 rounded-lg bg-white border border-slate-100 flex items-center justify-center shadow-sm">
+                            <img src={`/images/logos/${ch}.svg`} alt="" className="h-4 w-auto" />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Legend */}
+              <div className="p-4 sm:p-5 bg-linear-to-r from-slate-50 to-white border-t border-slate-100 flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-[10px] sm:text-[11px]">
+                <div className="flex items-center gap-1.5">
+                  <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-linear-to-br from-accent-blue to-blue-600 shadow-sm">
+                    <span className="text-[9px] font-extrabold text-white">추천</span>
+                  </div>
+                  <span className="text-slate-500 font-medium">최적</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="flex gap-0.5">
+                    <span className="w-1.5 h-3 rounded-full bg-accent-blue" />
+                    <span className="w-1.5 h-3 rounded-full bg-accent-blue" />
+                    <span className="w-1.5 h-3 rounded-full bg-slate-100" />
+                  </div>
+                  <span className="text-slate-500 font-medium">적합</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="flex gap-0.5">
+                    <span className="w-1.5 h-3 rounded-full bg-accent-blue/60" />
+                    <span className="w-1.5 h-3 rounded-full bg-slate-100" />
+                    <span className="w-1.5 h-3 rounded-full bg-slate-100" />
+                  </div>
+                  <span className="text-slate-500 font-medium">보조</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-slate-300 font-bold">—</span>
+                  <span className="text-slate-500 font-medium">추천 안함</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p className="text-center text-[11px] sm:text-xs text-slate-400 mt-6 leading-relaxed">
+            * 위 매트릭스는 일반적인 기준이며,<br className="sm:hidden" />
+            {" "}실제 예산과 목표에 따라 조합이 달라질 수 있습니다.
+          </p>
+        </div>
+      </section>
+
       {/* ━━━━ CTA ━━━━ */}
       <SectionCTA
         title="정해진 틀보다, 업종에 맞는 구성으로 제안드립니다"
