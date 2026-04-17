@@ -161,52 +161,92 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      {/* Steps detail */}
-      <section className="py-12 sm:py-16 lg:py-24 bg-white">
-        <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="space-y-6 lg:space-y-0">
+      {/* Steps detail (3D isometric with vertical connector) */}
+      <section className="relative py-12 sm:py-16 lg:py-24 bg-linear-to-b from-white to-[#f5f9ff] overflow-hidden">
+        <div className="absolute top-20 right-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
+
+        <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="space-y-10 sm:space-y-16 lg:space-y-0 lg:relative">
+            {/* Vertical connector line (desktop) */}
+            <div className="hidden lg:block absolute left-8.5 top-0 bottom-0 w-0.5 bg-linear-to-b from-accent-blue/40 via-accent-blue/20 to-accent-blue/5" />
+
             {steps.map((s, i) => (
-              <div key={i} className={`lg:grid lg:grid-cols-12 lg:gap-8 ${i > 0 ? "lg:mt-0" : ""}`}>
-                {/* Number + line */}
-                <div className="hidden lg:flex lg:col-span-1 flex-col items-center">
-                  <div className={`w-14 h-14 rounded-2xl bg-linear-to-br ${s.color} flex items-center justify-center shadow-lg shadow-accent-blue/10 shrink-0`}>
-                    <span className="text-white font-extrabold text-lg">{s.step}</span>
+              <div
+                key={i}
+                className={`lg:grid lg:grid-cols-12 lg:gap-8 lg:relative ${i > 0 ? "lg:pt-8" : ""} lg:pb-12`}
+                style={{ animation: `fade-in-up 0.6s ease-out ${i * 0.12}s backwards` }}
+              >
+                {/* Number badge (desktop) - floating over line */}
+                <div className="hidden lg:flex lg:col-span-1 justify-center relative">
+                  <div className="sticky top-28">
+                    <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-2xl bg-linear-to-br ${s.color} opacity-60 blur-[1px]`} />
+                    <div className={`relative w-16 h-16 rounded-2xl bg-linear-to-br ${s.color} flex items-center justify-center shadow-xl border-4 border-white z-10`}>
+                      <span className="text-white font-black text-xl">{s.step}</span>
+                    </div>
                   </div>
-                  {i < steps.length - 1 && <div className="w-px flex-1 bg-linear-to-b from-slate-200 to-transparent my-2" />}
                 </div>
 
                 {/* Content */}
-                <div className={`lg:col-span-11 pb-8 sm:pb-12 lg:pb-16`}>
-                  <div className={`p-5 sm:p-6 lg:p-8 rounded-2xl border border-slate-100 card-3d gradient-border ${i % 2 === 1 ? "bg-slate-50/50" : "bg-white"}`}>
-                    <div className="lg:grid lg:grid-cols-5 lg:gap-8 lg:items-center">
-                      {/* Text */}
-                      <div className={`lg:col-span-3 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
-                        <div className="flex items-center gap-3 mb-3 lg:hidden">
-                          <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-linear-to-br ${s.color} flex items-center justify-center`}>
-                            <s.Icon className="w-4 h-4 text-white" />
-                          </div>
-                          <span className="text-[11px] sm:text-xs font-bold text-accent-blue tracking-widest uppercase">STEP {s.step}</span>
-                        </div>
-                        <p className="text-xs font-bold text-accent-blue tracking-widest uppercase mb-2 hidden lg:block">STEP {s.step}</p>
-                        <h3 className="text-base sm:text-lg lg:text-xl font-extrabold text-deep-navy mb-1.5 sm:mb-2">{s.title}</h3>
-                        <p className="text-[13px] sm:text-sm text-slate-700 mb-1.5 sm:mb-2">{s.main}</p>
-                        <p className="text-[11px] sm:text-xs text-slate-500 mb-3 sm:mb-4 leading-relaxed">{s.detail}</p>
-                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                          {s.tags.map((tag) => (
-                            <span key={tag} className="px-2.5 sm:px-3 py-1 bg-slate-50 text-slate-500 text-[10px] sm:text-[11px] rounded-full border border-slate-100 font-medium">{tag}</span>
-                          ))}
-                        </div>
+                <div className="lg:col-span-11">
+                  <div className="relative group">
+                    {/* 3D depth */}
+                    <div className={`absolute inset-0 translate-x-1.5 translate-y-2 rounded-2xl bg-linear-to-br ${s.color} opacity-15 blur-[3px]`} />
+                    <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-2xl bg-linear-to-br ${s.color} opacity-8`} />
+
+                    <div className="relative p-5 sm:p-6 lg:p-8 rounded-2xl border border-white bg-white shadow-xl shadow-deep-navy/5 overflow-hidden group-hover:-translate-y-1 transition-transform duration-300">
+                      {/* Huge background number */}
+                      <div className={`absolute -top-4 -right-4 text-[10rem] font-black bg-linear-to-br ${s.color} bg-clip-text text-transparent opacity-[0.06] leading-none select-none pointer-events-none`}>
+                        {s.step}
                       </div>
-                      {/* Visual */}
-                      <div className={`lg:col-span-2 mt-5 sm:mt-6 lg:mt-0 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                        <div className="relative rounded-xl overflow-hidden aspect-4/3 bg-slate-50">
-                          <Image
-                            src={`/images/stock/${["consultation", "strategy-board", "creative-design", "dashboard", "monitor-data"][i]}.jpg`}
-                            alt={s.title}
-                            fill
-                            className="object-cover"
-                          />
-                          <div className="absolute inset-0 bg-linear-to-t from-deep-navy/20 to-transparent" />
+                      {/* Corner blob */}
+                      <div className={`absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-linear-to-br ${s.color} opacity-10 blur-2xl`} />
+
+                      <div className="relative lg:grid lg:grid-cols-5 lg:gap-8 lg:items-center">
+                        {/* Text */}
+                        <div className={`lg:col-span-3 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+                          <div className="flex items-center gap-3 mb-3 lg:hidden">
+                            <div className="relative w-11 h-11">
+                              <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-linear-to-br ${s.color} opacity-60 blur-[1px]`} />
+                              <div className={`relative w-full h-full rounded-xl bg-linear-to-br ${s.color} flex items-center justify-center shadow-md`}>
+                                <s.Icon className="w-5 h-5 text-white" />
+                              </div>
+                            </div>
+                            <div>
+                              <span className={`text-[11px] font-extrabold bg-linear-to-br ${s.color} bg-clip-text text-transparent tracking-widest uppercase`}>STEP {s.step}</span>
+                            </div>
+                          </div>
+                          <span className={`hidden lg:inline-flex text-xs font-extrabold bg-linear-to-br ${s.color} bg-clip-text text-transparent tracking-widest uppercase mb-2`}>STEP {s.step}</span>
+                          <h3 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-deep-navy mb-2 leading-tight">{s.title}</h3>
+                          <p className="text-[13px] sm:text-sm text-deep-navy font-semibold mb-2 leading-relaxed">{s.main}</p>
+                          <p className="text-[11px] sm:text-xs text-slate-500 mb-4 sm:mb-5 leading-relaxed">{s.detail}</p>
+                          <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                            {s.tags.map((tag) => (
+                              <span
+                                key={tag}
+                                className={`px-2.5 sm:px-3 py-1 bg-linear-to-br ${s.color.replace("500", "50").replace("600", "100").replace("400", "50")} text-[10px] sm:text-[11px] rounded-full border border-slate-100 font-bold`}
+                              >
+                                <span className={`bg-linear-to-br ${s.color} bg-clip-text text-transparent`}>{tag}</span>
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                        {/* Visual - with 3D frame */}
+                        <div className={`lg:col-span-2 mt-5 sm:mt-6 lg:mt-0 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                          <div className="relative">
+                            <div className={`absolute inset-0 translate-x-1 translate-y-2 rounded-xl bg-linear-to-br ${s.color} opacity-20 blur-[2px]`} />
+                            <div className="relative rounded-xl overflow-hidden aspect-4/3 bg-slate-900 shadow-xl border-4 border-white">
+                              <Image
+                                src={`/images/stock/${["consultation", "strategy-board", "creative-design", "dashboard", "monitor-data"][i]}.jpg`}
+                                alt={s.title}
+                                fill
+                                className="object-cover"
+                              />
+                              <div className="absolute inset-0 bg-linear-to-t from-deep-navy/30 to-transparent" />
+                              <div className={`absolute top-2 left-2 w-8 h-8 rounded-lg bg-linear-to-br ${s.color} flex items-center justify-center shadow-lg`}>
+                                <s.Icon className="w-4 h-4 text-white" />
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -218,30 +258,77 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      {/* Summary strip */}
-      <section className="relative py-16 sm:py-20 overflow-hidden">
-        <Image src="/images/stock/team-collab.jpg" alt="" fill className="object-cover" aria-hidden="true" />
-        <div className="absolute inset-0 bg-deep-navy/90" />
+      {/* Summary strip (dark isometric) */}
+      <section className="relative py-16 sm:py-20 lg:py-28 overflow-hidden bg-[#060e1e]">
+        <Image src="/images/stock/team-collab.jpg" alt="" fill className="object-cover opacity-25" aria-hidden="true" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#060e1e] via-[#0a1428]/95 to-[#060e1e]" />
+        <div
+          className="absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage: "linear-gradient(to right, #60a5fa 1px, transparent 1px), linear-gradient(to bottom, #60a5fa 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+          }}
+        />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-75 bg-accent-blue/15 rounded-full blur-[120px]" />
+
         <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
             <div>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-5 sm:mb-6">
+              <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">OUR WAY</p>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-6 leading-tight">
                 단순 집행이 아닌,<br />
-                실행 중심으로 진행합니다
+                <span className="relative inline-block">
+                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">실행 중심</span>
+                  <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/25 z-0 rounded-sm" />
+                </span>
+                으로 진행합니다
               </h2>
-              <div className="space-y-2.5 sm:space-y-3">
-                {["시작 전 방향부터 명확히 정리합니다", "광고 집행 후에도 운영과 보완까지 함께합니다", "모든 과정을 데이터 기반으로 판단합니다"].map((t) => (
-                  <div key={t} className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-accent-blue flex items-center justify-center shrink-0">
-                      <IconCheck className="w-3 h-3 text-white" />
+              <div className="space-y-3 sm:space-y-4">
+                {[
+                  { text: "시작 전 방향부터 명확히 정리합니다", tag: "DIRECTION" },
+                  { text: "광고 집행 후에도 운영과 보완까지 함께합니다", tag: "OPERATION" },
+                  { text: "모든 과정을 데이터 기반으로 판단합니다", tag: "DATA-DRIVEN" },
+                ].map((item, i) => (
+                  <div key={item.text} className="group relative" style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}>
+                    <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
+                    <div className="relative flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 group-hover:border-accent-blue/40 transition-all">
+                      <div className="relative w-9 h-9 sm:w-10 sm:h-10 shrink-0">
+                        <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-lg bg-accent-blue/60 blur-[1px]" />
+                        <div className="relative w-full h-full rounded-lg bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-lg">
+                          <IconCheck className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                        </div>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <span className="text-[9px] sm:text-[10px] font-extrabold text-accent-blue tracking-widest">{item.tag}</span>
+                        <p className="text-[13px] sm:text-sm text-white font-semibold leading-snug">{item.text}</p>
+                      </div>
                     </div>
-                    <p className="text-[13px] sm:text-sm text-slate-200 font-medium">{t}</p>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="hidden lg:block">
-              <IllustPieChart className="w-48 h-48 mx-auto" />
+
+            {/* Isometric pie chart with stats */}
+            <div className="hidden lg:block relative">
+              <div className="absolute inset-0 bg-accent-blue/20 rounded-full blur-3xl" />
+              <div className="relative flex flex-col items-center">
+                <IllustPieChart className="w-48 h-48" />
+                <div className="grid grid-cols-3 gap-3 mt-6 w-full">
+                  {[
+                    { v: "100%", l: "실행" },
+                    { v: "5단계", l: "프로세스" },
+                    { v: "데이터", l: "기반" },
+                  ].map((s, i) => (
+                    <div key={i} className="relative">
+                      <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
+                      <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-2.5 text-center">
+                        <p className="text-sm font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent">{s.v}</p>
+                        <p className="text-[9px] text-slate-400 mt-0.5">{s.l}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

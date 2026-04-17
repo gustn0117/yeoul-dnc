@@ -289,20 +289,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ━━━━━━━━━━━━━ HOW ━━━━━━━━━━━━━ */}
-      <section className="relative py-20 sm:py-24 lg:py-32 overflow-hidden">
-        <Image src="/images/stock/dashboard.jpg" alt="" fill className="object-cover" aria-hidden="true" />
-        <div className="absolute inset-0 bg-[#060e1e]/93" />
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-accent-blue/5 to-transparent" />
+      {/* ━━━━━━━━━━━━━ HOW (isometric glowing steps) ━━━━━━━━━━━━━ */}
+      <section className="relative py-20 sm:py-24 lg:py-32 overflow-hidden bg-[#060e1e]">
+        <Image src="/images/stock/dashboard.jpg" alt="" fill className="object-cover opacity-20" aria-hidden="true" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#060e1e] via-[#0a1428] to-[#060e1e]" />
+        <div
+          className="absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage: "linear-gradient(to right, #60a5fa 1px, transparent 1px), linear-gradient(to bottom, #60a5fa 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+          }}
+        />
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-accent-blue/10 to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-accent-blue/15 rounded-full blur-[120px]" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-14">
-            <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4 justify-center">How</p>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">HOW WE WORK</p>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-4 leading-tight">
               상담만 하는 것이 아니라,<br />
-              실제 실행까지 연결합니다
+              <span className="relative inline-block">
+                <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">실제 실행까지 연결</span>
+                <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/25 z-0 rounded-sm" />
+              </span>
+              합니다
             </h2>
-            <p className="text-slate-400 text-sm max-w-lg mx-auto px-2">
+            <p className="text-slate-400 text-sm max-w-lg mx-auto px-2 leading-relaxed">
               문의 접수 후 업종/예산/목표를 정리하고,<br className="sm:hidden" />
               {" "}맞는 채널 제안부터<br className="hidden sm:inline lg:hidden" />
               {" "}소재 제작, 운영/보완까지 한 번에.
@@ -310,28 +322,57 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            {/* Connecting line */}
-            <div className="absolute top-10 left-[10%] right-[10%] h-px bg-white/8 hidden lg:block" />
+            {/* Connecting line - desktop */}
+            <div className="absolute top-[68px] left-[8%] right-[8%] hidden lg:block">
+              <div className="relative h-0.5">
+                <div className="absolute inset-0 bg-linear-to-r from-transparent via-accent-blue/40 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-r from-transparent via-sky-300/20 to-transparent blur-sm" />
+              </div>
+            </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5">
               {processSteps.map((s, i) => (
-                <div key={i} className={`card-shine glass rounded-2xl p-4 sm:p-6 text-center group hover:bg-white/8 transition-all duration-300 hover:-translate-y-1 ${i === 4 ? "col-span-2 sm:col-span-1 max-w-[calc(50%-6px)] sm:max-w-none mx-auto sm:mx-0" : ""}`}>
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-xl sm:rounded-2xl bg-accent-blue/15 group-hover:bg-accent-blue/30 flex items-center justify-center mb-2.5 sm:mb-3 transition-colors duration-300 relative">
-                    <s.Icon className="w-4 h-4 sm:w-5 sm:h-5 text-accent-blue" />
-                    <div className="absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-accent-blue text-white text-[8px] sm:text-[9px] font-bold flex items-center justify-center">
-                      {i + 1}
+                <div
+                  key={i}
+                  className={`relative group ${i === 4 ? "col-span-2 sm:col-span-1 max-w-[calc(50%-8px)] sm:max-w-none mx-auto sm:mx-0" : ""}`}
+                  style={{ animation: `fade-in-up 0.6s ease-out ${i * 0.1}s backwards` }}
+                >
+                  {/* 3D depth glow */}
+                  <div className="absolute inset-0 translate-y-2 rounded-2xl bg-accent-blue/30 opacity-40 blur-xl group-hover:opacity-70 transition-opacity" />
+
+                  {/* Glass card */}
+                  <div className="relative bg-linear-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-sm rounded-2xl p-5 sm:p-6 text-center border border-white/10 group-hover:border-accent-blue/40 group-hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                    {/* Shine effect */}
+                    <div className="absolute inset-0 bg-linear-to-br from-accent-blue/0 via-accent-blue/5 to-accent-blue/0 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                    {/* Icon with isometric depth */}
+                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4">
+                      <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-2xl bg-linear-to-br from-accent-blue to-blue-600 opacity-50 blur-[1px]" />
+                      <div className="relative w-full h-full rounded-2xl bg-linear-to-br from-accent-blue/20 to-accent-blue/5 border border-accent-blue/30 group-hover:from-accent-blue group-hover:to-blue-600 flex items-center justify-center transition-all duration-500 shadow-lg shadow-accent-blue/20">
+                        <s.Icon className="w-6 h-6 sm:w-7 sm:h-7 text-accent-blue group-hover:text-white transition-colors duration-300" />
+                      </div>
+                      {/* Step number badge */}
+                      <div className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-linear-to-br from-white to-slate-200 text-deep-navy text-[10px] font-black flex items-center justify-center shadow-lg">
+                        {i + 1}
+                      </div>
+                    </div>
+
+                    <p className="text-[13px] sm:text-sm font-extrabold text-white mb-1">{s.title}</p>
+                    <p className="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">{s.sub}</p>
+
+                    {/* Bottom accent */}
+                    <div className="mt-3 pt-3 border-t border-white/5">
+                      <span className="text-[9px] font-bold text-accent-blue tracking-widest">STEP {String(i + 1).padStart(2, "0")}</span>
                     </div>
                   </div>
-                  <p className="text-[11px] sm:text-xs font-bold text-white mb-0.5">{s.title}</p>
-                  <p className="text-[9px] sm:text-[10px] text-slate-500">{s.sub}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="text-center mt-8 sm:mt-10">
-            <Link href="/process" className="group inline-flex items-center gap-2 text-sm text-accent-blue font-semibold hover:gap-3 transition-all">
-              진행절차 보기 <IconArrowRight className="w-3.5 h-3.5" />
+          <div className="text-center mt-10 sm:mt-12">
+            <Link href="/process" className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent-blue/10 hover:bg-accent-blue border border-accent-blue/30 text-sm text-white font-semibold transition-all duration-300">
+              진행절차 자세히 보기 <IconArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
@@ -423,39 +464,84 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ━━━━━━━━━━━━━ TARGET ━━━━━━━━━━━━━ */}
-      <section className="py-20 sm:py-24 lg:py-32 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-5 lg:gap-20 lg:items-center">
-            <div className="lg:col-span-2 mb-10 sm:mb-12 lg:mb-0">
-              <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4">Target</p>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-5">
+      {/* ━━━━━━━━━━━━━ TARGET (isometric check cards) ━━━━━━━━━━━━━ */}
+      <section className="relative py-20 sm:py-24 lg:py-32 bg-linear-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
+        <div className="absolute top-20 left-0 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-violet-100/40 rounded-full blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="lg:grid lg:grid-cols-5 lg:gap-16 lg:items-start">
+            <div className="lg:col-span-2 mb-12 lg:mb-0 lg:sticky lg:top-28">
+              <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">FOR YOU</p>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-5 leading-tight">
                 이런 고민이 있다면,<br />
-                지금 광고 방향부터<br className="hidden sm:inline" />
+                <span className="relative inline-block">
+                  <span className="relative z-10">지금 광고 방향</span>
+                  <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
+                </span>
+                부터<br className="hidden sm:inline" />
                 {" "}다시 점검해야 합니다
               </h2>
-              {/* Target SVG illustration */}
-              <div className="hidden lg:block mb-6">
-                <IllustTarget className="w-48 h-48" />
+              <p className="text-sm text-slate-500 leading-relaxed mb-6">
+                여울디앤씨가 6가지 공통 고민을<br className="sm:hidden" />
+                {" "}해결해드립니다.
+              </p>
+
+              {/* Isometric target mark */}
+              <div className="hidden lg:block mb-8 relative w-48 h-48">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-accent-blue/10 rounded-full blur-2xl" />
+                <div className="relative">
+                  <div className="absolute inset-0 translate-x-2 translate-y-2 rounded-full bg-accent-blue/20 blur-sm" />
+                  <div className="relative w-full h-full rounded-full bg-white border-4 border-accent-blue/10 flex items-center justify-center shadow-xl">
+                    <div className="w-32 h-32 rounded-full border-4 border-accent-blue/20 flex items-center justify-center">
+                      <div className="w-20 h-20 rounded-full border-4 border-accent-blue/40 flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-full bg-linear-to-br from-accent-blue to-blue-600 shadow-lg shadow-accent-blue/40" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <Link href="/contact" className="group inline-flex items-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-linear-to-r from-deep-navy to-slate-800 text-white text-sm font-bold rounded-xl hover:shadow-lg hover:shadow-deep-navy/25 transition-all duration-300">
+
+              <Link href="/contact" className="group inline-flex items-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-linear-to-r from-deep-navy to-slate-800 text-white text-sm font-bold rounded-xl hover:shadow-xl hover:shadow-deep-navy/25 transition-all duration-300">
                 맞는 광고 방향 상담받기 <IconArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
-            <div className="lg:col-span-3 space-y-2.5 sm:space-y-3">
+
+            <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {[
-                "광고는 하고 있는데 문의가 적은 업체",
-                "어떤 광고부터 시작해야 할지 고민인 업체",
-                "제작과 운영을 한 번에 맡기고 싶은 업체",
-                "상담과 방문 전환이 중요한 업종",
-                "기존 고객 재접촉이 필요한 업종",
-                "예산 대비 효율이 중요한 광고주",
-              ].map((text, i) => (
-                <div key={i} className="group flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-white border border-slate-100 hover:border-accent-blue/20 hover:shadow-md hover:shadow-accent-blue/5 transition-all duration-300">
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-accent-blue/6 flex items-center justify-center shrink-0 group-hover:bg-accent-blue transition-all duration-300">
-                    <IconCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent-blue group-hover:text-white transition-colors duration-300" />
+                { text: "광고는 하고 있는데 문의가 적은 업체", color: "from-blue-500 to-indigo-600", tag: "문의 부족" },
+                { text: "어떤 광고부터 시작해야 할지 고민인 업체", color: "from-violet-500 to-purple-600", tag: "초기 진입" },
+                { text: "제작과 운영을 한 번에 맡기고 싶은 업체", color: "from-emerald-500 to-teal-600", tag: "통합 운영" },
+                { text: "상담과 방문 전환이 중요한 업종", color: "from-amber-500 to-orange-500", tag: "전환 중심" },
+                { text: "기존 고객 재접촉이 필요한 업종", color: "from-pink-500 to-rose-500", tag: "재마케팅" },
+                { text: "예산 대비 효율이 중요한 광고주", color: "from-sky-500 to-cyan-500", tag: "효율 관리" },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="group relative"
+                  style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.07}s backwards` }}
+                >
+                  {/* 3D depth */}
+                  <div className={`absolute inset-0 translate-x-1 translate-y-1.5 rounded-xl bg-linear-to-br ${item.color} opacity-25 blur-[2px]`} />
+
+                  <div className="relative bg-white rounded-xl p-4 sm:p-5 border border-white shadow-lg shadow-deep-navy/5 group-hover:-translate-y-0.5 transition-transform duration-300">
+                    <div className="flex items-start gap-3">
+                      {/* Isometric check icon */}
+                      <div className="relative w-10 h-10 shrink-0">
+                        <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-linear-to-br ${item.color} opacity-60 blur-[1px]`} />
+                        <div className={`relative w-full h-full rounded-xl bg-linear-to-br ${item.color} flex items-center justify-center shadow-md`}>
+                          <IconCheck className="w-5 h-5 text-white" />
+                        </div>
+                      </div>
+
+                      <div className="flex-1 min-w-0">
+                        <span className={`inline-block text-[9px] font-extrabold bg-linear-to-br ${item.color} bg-clip-text text-transparent tracking-widest mb-1`}>
+                          {item.tag}
+                        </span>
+                        <p className="text-[13px] sm:text-sm text-deep-navy font-semibold leading-snug">{item.text}</p>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-slate-700 text-[13px] sm:text-sm font-medium">{text}</p>
                 </div>
               ))}
             </div>
@@ -463,35 +549,72 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ━━━━━━━━━━━━━ PORTFOLIO ━━━━━━━━━━━━━ */}
-      <section className="py-20 sm:py-24 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      {/* ━━━━━━━━━━━━━ PORTFOLIO (3D case cards) ━━━━━━━━━━━━━ */}
+      <section className="relative py-20 sm:py-24 lg:py-32 bg-white overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-[0.025]" style={{
+          backgroundImage: "radial-gradient(circle at 20% 30%, #2563eb 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }} />
+
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 sm:mb-14">
             <div>
-              <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4">Portfolio</p>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy">
+              <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">PORTFOLIO</p>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy leading-tight">
                 업종에 맞는<br className="sm:hidden" />
-                {" "}채널 조합과 운영 흐름
+                {" "}<span className="relative inline-block">
+                  <span className="relative z-10">채널 조합과 운영 흐름</span>
+                  <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
+                </span>
               </h2>
             </div>
-            <Link href="/cases" className="group inline-flex items-center gap-2 text-sm text-accent-blue font-semibold mt-3 sm:mt-0 hover:gap-3 transition-all">
+            <Link href="/cases" className="group inline-flex items-center gap-2 text-sm text-accent-blue font-bold mt-3 sm:mt-0 hover:gap-3 transition-all">
               전체 사례 보기 <IconArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-            {caseStudies.map((c, i) => (
-              <div key={i} className="group relative p-6 sm:p-7 rounded-2xl bg-white card-3d gradient-border overflow-hidden">
-                <div className={`absolute top-0 left-0 w-1 h-full ${c.color} rounded-r-full`} />
-                <div className="relative pl-4">
-                  <div className={`inline-block px-3 py-1 rounded-full text-[10px] font-bold text-white ${c.color} mb-3 sm:mb-4`}>
-                    {c.industry}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+            {caseStudies.map((c, i) => {
+              const gradient = c.color.replace("bg-", "from-").replace("-500", "-500 to-") + (c.color.includes("blue") ? "indigo-600" : c.color.includes("emerald") ? "teal-600" : "orange-600");
+              return (
+                <div
+                  key={i}
+                  className="group relative"
+                  style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
+                >
+                  {/* 3D depth */}
+                  <div className={`absolute inset-0 translate-x-1.5 translate-y-2 rounded-2xl bg-linear-to-br ${gradient} opacity-30 blur-[3px]`} />
+                  <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-2xl bg-linear-to-br ${gradient} opacity-15`} />
+
+                  <div className="relative bg-white rounded-2xl p-6 sm:p-7 border border-white shadow-xl shadow-deep-navy/5 overflow-hidden group-hover:-translate-y-1 transition-transform duration-300 min-h-52">
+                    {/* Huge bg number */}
+                    <div className={`absolute -bottom-6 -right-4 text-[8rem] font-black bg-linear-to-br ${gradient} bg-clip-text text-transparent opacity-[0.06] leading-none select-none`}>
+                      {String(i + 1).padStart(2, "0")}
+                    </div>
+                    {/* Corner gradient */}
+                    <div className={`absolute -top-10 -right-10 w-32 h-32 rounded-full bg-linear-to-br ${gradient} opacity-10 blur-2xl`} />
+
+                    <div className="relative">
+                      <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold text-white bg-linear-to-br ${gradient} mb-4 shadow-md`}>
+                        <span className="w-1 h-1 rounded-full bg-white/80" />
+                        {c.industry}
+                      </div>
+                      <p className="text-base font-extrabold text-deep-navy mb-2 leading-tight">{c.channel}</p>
+                      <p className="text-xs text-slate-500 leading-relaxed mb-4">{c.desc}</p>
+
+                      <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                        <span className={`text-[10px] font-extrabold bg-linear-to-br ${gradient} bg-clip-text text-transparent tracking-widest`}>
+                          CASE {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <div className={`w-7 h-7 rounded-full bg-slate-50 group-hover:bg-linear-to-br group-hover:${gradient} flex items-center justify-center transition-all`}>
+                          <IconArrowRight className="w-3 h-3 text-slate-400 group-hover:text-white transition-colors" />
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-sm font-bold text-deep-navy mb-1.5 sm:mb-2">{c.channel}</p>
-                  <p className="text-xs text-slate-500">{c.desc}</p>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

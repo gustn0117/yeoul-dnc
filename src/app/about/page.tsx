@@ -31,22 +31,79 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <Image src="/images/stock/team-collab.jpg" alt="" fill className="object-cover" aria-hidden="true" />
-        <div className="absolute inset-0 bg-deep-navy/88" />
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-accent-blue/8 to-transparent" />
+      <section className="relative overflow-hidden bg-[#060e1e]">
+        <Image src="/images/stock/team-collab.jpg" alt="" fill className="object-cover opacity-30" aria-hidden="true" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#060e1e] via-[#0a1428]/95 to-[#060e1e]" />
+        <div
+          className="absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage: "linear-gradient(to right, #60a5fa 1px, transparent 1px), linear-gradient(to bottom, #60a5fa 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+        <div className="absolute -top-20 right-10 w-96 h-96 bg-accent-blue/15 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 left-10 w-80 h-80 bg-violet-500/10 rounded-full blur-[100px]" />
+
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
-          <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4">About Us</p>
-          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">회사소개</h1>
-          <p className="text-base sm:text-lg text-slate-300/90 max-w-2xl">
-            유입이 끝이 아니라,<br className="sm:hidden" />
-            {" "}상담 전환까지 설계합니다
-          </p>
-          <p className="text-[13px] sm:text-sm text-slate-400/80 mt-2.5 sm:mt-3 max-w-2xl leading-relaxed">
-            여울디앤씨는 업종에 맞는 채널 선택부터<br className="sm:hidden" />
-            {" "}소재 제작, 운영, 보완까지<br className="hidden sm:inline lg:hidden" />
-            {" "}연결하는 온라인 광고 실행 파트너입니다.
-          </p>
+          <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
+                <span className="text-[11px] font-bold text-slate-300 tracking-wider uppercase">About 여울디앤씨</span>
+              </div>
+              <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">
+                유입이 끝이 아니라,<br />
+                <span className="relative inline-block">
+                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">상담 전환</span>
+                  <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/25 z-0 rounded-sm" />
+                </span>
+                까지 설계합니다
+              </h1>
+              <p className="text-[13px] sm:text-base text-slate-300/90 max-w-xl leading-relaxed mb-8">
+                여울디앤씨는 업종에 맞는 채널 선택부터 소재 제작, 운영, 보완까지<br className="hidden sm:inline lg:hidden" />
+                {" "}연결하는 <span className="font-semibold text-white">온라인 광고 실행 파트너</span>입니다.
+              </p>
+              {/* Quick highlight stats */}
+              <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-md">
+                {[
+                  { value: "6+", label: "운영 채널" },
+                  { value: "100+", label: "캠페인" },
+                  { value: "4.8", label: "평균 ROAS" },
+                ].map((s, i) => (
+                  <div key={i} className="relative">
+                    <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
+                    <div className="relative bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-3 text-center">
+                      <p className="text-lg sm:text-xl font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent">{s.value}</p>
+                      <p className="text-[9px] sm:text-[10px] text-slate-400 mt-0.5">{s.label}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Isometric brand mark */}
+            <div className="hidden lg:flex lg:col-span-5 justify-center items-center">
+              <div className="relative w-64 h-64">
+                <div className="absolute inset-0 bg-accent-blue/20 rounded-full blur-3xl" />
+                {/* Orbiting rings */}
+                <div className="absolute inset-0 rounded-full border border-accent-blue/20" />
+                <div className="absolute inset-4 rounded-full border border-accent-blue/15" />
+                <div className="absolute inset-8 rounded-full border border-accent-blue/10" />
+                {/* Center mark */}
+                <div className="absolute inset-12 rounded-full bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 flex items-center justify-center shadow-2xl">
+                  <div className="text-center">
+                    <p className="text-[10px] font-extrabold text-accent-blue tracking-[0.3em]">여울</p>
+                    <p className="text-2xl font-extrabold text-white">D&C</p>
+                    <div className="mt-1.5 w-8 h-0.5 bg-accent-blue mx-auto" />
+                  </div>
+                </div>
+                {/* Orbital dots */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-accent-blue shadow-lg shadow-accent-blue/50" style={{ animation: "float 4s ease-in-out infinite" }} />
+                <div className="absolute bottom-4 right-4 w-2.5 h-2.5 rounded-full bg-sky-400 shadow-lg" style={{ animation: "float 5s ease-in-out infinite 1s" }} />
+                <div className="absolute left-2 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-violet-400 shadow-lg" style={{ animation: "float 4.5s ease-in-out infinite 2s" }} />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -141,93 +198,230 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. Strengths + image */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      {/* 3. Strengths + image (isometric numbered list + floating dashboard) */}
+      <section className="relative py-16 sm:py-20 lg:py-28 bg-white overflow-hidden">
+        <div className="absolute top-1/2 -translate-y-1/2 right-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
-            <div className="mb-10 lg:mb-0">
-              <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4">Strengths</p>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4">
+            <div className="mb-12 lg:mb-0">
+              <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">STRENGTHS</p>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
                 채널만 운영하는 것이 아니라,<br />
-                업종에 맞는 구조까지<br className="sm:hidden" />
+                <span className="relative inline-block">
+                  <span className="relative z-10">업종에 맞는 구조</span>
+                  <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
+                </span>
+                까지<br className="sm:hidden" />
                 {" "}함께 설계합니다
               </h2>
               <p className="text-[13px] sm:text-sm text-slate-500 mb-6 sm:mb-8 leading-relaxed">
-                분양/병원/지역 자영업처럼<br className="sm:hidden" />
-                {" "}상담과 방문 전환이 중요한 업종은<br className="hidden sm:inline lg:hidden" />
+                분양/병원/지역 자영업처럼 상담과 방문 전환이 중요한 업종은<br className="hidden sm:inline lg:hidden" />
                 {" "}매체 조합과 후속 운영 방식이 중요합니다.
               </p>
-              <div className="space-y-2.5 sm:space-y-3">
-                {strengths.map((text) => (
-                  <div key={text} className="flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-xl border border-slate-100 hover:border-accent-blue/15 transition-all duration-300">
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-accent-blue flex items-center justify-center shrink-0">
-                      <IconCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
+              <div className="space-y-3 sm:space-y-4">
+                {[
+                  { text: "업종별 타겟 이해", color: "from-blue-500 to-indigo-600", num: "01" },
+                  { text: "소재 제작과 운영 통합", color: "from-violet-500 to-purple-600", num: "02" },
+                  { text: "문의 이후 재접촉까지 고려한 설계", color: "from-emerald-500 to-teal-600", num: "03" },
+                ].map((item, i) => (
+                  <div
+                    key={item.text}
+                    className="group relative"
+                    style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
+                  >
+                    <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-xl bg-linear-to-br ${item.color} opacity-20`} />
+                    <div className="relative flex items-center gap-4 p-4 sm:p-5 rounded-xl bg-white border border-slate-100 shadow-sm group-hover:shadow-lg group-hover:-translate-y-0.5 transition-all duration-300">
+                      {/* Big number */}
+                      <div className={`text-3xl sm:text-4xl font-black bg-linear-to-br ${item.color} bg-clip-text text-transparent leading-none tracking-tight shrink-0`}>
+                        {item.num}
+                      </div>
+                      {/* Divider */}
+                      <div className={`w-0.5 h-10 bg-linear-to-b ${item.color} rounded-full shrink-0`} />
+                      <div className="flex-1">
+                        <p className="text-[13px] sm:text-sm text-deep-navy font-bold">{item.text}</p>
+                      </div>
+                      {/* Check badge */}
+                      <div className={`w-9 h-9 rounded-xl bg-linear-to-br ${item.color} flex items-center justify-center shadow-md shrink-0`}>
+                        <IconCheck className="w-4 h-4 text-white" />
+                      </div>
                     </div>
-                    <p className="text-slate-700 text-[13px] sm:text-sm font-medium">{text}</p>
                   </div>
                 ))}
               </div>
             </div>
-            {/* Visual side */}
+
+            {/* Visual side with layered mockups */}
             <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/15 ring-1 ring-white/50">
                 <Image src="/images/stock/strategy-board.jpg" alt="전략 회의" width={800} height={533} className="w-full h-auto" />
+                <div className="absolute inset-0 bg-linear-to-t from-deep-navy/20 to-transparent" />
               </div>
-              {/* Floating pie chart */}
-              <div className="absolute -bottom-8 -left-8 hidden lg:block animate-float-slow">
-                <IllustPieChart className="w-40 h-40 drop-shadow-xl" />
+
+              {/* Floating dashboard card (top right) */}
+              <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl shadow-blue-900/15 p-4 border border-blue-100 w-52 animate-float hidden sm:block">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-[10px] font-bold text-slate-400 tracking-wider">CAMPAIGN</p>
+                  <span className="flex items-center gap-1 text-[9px] font-bold text-emerald-500">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-soft" />
+                    LIVE
+                  </span>
+                </div>
+                <p className="text-xs font-extrabold text-deep-navy mb-2">분양 캠페인 #12</p>
+                <div className="flex items-end gap-1 h-10 mb-2">
+                  {[30, 50, 40, 65, 55, 75, 80, 90].map((h, i) => (
+                    <div key={i} className="flex-1 rounded-t bg-linear-to-t from-accent-blue to-sky-400" style={{ height: `${h}%` }} />
+                  ))}
+                </div>
+                <div className="flex items-baseline justify-between">
+                  <span className="text-[10px] text-slate-400">ROAS</span>
+                  <span className="text-sm font-extrabold text-accent-blue">4.8배 ↑</span>
+                </div>
+              </div>
+
+              {/* Floating pie chart (bottom left) */}
+              <div className="absolute -bottom-6 -left-6 hidden lg:block animate-float-slow">
+                <IllustPieChart className="w-40 h-40 drop-shadow-2xl" />
+              </div>
+
+              {/* Floating stat card (bottom right) */}
+              <div className="absolute -bottom-4 right-8 bg-white rounded-xl shadow-xl shadow-blue-900/15 p-3 border border-blue-100 hidden sm:block" style={{ animation: "float 5s ease-in-out infinite 1s" }}>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-linear-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                    <IconCheck className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-[9px] text-slate-400">전환 달성</p>
+                    <p className="text-xs font-extrabold text-deep-navy">128건</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. Work environment */}
-      <section className="relative py-16 sm:py-20 lg:py-28 overflow-hidden">
-        <Image src="/images/stock/work-desk.jpg" alt="" fill className="object-cover" aria-hidden="true" />
-        <div className="absolute inset-0 bg-deep-navy/88" />
-        <div className="relative max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-4">
+      {/* 4. Work environment (isometric platform grid) */}
+      <section className="relative py-16 sm:py-20 lg:py-28 overflow-hidden bg-[#060e1e]">
+        <Image src="/images/stock/work-desk.jpg" alt="" fill className="object-cover opacity-25" aria-hidden="true" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#060e1e] via-[#0a1428] to-[#060e1e]" />
+        <div
+          className="absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage: "linear-gradient(to right, #60a5fa 1px, transparent 1px), linear-gradient(to bottom, #60a5fa 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-75 bg-accent-blue/15 rounded-full blur-[120px]" />
+
+        <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
+          <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">TEAM</p>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-4 leading-tight">
             전략을 세우고, 빠르게 실행하고,<br />
-            데이터로 보완하는 팀
+            <span className="relative inline-block">
+              <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">데이터로 보완</span>
+              <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/25 z-0 rounded-sm" />
+            </span>
+            하는 팀
           </h2>
-          <p className="text-[13px] sm:text-sm text-slate-400 max-w-lg mx-auto mb-8 leading-relaxed">
+          <p className="text-[13px] sm:text-sm text-slate-400 max-w-lg mx-auto mb-10 sm:mb-12 leading-relaxed">
             회의/기획/모니터링/리포트 중심으로<br className="sm:hidden" />
             {" "}움직이는 실행 조직입니다.
           </p>
-          {/* Platform logos */}
-          <div className="flex justify-center gap-3 sm:gap-4 flex-wrap">
-            {["naver", "kakaotalk", "meta", "youtube", "google", "instagram"].map((name) => (
-              <div key={name} className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10">
-                <img src={`/images/logos/${name}.svg`} alt={name} className="h-3.5 sm:h-4 w-auto brightness-0 invert opacity-60" />
+
+          {/* Isometric platform cards grid */}
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 sm:gap-4 max-w-2xl mx-auto mb-10">
+            {[
+              { name: "naver", color: "from-green-500 to-emerald-600" },
+              { name: "kakaotalk", color: "from-yellow-400 to-amber-500" },
+              { name: "meta", color: "from-blue-500 to-indigo-600" },
+              { name: "youtube", color: "from-red-500 to-rose-600" },
+              { name: "google", color: "from-sky-500 to-blue-500" },
+              { name: "instagram", color: "from-pink-500 to-rose-500" },
+            ].map((p, i) => (
+              <div key={p.name} className="relative group" style={{ animation: `float ${4 + (i % 3)}s ease-in-out infinite ${i * 0.3}s` }}>
+                {/* Glow */}
+                <div className={`absolute inset-0 rounded-2xl bg-linear-to-br ${p.color} opacity-20 blur-xl group-hover:opacity-50 transition-opacity`} />
+                {/* Depth layer */}
+                <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-2xl bg-linear-to-br ${p.color} opacity-60`} />
+                {/* Front card */}
+                <div className="relative w-full aspect-square rounded-2xl bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 flex items-center justify-center shadow-xl group-hover:-translate-y-1 transition-transform duration-300">
+                  <img src={`/images/logos/${p.name}.svg`} alt={p.name} className="h-6 sm:h-7 w-auto brightness-0 invert" />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Team stats */}
+          <div className="grid grid-cols-3 gap-3 sm:gap-6 max-w-xl mx-auto pt-8 border-t border-white/10">
+            {[
+              { value: "6+", label: "운영 플랫폼" },
+              { value: "100+", label: "누적 캠페인" },
+              { value: "4.8", label: "평균 ROAS" },
+            ].map((s, i) => (
+              <div key={i} className="text-center">
+                <p className="text-2xl sm:text-3xl font-extrabold bg-linear-to-br from-white to-slate-300 bg-clip-text text-transparent">{s.value}</p>
+                <p className="text-[10px] sm:text-xs text-slate-500 mt-1">{s.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 5. Case summary */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      {/* 5. Case summary (3D isometric) */}
+      <section className="relative py-16 sm:py-20 lg:py-28 bg-linear-to-b from-white via-[#f5f9ff] to-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-100/30 rounded-full blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14">
-            <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4 justify-center">Cases</p>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4">
+            <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">CASES</p>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
               업종별 목적에 따라<br />
-              필요한 채널과 운영 방식은 달라집니다
+              <span className="relative inline-block">
+                <span className="relative z-10">필요한 채널과 운영 방식</span>
+                <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
+              </span>
+              은 달라집니다
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-            {caseSummary.map((c) => (
-              <div key={c.industry} className="p-5 sm:p-6 rounded-2xl border border-slate-100 card-3d gradient-border">
-                <div className="flex items-center gap-2 mb-3">
-                  {c.logos.map((logo) => (
-                    <img key={logo} src={`/images/logos/${logo}.svg`} alt={logo} className="h-4 w-auto" />
-                  ))}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+            {caseSummary.map((c, i) => {
+              const colors = ["from-blue-500 to-indigo-600", "from-emerald-500 to-teal-600", "from-orange-500 to-red-500"];
+              const color = colors[i % 3];
+              return (
+                <div
+                  key={c.industry}
+                  className="group relative"
+                  style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
+                >
+                  {/* 3D depth */}
+                  <div className={`absolute inset-0 translate-x-1.5 translate-y-2 rounded-2xl bg-linear-to-br ${color} opacity-25 blur-[2px]`} />
+                  <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-2xl bg-linear-to-br ${color} opacity-15`} />
+
+                  <div className="relative bg-white p-6 sm:p-7 rounded-2xl border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden min-h-48">
+                    <div className={`absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-linear-to-br ${color} opacity-10 blur-2xl`} />
+
+                    <div className="relative">
+                      <div className={`inline-flex items-center gap-1 mb-3 px-2.5 py-1 rounded-full bg-linear-to-br ${color} shadow-sm`}>
+                        <span className="text-[10px] font-extrabold text-white tracking-wider uppercase">{c.industry}</span>
+                      </div>
+                      <div className="flex items-center gap-2 mb-3 bg-slate-50 rounded-lg px-2.5 py-1.5 w-fit">
+                        {c.logos.map((logo) => (
+                          <img key={logo} src={`/images/logos/${logo}.svg`} alt={logo} className="h-4 w-auto" />
+                        ))}
+                      </div>
+                      <p className="text-[13px] sm:text-sm text-slate-600 leading-relaxed mb-4">{c.desc}</p>
+                      <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                        <span className={`text-[10px] font-extrabold bg-linear-to-br ${color} bg-clip-text text-transparent tracking-widest`}>
+                          CASE {String(i + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-xs font-bold text-accent-blue tracking-wider uppercase mb-1.5 sm:mb-2">{c.industry}</p>
-                <p className="text-[13px] sm:text-sm text-slate-600 leading-relaxed">{c.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

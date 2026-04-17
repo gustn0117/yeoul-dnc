@@ -800,54 +800,100 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ━━━━ 업종별 맞춤 + 운영방식 요약 ━━━━ */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-16">
+      {/* ━━━━ 업종별 맞춤 + 운영방식 요약 (isometric) ━━━━ */}
+      <section className="relative py-16 sm:py-20 lg:py-28 bg-linear-to-b from-white via-[#f5f9ff] to-white overflow-hidden">
+        <div className="absolute top-40 right-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-0 w-80 h-80 bg-violet-100/20 rounded-full blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
             {/* 업종별 */}
             <div className="mb-12 lg:mb-0">
-              <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4">Industry</p>
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-deep-navy mb-5 sm:mb-6">
+              <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">INDUSTRY</p>
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-deep-navy mb-6 leading-tight">
                 같은 광고라도, 업종이 다르면<br />
-                설계가 달라집니다
+                <span className="relative inline-block">
+                  <span className="relative z-10">설계가 달라집니다</span>
+                  <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
+                </span>
               </h2>
-              <div className="space-y-2.5 sm:space-y-3">
+              <div className="space-y-3">
                 {[
-                  { industry: "분양", desc: "DB 유입과 후속 문자 구조", logos: ["meta"] },
-                  { industry: "병원", desc: "예약 문의와 신뢰 형성", logos: ["naver", "instagram"] },
-                  { industry: "교육", desc: "수강 상담, 카카오 채널 연결", logos: ["kakaotalk"] },
-                  { industry: "지역 자영업", desc: "생활권 고객 유입", logos: ["danggeun"] },
-                  { industry: "상담형 서비스", desc: "문의 전환, 리드폼 활용", logos: ["google"] },
-                ].map((item) => (
-                  <div key={item.industry} className="flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-100 hover:border-accent-blue/15 transition-all duration-300">
-                    <div className="flex items-center gap-1.5 shrink-0">
-                      {item.logos.map((l) => <img key={l} src={`/images/logos/${l}.svg`} alt={l} className="h-3.5 sm:h-4 w-auto" />)}
-                    </div>
-                    <div>
-                      <p className="text-[12px] sm:text-xs font-bold text-deep-navy">{item.industry}</p>
-                      <p className="text-[11px] text-slate-400">{item.desc}</p>
+                  { industry: "분양", desc: "DB 유입과 후속 문자 구조", logos: ["meta"], color: "from-blue-500 to-indigo-600" },
+                  { industry: "병원", desc: "예약 문의와 신뢰 형성", logos: ["naver", "instagram"], color: "from-emerald-500 to-teal-600" },
+                  { industry: "교육", desc: "수강 상담, 카카오 채널 연결", logos: ["kakaotalk"], color: "from-amber-500 to-orange-500" },
+                  { industry: "지역 자영업", desc: "생활권 고객 유입", logos: ["danggeun"], color: "from-orange-500 to-red-500" },
+                  { industry: "상담형 서비스", desc: "문의 전환, 리드폼 활용", logos: ["google"], color: "from-sky-500 to-blue-500" },
+                ].map((item, i) => (
+                  <div
+                    key={item.industry}
+                    className="group relative"
+                    style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.08}s backwards` }}
+                  >
+                    <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-xl bg-linear-to-br ${item.color} opacity-15`} />
+                    <div className="relative flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-white border border-white shadow-md shadow-deep-navy/5 group-hover:-translate-y-0.5 transition-transform duration-300">
+                      {/* Large industry number */}
+                      <div className={`text-2xl font-black bg-linear-to-br ${item.color} bg-clip-text text-transparent shrink-0 leading-none tracking-tight`}>
+                        {String(i + 1).padStart(2, "0")}
+                      </div>
+                      {/* Logos */}
+                      <div className="flex items-center gap-1.5 shrink-0 bg-slate-50 rounded-lg px-2 py-1.5">
+                        {item.logos.map((l) => <img key={l} src={`/images/logos/${l}.svg`} alt={l} className="h-3.5 sm:h-4 w-auto" />)}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-[12px] sm:text-sm font-extrabold text-deep-navy">{item.industry}</p>
+                        <p className="text-[10px] sm:text-[11px] text-slate-400">{item.desc}</p>
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
+
             {/* 운영방식 */}
             <div>
-              <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4">Process</p>
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-deep-navy mb-5 sm:mb-6">
+              <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">PROCESS</p>
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-deep-navy mb-6 leading-tight">
                 분석부터 제작, 운영,<br className="sm:hidden" />
-                {" "}보완까지 한 번에
+                {" "}<span className="relative inline-block">
+                  <span className="relative z-10">보완까지 한 번에</span>
+                  <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
+                </span>
               </h2>
-              <div className="relative rounded-2xl overflow-hidden mb-5 sm:mb-6">
-                <Image src="/images/stock/monitor-data.jpg" alt="데이터 모니터링" width={800} height={500} className="w-full h-auto" />
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {["전략 수립", "소재 제작", "채널 세팅", "운영 및 최적화", "결과 체크"].map((step, i) => (
-                  <div key={step} className="flex items-center gap-1.5">
-                    <span className="px-2.5 sm:px-3 py-1.5 bg-accent-blue/8 text-accent-blue text-[11px] sm:text-xs font-semibold rounded-lg">{step}</span>
-                    {i < 4 && <span className="text-slate-300 text-xs">→</span>}
+
+              {/* 3D framed image */}
+              <div className="relative mb-6 group">
+                <div className="absolute inset-0 translate-x-2 translate-y-3 rounded-2xl bg-linear-to-br from-accent-blue to-blue-600 opacity-20 blur-[3px]" />
+                <div className="relative rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                  <Image src="/images/stock/monitor-data.jpg" alt="데이터 모니터링" width={800} height={500} className="w-full h-auto" />
+                  <div className="absolute inset-0 bg-linear-to-t from-deep-navy/40 via-transparent to-transparent" />
+                  {/* Floating stats */}
+                  <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm rounded-lg px-2.5 py-1.5 shadow-lg">
+                    <p className="text-[9px] text-slate-400 font-medium">LIVE</p>
+                    <p className="text-xs font-extrabold text-accent-blue flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-soft" /> 최적화 중
+                    </p>
                   </div>
-                ))}
+                </div>
+              </div>
+
+              {/* Step chips */}
+              <div className="space-y-2">
+                {["전략 수립", "소재 제작", "채널 세팅", "운영 및 최적화", "결과 체크"].map((step, i) => {
+                  const colors = ["from-blue-500 to-indigo-600", "from-violet-500 to-purple-600", "from-emerald-500 to-teal-600", "from-amber-500 to-orange-500", "from-pink-500 to-rose-500"];
+                  const color = colors[i];
+                  return (
+                    <div key={step} className="flex items-center gap-2">
+                      <div className={`w-8 h-8 rounded-lg bg-linear-to-br ${color} flex items-center justify-center shadow-md shrink-0`}>
+                        <span className="text-white text-[10px] font-black">{i + 1}</span>
+                      </div>
+                      <span className="text-[12px] sm:text-sm font-bold text-deep-navy">{step}</span>
+                      {i < 4 && (
+                        <div className="flex-1 h-px bg-linear-to-r from-slate-200 to-transparent" />
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
