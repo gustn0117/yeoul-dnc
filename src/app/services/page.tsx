@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import SectionCTA from "@/components/SectionCTA";
-import { IconCheck, IconArrowRight } from "@/components/Icons";
+import { IconCheck, IconArrowRight, IconMail, IconBuilding } from "@/components/Icons";
 
 export const metadata: Metadata = {
   title: "광고상품 / 서비스 | 여울디앤씨",
@@ -359,44 +359,91 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ━━━━ 카카오 ━━━━ */}
+      {/* ━━━━ 카카오 (tilted phone style) ━━━━ */}
       <section className="py-16 sm:py-20 lg:py-28 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
-            <div className="relative mb-10 sm:mb-12 lg:mb-0">
-              <div className="bg-linear-to-br from-yellow-50 to-amber-50/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12">
-                <div className="flex items-center gap-3 mb-4 sm:mb-5">
-                  <Logo name="kakaotalk" className="h-6 sm:h-7 w-auto" />
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-100 rounded-full">
-                    <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                    <span className="text-[10px] font-bold text-amber-700">상담 유입형</span>
+          <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
+            {/* Tilted kakao phone */}
+            <div className="lg:col-span-5 order-1 relative mb-12 lg:mb-0">
+              <div className="relative mx-auto max-w-sm aspect-square">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] rounded-3xl bg-linear-to-br from-yellow-50 to-amber-50/60" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-amber-400/15 rounded-full blur-3xl" />
+
+                {/* Phone */}
+                <div
+                  className="absolute top-1/2 left-1/2 w-48 sm:w-56 aspect-[9/19] z-20"
+                  style={{ transform: "translate(-50%, -50%) rotate(12deg)", animation: "float 6s ease-in-out infinite" }}
+                >
+                  <div className="relative w-full h-full rounded-[28px] bg-slate-900 shadow-2xl shadow-amber-900/25 p-1.5 border border-slate-700">
+                    <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-white">
+                      <Image src="/images/stock/kakao-chat.jpg" alt="" fill className="object-cover" />
+                      {/* Fake chat bubble overlay */}
+                      <div className="absolute top-3 left-2 right-2 space-y-1.5">
+                        <div className="flex justify-start">
+                          <div className="bg-white/90 rounded-lg px-2 py-1 text-[7px] text-slate-700 shadow-sm">상담 문의드립니다</div>
+                        </div>
+                        <div className="flex justify-end">
+                          <div className="bg-[#FEE500] rounded-lg px-2 py-1 text-[7px] text-slate-800 shadow-sm">안녕하세요! 편하게 말씀해주세요 😊</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-16 h-3.5 bg-slate-900 rounded-full" />
                   </div>
                 </div>
-                <h3 className="text-base sm:text-lg font-extrabold text-deep-navy mb-3">
-                  카카오톡 기반<br />상담 유입과 재접촉
-                </h3>
-                <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-xl">
-                  <Image src="/images/stock/kakao-chat.jpg" alt="카카오 광고" width={900} height={600} className="w-full h-auto" />
+
+                {/* Kakao logo floating */}
+                <div className="absolute top-6 right-4 w-14 h-14 bg-[#FEE500] rounded-2xl shadow-xl shadow-amber-900/15 flex items-center justify-center z-30 animate-float-slow" style={{ transform: "rotate(-8deg)" }}>
+                  <svg className="w-8 h-8 text-[#3C1E1E]" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3C6.48 3 2 6.58 2 10.9c0 2.78 1.8 5.22 4.51 6.6-.2.73-.72 2.65-.82 3.06-.13.52.19.51.4.37.17-.11 2.69-1.83 3.78-2.57.69.1 1.4.15 2.13.15 5.52 0 10-3.58 10-7.9S17.52 3 12 3z" />
+                  </svg>
+                </div>
+                <div className="absolute bottom-8 left-4 bg-white rounded-xl shadow-lg shadow-amber-900/10 px-3 py-2 border border-amber-100 z-30" style={{ animation: "float 5s ease-in-out infinite 1s" }}>
+                  <p className="text-[9px] text-slate-400">상담 유입</p>
+                  <p className="text-sm font-extrabold text-amber-600">실시간 ↑</p>
                 </div>
               </div>
             </div>
-            <div>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-3 sm:mb-4">카카오 광고</h2>
-              <p className="text-[13px] sm:text-sm text-slate-500 mb-5 sm:mb-6 leading-relaxed">
-                빠른 커뮤니케이션이 중요한 업종에서<br className="sm:hidden" />
-                {" "}카카오톡 채널을 활용해<br className="hidden sm:inline lg:hidden" />
-                {" "}상담 유입부터 기존 고객 재접촉까지 운영합니다.
+
+            {/* Info */}
+            <div className="lg:col-span-7 order-2">
+              <p className="text-[11px] font-bold text-slate-400 tracking-[0.2em] uppercase mb-3">
+                <span className="text-accent-blue">상담 유입형</span>  ·  카카오 마케팅
               </p>
-              <div className="bg-slate-50 rounded-xl p-3.5 sm:p-4 mb-5 sm:mb-6">
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">운영 상품</p>
-                <div className="flex flex-wrap gap-1.5"><Tag>키워드 광고</Tag><Tag>디스플레이 광고</Tag><Tag>카카오톡 채널 메시지</Tag><Tag>비즈메시지</Tag></div>
+              <p className="text-sm text-slate-500 mb-2">빠른 커뮤니케이션이 중요한 업종에</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-extrabold leading-tight text-deep-navy mb-5">
+                카카오톡 채널 기반<br />
+                <span className="inline-flex items-center gap-2 mt-1">
+                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[#FEE500]">
+                    <svg className="w-5 h-5 text-[#3C1E1E]" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 3C6.48 3 2 6.58 2 10.9c0 2.78 1.8 5.22 4.51 6.6-.2.73-.72 2.65-.82 3.06-.13.52.19.51.4.37.17-.11 2.69-1.83 3.78-2.57.69.1 1.4.15 2.13.15 5.52 0 10-3.58 10-7.9S17.52 3 12 3z" />
+                    </svg>
+                  </span>
+                  <span className="text-[#FBB034]">상담 유입</span>과{" "}
+                  <span className="text-[#FBB034]">재접촉</span>
+                </span>
+              </h2>
+              <p className="text-[13px] sm:text-sm text-slate-500 leading-relaxed mb-6">
+                <span className="font-semibold text-deep-navy">카카오톡 채널을 활용</span>해 상담 유입부터 기존 고객 재접촉까지 운영합니다.
+                키워드 광고와 채널 메시지를 결합해 빠른 전환을 유도합니다.
+              </p>
+              <div className="space-y-3 mb-6">
+                {[
+                  "상담 유입이 중요한 업종에 최적화",
+                  "기존 고객 재접촉 및 후속 메시지 발송",
+                  "카카오톡 채널 연동으로 빠른 커뮤니케이션",
+                ].map((text) => (
+                  <div key={text} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center shrink-0 mt-0.5">
+                      <IconCheck className="w-3 h-3 text-amber-600" />
+                    </div>
+                    <p className="text-[13px] sm:text-sm text-slate-700 leading-relaxed">{text}</p>
+                  </div>
+                ))}
               </div>
-              <ul className="space-y-2 text-amber-700 mb-5 sm:mb-6">
-                <Bullet color="text-amber-700">상담 유입이 중요한 업종에 최적화</Bullet>
-                <Bullet color="text-amber-700">기존 고객 재접촉 및 후속 메시지 발송</Bullet>
-                <Bullet color="text-amber-700">카카오톡 채널 연동으로 빠른 커뮤니케이션</Bullet>
-              </ul>
-              <Link href="/contact" className="group inline-flex items-center gap-2 text-sm text-amber-600 font-semibold hover:gap-3 transition-all">
+              <div className="flex flex-wrap gap-1.5 mb-6">
+                <Tag>키워드 광고</Tag><Tag>디스플레이 광고</Tag><Tag>카카오톡 채널 메시지</Tag><Tag>비즈메시지</Tag>
+              </div>
+              <Link href="/contact" className="group inline-flex items-center gap-2 text-sm text-amber-600 font-bold hover:gap-3 transition-all">
                 카카오 광고 상담받기 <IconArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -404,44 +451,106 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ━━━━ 유튜브 ━━━━ */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-slate-50 overflow-hidden">
+      {/* ━━━━ 유튜브 (tilted video thumbnail) ━━━━ */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-linear-to-br from-[#fff5f5] via-white to-[#fef2f2] overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
-            <div className="order-2 lg:order-1">
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-3 sm:mb-4">유튜브 광고</h2>
-              <p className="text-[13px] sm:text-sm text-slate-500 mb-5 sm:mb-6 leading-relaxed">
-                영상 중심으로 브랜드를 알리고<br className="sm:hidden" />
-                {" "}신뢰를 쌓는 광고입니다.<br className="hidden sm:inline lg:hidden" />
-                {" "}인스트림, 범퍼, Shorts 등 다양한 형태로 운영합니다.
+          <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
+            {/* Info */}
+            <div className="lg:col-span-7 order-2 lg:order-1 mt-12 lg:mt-0">
+              <p className="text-[11px] font-bold text-slate-400 tracking-[0.2em] uppercase mb-3">
+                <span className="text-accent-blue">브랜드 인지도</span>  ·  유튜브 마케팅
               </p>
-              <div className="bg-white rounded-xl p-3.5 sm:p-4 border border-slate-100 mb-5 sm:mb-6">
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">운영 상품</p>
-                <div className="flex flex-wrap gap-1.5"><Tag>인스트림 광고</Tag><Tag>범퍼 광고</Tag><Tag>인피드 광고</Tag><Tag>Shorts 광고</Tag></div>
+              <p className="text-sm text-slate-500 mb-2">영상으로 전하는 브랜드 신뢰</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-extrabold leading-tight text-deep-navy mb-5">
+                영상 중심 광고로<br />
+                <span className="inline-flex items-center gap-2 mt-1">
+                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[#FF0000]">
+                    <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                  <span className="text-[#FF0000]">유튜브 마케팅</span>
+                </span>
+              </h2>
+              <p className="text-[13px] sm:text-sm text-slate-500 leading-relaxed mb-6">
+                <span className="font-semibold text-deep-navy">인스트림 · 범퍼 · Shorts</span> 등 다양한 포맷으로
+                브랜드 인지도와 신뢰를 동시에 확보합니다.
+              </p>
+
+              {/* 3 format cards */}
+              <div className="grid grid-cols-3 gap-2.5 sm:gap-3 mb-6">
+                {[
+                  { label: "인스트림", desc: "5초 후 건너뛰기", color: "from-red-500 to-rose-500" },
+                  { label: "범퍼", desc: "6초 짧은 광고", color: "from-orange-500 to-red-500" },
+                  { label: "Shorts", desc: "모바일 세로형", color: "from-pink-500 to-rose-500" },
+                ].map((f) => (
+                  <div key={f.label} className="bg-white rounded-xl p-3 border border-slate-100 text-center shadow-sm">
+                    <div className={`w-9 h-9 mx-auto rounded-lg bg-linear-to-br ${f.color} flex items-center justify-center mb-2 shadow-md`}>
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                    </div>
+                    <p className="text-[11px] sm:text-xs text-deep-navy font-bold">{f.label}</p>
+                    <p className="text-[9px] sm:text-[10px] text-slate-400">{f.desc}</p>
+                  </div>
+                ))}
               </div>
-              <ul className="space-y-2 text-red-700 mb-5 sm:mb-6">
-                <Bullet color="text-red-700">브랜드 인지도를 높이고 싶은 경우</Bullet>
-                <Bullet color="text-red-700">영상 콘텐츠 활용이 가능한 업종</Bullet>
-                <Bullet color="text-red-700">신뢰감 형성이 중요한 업종에 효과적</Bullet>
-              </ul>
-              <Link href="/contact" className="group inline-flex items-center gap-2 text-sm text-red-600 font-semibold hover:gap-3 transition-all">
+
+              <div className="space-y-2 mb-6">
+                {[
+                  "브랜드 인지도를 높이고 싶은 경우",
+                  "영상 콘텐츠 활용이 가능한 업종",
+                  "신뢰감 형성이 중요한 업종에 효과적",
+                ].map((text) => (
+                  <div key={text} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5">
+                      <IconCheck className="w-3 h-3 text-red-600" />
+                    </div>
+                    <p className="text-[13px] sm:text-sm text-slate-700">{text}</p>
+                  </div>
+                ))}
+              </div>
+              <Link href="/contact" className="group inline-flex items-center gap-2 text-sm text-red-600 font-bold hover:gap-3 transition-all">
                 유튜브 광고 상담받기 <IconArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
-            <div className="relative mb-10 sm:mb-12 lg:mb-0 order-1 lg:order-2">
-              <div className="bg-linear-to-br from-red-50 to-rose-50/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12">
-                <div className="flex items-center gap-3 mb-4 sm:mb-5">
-                  <Logo name="youtube" className="h-4 sm:h-5 w-auto" />
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-red-100 rounded-full">
-                    <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                    <span className="text-[10px] font-bold text-red-700">브랜드 인지도</span>
+
+            {/* Tilted video thumbnail stack */}
+            <div className="lg:col-span-5 order-1 lg:order-2 relative">
+              <div className="relative mx-auto max-w-sm aspect-square">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-red-400/15 rounded-full blur-3xl" />
+
+                {/* Back video card */}
+                <div className="absolute top-[15%] right-[4%] w-44 sm:w-52 aspect-video z-10" style={{ transform: "rotate(8deg)", animation: "float 6s ease-in-out infinite" }}>
+                  <div className="relative w-full h-full rounded-xl overflow-hidden shadow-xl shadow-red-900/15 bg-slate-900 border border-slate-700">
+                    <Image src="/images/stock/youtube-video.jpg" alt="" fill className="object-cover" />
+                    <div className="absolute inset-0 bg-black/30" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center shadow-lg">
+                        <svg className="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <h3 className="text-base sm:text-lg font-extrabold text-deep-navy mb-3">
-                  영상으로 전하는<br />브랜드 신뢰
-                </h3>
-                <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-xl">
-                  <Image src="/images/stock/youtube-video.jpg" alt="유튜브 광고" width={900} height={600} className="w-full h-auto" />
+
+                {/* Front video card */}
+                <div className="absolute top-[40%] left-[6%] w-52 sm:w-60 aspect-video z-20" style={{ transform: "rotate(-6deg)", animation: "float 5s ease-in-out infinite 1.5s" }}>
+                  <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl shadow-red-900/25 bg-slate-900 border border-slate-700">
+                    <Image src="/images/stock/creative-design.jpg" alt="" fill className="object-cover" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-black/30" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center shadow-xl ring-4 ring-white/20">
+                        <svg className="w-6 h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                      </div>
+                    </div>
+                    <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between text-white text-[9px]">
+                      <span className="bg-red-600 px-1.5 py-0.5 rounded font-bold">LIVE</span>
+                      <span className="bg-black/60 px-1.5 py-0.5 rounded">0:15</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* YT logo floating */}
+                <div className="absolute top-4 left-4 w-12 h-12 bg-white rounded-2xl shadow-xl shadow-red-900/10 flex items-center justify-center z-30 animate-float-slow">
+                  <img src="/images/logos/youtube.svg" alt="" className="w-7 h-7" />
                 </div>
               </div>
             </div>
@@ -449,45 +558,112 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ━━━━ 구글 ━━━━ */}
+      {/* ━━━━ 구글 (multi-surface visualization) ━━━━ */}
       <section className="py-16 sm:py-20 lg:py-28 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
-            <div className="relative mb-10 sm:mb-12 lg:mb-0">
-              <div className="bg-linear-to-br from-sky-50 to-cyan-50/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12">
-                <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5">
-                  <Logo name="google" className="h-4 sm:h-5 w-auto" />
-                  <Logo name="google-ads" className="h-4 sm:h-5 w-auto" />
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-sky-100 rounded-full">
-                    <div className="w-1.5 h-1.5 rounded-full bg-sky-500" />
-                    <span className="text-[10px] font-bold text-sky-700">확장형 광고</span>
+          <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
+            {/* Floating multi-surface visualization */}
+            <div className="lg:col-span-5 order-1 mb-12 lg:mb-0 relative">
+              <div className="relative mx-auto max-w-sm aspect-square">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-sky-400/15 rounded-full blur-3xl" />
+
+                {/* Laptop dashboard card (back) */}
+                <div className="absolute top-[6%] left-[4%] right-[4%] aspect-video z-10" style={{ transform: "perspective(600px) rotateX(8deg)", animation: "float 6s ease-in-out infinite" }}>
+                  <div className="relative w-full h-full rounded-xl overflow-hidden shadow-xl shadow-sky-900/15 bg-slate-900 border border-slate-700">
+                    <Image src="/images/stock/google-analytics.jpg" alt="" fill className="object-cover" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
                   </div>
                 </div>
-                <h3 className="text-base sm:text-lg font-extrabold text-deep-navy mb-3">
-                  검색+디스플레이+<br />리타겟팅 확장
-                </h3>
-                <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-xl">
-                  <Image src="/images/stock/google-analytics.jpg" alt="구글 광고" width={900} height={600} className="w-full h-auto" />
+
+                {/* Search bar card (middle) */}
+                <div className="absolute top-[45%] left-[8%] right-[8%] z-20" style={{ transform: "rotate(-3deg)", animation: "float 5s ease-in-out infinite 1s" }}>
+                  <div className="relative bg-white rounded-2xl shadow-2xl shadow-sky-900/20 border border-slate-100 p-3 flex items-center gap-2">
+                    <div className="flex gap-1 shrink-0">
+                      <span className="w-2 h-2 rounded-full bg-red-400" />
+                      <span className="w-2 h-2 rounded-full bg-yellow-400" />
+                      <span className="w-2 h-2 rounded-full bg-green-400" />
+                    </div>
+                    <div className="flex-1 bg-slate-50 rounded-lg px-3 py-1.5 flex items-center gap-2">
+                      <img src="/images/logos/google.svg" alt="" className="h-3 w-auto" />
+                      <span className="text-[10px] text-slate-400">광고 캠페인 검색...</span>
+                      <svg className="w-3 h-3 text-slate-300 ml-auto" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" strokeLinecap="round" /><path strokeLinecap="round" d="M21 21l-4.35-4.35" /></svg>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Phone ad card (front) */}
+                <div className="absolute bottom-[5%] right-[6%] w-32 sm:w-36 aspect-[9/16] z-30" style={{ transform: "rotate(8deg)", animation: "float 5s ease-in-out infinite 2s" }}>
+                  <div className="relative w-full h-full rounded-2xl bg-slate-900 shadow-2xl shadow-sky-900/25 p-1 border border-slate-700">
+                    <div className="relative w-full h-full rounded-xl overflow-hidden bg-white">
+                      <Image src="/images/stock/mobile-ads.jpg" alt="" fill className="object-cover" />
+                      <div className="absolute top-1 left-1 right-1 flex items-center gap-1 bg-white/90 rounded-lg px-1.5 py-1">
+                        <img src="/images/logos/google-ads.svg" alt="" className="h-2 w-auto" />
+                        <span className="text-[6px] font-bold text-slate-600">광고</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating G logo */}
+                <div className="absolute top-4 right-4 w-12 h-12 bg-white rounded-2xl shadow-xl shadow-sky-900/10 flex items-center justify-center z-40 animate-float-slow">
+                  <img src="/images/logos/google.svg" alt="" className="w-7 h-7" />
                 </div>
               </div>
             </div>
-            <div>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-3 sm:mb-4">구글 광고</h2>
-              <p className="text-[13px] sm:text-sm text-slate-500 mb-5 sm:mb-6 leading-relaxed">
-                다양한 지면에서 광고를 확장하고,<br className="sm:hidden" />
-                {" "}리타겟팅과 자동 최적화 기반으로<br className="hidden sm:inline lg:hidden" />
-                {" "}효율적으로 운영합니다.
+
+            {/* Info */}
+            <div className="lg:col-span-7 order-2">
+              <p className="text-[11px] font-bold text-slate-400 tracking-[0.2em] uppercase mb-3">
+                <span className="text-accent-blue">확장형 광고</span>  ·  구글 마케팅
               </p>
-              <div className="bg-slate-50 rounded-xl p-3.5 sm:p-4 mb-5 sm:mb-6">
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">운영 상품</p>
-                <div className="flex flex-wrap gap-1.5"><Tag>검색 광고</Tag><Tag>디스플레이 광고</Tag><Tag>디맨드젠</Tag><Tag>실적 최대화 캠페인</Tag></div>
+              <p className="text-sm text-slate-500 mb-2">검색 + 디스플레이 + 리타겟팅</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-extrabold leading-tight text-deep-navy mb-5">
+                자동 최적화로 확장되는<br />
+                <span className="inline-flex items-center gap-2 mt-1">
+                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white border border-slate-200 shadow-sm">
+                    <img src="/images/logos/google.svg" alt="" className="w-5 h-5" />
+                  </span>
+                  <span className="bg-linear-to-r from-[#4285F4] via-[#EA4335] to-[#FBBC05] bg-clip-text text-transparent">구글 마케팅</span>
+                </span>
+              </h2>
+              <p className="text-[13px] sm:text-sm text-slate-500 leading-relaxed mb-6">
+                <span className="font-semibold text-deep-navy">다양한 지면에서 광고를 확장</span>하고,
+                리타겟팅과 자동 최적화 기반으로 효율적으로 운영합니다.
+                검색, 디스플레이, 유튜브까지 통합 캠페인이 가능합니다.
+              </p>
+
+              {/* 4 surface tags */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
+                {[
+                  { label: "검색 광고", color: "from-sky-500 to-blue-500" },
+                  { label: "디스플레이", color: "from-blue-500 to-indigo-500" },
+                  { label: "디맨드젠", color: "from-indigo-500 to-violet-500" },
+                  { label: "PMax", color: "from-cyan-500 to-sky-500" },
+                ].map((s) => (
+                  <div key={s.label} className="relative">
+                    <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-lg bg-linear-to-br ${s.color} opacity-40 blur-[1px]`} />
+                    <div className="relative bg-white rounded-lg border border-slate-100 p-2.5 text-center shadow-sm">
+                      <p className="text-[11px] font-bold text-deep-navy">{s.label}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <ul className="space-y-2 text-sky-700 mb-5 sm:mb-6">
-                <Bullet color="text-sky-700">다양한 지면에서 광고 확장이 필요한 경우</Bullet>
-                <Bullet color="text-sky-700">이탈 고객 리타겟팅이 필요한 경우</Bullet>
-                <Bullet color="text-sky-700">자동 최적화 기반 효율적 운영</Bullet>
-              </ul>
-              <Link href="/contact" className="group inline-flex items-center gap-2 text-sm text-sky-600 font-semibold hover:gap-3 transition-all">
+
+              <div className="space-y-2 mb-6">
+                {[
+                  "다양한 지면에서 광고 확장이 필요한 경우",
+                  "이탈 고객 리타겟팅이 필요한 경우",
+                  "자동 최적화 기반 효율적 운영",
+                ].map((text) => (
+                  <div key={text} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-sky-100 flex items-center justify-center shrink-0 mt-0.5">
+                      <IconCheck className="w-3 h-3 text-sky-600" />
+                    </div>
+                    <p className="text-[13px] sm:text-sm text-slate-700">{text}</p>
+                  </div>
+                ))}
+              </div>
+              <Link href="/contact" className="group inline-flex items-center gap-2 text-sm text-sky-600 font-bold hover:gap-3 transition-all">
                 구글 광고 상담받기 <IconArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -495,83 +671,129 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ━━━━ 문자 + 당근 + 부동산 ━━━━ */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      {/* ━━━━ 문자 + 당근 + 부동산 (3D isometric cards) ━━━━ */}
+      <section className="relative py-16 sm:py-20 lg:py-28 bg-linear-to-b from-white via-[#f8f6ff] to-slate-50 overflow-hidden">
+        <div className="absolute top-20 left-0 w-96 h-96 bg-violet-200/25 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-0 w-80 h-80 bg-teal-200/20 rounded-full blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14">
-            <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4 justify-center">More</p>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4">
+            <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">MORE CHANNELS</p>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
               그 외 운영 가능한<br className="sm:hidden" />
-              {" "}광고 채널
+              {" "}<span className="relative inline-block">
+                <span className="relative z-10">광고 채널</span>
+                <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
+              </span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
             {/* 문자 */}
-            <div className="bg-white rounded-2xl overflow-hidden card-3d gradient-border">
-              <div className="relative aspect-video">
-                <Image src="/images/stock/sms-marketing.jpg" alt="문자 마케팅" fill className="object-cover" />
-                <div className="absolute inset-0 bg-linear-to-t from-violet-900/60 to-transparent" />
-                <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4">
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/20 backdrop-blur-sm rounded-full mb-1.5 sm:mb-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-violet-400" />
-                    <span className="text-[10px] font-bold text-white">재접촉 마케팅</span>
+            <div className="group relative">
+              <div className="absolute inset-0 translate-x-1.5 translate-y-2.5 rounded-2xl bg-linear-to-br from-violet-500 to-purple-600 opacity-40 blur-[3px]" />
+              <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-linear-to-br from-violet-500 to-purple-600 opacity-20" />
+              <div className="relative bg-white rounded-2xl overflow-hidden border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300">
+                <div className="relative aspect-video">
+                  <Image src="/images/stock/sms-marketing.jpg" alt="문자 마케팅" fill className="object-cover" />
+                  <div className="absolute inset-0 bg-linear-to-t from-violet-900/70 via-violet-900/20 to-transparent" />
+                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/20 backdrop-blur-sm rounded-full mb-1.5 sm:mb-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-violet-300" />
+                      <span className="text-[10px] font-bold text-white">재접촉 마케팅</span>
+                    </div>
+                    <h3 className="text-base sm:text-lg font-extrabold text-white">문자 마케팅</h3>
                   </div>
-                  <h3 className="text-base sm:text-lg font-extrabold text-white">문자 마케팅</h3>
+                  {/* Corner icon */}
+                  <div className="absolute top-3 right-3 w-10 h-10 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                    <IconMail className="w-5 h-5 text-violet-600" />
+                  </div>
                 </div>
-              </div>
-              <div className="p-5 sm:p-6">
-                <p className="text-[11px] sm:text-xs text-slate-500 mb-3 sm:mb-4 leading-relaxed">확보된 DB를 대상으로 직접 전달하는 SMS/LMS/MMS 광고</p>
-                <ul className="space-y-2 text-violet-700">
-                  <Bullet color="text-violet-700">재문의 유도 / 방문·예약 안내</Bullet>
-                  <Bullet color="text-violet-700">기존 고객 재접촉에 효과적</Bullet>
-                </ul>
+                <div className="p-5 sm:p-6">
+                  <p className="text-[11px] sm:text-xs text-slate-500 mb-3 sm:mb-4 leading-relaxed">확보된 DB를 대상으로 직접 전달하는 SMS/LMS/MMS 광고</p>
+                  <ul className="space-y-2 text-violet-700 mb-4">
+                    <Bullet color="text-violet-700">재문의 유도 / 방문·예약 안내</Bullet>
+                    <Bullet color="text-violet-700">기존 고객 재접촉에 효과적</Bullet>
+                  </ul>
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[10px] font-extrabold bg-linear-to-br from-violet-500 to-purple-600 bg-clip-text text-transparent">06</span>
+                    <div className="w-6 h-6 rounded-full bg-violet-50 flex items-center justify-center">
+                      <IconArrowRight className="w-3 h-3 text-violet-600" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* 당근 */}
-            <div className="bg-white rounded-2xl overflow-hidden card-3d gradient-border">
-              <div className="relative aspect-video">
-                <Image src="/images/stock/local-store.jpg" alt="당근 광고" fill className="object-cover" />
-                <div className="absolute inset-0 bg-linear-to-t from-orange-900/60 to-transparent" />
-                <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4">
-                  <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
-                    <Logo name="danggeun" className="h-3.5 sm:h-4 w-auto brightness-0 invert" />
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/20 backdrop-blur-sm rounded-full">
-                      <span className="text-[10px] font-bold text-white">지역 특화</span>
+            <div className="group relative">
+              <div className="absolute inset-0 translate-x-1.5 translate-y-2.5 rounded-2xl bg-linear-to-br from-orange-500 to-orange-600 opacity-40 blur-[3px]" />
+              <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-linear-to-br from-orange-500 to-orange-600 opacity-20" />
+              <div className="relative bg-white rounded-2xl overflow-hidden border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300">
+                <div className="relative aspect-video">
+                  <Image src="/images/stock/local-store.jpg" alt="당근 광고" fill className="object-cover" />
+                  <div className="absolute inset-0 bg-linear-to-t from-orange-900/70 via-orange-900/20 to-transparent" />
+                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4">
+                    <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
+                      <Logo name="danggeun" className="h-3.5 sm:h-4 w-auto brightness-0 invert" />
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/20 backdrop-blur-sm rounded-full">
+                        <span className="text-[10px] font-bold text-white">지역 특화</span>
+                      </div>
+                    </div>
+                    <h3 className="text-base sm:text-lg font-extrabold text-white">당근/지역 광고</h3>
+                  </div>
+                  <div className="absolute top-3 right-3 w-10 h-10 rounded-xl bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                    <img src="/images/logos/danggeun.svg" alt="" className="w-5 h-5" />
+                  </div>
+                </div>
+                <div className="p-5 sm:p-6">
+                  <p className="text-[11px] sm:text-xs text-slate-500 mb-3 sm:mb-4 leading-relaxed">지역 기반 피드/검색/카탈로그 광고로 생활권 고객을 확보</p>
+                  <ul className="space-y-2 text-orange-700 mb-4">
+                    <Bullet color="text-orange-700">지역 상권 업종에 최적화</Bullet>
+                    <Bullet color="text-orange-700">생활권 고객이 중요한 서비스</Bullet>
+                  </ul>
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[10px] font-extrabold bg-linear-to-br from-orange-500 to-orange-600 bg-clip-text text-transparent">07</span>
+                    <div className="w-6 h-6 rounded-full bg-orange-50 flex items-center justify-center">
+                      <IconArrowRight className="w-3 h-3 text-orange-600" />
                     </div>
                   </div>
-                  <h3 className="text-base sm:text-lg font-extrabold text-white">당근/지역 광고</h3>
                 </div>
-              </div>
-              <div className="p-5 sm:p-6">
-                <p className="text-[11px] sm:text-xs text-slate-500 mb-3 sm:mb-4 leading-relaxed">지역 기반 피드/검색/카탈로그 광고로 생활권 고객을 확보</p>
-                <ul className="space-y-2 text-orange-700">
-                  <Bullet color="text-orange-700">지역 상권 업종에 최적화</Bullet>
-                  <Bullet color="text-orange-700">생활권 고객이 중요한 서비스</Bullet>
-                </ul>
               </div>
             </div>
 
             {/* 부동산 */}
-            <div className="bg-white rounded-2xl overflow-hidden card-3d gradient-border">
-              <div className="relative aspect-video">
-                <Image src="/images/stock/real-estate.jpg" alt="부동산 광고" fill className="object-cover" />
-                <div className="absolute inset-0 bg-linear-to-t from-teal-900/60 to-transparent" />
-                <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4">
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/20 backdrop-blur-sm rounded-full mb-1.5 sm:mb-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-teal-400" />
-                    <span className="text-[10px] font-bold text-white">업종 특화</span>
+            <div className="group relative">
+              <div className="absolute inset-0 translate-x-1.5 translate-y-2.5 rounded-2xl bg-linear-to-br from-teal-500 to-teal-600 opacity-40 blur-[3px]" />
+              <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-linear-to-br from-teal-500 to-teal-600 opacity-20" />
+              <div className="relative bg-white rounded-2xl overflow-hidden border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300">
+                <div className="relative aspect-video">
+                  <Image src="/images/stock/real-estate.jpg" alt="부동산 광고" fill className="object-cover" />
+                  <div className="absolute inset-0 bg-linear-to-t from-teal-900/70 via-teal-900/20 to-transparent" />
+                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/20 backdrop-blur-sm rounded-full mb-1.5 sm:mb-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-teal-300" />
+                      <span className="text-[10px] font-bold text-white">업종 특화</span>
+                    </div>
+                    <h3 className="text-base sm:text-lg font-extrabold text-white">부동산 특화 광고</h3>
                   </div>
-                  <h3 className="text-base sm:text-lg font-extrabold text-white">부동산 특화 광고</h3>
+                  <div className="absolute top-3 right-3 w-10 h-10 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                    <IconBuilding className="w-5 h-5 text-teal-600" />
+                  </div>
                 </div>
-              </div>
-              <div className="p-5 sm:p-6">
-                <p className="text-[11px] sm:text-xs text-slate-500 mb-3 sm:mb-4 leading-relaxed">호갱노노, 직방, 다방, 네모 등 부동산 전문 플랫폼 광고</p>
-                <ul className="space-y-2 text-teal-700">
-                  <Bullet color="text-teal-700">분양 / 임대 / 상가</Bullet>
-                  <Bullet color="text-teal-700">지역 부동산 마케팅</Bullet>
-                </ul>
+                <div className="p-5 sm:p-6">
+                  <p className="text-[11px] sm:text-xs text-slate-500 mb-3 sm:mb-4 leading-relaxed">호갱노노, 직방, 다방, 네모 등 부동산 전문 플랫폼 광고</p>
+                  <ul className="space-y-2 text-teal-700 mb-4">
+                    <Bullet color="text-teal-700">분양 / 임대 / 상가</Bullet>
+                    <Bullet color="text-teal-700">지역 부동산 마케팅</Bullet>
+                  </ul>
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[10px] font-extrabold bg-linear-to-br from-teal-500 to-teal-600 bg-clip-text text-transparent">08</span>
+                    <div className="w-6 h-6 rounded-full bg-teal-50 flex items-center justify-center">
+                      <IconArrowRight className="w-3 h-3 text-teal-600" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -73,24 +73,68 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 2. Core values */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-linear-to-b from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      {/* 2. Core values (isometric 3D cards) */}
+      <section className="relative py-16 sm:py-20 lg:py-28 bg-linear-to-b from-[#f5f9ff] via-white to-[#f0f5ff] overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: "linear-gradient(to right, #2563eb 1px, transparent 1px), linear-gradient(to bottom, #2563eb 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+          }}
+        />
+        <div className="absolute top-1/2 -translate-y-1/2 left-0 w-96 h-96 bg-violet-200/25 rounded-full blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14">
-            <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4 justify-center">Core Value</p>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4">
+            <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">CORE VALUE</p>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
               보여주기식 운영보다,<br />
-              실제 반응이 남는 광고를 지향합니다
+              <span className="relative inline-block">
+                <span className="relative z-10">실제 반응이 남는 광고</span>
+                <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
+              </span>
+              를 지향합니다
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-            {coreValues.map((v) => (
-              <div key={v.title} className="bg-white p-6 sm:p-7 rounded-2xl border border-slate-100 card-3d gradient-border">
-                <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-linear-to-br ${v.color} flex items-center justify-center mb-4 sm:mb-5 shadow-lg`}>
-                  <v.Icon className="w-5 h-5 text-white" />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+            {coreValues.map((v, i) => (
+              <div
+                key={v.title}
+                className="group relative"
+                style={{ animation: `fade-in-up 0.6s ease-out ${i * 0.1}s backwards` }}
+              >
+                {/* 3D depth layers */}
+                <div className={`absolute inset-0 translate-x-1.5 translate-y-2.5 rounded-2xl bg-linear-to-br ${v.color} opacity-50 blur-[3px]`} />
+                <div className={`absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-linear-to-br ${v.color} opacity-25`} />
+
+                {/* Front card */}
+                <div className="relative bg-white p-6 sm:p-8 rounded-2xl border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-all duration-300 overflow-hidden min-h-60">
+                  {/* Huge index */}
+                  <div className={`absolute -top-4 -right-2 text-[7rem] sm:text-[8rem] font-black bg-linear-to-br ${v.color} bg-clip-text text-transparent opacity-[0.08] leading-none select-none`}>
+                    {i + 1}
+                  </div>
+                  {/* Corner blob */}
+                  <div className={`absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-linear-to-br ${v.color} opacity-10 blur-2xl`} />
+
+                  <div className="relative">
+                    {/* Isometric icon */}
+                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 mb-5 sm:mb-6">
+                      <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-2xl bg-linear-to-br ${v.color} opacity-60 blur-[1px]`} />
+                      <div className={`relative w-full h-full rounded-2xl bg-linear-to-br ${v.color} flex items-center justify-center shadow-lg`}>
+                        <v.Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+                      </div>
+                    </div>
+                    <h3 className="text-[15px] sm:text-base font-extrabold text-deep-navy mb-2 sm:mb-2.5">{v.title}</h3>
+                    <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed">{v.desc}</p>
+
+                    {/* Footer tag */}
+                    <div className="mt-5 sm:mt-6 pt-4 border-t border-slate-100">
+                      <span className={`inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-extrabold bg-linear-to-br ${v.color} bg-clip-text text-transparent`}>
+                        VALUE {String(i + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-[15px] sm:text-base font-bold text-deep-navy mb-1.5 sm:mb-2">{v.title}</h3>
-                <p className="text-[12px] sm:text-xs text-slate-500 leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>

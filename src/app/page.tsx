@@ -20,10 +20,10 @@ const channels = [
 ];
 
 const whyUs = [
-  { title: "업종 맞춤\n채널 제안", desc: "업종과 목적에 맞는 채널만 선별해 제안합니다. 불필요한 채널을 권유하지 않습니다.", Icon: IconTarget },
-  { title: "문의 전환\n중심 운영", desc: "노출이 아니라 실제 문의와 상담 전환을 설계합니다. 클릭만 많은 광고는 의미 없습니다.", Icon: IconZap },
-  { title: "소재 제작부터\n운영까지", desc: "광고 소재 제작, 세팅, 운영, 최적화까지 한 번에 진행합니다.", Icon: IconLayers },
-  { title: "데이터 기반\n최적화", desc: "반응 데이터를 분석하고, 효율이 나오는 방향으로 지속적으로 보완합니다.", Icon: IconBarChart },
+  { title: "업종 맞춤\n채널 제안", desc: "업종과 목적에 맞는 채널만 선별해 제안합니다. 불필요한 채널을 권유하지 않습니다.", Icon: IconTarget, color: "from-blue-500 to-indigo-600", light: "from-blue-50 to-indigo-50", text: "text-blue-600" },
+  { title: "문의 전환\n중심 운영", desc: "노출이 아니라 실제 문의와 상담 전환을 설계합니다. 클릭만 많은 광고는 의미 없습니다.", Icon: IconZap, color: "from-amber-500 to-orange-500", light: "from-amber-50 to-orange-50", text: "text-amber-600" },
+  { title: "소재 제작부터\n운영까지", desc: "광고 소재 제작, 세팅, 운영, 최적화까지 한 번에 진행합니다.", Icon: IconLayers, color: "from-violet-500 to-purple-600", light: "from-violet-50 to-purple-50", text: "text-violet-600" },
+  { title: "데이터 기반\n최적화", desc: "반응 데이터를 분석하고, 효율이 나오는 방향으로 지속적으로 보완합니다.", Icon: IconBarChart, color: "from-emerald-500 to-teal-600", light: "from-emerald-50 to-teal-50", text: "text-emerald-600" },
 ];
 
 const processSteps = [
@@ -217,33 +217,65 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━━━━ WHY ━━━━━━━━━━━━━ */}
-      <section className="py-20 sm:py-24 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      <section className="relative py-20 sm:py-24 lg:py-32 bg-linear-to-b from-white via-white to-[#f5f9ff] overflow-hidden">
+        <div className="absolute top-20 right-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-100/30 rounded-full blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-14">
-            <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4">Why</p>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4">
+            <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">WHY US</p>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
               광고는 많이 하는 것보다,<br />
-              맞게 하는 것이 더 중요합니다
+              <span className="relative inline-block">
+                <span className="relative z-10">맞게 하는 것이 더 중요</span>
+                <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
+              </span>
+              합니다
             </h2>
-            <p className="text-slate-500 text-sm max-w-lg mx-auto px-2">
+            <p className="text-slate-500 text-sm max-w-lg mx-auto px-2 leading-relaxed">
               여울디앤씨는 업종과 목표에 따라<br className="sm:hidden" />
               {" "}채널을 선별하고,<br className="hidden sm:inline lg:hidden" />
               {" "}문의 전환까지 고려한 구조로 광고를 운영합니다.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {whyUs.map((item, i) => (
-              <div key={item.title} className="group relative p-5 sm:p-7 rounded-2xl border border-slate-100 bg-white card-3d gradient-border hover:shadow-xl hover:shadow-accent-blue/8 transition-all duration-500">
-                <div className="absolute top-4 sm:top-5 right-4 sm:right-5 text-4xl sm:text-5xl font-black text-slate-50 group-hover:text-accent-blue/5 transition-colors duration-500 select-none">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <div className="relative">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-linear-to-br from-accent-blue/10 to-accent-blue/5 group-hover:from-accent-blue group-hover:to-blue-600 flex items-center justify-center mb-4 sm:mb-5 transition-all duration-500 shadow-sm group-hover:shadow-lg group-hover:shadow-accent-blue/20">
-                    <item.Icon className="w-4 h-4 sm:w-5 sm:h-5 text-accent-blue group-hover:text-white transition-colors duration-500" />
+              <div
+                key={item.title}
+                className="group relative"
+                style={{ animation: `fade-in-up 0.6s ease-out ${i * 0.1}s backwards` }}
+              >
+                {/* 3D depth layers */}
+                <div className={`absolute inset-0 translate-x-1 translate-y-2 rounded-2xl bg-linear-to-br ${item.color} opacity-60 blur-[2px]`} />
+                <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-linear-to-br ${item.color} opacity-30`} />
+                {/* Front card */}
+                <div className="relative bg-white rounded-2xl p-5 sm:p-7 border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden">
+                  {/* Decorative number */}
+                  <div className={`absolute -top-3 -right-3 text-6xl sm:text-7xl font-black bg-linear-to-br ${item.light} bg-clip-text text-transparent opacity-80 select-none leading-none`}>
+                    0{i + 1}
                   </div>
-                  <h3 className="text-[13px] sm:text-base font-bold text-deep-navy mb-1.5 sm:mb-2 whitespace-pre-line">{item.title}</h3>
-                  <p className="text-[11px] sm:text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+                  {/* Gradient corner accent */}
+                  <div className={`absolute -bottom-10 -right-10 w-24 h-24 rounded-full bg-linear-to-br ${item.color} opacity-10 blur-2xl`} />
+
+                  <div className="relative">
+                    {/* Icon with isometric depth */}
+                    <div className="relative w-11 h-11 sm:w-14 sm:h-14 mb-4 sm:mb-5">
+                      <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl sm:rounded-2xl bg-linear-to-br ${item.color} opacity-60 blur-[1px]`} />
+                      <div className={`relative w-full h-full rounded-xl sm:rounded-2xl bg-linear-to-br ${item.color} flex items-center justify-center shadow-lg`}>
+                        <item.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                      </div>
+                    </div>
+                    <h3 className="text-[13px] sm:text-base font-extrabold text-deep-navy mb-1.5 sm:mb-2 whitespace-pre-line leading-tight">{item.title}</h3>
+                    <p className="text-[11px] sm:text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+
+                    {/* Bottom accent line */}
+                    <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-slate-100">
+                      <span className={`inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold ${item.text}`}>
+                        POINT {String(i + 1).padStart(2, "0")} <IconArrowRight className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -305,43 +337,84 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ━━━━━━━━━━━━━ WHAT ━━━━━━━━━━━━━ */}
-      <section className="py-20 sm:py-24 lg:py-32 bg-linear-to-b from-white to-slate-50">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      {/* ━━━━━━━━━━━━━ WHAT (isometric channel cards) ━━━━━━━━━━━━━ */}
+      <section className="relative py-20 sm:py-24 lg:py-32 bg-linear-to-b from-[#f5f9ff] via-white to-[#f0f5ff] overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage: "linear-gradient(to right, #2563eb 1px, transparent 1px), linear-gradient(to bottom, #2563eb 1px, transparent 1px)",
+            backgroundSize: "64px 64px",
+          }}
+        />
+        <div className="absolute top-1/2 -translate-y-1/2 -right-20 w-96 h-96 bg-accent-blue/8 rounded-full blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-14">
-            <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4 justify-center">What</p>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4">
+            <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">CHANNELS</p>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
               업종과 목적에 따라,<br />
-              필요한 채널만 선별해 운영합니다
+              <span className="relative inline-block">
+                <span className="relative z-10">필요한 채널만 선별</span>
+                <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
+              </span>
+              해 운영합니다
             </h2>
-            <p className="text-slate-500 text-sm max-w-lg mx-auto px-2">
+            <p className="text-slate-500 text-sm max-w-lg mx-auto px-2 leading-relaxed">
               메타/네이버/카카오/유튜브/구글부터<br className="sm:hidden" />
               {" "}지역/문자/부동산 특화 채널까지<br className="hidden sm:inline lg:hidden" />
               {" "}예산과 목적에 맞게 조합합니다.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
-            {channels.map((ch) => (
-              <Link key={ch.name} href="/services" className="group relative bg-white rounded-2xl p-4 sm:p-6 card-3d gradient-border overflow-hidden">
-                <div className={`absolute inset-0 bg-linear-to-br ${ch.color} opacity-0 group-hover:opacity-[0.04] transition-opacity duration-500`} />
-                <div className="relative">
-                  {/* Logo area */}
-                  <div className="flex items-center gap-1.5 sm:gap-2 mb-3 sm:mb-4 h-8 sm:h-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+            {channels.map((ch, i) => (
+              <Link
+                key={ch.name}
+                href="/services"
+                className="group relative"
+                style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.06}s backwards` }}
+              >
+                {/* Isometric depth layers */}
+                <div className={`absolute inset-0 translate-x-1 translate-y-2 rounded-2xl bg-linear-to-br ${ch.color} opacity-40 blur-[2px]`} />
+                <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-linear-to-br ${ch.color} opacity-25`} />
+
+                {/* Front card */}
+                <div className="relative bg-white rounded-2xl p-4 sm:p-5 border border-white shadow-lg shadow-deep-navy/5 group-hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                  {/* Corner color blob */}
+                  <div className={`absolute -top-8 -right-8 w-20 h-20 rounded-full bg-linear-to-br ${ch.color} opacity-10 blur-xl`} />
+
+                  {/* Logo area - 3D cube */}
+                  <div className="relative mb-3 sm:mb-4 h-12 sm:h-14 flex items-center">
                     {ch.logos && ch.logos.length > 0 ? (
-                      ch.logos.map((logo) => (
-                        <img key={logo} src={`/images/logos/${logo}.svg`} alt={logo} className="h-5 sm:h-7 w-auto" />
-                      ))
+                      <div className="relative">
+                        <div className={`absolute -inset-1 rounded-xl bg-linear-to-br ${ch.color} opacity-15 blur-sm`} />
+                        <div className="relative flex items-center gap-1.5 sm:gap-2 bg-white rounded-xl px-2 py-1.5 border border-slate-100">
+                          {ch.logos.map((logo) => (
+                            <img key={logo} src={`/images/logos/${logo}.svg`} alt={logo} className="h-5 sm:h-7 w-auto" />
+                          ))}
+                        </div>
+                      </div>
                     ) : ch.Icon ? (
-                      <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-linear-to-br ${ch.color} flex items-center justify-center shadow-sm`}>
-                        <ch.Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                      <div className="relative w-11 h-11 sm:w-12 sm:h-12">
+                        <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-linear-to-br ${ch.color} opacity-60 blur-[1px]`} />
+                        <div className={`relative w-full h-full rounded-xl bg-linear-to-br ${ch.color} flex items-center justify-center shadow-md`}>
+                          <ch.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                        </div>
                       </div>
                     ) : null}
                   </div>
-                  <h3 className="font-bold text-deep-navy text-[13px] sm:text-sm mb-1">{ch.name}</h3>
-                  <p className="text-[10px] sm:text-[11px] text-slate-400 mb-2 sm:mb-3 leading-relaxed">{ch.purpose}</p>
-                  <div className="flex items-center gap-1 text-[10px] text-accent-blue font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
-                    자세히 보기 <IconArrowRight className="w-3 h-3" />
+
+                  <h3 className="font-extrabold text-deep-navy text-[13px] sm:text-sm mb-1">{ch.name}</h3>
+                  <p className="text-[10px] sm:text-[11px] text-slate-400 mb-3 sm:mb-4 leading-relaxed">{ch.purpose}</p>
+
+                  {/* Footer with number + arrow */}
+                  <div className="flex items-center justify-between pt-2 sm:pt-3 border-t border-slate-100">
+                    <span className={`text-[10px] sm:text-[11px] font-extrabold bg-linear-to-br ${ch.color} bg-clip-text text-transparent`}>
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className={`w-6 h-6 rounded-full bg-slate-50 group-hover:bg-linear-to-br group-hover:${ch.color} flex items-center justify-center transition-all duration-300`}>
+                      <IconArrowRight className="w-3 h-3 text-slate-400 group-hover:text-white transition-colors" />
+                    </div>
                   </div>
                 </div>
               </Link>
