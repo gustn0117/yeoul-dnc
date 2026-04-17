@@ -44,26 +44,41 @@ export default function Home() {
   return (
     <>
       {/* ━━━━━━━━━━━━━ HERO ━━━━━━━━━━━━━ */}
-      <section className="relative overflow-hidden">
-        {/* Layered bg */}
-        <div className="absolute inset-0 bg-linear-to-br from-[#f0f4ff] via-white to-[#f8faff]" />
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-blue-50/80 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-accent-blue/5 blur-[100px]" />
-        <div className="absolute top-20 right-1/4 w-64 h-64 rounded-full bg-orange-200/20 blur-[80px]" />
+      <section className="relative overflow-hidden bg-linear-to-br from-[#e8f0ff] via-[#f3f7ff] to-[#fafcff]">
+        {/* Grid pattern overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: "linear-gradient(to right, #2563eb 1px, transparent 1px), linear-gradient(to bottom, #2563eb 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+        {/* Decorative blurs */}
+        <div className="absolute -top-20 right-[10%] w-120 h-120 rounded-full bg-accent-blue/8 blur-[120px]" />
+        <div className="absolute bottom-0 left-[5%] w-96 h-96 rounded-full bg-blue-300/15 blur-[100px]" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-4.5rem)]">
 
             {/* ── Left: copy ── */}
-            <div className="lg:col-span-6 py-16 sm:py-20 lg:py-0">
-              <h1 className="text-[1.75rem] sm:text-4xl lg:text-[2.8rem] font-extrabold leading-hero text-deep-navy tracking-tight mb-5">
+            <div className="lg:col-span-6 py-14 sm:py-20 lg:py-0 relative z-10">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-full border border-blue-100 mb-6 shadow-sm shadow-blue-500/5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-soft" />
+                <span className="text-[11px] font-bold text-slate-600 tracking-wider uppercase">Online Ad Partner</span>
+              </div>
+
+              <h1 className="text-[2rem] sm:text-[2.5rem] lg:text-[3.25rem] font-extrabold leading-hero text-deep-navy tracking-tight mb-5">
                 온라인 광고,<br />
-                <span className="gradient-text">결과</span>로 말합니다
+                <span className="relative inline-block">
+                  <span className="relative z-10 gradient-text">결과</span>
+                  <span className="absolute bottom-1 sm:bottom-1.5 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
+                </span>
+                로 말합니다
               </h1>
 
               <div className="space-y-2.5 mb-7">
                 {["광고비만 쓰고 끝나셨나요?", "문의 없는 광고는 의미 없습니다"].map((t) => (
-                  <div key={t} className="flex items-center gap-2.5 bg-slate-50 rounded-lg px-3.5 sm:px-4 py-2.5 w-fit border border-slate-100">
+                  <div key={t} className="flex items-center gap-2.5 bg-white/80 backdrop-blur-sm rounded-lg px-3.5 sm:px-4 py-2.5 w-fit border border-slate-100 shadow-sm shadow-blue-500/5">
                     <div className="w-5 h-5 rounded-full bg-accent-blue flex items-center justify-center shrink-0">
                       <IconCheck className="w-3 h-3 text-white" />
                     </div>
@@ -72,9 +87,9 @@ export default function Home() {
                 ))}
               </div>
 
-              <p className="text-sm text-slate-500 mb-8 max-w-sm leading-relaxed">
-                전환 중심으로 설계된 광고 운영.<br className="sm:hidden" />
-                {" "}불필요한 광고비 지출없이,<br className="hidden sm:inline lg:hidden" />
+              <p className="text-sm text-slate-600 mb-8 max-w-sm leading-relaxed">
+                <span className="font-semibold text-deep-navy">전환 중심으로 설계된 광고 운영.</span><br />
+                불필요한 광고비 지출없이,<br className="hidden sm:inline lg:hidden" />
                 {" "}결과가 달라집니다.
               </p>
 
@@ -82,92 +97,117 @@ export default function Home() {
                 <Link href="/contact" className="group px-7 py-3.5 bg-linear-to-r from-accent-blue to-blue-600 text-white text-sm font-bold rounded-xl hover:shadow-xl hover:shadow-accent-blue/30 transition-all duration-300 flex items-center justify-center sm:justify-start gap-2">
                   상담 신청하기 <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
-                <Link href="/about" className="px-7 py-3.5 text-sm text-slate-600 font-semibold rounded-xl border border-slate-200 hover:border-accent-blue/30 hover:bg-accent-blue/4 hover:text-accent-blue transition-all duration-300 text-center sm:text-left">
+                <Link href="/about" className="px-7 py-3.5 text-sm text-slate-600 font-semibold rounded-xl border border-slate-200 bg-white/60 backdrop-blur-sm hover:border-accent-blue/30 hover:bg-accent-blue/4 hover:text-accent-blue transition-all duration-300 text-center sm:text-left">
                   우리만의 차별점 보기
                 </Link>
               </div>
 
               {/* Media bar - real logos */}
-              <div className="flex items-center gap-4 sm:gap-5 flex-wrap opacity-40">
+              <div className="flex items-center gap-4 sm:gap-5 flex-wrap">
+                <p className="text-[10px] font-bold text-slate-400 tracking-widest uppercase w-full sm:w-auto">운영 채널</p>
                 {["naver", "kakaotalk", "meta", "youtube", "google", "instagram"].map((name) => (
-                  <img key={name} src={`/images/logos/${name}.svg`} alt={name} className="h-3.5 sm:h-4 w-auto grayscale" />
+                  <img key={name} src={`/images/logos/${name}.svg`} alt={name} className="h-3.5 sm:h-4 w-auto opacity-50 hover:opacity-100 transition-opacity" />
                 ))}
               </div>
             </div>
 
             {/* ── Right: visual ── */}
-            <div className="lg:col-span-6 relative hidden lg:flex items-center justify-center py-12">
-              {/* Main SVG chart illustration */}
-              <div className="relative z-10 card-3d glow-blue rounded-3xl overflow-visible">
-                <IllustChart className="w-full max-w-md h-auto" />
-              </div>
-
-              {/* Floating phone mockup */}
-              <div className="absolute -left-4 top-8 z-20 animate-float-slow w-28">
-                <IllustPhone className="w-full h-auto drop-shadow-2xl" />
-              </div>
-
-              {/* Floating card: 전환율 */}
-              <div className="absolute top-4 right-0 bg-white rounded-2xl shadow-xl shadow-blue-900/10 p-4 border border-slate-100 z-20 animate-float gradient-border">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-linear-to-br from-emerald-400 to-emerald-500 flex items-center justify-center shadow-md shadow-emerald-500/20">
-                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /></svg>
+            <div className="lg:col-span-6 relative hidden lg:flex items-center justify-center py-16">
+              {/* Main image with frame */}
+              <div className="relative w-full max-w-130">
+                <div className="relative rounded-[28px] overflow-hidden shadow-2xl shadow-blue-900/20 ring-1 ring-white/50">
+                  <div className="relative aspect-5/6">
+                    <Image
+                      src="/images/stock/woman-professional.jpg"
+                      alt="온라인 광고 전문가"
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                    {/* Subtle gradient overlay */}
+                    <div className="absolute inset-0 bg-linear-to-t from-accent-blue/10 via-transparent to-transparent" />
+                    {/* Top right chart decoration */}
+                    <svg className="absolute top-8 right-8 w-28 h-16 opacity-90" viewBox="0 0 120 60" fill="none">
+                      <path d="M0 50 Q30 20 60 30 T120 5" stroke="#60a5fa" strokeWidth="2.5" strokeLinecap="round" fill="none" strokeDasharray="0 1" />
+                      <circle cx="120" cy="5" r="4" fill="#2563eb" />
+                      <circle cx="60" cy="30" r="3" fill="#60a5fa" />
+                    </svg>
                   </div>
-                  <div>
-                    <p className="text-[10px] text-slate-400">전환율</p>
-                    <p className="text-lg font-extrabold text-deep-navy">+32.8%</p>
+                </div>
+
+                {/* Floating card: 전환율 (top right) */}
+                <div className="absolute top-10 -right-6 bg-white rounded-2xl shadow-xl shadow-blue-900/15 px-4 py-3 border border-blue-100/80 z-20 animate-float backdrop-blur-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="relative w-11 h-11 rounded-xl bg-linear-to-br from-emerald-400 to-emerald-500 flex items-center justify-center shadow-md shadow-emerald-500/30">
+                      <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-[10px] text-slate-400 font-medium">전환율</p>
+                      <p className="text-xl font-extrabold text-deep-navy leading-tight">+32.8%<span className="text-emerald-500 text-xs font-bold ml-1">↑</span></p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Floating card: ROAS */}
-              <div className="absolute bottom-16 -right-2 bg-white rounded-2xl shadow-xl shadow-blue-900/10 p-4 border border-slate-100 z-20 gradient-border" style={{ animation: "float 5s ease-in-out infinite 2s" }}>
-                <p className="text-[10px] text-slate-400 mb-1">광고 효율 (ROAS)</p>
-                <div className="flex items-baseline gap-1">
-                  <p className="text-2xl font-extrabold text-accent-blue">4.8</p>
-                  <p className="text-xs font-bold text-slate-400">배</p>
+                {/* Floating card: ROAS (middle right) */}
+                <div className="absolute top-1/2 -translate-y-1/2 -right-10 bg-white rounded-2xl shadow-xl shadow-blue-900/15 px-4 py-3.5 border border-blue-100/80 z-20 backdrop-blur-sm" style={{ animation: "float 5s ease-in-out infinite 2s" }}>
+                  <p className="text-[10px] text-slate-400 font-medium mb-1">광고 효율 (ROAS)</p>
+                  <div className="flex items-baseline gap-1 mb-2">
+                    <p className="text-[26px] font-extrabold text-accent-blue leading-none">4.8</p>
+                    <p className="text-sm font-bold text-slate-400">배</p>
+                  </div>
+                  <div className="flex items-end gap-0.75 h-6">
+                    {[40, 55, 35, 70, 60, 80, 90].map((h, i) => (
+                      <div key={i} className="w-1.5 rounded-t-sm bg-linear-to-t from-accent-blue to-blue-300" style={{ height: `${h}%` }} />
+                    ))}
+                  </div>
                 </div>
-                <div className="flex items-end gap-1 mt-2 h-6">
-                  {[40, 55, 35, 70, 60, 80, 90].map((h, i) => (
-                    <div key={i} className="w-2 rounded-t-sm bg-linear-to-t from-accent-blue/40 to-accent-blue/20" style={{ height: `${h}%` }} />
-                  ))}
+
+                {/* Floating card: 문의 증가 (bottom left) */}
+                <div className="absolute bottom-12 -left-6 bg-white rounded-2xl shadow-xl shadow-blue-900/15 px-4 py-3 border border-blue-100/80 z-20 backdrop-blur-sm" style={{ animation: "float 5s ease-in-out infinite 1s" }}>
+                  <div className="flex items-center gap-3">
+                    <div className="w-11 h-11 rounded-xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-md shadow-accent-blue/30">
+                      <IconTarget className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] text-slate-400 font-medium">문의 증가</p>
+                      <p className="text-xl font-extrabold text-deep-navy leading-tight">+56%<span className="text-emerald-500 text-xs font-bold ml-1">↑</span></p>
+                    </div>
+                  </div>
                 </div>
+
+                {/* Decorative ring around image */}
+                <div className="absolute -inset-4 rounded-4xl border border-blue-200/40 -z-10" />
+                <div className="absolute -inset-8 rounded-[36px] border border-blue-200/20 -z-10" />
               </div>
 
-              {/* Floating card: 문의 증가 */}
-              <div className="absolute bottom-4 left-16 bg-white rounded-2xl shadow-xl shadow-blue-900/10 p-4 border border-slate-100 z-20 gradient-border" style={{ animation: "float 5s ease-in-out infinite 1s" }}>
-                <p className="text-[10px] text-slate-400 mb-1">문의 증가</p>
-                <p className="text-lg font-extrabold text-deep-navy">+56%<span className="text-emerald-500 text-xs font-bold ml-1">↑</span></p>
-              </div>
-
-              {/* Decorative blurs */}
-              <div className="absolute top-0 right-0 w-48 h-48 bg-accent-blue/8 rounded-full blur-[80px] -z-10" />
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-cta-orange/6 rounded-full blur-[60px] -z-10" />
+              {/* Background blur */}
+              <div className="absolute top-10 right-10 w-64 h-64 bg-accent-blue/10 rounded-full blur-[80px] -z-10" />
             </div>
 
-            {/* ── Mobile hero visual (shown only on mobile) ── */}
-            <div className="lg:hidden flex justify-center pb-12 -mt-4">
-              <div className="grid grid-cols-3 gap-3 w-full max-w-sm">
-                <div className="bg-white rounded-2xl shadow-lg shadow-blue-900/8 p-4 border border-slate-100 text-center">
-                  <div className="w-9 h-9 mx-auto rounded-xl bg-linear-to-br from-emerald-400 to-emerald-500 flex items-center justify-center shadow-md shadow-emerald-500/20 mb-2">
-                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /></svg>
+            {/* ── Mobile hero visual ── */}
+            <div className="lg:hidden pb-14">
+              <div className="relative max-w-md mx-auto">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl shadow-blue-900/15 ring-1 ring-white/60">
+                  <div className="relative aspect-4/5">
+                    <Image
+                      src="/images/stock/woman-professional.jpg"
+                      alt="온라인 광고 전문가"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-accent-blue/15 via-transparent to-transparent" />
                   </div>
+                </div>
+                {/* Mobile floating stat */}
+                <div className="absolute -bottom-4 -right-2 bg-white rounded-xl shadow-lg shadow-blue-900/15 px-3 py-2 border border-blue-100">
+                  <p className="text-[9px] text-slate-400">ROAS</p>
+                  <p className="text-base font-extrabold text-accent-blue">4.8배 <span className="text-emerald-500 text-[10px]">↑</span></p>
+                </div>
+                <div className="absolute -top-4 -left-2 bg-white rounded-xl shadow-lg shadow-blue-900/15 px-3 py-2 border border-blue-100">
                   <p className="text-[9px] text-slate-400">전환율</p>
                   <p className="text-base font-extrabold text-deep-navy">+32.8%</p>
-                </div>
-                <div className="bg-white rounded-2xl shadow-lg shadow-blue-900/8 p-4 border border-slate-100 text-center">
-                  <div className="w-9 h-9 mx-auto rounded-xl bg-linear-to-br from-accent-blue to-blue-500 flex items-center justify-center shadow-md shadow-blue-500/20 mb-2">
-                    <IconBarChart className="w-4 h-4 text-white" />
-                  </div>
-                  <p className="text-[9px] text-slate-400">ROAS</p>
-                  <p className="text-base font-extrabold text-accent-blue">4.8배</p>
-                </div>
-                <div className="bg-white rounded-2xl shadow-lg shadow-blue-900/8 p-4 border border-slate-100 text-center">
-                  <div className="w-9 h-9 mx-auto rounded-xl bg-linear-to-br from-violet-400 to-violet-500 flex items-center justify-center shadow-md shadow-violet-500/20 mb-2">
-                    <IconTarget className="w-4 h-4 text-white" />
-                  </div>
-                  <p className="text-[9px] text-slate-400">문의 증가</p>
-                  <p className="text-base font-extrabold text-deep-navy">+56%</p>
                 </div>
               </div>
             </div>

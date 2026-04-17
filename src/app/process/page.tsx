@@ -75,25 +75,88 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      {/* Visual flow bar */}
-      <section className="bg-white py-8 sm:py-12 border-b border-slate-100">
-        <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            {steps.map((s, i) => (
-              <div key={i} className="flex items-center">
-                <div className="text-center">
-                  <div className={`w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-xl sm:rounded-2xl bg-linear-to-br ${s.color} flex items-center justify-center shadow-lg mb-1.5 sm:mb-2`}>
-                    <s.Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+      {/* Timeline overview (PDF reference style) */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-linear-to-b from-[#eef4ff] via-[#f5f9ff] to-white overflow-hidden">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14">
+            <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">TIMELINE</p>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy leading-tight">
+              문의부터 리포트까지,<br className="sm:hidden" />
+              {" "}<span className="relative inline-block">
+                <span className="relative z-10">5단계로 진행</span>
+                <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
+              </span>
+            </h2>
+          </div>
+
+          {/* Horizontal connected steps with screenshot thumbs */}
+          <div className="hidden md:block">
+            <div className="relative">
+              {/* Connecting line through dots */}
+              <div className="absolute top-11.5 left-[10%] right-[10%] h-0.5 bg-slate-200/70" />
+              <div className="absolute top-11.5 left-[10%] w-[80%] h-0.5 bg-linear-to-r from-accent-blue/60 via-accent-blue/40 to-accent-blue/10" />
+
+              <div className="grid grid-cols-5 gap-4 relative">
+                {steps.map((s, i) => (
+                  <div key={i} className="relative">
+                    {/* Step label pill */}
+                    <div className="flex justify-center mb-2">
+                      <div className={`px-3 py-1 rounded-full text-[10px] font-bold text-white bg-linear-to-r ${s.color} shadow-sm`}>
+                        STEP {s.step}
+                      </div>
+                    </div>
+                    {/* Dot + ring */}
+                    <div className="relative flex justify-center mb-6">
+                      <div className="relative w-6 h-6">
+                        <div className="absolute inset-0 rounded-full bg-accent-blue/20 animate-pulse-soft" />
+                        <div className={`absolute inset-1 rounded-full bg-linear-to-br ${s.color} shadow-md`} />
+                        <div className="absolute inset-1.75 rounded-full bg-white" />
+                      </div>
+                    </div>
+                    {/* Screenshot thumbnail card */}
+                    <div className="relative rounded-2xl overflow-hidden shadow-lg shadow-blue-900/8 border border-slate-100 group hover:-translate-y-1 transition-transform duration-300">
+                      <div className="relative aspect-4/3">
+                        <Image
+                          src={`/images/stock/${["consultation", "strategy-board", "creative-design", "dashboard", "monitor-data"][i]}.jpg`}
+                          alt={s.title}
+                          fill
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-linear-to-t from-deep-navy/50 via-transparent to-transparent" />
+                        <div className={`absolute top-2 left-2 w-8 h-8 rounded-xl bg-linear-to-br ${s.color} flex items-center justify-center shadow-lg`}>
+                          <s.Icon className="w-4 h-4 text-white" />
+                        </div>
+                      </div>
+                      <div className="bg-white p-3">
+                        <p className="text-[12px] font-extrabold text-deep-navy mb-0.5">{s.title}</p>
+                        <p className="text-[10px] text-slate-400 leading-tight">{s.main}</p>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 hidden sm:block">{s.title}</p>
-                </div>
-                {i < steps.length - 1 && (
-                  <div className="flex-1 mx-1.5 sm:mx-4">
-                    <div className="h-px bg-linear-to-r from-slate-200 to-slate-100" />
-                  </div>
-                )}
+                ))}
               </div>
-            ))}
+            </div>
+          </div>
+
+          {/* Mobile vertical timeline */}
+          <div className="md:hidden relative pl-8">
+            <div className="absolute left-3 top-2 bottom-2 w-0.5 bg-linear-to-b from-accent-blue/40 via-accent-blue/25 to-accent-blue/10" />
+            <div className="space-y-5">
+              {steps.map((s, i) => (
+                <div key={i} className="relative">
+                  <div className={`absolute -left-6.5 top-2 w-5 h-5 rounded-full bg-linear-to-br ${s.color} shadow-md ring-4 ring-white`} />
+                  <div className="bg-white rounded-2xl overflow-hidden shadow-md shadow-blue-900/5 border border-slate-100">
+                    <div className="p-4">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className={`inline-flex px-2 py-0.5 rounded-full bg-linear-to-r ${s.color} text-white text-[9px] font-bold`}>STEP {s.step}</span>
+                      </div>
+                      <p className="text-sm font-extrabold text-deep-navy mb-0.5">{s.title}</p>
+                      <p className="text-[11px] text-slate-500 leading-relaxed">{s.main}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
