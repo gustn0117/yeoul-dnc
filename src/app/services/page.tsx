@@ -140,46 +140,70 @@ export default function ServicesPage() {
             {" "}캠페인을 설계·집행·최적화합니다.
           </p>
 
-          {/* Isometric hex grid */}
-          <div className="relative mx-auto max-w-xl aspect-square">
+          {/* 3D isometric platform grid */}
+          <div className="relative mx-auto max-w-xl aspect-square perspective-1200">
+            {/* 3D floor grid below */}
+            <div className="absolute bottom-0 left-0 right-0 h-48 floor-grid opacity-60" />
             {/* Center glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-accent-blue/10 rounded-full blur-3xl" />
 
             {(() => {
               const items = [
-                { name: "meta", color: "from-blue-500 to-indigo-600", pos: "top-[4%] left-1/2 -translate-x-1/2" },
-                { name: "facebook", color: "from-blue-500 to-blue-600", pos: "top-[22%] right-[8%]" },
-                { name: "youtube", color: "from-red-500 to-rose-600", pos: "top-[22%] left-[8%]" },
-                { name: "instagram", color: "from-pink-500 to-rose-500", pos: "top-1/2 -translate-y-1/2 right-[2%]" },
-                { name: "google", color: "from-sky-500 to-blue-500", pos: "top-1/2 -translate-y-1/2 left-[2%]" },
-                { name: "naver", color: "from-green-500 to-emerald-600", pos: "bottom-[22%] right-[8%]" },
-                { name: "kakaotalk", color: "from-yellow-400 to-amber-500", pos: "bottom-[22%] left-[8%]" },
-                { name: "danggeun", color: "from-orange-400 to-orange-600", pos: "bottom-[4%] left-1/2 -translate-x-1/2" },
+                { name: "meta", color: "from-blue-500 to-indigo-600", pos: "top-[4%] left-1/2 -translate-x-1/2", rot: "rotateX(8deg) rotateY(0deg)" },
+                { name: "facebook", color: "from-blue-500 to-blue-600", pos: "top-[22%] right-[8%]", rot: "rotateX(6deg) rotateY(-12deg)" },
+                { name: "youtube", color: "from-red-500 to-rose-600", pos: "top-[22%] left-[8%]", rot: "rotateX(6deg) rotateY(12deg)" },
+                { name: "instagram", color: "from-pink-500 to-rose-500", pos: "top-1/2 -translate-y-1/2 right-[2%]", rot: "rotateX(0deg) rotateY(-18deg)" },
+                { name: "google", color: "from-sky-500 to-blue-500", pos: "top-1/2 -translate-y-1/2 left-[2%]", rot: "rotateX(0deg) rotateY(18deg)" },
+                { name: "naver", color: "from-green-500 to-emerald-600", pos: "bottom-[22%] right-[8%]", rot: "rotateX(-6deg) rotateY(-12deg)" },
+                { name: "kakaotalk", color: "from-yellow-400 to-amber-500", pos: "bottom-[22%] left-[8%]", rot: "rotateX(-6deg) rotateY(12deg)" },
+                { name: "danggeun", color: "from-orange-400 to-orange-600", pos: "bottom-[4%] left-1/2 -translate-x-1/2", rot: "rotateX(-8deg) rotateY(0deg)" },
               ];
               return items.map((item, i) => (
                 <div
                   key={item.name}
-                  className={`absolute ${item.pos} w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 group`}
-                  style={{ animation: `float ${4 + (i % 3)}s ease-in-out infinite ${i * 0.3}s` }}
+                  className={`absolute ${item.pos} w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 group preserve-3d`}
+                  style={{ animation: `float ${4 + (i % 3)}s ease-in-out infinite ${i * 0.3}s`, transformStyle: "preserve-3d" }}
                 >
-                  {/* Shadow layer */}
-                  <div className="absolute inset-0 translate-y-2 rounded-[24%] bg-black/15 blur-md" />
-                  {/* Back gradient block (isometric depth) */}
-                  <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-[24%] bg-linear-to-br ${item.color} opacity-70`} />
-                  {/* Front card */}
-                  <div className="relative w-full h-full rounded-[24%] bg-white shadow-xl shadow-blue-900/10 border border-white flex items-center justify-center p-4 group-hover:-translate-y-1 transition-transform duration-300">
-                    <img src={`/images/logos/${item.name}.svg`} alt={item.name} className="max-w-full max-h-full object-contain" />
+                  <div
+                    className="relative w-full h-full preserve-3d"
+                    style={{ transform: item.rot, transformStyle: "preserve-3d" }}
+                  >
+                    {/* Drop shadow (floor) */}
+                    <div className="absolute -inset-2 top-full mt-2 rounded-full bg-black/20 blur-md scale-y-50" />
+                    {/* Depth block - back */}
+                    <div
+                      className={`absolute inset-0 rounded-[24%] bg-linear-to-br ${item.color}`}
+                      style={{ transform: "translateZ(-12px)" }}
+                    />
+                    {/* Side edges to simulate thickness */}
+                    <div
+                      className={`absolute inset-0 rounded-[24%] bg-linear-to-br ${item.color} opacity-80`}
+                      style={{ transform: "translateZ(-6px)" }}
+                    />
+                    {/* Front face */}
+                    <div
+                      className="relative w-full h-full rounded-[24%] bg-white shadow-3d border border-white flex items-center justify-center p-4 group-hover:-translate-y-1 transition-transform duration-300 bevel-edge"
+                      style={{ transform: "translateZ(0px)" }}
+                    >
+                      <img src={`/images/logos/${item.name}.svg`} alt={item.name} className="relative max-w-full max-h-full object-contain" style={{ transform: "translateZ(10px)" }} />
+                    </div>
                   </div>
                 </div>
               ));
             })()}
 
-            {/* Center logo/mark */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full bg-white shadow-2xl shadow-accent-blue/25 border border-blue-100 flex items-center justify-center">
-              <div className="text-center">
-                <p className="text-[9px] sm:text-[10px] font-extrabold text-accent-blue tracking-widest">여울</p>
-                <p className="text-sm sm:text-base font-extrabold text-deep-navy">D&C</p>
-                <div className="mt-1 w-6 h-0.5 bg-accent-blue mx-auto" />
+            {/* Center 3D mark */}
+            <div
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 preserve-3d"
+              style={{ transform: "translate(-50%, -50%) rotateX(12deg) rotateY(-8deg)", transformStyle: "preserve-3d" }}
+            >
+              <div className="absolute inset-0 rounded-full bg-linear-to-br from-accent-blue to-blue-600 opacity-40" style={{ transform: "translateZ(-10px)" }} />
+              <div className="relative w-full h-full rounded-full bg-white shadow-3d-lg shadow-accent-blue/30 border border-blue-100 flex items-center justify-center bevel-edge" style={{ transform: "translateZ(0)" }}>
+                <div className="text-center">
+                  <p className="text-[9px] sm:text-[10px] font-extrabold text-accent-blue tracking-widest">여울</p>
+                  <p className="text-sm sm:text-base font-extrabold text-deep-navy">D&C</p>
+                  <div className="mt-1 w-6 h-0.5 bg-accent-blue mx-auto" />
+                </div>
               </div>
             </div>
           </div>

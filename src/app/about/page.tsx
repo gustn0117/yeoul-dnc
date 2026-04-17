@@ -81,26 +81,48 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Isometric brand mark */}
-            <div className="hidden lg:flex lg:col-span-5 justify-center items-center">
-              <div className="relative w-64 h-64">
+            {/* 3D perspective brand mark */}
+            <div className="hidden lg:flex lg:col-span-5 justify-center items-center perspective-1200">
+              <div
+                className="relative w-72 h-72 preserve-3d"
+                style={{ transform: "rotateX(12deg) rotateY(-8deg)", transformStyle: "preserve-3d" }}
+              >
                 <div className="absolute inset-0 bg-accent-blue/20 rounded-full blur-3xl" />
-                {/* Orbiting rings */}
-                <div className="absolute inset-0 rounded-full border border-accent-blue/20" />
-                <div className="absolute inset-4 rounded-full border border-accent-blue/15" />
-                <div className="absolute inset-8 rounded-full border border-accent-blue/10" />
-                {/* Center mark */}
-                <div className="absolute inset-12 rounded-full bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 flex items-center justify-center shadow-2xl">
+
+                {/* Stacked orbital rings at different Z levels */}
+                <div className="absolute inset-0 rounded-full border-2 border-accent-blue/20" style={{ transform: "translateZ(0)" }} />
+                <div className="absolute inset-3 rounded-full border-2 border-accent-blue/15" style={{ transform: "translateZ(20px)" }} />
+                <div className="absolute inset-6 rounded-full border-2 border-accent-blue/10" style={{ transform: "translateZ(40px)" }} />
+
+                {/* Center mark - top of stack */}
+                <div
+                  className="absolute inset-10 rounded-full glass-3d-dark flex items-center justify-center shadow-3d-lg"
+                  style={{ transform: "translateZ(70px)" }}
+                >
                   <div className="text-center">
-                    <p className="text-[10px] font-extrabold text-accent-blue tracking-[0.3em]">여울</p>
+                    <p className="text-[11px] font-extrabold text-accent-blue tracking-[0.3em]">여울</p>
                     <p className="text-2xl font-extrabold text-white">D&C</p>
                     <div className="mt-1.5 w-8 h-0.5 bg-accent-blue mx-auto" />
                   </div>
                 </div>
-                {/* Orbital dots */}
-                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-accent-blue shadow-lg shadow-accent-blue/50" style={{ animation: "float 4s ease-in-out infinite" }} />
-                <div className="absolute bottom-4 right-4 w-2.5 h-2.5 rounded-full bg-sky-400 shadow-lg" style={{ animation: "float 5s ease-in-out infinite 1s" }} />
-                <div className="absolute left-2 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-violet-400 shadow-lg" style={{ animation: "float 4.5s ease-in-out infinite 2s" }} />
+
+                {/* Orbital dots floating at top of Z */}
+                <div
+                  className="absolute top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-accent-blue shadow-lg shadow-accent-blue/60"
+                  style={{ transform: "translateZ(85px)", animation: "float 4s ease-in-out infinite" }}
+                />
+                <div
+                  className="absolute bottom-4 right-4 w-3 h-3 rounded-full bg-sky-400 shadow-lg shadow-sky-400/50"
+                  style={{ transform: "translateZ(60px)", animation: "float 5s ease-in-out infinite 1s" }}
+                />
+                <div
+                  className="absolute left-2 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-violet-400 shadow-lg shadow-violet-400/50"
+                  style={{ transform: "translateZ(50px)", animation: "float 4.5s ease-in-out infinite 2s" }}
+                />
+                <div
+                  className="absolute right-8 top-6 w-2 h-2 rounded-full bg-pink-400 shadow-lg"
+                  style={{ transform: "translateZ(70px)", animation: "float 3.5s ease-in-out infinite 1.5s" }}
+                />
               </div>
             </div>
           </div>
