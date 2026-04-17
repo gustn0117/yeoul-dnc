@@ -112,35 +112,106 @@ export default function Home() {
               </div>
             </div>
 
-            {/* ── Right: visual (3D perspective scene) ── */}
+            {/* ── Right: dashboard visual ── */}
             <div className="lg:col-span-6 relative hidden lg:flex items-center justify-center py-16 perspective-1200">
-              {/* Main image (subtle 3D) */}
+              {/* Main dashboard card */}
               <div className="relative w-full max-w-130 preserve-3d" style={{ transform: "rotateY(-3deg) rotateX(2deg)" }}>
-                <div className="relative rounded-[28px] overflow-hidden shadow-3d-lg ring-1 ring-white/60">
-                  <div className="relative aspect-5/6">
-                    <Image
-                      src="/images/stock/woman-professional.jpg"
-                      alt="온라인 광고 전문가"
-                      fill
-                      className="object-cover"
-                      priority
+                <div className="relative rounded-[28px] overflow-hidden shadow-3d-lg ring-1 ring-white/60 bg-white">
+                  {/* Dashboard header */}
+                  <div className="bg-linear-to-br from-deep-navy via-[#0d2240] to-deep-navy p-5 relative overflow-hidden">
+                    <div
+                      className="absolute inset-0 opacity-[0.08]"
+                      style={{
+                        backgroundImage: "linear-gradient(to right, #60a5fa 1px, transparent 1px), linear-gradient(to bottom, #60a5fa 1px, transparent 1px)",
+                        backgroundSize: "24px 24px",
+                      }}
                     />
-                    {/* Subtle gradient overlay */}
-                    <div className="absolute inset-0 bg-linear-to-t from-accent-blue/10 via-transparent to-transparent" />
-                    {/* Glossy highlight */}
-                    <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.05) 100%)" }} />
-                    {/* Top right chart decoration */}
-                    <svg className="absolute top-8 right-8 w-28 h-16 opacity-90" viewBox="0 0 120 60" fill="none">
-                      <path d="M0 50 Q30 20 60 30 T120 5" stroke="#60a5fa" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-                      <circle cx="120" cy="5" r="4" fill="#2563eb" />
-                      <circle cx="60" cy="30" r="3" fill="#60a5fa" />
-                    </svg>
+                    <div className="relative flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2">
+                        <div className="flex gap-1">
+                          <span className="w-2 h-2 rounded-full bg-red-400" />
+                          <span className="w-2 h-2 rounded-full bg-yellow-400" />
+                          <span className="w-2 h-2 rounded-full bg-green-400" />
+                        </div>
+                        <span className="text-[10px] font-bold text-slate-300 ml-2 tracking-wider">CAMPAIGN DASHBOARD</span>
+                      </div>
+                      <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30">
+                        <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse-soft" />
+                        <span className="text-[9px] font-bold text-emerald-400">LIVE</span>
+                      </div>
+                    </div>
+                    <p className="text-[10px] text-slate-400 font-medium mb-1">현재 운영 중 · 6개 채널</p>
+                    <p className="text-2xl font-extrabold text-white">월간 성과 리포트</p>
+                  </div>
+
+                  {/* Chart area */}
+                  <div className="p-6 pt-5">
+                    <div className="flex items-end justify-between mb-1">
+                      <div>
+                        <p className="text-[10px] text-slate-400 font-medium">광고 효율 추이</p>
+                        <div className="flex items-baseline gap-1.5 mt-0.5">
+                          <span className="text-3xl font-black text-accent-blue leading-none">4.8x</span>
+                          <span className="text-xs font-bold text-emerald-600">+38.5% ↑</span>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-[9px] text-slate-400">vs 이전 분기</p>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 relative h-32">
+                      <svg viewBox="0 0 300 120" className="w-full h-full" preserveAspectRatio="none">
+                        <defs>
+                          <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="#2563eb" stopOpacity="0.35" />
+                            <stop offset="100%" stopColor="#2563eb" stopOpacity="0" />
+                          </linearGradient>
+                        </defs>
+                        {[0, 1, 2, 3].map((i) => (
+                          <line key={i} x1="0" y1={i * 30 + 10} x2="300" y2={i * 30 + 10} stroke="#e2e8f0" strokeDasharray="2 4" />
+                        ))}
+                        <path d="M 0 90 Q 30 80 50 70 T 100 55 T 150 45 T 200 35 T 260 20 L 300 10 L 300 120 L 0 120 Z" fill="url(#chartGrad)" />
+                        <path d="M 0 90 Q 30 80 50 70 T 100 55 T 150 45 T 200 35 T 260 20 L 300 10" stroke="#2563eb" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+                        <circle cx="300" cy="10" r="5" fill="#2563eb" />
+                        <circle cx="300" cy="10" r="8" fill="#2563eb" fillOpacity="0.25" />
+                      </svg>
+                    </div>
+
+                    <div className="mt-4 pt-4 border-t border-slate-100 grid grid-cols-3 gap-3">
+                      <div>
+                        <p className="text-[9px] text-slate-400 font-medium">전환율</p>
+                        <p className="text-lg font-extrabold text-deep-navy leading-tight">+32.8%</p>
+                        <div className="flex items-end gap-0.75 h-3 mt-1">
+                          {[40, 55, 70, 85].map((h, i) => (
+                            <div key={i} className="flex-1 rounded-sm bg-emerald-500" style={{ height: `${h}%` }} />
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-[9px] text-slate-400 font-medium">문의 증가</p>
+                        <p className="text-lg font-extrabold text-deep-navy leading-tight">+56%</p>
+                        <div className="flex items-end gap-0.75 h-3 mt-1">
+                          {[30, 50, 65, 90].map((h, i) => (
+                            <div key={i} className="flex-1 rounded-sm bg-accent-blue" style={{ height: `${h}%` }} />
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-[9px] text-slate-400 font-medium">캠페인</p>
+                        <p className="text-lg font-extrabold text-deep-navy leading-tight">100+</p>
+                        <div className="flex items-end gap-0.75 h-3 mt-1">
+                          {[50, 60, 75, 80].map((h, i) => (
+                            <div key={i} className="flex-1 rounded-sm bg-violet-500/60" style={{ height: `${h}%` }} />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Floating card: 전환율 (top right) */}
+                {/* Floating card: ROAS (top right) */}
                 <div
-                  className="absolute top-10 -right-6 bg-white rounded-2xl shadow-3d px-4 py-3 border border-blue-100/80 z-20 animate-float backdrop-blur-sm bevel-edge"
+                  className="absolute -top-4 -right-6 bg-white rounded-2xl shadow-3d px-4 py-3 border border-blue-100/80 z-20 animate-float backdrop-blur-sm bevel-edge"
                   style={{ transform: "translateZ(20px)", transformStyle: "preserve-3d" }}
                 >
                   <div className="flex items-center gap-3">
@@ -150,42 +221,22 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-[10px] text-slate-400 font-medium">전환율</p>
-                      <p className="text-xl font-extrabold text-deep-navy leading-tight">+32.8%<span className="text-emerald-500 text-xs font-bold ml-1">↑</span></p>
+                      <p className="text-[10px] text-slate-400 font-medium">광고 효율</p>
+                      <p className="text-lg font-extrabold text-emerald-600 leading-tight">ROAS 4.8x</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Floating card: ROAS (middle right) */}
+                {/* Floating card: 채널 (bottom left) */}
                 <div
-                  className="absolute top-1/2 -translate-y-1/2 -right-10 bg-white rounded-2xl shadow-3d px-4 py-3.5 border border-blue-100/80 z-20 backdrop-blur-sm bevel-edge"
-                  style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d", animation: "float 5s ease-in-out infinite 2s" }}
-                >
-                  <p className="text-[10px] text-slate-400 font-medium mb-1">광고 효율 (ROAS)</p>
-                  <div className="flex items-baseline gap-1 mb-2">
-                    <p className="text-[26px] font-extrabold text-accent-blue leading-none">4.8</p>
-                    <p className="text-sm font-bold text-slate-400">배</p>
-                  </div>
-                  <div className="flex items-end gap-0.75 h-6">
-                    {[40, 55, 35, 70, 60, 80, 90].map((h, i) => (
-                      <div key={i} className="w-1.5 rounded-t-sm bg-linear-to-t from-accent-blue to-blue-300" style={{ height: `${h}%` }} />
-                    ))}
-                  </div>
-                </div>
-
-                {/* Floating card: 문의 증가 (bottom left) */}
-                <div
-                  className="absolute bottom-12 -left-6 bg-white rounded-2xl shadow-3d px-4 py-3 border border-blue-100/80 z-20 backdrop-blur-sm bevel-edge"
+                  className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-3d px-4 py-3 border border-blue-100/80 z-20 backdrop-blur-sm bevel-edge"
                   style={{ transform: "translateZ(20px)", transformStyle: "preserve-3d", animation: "float 5s ease-in-out infinite 1s" }}
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-md shadow-accent-blue/30">
-                      <IconTarget className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] text-slate-400 font-medium">문의 증가</p>
-                      <p className="text-xl font-extrabold text-deep-navy leading-tight">+56%<span className="text-emerald-500 text-xs font-bold ml-1">↑</span></p>
-                    </div>
+                  <p className="text-[10px] text-slate-400 font-medium mb-2">운영 채널</p>
+                  <div className="flex items-center gap-1.5">
+                    {["naver", "kakaotalk", "meta", "youtube", "google"].map((n) => (
+                      <img key={n} src={`/images/logos/${n}.svg`} alt="" className="h-4 w-auto" />
+                    ))}
                   </div>
                 </div>
 
@@ -198,28 +249,52 @@ export default function Home() {
               <div className="absolute top-10 right-10 w-64 h-64 bg-accent-blue/10 rounded-full blur-[80px] -z-10" />
             </div>
 
-            {/* ── Mobile hero visual ── */}
+            {/* ── Mobile hero visual - compact dashboard ── */}
             <div className="lg:hidden pb-14">
               <div className="relative max-w-md mx-auto">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl shadow-blue-900/15 ring-1 ring-white/60">
-                  <div className="relative aspect-4/5">
-                    <Image
-                      src="/images/stock/woman-professional.jpg"
-                      alt="온라인 광고 전문가"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-accent-blue/15 via-transparent to-transparent" />
+                <div className="rounded-3xl overflow-hidden shadow-xl shadow-blue-900/15 ring-1 ring-white/60 bg-white">
+                  <div className="bg-linear-to-br from-deep-navy to-[#0d2240] p-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[9px] font-bold text-slate-300 tracking-wider">CAMPAIGN DASHBOARD</span>
+                      <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30">
+                        <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse-soft" />
+                        <span className="text-[8px] font-bold text-emerald-400">LIVE</span>
+                      </div>
+                    </div>
+                    <p className="text-base font-extrabold text-white mt-1">월간 성과 리포트</p>
                   </div>
-                </div>
-                {/* Mobile floating stat */}
-                <div className="absolute -bottom-4 -right-2 bg-white rounded-xl shadow-lg shadow-blue-900/15 px-3 py-2 border border-blue-100">
-                  <p className="text-[9px] text-slate-400">ROAS</p>
-                  <p className="text-base font-extrabold text-accent-blue">4.8배 <span className="text-emerald-500 text-[10px]">↑</span></p>
-                </div>
-                <div className="absolute -top-4 -left-2 bg-white rounded-xl shadow-lg shadow-blue-900/15 px-3 py-2 border border-blue-100">
-                  <p className="text-[9px] text-slate-400">전환율</p>
-                  <p className="text-base font-extrabold text-deep-navy">+32.8%</p>
+                  <div className="p-4">
+                    <div className="flex items-baseline gap-2 mb-3">
+                      <span className="text-2xl font-black text-accent-blue leading-none">4.8x</span>
+                      <span className="text-[11px] font-bold text-emerald-600">+38.5% ↑</span>
+                      <span className="text-[9px] text-slate-400 ml-auto">ROAS</span>
+                    </div>
+                    <svg viewBox="0 0 300 80" className="w-full h-20" preserveAspectRatio="none">
+                      <defs>
+                        <linearGradient id="chartGradMobile" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor="#2563eb" stopOpacity="0.3" />
+                          <stop offset="100%" stopColor="#2563eb" stopOpacity="0" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M 0 60 Q 30 50 50 45 T 100 35 T 150 25 T 200 20 T 260 12 L 300 8 L 300 80 L 0 80 Z" fill="url(#chartGradMobile)" />
+                      <path d="M 0 60 Q 30 50 50 45 T 100 35 T 150 25 T 200 20 T 260 12 L 300 8" stroke="#2563eb" strokeWidth="2" fill="none" strokeLinecap="round" />
+                      <circle cx="300" cy="8" r="4" fill="#2563eb" />
+                    </svg>
+                    <div className="mt-3 pt-3 border-t border-slate-100 grid grid-cols-3 gap-2">
+                      <div>
+                        <p className="text-[8px] text-slate-400">전환율</p>
+                        <p className="text-sm font-extrabold text-deep-navy">+32.8%</p>
+                      </div>
+                      <div>
+                        <p className="text-[8px] text-slate-400">문의 증가</p>
+                        <p className="text-sm font-extrabold text-deep-navy">+56%</p>
+                      </div>
+                      <div>
+                        <p className="text-[8px] text-slate-400">캠페인</p>
+                        <p className="text-sm font-extrabold text-deep-navy">100+</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
