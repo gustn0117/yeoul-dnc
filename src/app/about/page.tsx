@@ -100,7 +100,7 @@ export default function AboutPage() {
                   className="absolute inset-10 rounded-full glass-3d-dark flex items-center justify-center shadow-3d-lg"
                   style={{ transform: "translateZ(35px)" }}
                 >
-                  <LogoMark variant="white" className="w-20 h-20" />
+                  <LogoMark variant="white" className="w-16" />
                 </div>
 
                 {/* Orbital dots */}
@@ -152,7 +152,7 @@ export default function AboutPage() {
 
                 {/* Floating tags */}
                 <div className="absolute -top-3 -right-3 bg-white rounded-xl shadow-xl shadow-blue-900/10 px-3 py-2 border border-blue-100 animate-float flex items-center gap-2">
-                  <LogoMark className="w-6 h-6" />
+                  <LogoMark className="w-6" />
                   <div>
                     <p className="text-[9px] text-slate-400 font-medium leading-none">EST.</p>
                     <p className="text-[11px] font-extrabold text-accent-blue leading-tight">여울디앤씨</p>

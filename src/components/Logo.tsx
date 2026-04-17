@@ -18,9 +18,9 @@ export function LogoFull({ className = "h-9", variant = "color" }: { className?:
   );
 }
 
-/** Mark-only logo (symbol, no text) */
+/** Mark-only logo (symbol, no text) — preserves native 650×570 aspect ratio */
 export function LogoMark({
-  className = "w-10 h-10",
+  className = "w-10",
   variant = "color",
   alt = "여울디앤씨",
 }: {
@@ -33,9 +33,9 @@ export function LogoMark({
     <Image
       src={src}
       alt={alt}
-      width={400}
-      height={400}
-      className={`${className} object-contain`}
+      width={650}
+      height={570}
+      className={`${className} h-auto object-contain block`}
     />
   );
 }
