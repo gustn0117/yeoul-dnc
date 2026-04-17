@@ -3,6 +3,7 @@ import Image from "next/image";
 import SectionCTA from "@/components/SectionCTA";
 import { IllustPieChart } from "@/components/Illustrations";
 import { IconCheck, IconTarget, IconBarChart, IconLayers } from "@/components/Icons";
+import { LogoMark } from "@/components/Logo";
 
 export const metadata: Metadata = {
   title: "회사소개 | 여울디앤씨",
@@ -99,11 +100,7 @@ export default function AboutPage() {
                   className="absolute inset-10 rounded-full glass-3d-dark flex items-center justify-center shadow-3d-lg"
                   style={{ transform: "translateZ(35px)" }}
                 >
-                  <div className="text-center">
-                    <p className="text-[11px] font-extrabold text-accent-blue tracking-[0.3em]">여울</p>
-                    <p className="text-2xl font-extrabold text-white">D&C</p>
-                    <div className="mt-1.5 w-8 h-0.5 bg-accent-blue mx-auto" />
-                  </div>
+                  <LogoMark variant="white" className="w-20 h-20" />
                 </div>
 
                 {/* Orbital dots */}
@@ -154,9 +151,12 @@ export default function AboutPage() {
                 </div>
 
                 {/* Floating tags */}
-                <div className="absolute -top-3 -right-3 bg-white rounded-xl shadow-xl shadow-blue-900/10 px-3 py-2 border border-blue-100 animate-float">
-                  <p className="text-[9px] text-slate-400 font-medium">EST.</p>
-                  <p className="text-sm font-extrabold text-accent-blue">YEOUL D&C</p>
+                <div className="absolute -top-3 -right-3 bg-white rounded-xl shadow-xl shadow-blue-900/10 px-3 py-2 border border-blue-100 animate-float flex items-center gap-2">
+                  <LogoMark className="w-6 h-6" />
+                  <div>
+                    <p className="text-[9px] text-slate-400 font-medium leading-none">EST.</p>
+                    <p className="text-[11px] font-extrabold text-accent-blue leading-tight">여울디앤씨</p>
+                  </div>
                 </div>
                 <div className="absolute -bottom-3 -left-3 bg-white rounded-xl shadow-xl shadow-blue-900/10 px-3 py-2 border border-emerald-100 flex items-center gap-2" style={{ animation: "float 5s ease-in-out infinite 1s" }}>
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-soft" />

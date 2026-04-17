@@ -17,3 +17,25 @@ export function LogoFull({ className = "h-9", variant = "color" }: { className?:
     </Link>
   );
 }
+
+/** Mark-only logo (symbol, no text) */
+export function LogoMark({
+  className = "w-10 h-10",
+  variant = "color",
+  alt = "여울디앤씨",
+}: {
+  className?: string;
+  variant?: "color" | "white";
+  alt?: string;
+}) {
+  const src = variant === "white" ? "/images/logo-mark-white.png" : "/images/logo-mark-color.png";
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={400}
+      height={400}
+      className={`${className} object-contain`}
+    />
+  );
+}

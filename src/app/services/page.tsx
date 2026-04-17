@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SectionCTA from "@/components/SectionCTA";
 import { IconCheck, IconArrowRight, IconMail, IconBuilding } from "@/components/Icons";
+import { LogoMark } from "@/components/Logo";
 
 export const metadata: Metadata = {
   title: "광고상품 / 서비스 | 여울디앤씨",
@@ -111,10 +112,7 @@ export default function ServicesPage() {
                 ))}
                 {/* Center mark */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-linear-to-br from-white/15 to-white/5 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-2xl">
-                  <div className="text-center">
-                    <p className="text-[8px] font-extrabold text-accent-blue tracking-[0.3em]">여울</p>
-                    <p className="text-base sm:text-lg font-extrabold text-white">D&C</p>
-                  </div>
+                  <LogoMark variant="white" className="w-14 h-14 sm:w-16 sm:h-16" />
                 </div>
               </div>
             </div>
@@ -175,11 +173,7 @@ export default function ServicesPage() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32">
               <div className="absolute inset-0 translate-y-1 rounded-full bg-accent-blue/30 blur-sm" />
               <div className="relative w-full h-full rounded-full bg-white shadow-3d-lg shadow-accent-blue/30 border border-blue-100 flex items-center justify-center bevel-edge">
-                <div className="text-center">
-                  <p className="text-[9px] sm:text-[10px] font-extrabold text-accent-blue tracking-widest">여울</p>
-                  <p className="text-sm sm:text-base font-extrabold text-deep-navy">D&C</p>
-                  <div className="mt-1 w-6 h-0.5 bg-accent-blue mx-auto" />
-                </div>
+                <LogoMark className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24" />
               </div>
             </div>
           </div>
