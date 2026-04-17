@@ -139,7 +139,7 @@ export default function Footer() {
                 <div key={c.name} className="relative group">
                   <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-lg bg-linear-to-br ${c.color} opacity-40 blur-[1px]`} />
                   <div className="relative w-full aspect-square rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/10 transition-colors">
-                    <img src={`/images/logos/${c.name}.svg`} alt={c.name} className="h-4 sm:h-5 w-auto brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity" />
+                    <img src={`/images/logos/${c.name}.svg`} alt={c.name} className={`h-4 sm:h-5 w-auto ${c.name === "kakaotalk" ? "opacity-90 group-hover:opacity-100" : "brightness-0 invert opacity-60 group-hover:opacity-100"} transition-opacity`} />
                   </div>
                 </div>
               ))}

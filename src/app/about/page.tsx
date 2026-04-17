@@ -410,7 +410,7 @@ export default function AboutPage() {
                 <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-2xl bg-linear-to-br ${p.color} opacity-60`} />
                 {/* Front card */}
                 <div className="relative w-full aspect-square rounded-2xl bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 flex items-center justify-center shadow-xl group-hover:-translate-y-1 transition-transform duration-300">
-                  <img src={`/images/logos/${p.name}.svg`} alt={p.name} className="h-6 sm:h-7 w-auto brightness-0 invert" />
+                  <img src={`/images/logos/${p.name}.svg`} alt={p.name} className={`h-6 sm:h-7 w-auto ${p.name === "kakaotalk" ? "" : "brightness-0 invert"}`} />
                 </div>
               </div>
             ))}

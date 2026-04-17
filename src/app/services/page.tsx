@@ -79,7 +79,7 @@ export default function ServicesPage() {
                   <div key={p.name} className="relative group">
                     <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-lg bg-linear-to-br ${p.color} opacity-50 blur-[1px]`} />
                     <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/10 transition-colors">
-                      <img src={`/images/logos/${p.name}.svg`} alt={p.name} className="h-4 sm:h-5 w-auto brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity" />
+                      <img src={`/images/logos/${p.name}.svg`} alt={p.name} className={`h-4 sm:h-5 w-auto ${p.name === "kakaotalk" ? "opacity-90 group-hover:opacity-100" : "brightness-0 invert opacity-70 group-hover:opacity-100"} transition-opacity`} />
                     </div>
                   </div>
                 ))}
