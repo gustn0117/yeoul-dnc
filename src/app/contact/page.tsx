@@ -49,36 +49,46 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-linear-to-br from-[#060d1b] via-deep-navy to-[#0d2240]" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div className="absolute top-20 right-1/4 w-64 h-64 rounded-full bg-accent-blue/10 blur-[80px]" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-cta-orange/5 blur-[100px]" />
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-24">
           <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4">Contact</p>
-          <h1 className="text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-4 tracking-tight">문의하기</h1>
-          <p className="text-base lg:text-lg text-slate-300/90">광고가 처음이셔도 괜찮습니다</p>
-          <p className="text-sm text-slate-400/80 mt-2">업종, 예산, 현재 고민을 남겨주시면 맞는 방향부터 정리해드립니다</p>
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-3 sm:mb-4 tracking-tight">문의하기</h1>
+          <p className="text-base sm:text-lg text-slate-300/90">광고가 처음이셔도 괜찮습니다</p>
+          <p className="text-[13px] sm:text-sm text-slate-400/80 mt-2 leading-relaxed">
+            업종, 예산, 현재 고민을 남겨주시면<br className="sm:hidden" />
+            {" "}맞는 방향부터 정리해드립니다
+          </p>
         </div>
       </section>
 
       {/* Form */}
-      <section className="py-16 lg:py-24 bg-linear-to-b from-slate-50 to-white">
+      <section className="py-12 sm:py-16 lg:py-24 bg-linear-to-b from-slate-50 to-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {submitted ? (
-            <div className="text-center py-20 bg-white rounded-3xl border border-slate-100 shadow-sm">
-              <div className="w-16 h-16 mx-auto bg-emerald-50 rounded-2xl flex items-center justify-center mb-6">
-                <IconCheck className="w-7 h-7 text-emerald-500" />
+            <div className="text-center py-16 sm:py-20 bg-white rounded-2xl sm:rounded-3xl border border-slate-100 shadow-sm px-5">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto bg-emerald-50 rounded-2xl flex items-center justify-center mb-5 sm:mb-6">
+                <IconCheck className="w-6 h-6 sm:w-7 sm:h-7 text-emerald-500" />
               </div>
-              <h2 className="text-2xl font-extrabold text-deep-navy mb-3">문의가 접수되었습니다</h2>
-              <p className="text-slate-500 text-sm mb-8">빠른 시일 내에 담당자가 연락드리겠습니다.</p>
+              <h2 className="text-xl sm:text-2xl font-extrabold text-deep-navy mb-2.5 sm:mb-3">
+                문의가 접수되었습니다
+              </h2>
+              <p className="text-slate-500 text-[13px] sm:text-sm mb-6 sm:mb-8 leading-relaxed">
+                빠른 시일 내에<br className="sm:hidden" />
+                {" "}담당자가 연락드리겠습니다.
+              </p>
               <button onClick={() => { setSubmitted(false); setForm({ company_name: "", contact_name: "", phone: "", industry: "", message: "", channel: "", budget: "", has_website: "" }); }}
                 className="px-6 py-3 bg-accent-blue text-white text-sm font-semibold rounded-xl hover:bg-blue-600 transition-colors">
                 추가 문의하기
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="bg-white rounded-3xl border border-slate-100 shadow-sm p-6 sm:p-8 lg:p-10">
+            <form onSubmit={handleSubmit} className="bg-white rounded-2xl sm:rounded-3xl border border-slate-100 shadow-sm p-5 sm:p-8 lg:p-10">
               {/* Required */}
-              <div className="mb-8">
+              <div className="mb-7 sm:mb-8">
                 <h2 className="text-base font-extrabold text-deep-navy mb-1">기본 정보</h2>
-                <p className="text-xs text-cta-orange mb-6">* 표시 항목은 필수입니다</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <p className="text-xs text-cta-orange mb-5 sm:mb-6">* 표시 항목은 필수입니다</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-600 mb-1.5">업체명 *</label>
                     <input type="text" required value={form.company_name} onChange={(e) => updateField("company_name", e.target.value)} className={inputClass} placeholder="업체명" />
@@ -96,17 +106,17 @@ export default function ContactPage() {
                     <input type="text" required value={form.industry} onChange={(e) => updateField("industry", e.target.value)} className={inputClass} placeholder="예: 병원, 부동산, 음식점" />
                   </div>
                 </div>
-                <div className="mt-4">
+                <div className="mt-3 sm:mt-4">
                   <label className="block text-xs font-semibold text-slate-600 mb-1.5">문의내용 *</label>
                   <textarea required rows={4} value={form.message} onChange={(e) => updateField("message", e.target.value)} className={`${inputClass} resize-none`} placeholder="현재 상황, 고민, 원하시는 방향 등을 자유롭게 적어주세요" />
                 </div>
               </div>
 
               {/* Optional */}
-              <div className="pt-6 border-t border-slate-100 mb-8">
+              <div className="pt-5 sm:pt-6 border-t border-slate-100 mb-7 sm:mb-8">
                 <h2 className="text-base font-extrabold text-deep-navy mb-1">추가 정보</h2>
-                <p className="text-xs text-slate-400 mb-6">선택 항목입니다</p>
-                <div className="space-y-4">
+                <p className="text-xs text-slate-400 mb-5 sm:mb-6">선택 항목입니다</p>
+                <div className="space-y-3 sm:space-y-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-600 mb-1.5">희망 광고 채널</label>
                     <select value={form.channel} onChange={(e) => updateField("channel", e.target.value)} className={inputClass}>
@@ -123,9 +133,9 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-slate-600 mb-1.5">홈페이지/랜딩페이지 보유 여부</label>
-                    <div className="flex gap-4">
+                    <div className="flex flex-wrap gap-3 sm:gap-4">
                       {["보유", "미보유", "제작 예정"].map((opt) => (
-                        <label key={opt} className="flex items-center gap-2 text-sm text-slate-600 cursor-pointer">
+                        <label key={opt} className="flex items-center gap-2 text-[13px] sm:text-sm text-slate-600 cursor-pointer">
                           <input type="radio" name="hasWebsite" value={opt} checked={form.has_website === opt} onChange={(e) => updateField("has_website", e.target.value)} className="accent-accent-blue w-4 h-4" />
                           {opt}
                         </label>
@@ -136,11 +146,13 @@ export default function ContactPage() {
               </div>
 
               {/* Privacy */}
-              <div className="pt-6 border-t border-slate-100 mb-6">
+              <div className="pt-5 sm:pt-6 border-t border-slate-100 mb-5 sm:mb-6">
                 <label className="flex items-start gap-3 cursor-pointer">
-                  <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} className="mt-0.5 accent-accent-blue w-4 h-4" />
-                  <span className="text-xs text-slate-500">
-                    개인정보 수집 및 이용에 동의합니다. 수집된 정보는 상담 목적으로만 사용되며, 상담 완료 후 즉시 파기됩니다.
+                  <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} className="mt-0.5 accent-accent-blue w-4 h-4 shrink-0" />
+                  <span className="text-[11px] sm:text-xs text-slate-500 leading-relaxed">
+                    개인정보 수집 및 이용에 동의합니다.<br className="sm:hidden" />
+                    {" "}수집된 정보는 상담 목적으로만 사용되며,<br className="sm:hidden" />
+                    {" "}상담 완료 후 즉시 파기됩니다.
                   </span>
                 </label>
               </div>
@@ -148,25 +160,25 @@ export default function ContactPage() {
               {error && <p className="text-sm text-red-500 mb-4">{error}</p>}
 
               <button type="submit" disabled={submitting}
-                className="w-full py-4 bg-linear-to-r from-cta-orange to-orange-500 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-cta-orange/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                className="w-full py-3.5 sm:py-4 bg-linear-to-r from-cta-orange to-orange-500 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-cta-orange/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
                 {submitting ? "접수 중..." : <>상담 요청하기 <IconArrowRight className="w-4 h-4" /></>}
               </button>
             </form>
           )}
 
           {/* Contact Info */}
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
             {[
               { icon: <IconPhone className="w-5 h-5 text-accent-blue" />, bg: "bg-accent-blue/8", title: "전화 상담", sub: "OOO-OOOO-OOOO" },
               { icon: <svg className="w-5 h-5 text-amber-600" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 10.9c0 2.78 1.8 5.22 4.51 6.6-.2.73-.72 2.65-.82 3.06-.13.52.19.51.4.37.17-.11 2.69-1.83 3.78-2.57.69.1 1.4.15 2.13.15 5.52 0 10-3.58 10-7.9S17.52 3 12 3z" /></svg>, bg: "bg-amber-50", title: "카카오톡 상담", sub: "빠른 상담 가능" },
               { icon: <IconClock className="w-5 h-5 text-accent-blue" />, bg: "bg-accent-blue/8", title: "운영시간", sub: "평일 09:00 - 18:00" },
             ].map((item) => (
-              <div key={item.title} className="bg-white p-5 rounded-2xl border border-slate-100 text-center">
-                <div className={`w-11 h-11 mx-auto ${item.bg} rounded-xl flex items-center justify-center mb-3`}>
+              <div key={item.title} className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-100 text-center">
+                <div className={`w-10 h-10 sm:w-11 sm:h-11 mx-auto ${item.bg} rounded-xl flex items-center justify-center mb-2.5 sm:mb-3`}>
                   {item.icon}
                 </div>
-                <p className="text-sm font-semibold text-slate-700">{item.title}</p>
-                <p className="text-xs text-slate-400 mt-0.5">{item.sub}</p>
+                <p className="text-[13px] sm:text-sm font-semibold text-slate-700">{item.title}</p>
+                <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5">{item.sub}</p>
               </div>
             ))}
           </div>

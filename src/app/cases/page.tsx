@@ -51,13 +51,19 @@ export default function CasesPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-linear-to-br from-[#060d1b] via-deep-navy to-[#0d2240]" />
         <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-accent-blue/5 to-transparent" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
             <div>
               <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4">Portfolio</p>
-              <h1 className="text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-5 tracking-tight">포트폴리오</h1>
-              <p className="text-lg text-slate-300/90 max-w-md">실제로 이런 업종, 이런 작업을 해왔습니다</p>
-              <p className="text-sm text-slate-400/80 mt-3 max-w-md">큰 성과 자랑보다, 실제 작업과 운영 구조를 보여드립니다.</p>
+              <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">포트폴리오</h1>
+              <p className="text-base sm:text-lg text-slate-300/90 max-w-md">
+                실제로 이런 업종,<br className="sm:hidden" />
+                {" "}이런 작업을 해왔습니다
+              </p>
+              <p className="text-[13px] sm:text-sm text-slate-400/80 mt-2.5 sm:mt-3 max-w-md leading-relaxed">
+                큰 성과 자랑보다,<br className="sm:hidden" />
+                {" "}실제 작업과 운영 구조를 보여드립니다.
+              </p>
             </div>
             <div className="hidden lg:flex justify-center">
               <IllustLaptop className="w-80 h-auto animate-float-slow" />
@@ -67,12 +73,15 @@ export default function CasesPage() {
       </section>
 
       {/* 1. 거래 업종 */}
-      <section className="py-16 lg:py-20 bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-xs text-slate-400 mb-5 font-medium">다양한 업종의 광고 운영과 제작 경험을 바탕으로 방향을 제안합니다</p>
-          <div className="flex flex-wrap justify-center gap-3">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
+          <p className="text-[11px] sm:text-xs text-slate-400 mb-4 sm:mb-5 font-medium leading-relaxed">
+            다양한 업종의 광고 운영과 제작 경험을 바탕으로<br className="sm:hidden" />
+            {" "}방향을 제안합니다
+          </p>
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
             {industries.map((ind) => (
-              <span key={ind} className="px-5 py-2.5 rounded-full bg-slate-50 border border-slate-100 text-sm font-semibold text-slate-600 hover:bg-accent-blue/4 hover:border-accent-blue/20 hover:text-accent-blue transition-all duration-300 cursor-default">
+              <span key={ind} className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-slate-50 border border-slate-100 text-[13px] sm:text-sm font-semibold text-slate-600 hover:bg-accent-blue/4 hover:border-accent-blue/20 hover:text-accent-blue transition-all duration-300 cursor-default">
                 {ind}
               </span>
             ))}
@@ -81,45 +90,46 @@ export default function CasesPage() {
       </section>
 
       {/* 2. 운영 방식 예시 - 풍성한 카드 */}
-      <section className="py-20 lg:py-28 bg-linear-to-b from-white to-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+      <section className="py-16 sm:py-20 lg:py-28 bg-linear-to-b from-white to-slate-50">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14">
             <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4 justify-center">Operations</p>
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4">
-              업종에 맞는 채널 조합과 운영 흐름
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4">
+              업종에 맞는<br className="sm:hidden" />
+              {" "}채널 조합과 운영 흐름
             </h2>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {operations.map((op, i) => (
-              <div key={op.industry} className={`lg:grid lg:grid-cols-2 lg:gap-8 items-center bg-white rounded-3xl border border-slate-100 card-3d gradient-border overflow-hidden`}>
+              <div key={op.industry} className={`lg:grid lg:grid-cols-2 lg:gap-8 items-center bg-white rounded-2xl sm:rounded-3xl border border-slate-100 card-3d gradient-border overflow-hidden`}>
                 {/* Image */}
-                <div className={`relative aspect-video lg:aspect-auto lg:h-full min-h-60 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+                <div className={`relative aspect-video lg:aspect-auto lg:h-full min-h-56 sm:min-h-60 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
                   <Image src={op.img} alt={op.industry} fill className="object-cover" />
                   <div className="absolute inset-0 bg-linear-to-r from-deep-navy/30 to-transparent" />
                   {/* Industry badge */}
-                  <div className={`absolute top-4 left-4 px-4 py-1.5 rounded-full bg-linear-to-r ${op.color} text-white text-xs font-bold shadow-lg`}>
+                  <div className={`absolute top-4 left-4 px-3 sm:px-4 py-1.5 rounded-full bg-linear-to-r ${op.color} text-white text-[11px] sm:text-xs font-bold shadow-lg`}>
                     {op.industry}
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className={`p-7 lg:p-10 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <div className="flex items-center gap-2 mb-4">
+                <div className={`p-6 sm:p-7 lg:p-10 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                  <div className="flex items-center gap-2 mb-3 sm:mb-4">
                     {op.logos.map((logo) => (
-                      <img key={logo} src={`/images/logos/${logo}.svg`} alt={logo} className="h-5 w-auto" />
+                      <img key={logo} src={`/images/logos/${logo}.svg`} alt={logo} className="h-4 sm:h-5 w-auto" />
                     ))}
                   </div>
-                  <h3 className="text-lg font-extrabold text-deep-navy mb-2">{op.channel}</h3>
-                  <p className="text-sm text-slate-500 mb-6">{op.desc}</p>
-                  <div className="flex items-center gap-4">
-                    <div className="px-4 py-2 bg-slate-50 rounded-lg border border-slate-100">
+                  <h3 className="text-base sm:text-lg font-extrabold text-deep-navy mb-1.5 sm:mb-2">{op.channel}</h3>
+                  <p className="text-[13px] sm:text-sm text-slate-500 mb-5 sm:mb-6 leading-relaxed">{op.desc}</p>
+                  <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+                    <div className="px-3 sm:px-4 py-2 bg-slate-50 rounded-lg border border-slate-100 flex-1 min-w-0">
                       <p className="text-[10px] text-slate-400 font-medium">핵심</p>
-                      <p className="text-xs text-deep-navy font-bold">{op.industry === "분양 광고" ? "DB 유입 → 후속 관리" : op.industry === "병원 광고" ? "검색 → 예약 전환" : "지역 노출 → 방문 유도"}</p>
+                      <p className="text-[11px] sm:text-xs text-deep-navy font-bold truncate">{op.industry === "분양 광고" ? "DB 유입 → 후속 관리" : op.industry === "병원 광고" ? "검색 → 예약 전환" : "지역 노출 → 방문 유도"}</p>
                     </div>
-                    <div className="px-4 py-2 bg-slate-50 rounded-lg border border-slate-100">
+                    <div className="px-3 sm:px-4 py-2 bg-slate-50 rounded-lg border border-slate-100 flex-1 min-w-0">
                       <p className="text-[10px] text-slate-400 font-medium">목표</p>
-                      <p className="text-xs text-deep-navy font-bold">{op.industry === "분양 광고" ? "관심 고객 확보" : op.industry === "병원 광고" ? "상담 예약" : "매장 방문"}</p>
+                      <p className="text-[11px] sm:text-xs text-deep-navy font-bold truncate">{op.industry === "분양 광고" ? "관심 고객 확보" : op.industry === "병원 광고" ? "상담 예약" : "매장 방문"}</p>
                     </div>
                   </div>
                 </div>
@@ -130,32 +140,34 @@ export default function CasesPage() {
       </section>
 
       {/* 3. 작업물 갤러리 */}
-      <section className="py-20 lg:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+      <section className="py-16 sm:py-20 lg:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14">
             <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4 justify-center">Works</p>
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4">
-              광고는 결과도 중요하지만, 시작은 퀄리티 있는 작업물에서 달라집니다
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4">
+              광고는 결과도 중요하지만,<br />
+              시작은 퀄리티 있는 작업물에서 달라집니다
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {works.map((w) => (
               <div key={w.title} className="group relative rounded-2xl overflow-hidden card-3d">
                 <div className="aspect-4/3 relative">
                   <Image src={w.img} alt={w.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-linear-to-t from-deep-navy/70 via-deep-navy/20 to-transparent" />
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-4">
+                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
                   <span className="px-2 py-0.5 bg-white/20 backdrop-blur-sm text-white text-[9px] font-bold rounded uppercase tracking-wider">{w.type}</span>
-                  <p className="text-white text-xs font-bold mt-1.5">{w.title}</p>
+                  <p className="text-white text-[11px] sm:text-xs font-bold mt-1.5 leading-tight">{w.title}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <p className="text-center text-xs text-slate-400 mt-8">
-            포트폴리오는 지속적으로 업데이트됩니다. 업종에 따라 필요한 방식은 다르게 제안됩니다.
+          <p className="text-center text-[11px] sm:text-xs text-slate-400 mt-6 sm:mt-8 leading-relaxed">
+            포트폴리오는 지속적으로 업데이트됩니다.<br className="sm:hidden" />
+            {" "}업종에 따라 필요한 방식은 다르게 제안됩니다.
           </p>
         </div>
       </section>

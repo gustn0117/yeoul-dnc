@@ -54,13 +54,19 @@ export default function ProcessPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-linear-to-br from-[#060d1b] via-deep-navy to-[#0d2240]" />
         <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-accent-blue/5 to-transparent" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
             <div>
               <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4">Process</p>
-              <h1 className="text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-5 tracking-tight">진행절차</h1>
-              <p className="text-lg text-slate-300/90 max-w-md">맡기면 어떻게 흘러가는지, 짧고 확실하게 안내드립니다</p>
-              <p className="text-sm text-slate-400/80 mt-3 max-w-md">각 단계는 짧고 확실하며, 처음이셔도 바로 이해할 수 있습니다.</p>
+              <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">진행절차</h1>
+              <p className="text-base sm:text-lg text-slate-300/90 max-w-md">
+                맡기면 어떻게 흘러가는지,<br className="sm:hidden" />
+                {" "}짧고 확실하게 안내드립니다
+              </p>
+              <p className="text-[13px] sm:text-sm text-slate-400/80 mt-2.5 sm:mt-3 max-w-md leading-relaxed">
+                각 단계는 짧고 확실하며,<br className="sm:hidden" />
+                {" "}처음이셔도 바로 이해할 수 있습니다.
+              </p>
             </div>
             <div className="hidden lg:flex justify-center">
               <IllustRocket className="w-56 h-56 animate-float-slow" />
@@ -70,19 +76,19 @@ export default function ProcessPage() {
       </section>
 
       {/* Visual flow bar */}
-      <section className="bg-white py-12 border-b border-slate-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-white py-8 sm:py-12 border-b border-slate-100">
+        <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {steps.map((s, i) => (
               <div key={i} className="flex items-center">
                 <div className="text-center">
-                  <div className={`w-12 h-12 mx-auto rounded-2xl bg-linear-to-br ${s.color} flex items-center justify-center shadow-lg mb-2`}>
-                    <s.Icon className="w-5 h-5 text-white" />
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-xl sm:rounded-2xl bg-linear-to-br ${s.color} flex items-center justify-center shadow-lg mb-1.5 sm:mb-2`}>
+                    <s.Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
-                  <p className="text-[10px] font-bold text-slate-400 hidden sm:block">{s.title}</p>
+                  <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 hidden sm:block">{s.title}</p>
                 </div>
                 {i < steps.length - 1 && (
-                  <div className="flex-1 mx-2 sm:mx-4">
+                  <div className="flex-1 mx-1.5 sm:mx-4">
                     <div className="h-px bg-linear-to-r from-slate-200 to-slate-100" />
                   </div>
                 )}
@@ -93,8 +99,8 @@ export default function ProcessPage() {
       </section>
 
       {/* Steps detail */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 lg:py-24 bg-white">
+        <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="space-y-6 lg:space-y-0">
             {steps.map((s, i) => (
               <div key={i} className={`lg:grid lg:grid-cols-12 lg:gap-8 ${i > 0 ? "lg:mt-0" : ""}`}>
@@ -107,29 +113,29 @@ export default function ProcessPage() {
                 </div>
 
                 {/* Content */}
-                <div className={`lg:col-span-11 pb-12 lg:pb-16 ${i % 2 === 0 ? "" : ""}`}>
-                  <div className={`p-6 lg:p-8 rounded-2xl border border-slate-100 card-3d gradient-border ${i % 2 === 1 ? "bg-slate-50/50" : "bg-white"}`}>
+                <div className={`lg:col-span-11 pb-8 sm:pb-12 lg:pb-16`}>
+                  <div className={`p-5 sm:p-6 lg:p-8 rounded-2xl border border-slate-100 card-3d gradient-border ${i % 2 === 1 ? "bg-slate-50/50" : "bg-white"}`}>
                     <div className="lg:grid lg:grid-cols-5 lg:gap-8 lg:items-center">
                       {/* Text */}
                       <div className={`lg:col-span-3 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
                         <div className="flex items-center gap-3 mb-3 lg:hidden">
-                          <div className={`w-10 h-10 rounded-xl bg-linear-to-br ${s.color} flex items-center justify-center`}>
+                          <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-linear-to-br ${s.color} flex items-center justify-center`}>
                             <s.Icon className="w-4 h-4 text-white" />
                           </div>
-                          <span className="text-xs font-bold text-accent-blue tracking-widest uppercase">STEP {s.step}</span>
+                          <span className="text-[11px] sm:text-xs font-bold text-accent-blue tracking-widest uppercase">STEP {s.step}</span>
                         </div>
                         <p className="text-xs font-bold text-accent-blue tracking-widest uppercase mb-2 hidden lg:block">STEP {s.step}</p>
-                        <h3 className="text-lg lg:text-xl font-extrabold text-deep-navy mb-2">{s.title}</h3>
-                        <p className="text-sm text-slate-700 mb-2">{s.main}</p>
-                        <p className="text-xs text-slate-500 mb-4">{s.detail}</p>
-                        <div className="flex flex-wrap gap-2">
+                        <h3 className="text-base sm:text-lg lg:text-xl font-extrabold text-deep-navy mb-1.5 sm:mb-2">{s.title}</h3>
+                        <p className="text-[13px] sm:text-sm text-slate-700 mb-1.5 sm:mb-2">{s.main}</p>
+                        <p className="text-[11px] sm:text-xs text-slate-500 mb-3 sm:mb-4 leading-relaxed">{s.detail}</p>
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
                           {s.tags.map((tag) => (
-                            <span key={tag} className="px-3 py-1 bg-slate-50 text-slate-500 text-[11px] rounded-full border border-slate-100 font-medium">{tag}</span>
+                            <span key={tag} className="px-2.5 sm:px-3 py-1 bg-slate-50 text-slate-500 text-[10px] sm:text-[11px] rounded-full border border-slate-100 font-medium">{tag}</span>
                           ))}
                         </div>
                       </div>
                       {/* Visual */}
-                      <div className={`lg:col-span-2 mt-6 lg:mt-0 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                      <div className={`lg:col-span-2 mt-5 sm:mt-6 lg:mt-0 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
                         <div className="relative rounded-xl overflow-hidden aspect-4/3 bg-slate-50">
                           <Image
                             src={`/images/stock/${["consultation", "strategy-board", "creative-design", "dashboard", "monitor-data"][i]}.jpg`}
@@ -150,22 +156,23 @@ export default function ProcessPage() {
       </section>
 
       {/* Summary strip */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-16 sm:py-20 overflow-hidden">
         <Image src="/images/stock/team-collab.jpg" alt="" fill className="object-cover" aria-hidden="true" />
         <div className="absolute inset-0 bg-deep-navy/90" />
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
             <div>
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-white mb-6">
-                단순 집행이 아닌,<br />실행 중심으로 진행합니다
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-5 sm:mb-6">
+                단순 집행이 아닌,<br />
+                실행 중심으로 진행합니다
               </h2>
-              <div className="space-y-3">
+              <div className="space-y-2.5 sm:space-y-3">
                 {["시작 전 방향부터 명확히 정리합니다", "광고 집행 후에도 운영과 보완까지 함께합니다", "모든 과정을 데이터 기반으로 판단합니다"].map((t) => (
                   <div key={t} className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-accent-blue flex items-center justify-center shrink-0">
                       <IconCheck className="w-3 h-3 text-white" />
                     </div>
-                    <p className="text-sm text-slate-200 font-medium">{t}</p>
+                    <p className="text-[13px] sm:text-sm text-slate-200 font-medium">{t}</p>
                   </div>
                 ))}
               </div>

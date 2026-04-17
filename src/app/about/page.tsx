@@ -35,52 +35,62 @@ export default function AboutPage() {
         <Image src="/images/stock/team-collab.jpg" alt="" fill className="object-cover" aria-hidden="true" />
         <div className="absolute inset-0 bg-deep-navy/88" />
         <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-accent-blue/8 to-transparent" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
           <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4">About Us</p>
-          <h1 className="text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-5 tracking-tight">회사소개</h1>
-          <p className="text-lg text-slate-300/90 max-w-2xl">유입이 끝이 아니라, 상담 전환까지 설계합니다</p>
-          <p className="text-sm text-slate-400/80 mt-3 max-w-2xl">여울디앤씨는 업종에 맞는 채널 선택부터 소재 제작, 운영, 보완까지 연결하는 온라인 광고 실행 파트너입니다.</p>
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">회사소개</h1>
+          <p className="text-base sm:text-lg text-slate-300/90 max-w-2xl">
+            유입이 끝이 아니라,<br className="sm:hidden" />
+            {" "}상담 전환까지 설계합니다
+          </p>
+          <p className="text-[13px] sm:text-sm text-slate-400/80 mt-2.5 sm:mt-3 max-w-2xl leading-relaxed">
+            여울디앤씨는 업종에 맞는 채널 선택부터<br className="sm:hidden" />
+            {" "}소재 제작, 운영, 보완까지<br className="hidden sm:inline lg:hidden" />
+            {" "}연결하는 온라인 광고 실행 파트너입니다.
+          </p>
         </div>
       </section>
 
       {/* 1. Brand message + logo */}
-      <section className="py-20 lg:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-20 lg:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-20 lg:items-center">
-            <div className="flex justify-center mb-12 lg:mb-0">
-              <Image src="/images/logo-vertical-color.png" alt="여울디앤씨 로고" width={1000} height={1250} className="w-44 lg:w-56 h-auto" />
+            <div className="flex justify-center mb-10 sm:mb-12 lg:mb-0">
+              <Image src="/images/logo-vertical-color.png" alt="여울디앤씨 로고" width={1000} height={1250} className="w-36 sm:w-44 lg:w-56 h-auto" />
             </div>
             <div>
               <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4">Brand</p>
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-deep-navy mb-5">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 sm:mb-5">
                 광고는 집행보다<br />구조가 중요합니다
               </h2>
-              <p className="text-sm text-slate-500 mb-3">
-                여울디앤씨는 업종에 맞는 채널 선택부터 소재 제작, 운영, 보완까지 연결하는 온라인 광고 실행 파트너입니다.
+              <p className="text-[13px] sm:text-sm text-slate-500 mb-3 leading-relaxed">
+                여울디앤씨는 업종에 맞는 채널 선택부터<br className="sm:hidden" />
+                {" "}소재 제작, 운영, 보완까지<br className="hidden sm:inline lg:hidden" />
+                {" "}연결하는 온라인 광고 실행 파트너입니다.
               </p>
-              <p className="text-sm text-slate-500">결과를 만드는 광고는 시작부터 다릅니다.</p>
+              <p className="text-[13px] sm:text-sm text-slate-500">결과를 만드는 광고는 시작부터 다릅니다.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* 2. Core values */}
-      <section className="py-20 lg:py-28 bg-linear-to-b from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+      <section className="py-16 sm:py-20 lg:py-28 bg-linear-to-b from-slate-50 to-white">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14">
             <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4 justify-center">Core Value</p>
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4">
-              보여주기식 운영보다, 실제 반응이 남는 광고를 지향합니다
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4">
+              보여주기식 운영보다,<br />
+              실제 반응이 남는 광고를 지향합니다
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
             {coreValues.map((v) => (
-              <div key={v.title} className="bg-white p-7 rounded-2xl border border-slate-100 card-3d gradient-border">
-                <div className={`w-12 h-12 rounded-2xl bg-linear-to-br ${v.color} flex items-center justify-center mb-5 shadow-lg`}>
+              <div key={v.title} className="bg-white p-6 sm:p-7 rounded-2xl border border-slate-100 card-3d gradient-border">
+                <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-linear-to-br ${v.color} flex items-center justify-center mb-4 sm:mb-5 shadow-lg`}>
                   <v.Icon className="w-5 h-5 text-white" />
                 </div>
-                <h3 className="text-base font-bold text-deep-navy mb-2">{v.title}</h3>
-                <p className="text-xs text-slate-500">{v.desc}</p>
+                <h3 className="text-[15px] sm:text-base font-bold text-deep-navy mb-1.5 sm:mb-2">{v.title}</h3>
+                <p className="text-[12px] sm:text-xs text-slate-500 leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>
@@ -88,24 +98,28 @@ export default function AboutPage() {
       </section>
 
       {/* 3. Strengths + image */}
-      <section className="py-20 lg:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-20 lg:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
             <div className="mb-10 lg:mb-0">
               <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4">Strengths</p>
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4">
-                채널만 운영하는 것이 아니라,<br />업종에 맞는 구조까지 함께 설계합니다
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4">
+                채널만 운영하는 것이 아니라,<br />
+                업종에 맞는 구조까지<br className="sm:hidden" />
+                {" "}함께 설계합니다
               </h2>
-              <p className="text-sm text-slate-500 mb-8">
-                분양/병원/지역 자영업처럼 상담과 방문 전환이 중요한 업종은 매체 조합과 후속 운영 방식이 중요합니다.
+              <p className="text-[13px] sm:text-sm text-slate-500 mb-6 sm:mb-8 leading-relaxed">
+                분양/병원/지역 자영업처럼<br className="sm:hidden" />
+                {" "}상담과 방문 전환이 중요한 업종은<br className="hidden sm:inline lg:hidden" />
+                {" "}매체 조합과 후속 운영 방식이 중요합니다.
               </p>
-              <div className="space-y-3">
+              <div className="space-y-2.5 sm:space-y-3">
                 {strengths.map((text) => (
-                  <div key={text} className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-accent-blue/15 transition-all duration-300">
-                    <div className="w-8 h-8 rounded-lg bg-accent-blue flex items-center justify-center shrink-0">
-                      <IconCheck className="w-3.5 h-3.5 text-white" />
+                  <div key={text} className="flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-xl border border-slate-100 hover:border-accent-blue/15 transition-all duration-300">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-accent-blue flex items-center justify-center shrink-0">
+                      <IconCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
                     </div>
-                    <p className="text-slate-700 text-sm font-medium">{text}</p>
+                    <p className="text-slate-700 text-[13px] sm:text-sm font-medium">{text}</p>
                   </div>
                 ))}
               </div>
@@ -125,21 +139,23 @@ export default function AboutPage() {
       </section>
 
       {/* 4. Work environment */}
-      <section className="relative py-20 lg:py-28 overflow-hidden">
+      <section className="relative py-16 sm:py-20 lg:py-28 overflow-hidden">
         <Image src="/images/stock/work-desk.jpg" alt="" fill className="object-cover" aria-hidden="true" />
         <div className="absolute inset-0 bg-deep-navy/88" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl lg:text-3xl font-extrabold text-white mb-4">
-            전략을 세우고, 빠르게 실행하고, 데이터로 보완하는 팀
+        <div className="relative max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-4">
+            전략을 세우고, 빠르게 실행하고,<br />
+            데이터로 보완하는 팀
           </h2>
-          <p className="text-sm text-slate-400 max-w-lg mx-auto mb-8">
-            회의/기획/모니터링/리포트 중심으로 움직이는 실행 조직입니다.
+          <p className="text-[13px] sm:text-sm text-slate-400 max-w-lg mx-auto mb-8 leading-relaxed">
+            회의/기획/모니터링/리포트 중심으로<br className="sm:hidden" />
+            {" "}움직이는 실행 조직입니다.
           </p>
           {/* Platform logos */}
-          <div className="flex justify-center gap-4 flex-wrap">
+          <div className="flex justify-center gap-3 sm:gap-4 flex-wrap">
             {["naver", "kakaotalk", "meta", "youtube", "google", "instagram"].map((name) => (
-              <div key={name} className="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10">
-                <img src={`/images/logos/${name}.svg`} alt={name} className="h-4 w-auto brightness-0 invert opacity-60" />
+              <div key={name} className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10">
+                <img src={`/images/logos/${name}.svg`} alt={name} className="h-3.5 sm:h-4 w-auto brightness-0 invert opacity-60" />
               </div>
             ))}
           </div>
@@ -147,24 +163,25 @@ export default function AboutPage() {
       </section>
 
       {/* 5. Case summary */}
-      <section className="py-20 lg:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+      <section className="py-16 sm:py-20 lg:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14">
             <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4 justify-center">Cases</p>
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4">
-              업종별 목적에 따라 필요한 채널과 운영 방식은 달라집니다
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4">
+              업종별 목적에 따라<br />
+              필요한 채널과 운영 방식은 달라집니다
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
             {caseSummary.map((c) => (
-              <div key={c.industry} className="p-6 rounded-2xl border border-slate-100 card-3d gradient-border">
+              <div key={c.industry} className="p-5 sm:p-6 rounded-2xl border border-slate-100 card-3d gradient-border">
                 <div className="flex items-center gap-2 mb-3">
                   {c.logos.map((logo) => (
                     <img key={logo} src={`/images/logos/${logo}.svg`} alt={logo} className="h-4 w-auto" />
                   ))}
                 </div>
-                <p className="text-xs font-bold text-accent-blue tracking-wider uppercase mb-2">{c.industry}</p>
-                <p className="text-sm text-slate-600">{c.desc}</p>
+                <p className="text-xs font-bold text-accent-blue tracking-wider uppercase mb-1.5 sm:mb-2">{c.industry}</p>
+                <p className="text-[13px] sm:text-sm text-slate-600 leading-relaxed">{c.desc}</p>
               </div>
             ))}
           </div>
