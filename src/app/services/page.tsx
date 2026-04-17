@@ -32,27 +32,92 @@ export default function ServicesPage() {
   return (
     <>
       {/* ━━ Hero ━━ */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-br from-[#060d1b] via-deep-navy to-[#0d2240]" />
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-accent-blue/5 to-transparent" />
+      <section className="relative overflow-hidden bg-[#060e1e]">
+        <div className="absolute inset-0 bg-linear-to-br from-[#060e1e] via-[#0a1428]/95 to-[#060e1e]" />
+        <div
+          className="absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage: "linear-gradient(to right, #60a5fa 1px, transparent 1px), linear-gradient(to bottom, #60a5fa 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+        <div className="absolute -top-20 right-10 w-96 h-96 bg-accent-blue/15 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 left-10 w-80 h-80 bg-violet-500/10 rounded-full blur-[100px]" />
+
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
-          <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4">Services</p>
-          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">
-            광고상품 / 서비스
-          </h1>
-          <p className="text-base sm:text-lg text-slate-300/90 max-w-2xl">
-            필요한 채널만 골라,<br className="sm:hidden" />
-            {" "}업종에 맞게 설계합니다
-          </p>
-          <p className="text-[13px] sm:text-sm text-slate-400/80 mt-2.5 sm:mt-3 max-w-2xl leading-relaxed">
-            플랫폼 기능 설명이 아니라,<br className="sm:hidden" />
-            {" "}무엇을 맡길 수 있는지 명확히 보여드립니다.
-          </p>
-          {/* Platform logos bar */}
-          <div className="flex items-center gap-3 sm:gap-4 mt-6 sm:mt-8 flex-wrap">
-            {["naver", "kakaotalk", "meta", "instagram", "youtube", "google", "facebook"].map((n) => (
-              <img key={n} src={`/images/logos/${n}.svg`} alt={n} className="h-3.5 sm:h-4 w-auto brightness-0 invert opacity-40" />
-            ))}
+          <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 mb-5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
+                <span className="text-[11px] font-bold text-slate-300 tracking-wider uppercase">Services · 광고 상품</span>
+              </div>
+              <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">
+                필요한 채널만 골라,<br />
+                <span className="relative inline-block">
+                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">업종에 맞게 설계</span>
+                  <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/25 z-0 rounded-sm" />
+                </span>
+                합니다
+              </h1>
+              <p className="text-[13px] sm:text-base text-slate-300/90 max-w-xl leading-relaxed mb-6">
+                플랫폼 기능 설명이 아니라,<br className="sm:hidden" />
+                {" "}<span className="font-semibold text-white">무엇을 맡길 수 있는지</span>를 명확히 보여드립니다.
+              </p>
+
+              {/* Platform pills */}
+              <div className="flex items-center gap-2 sm:gap-2.5 flex-wrap">
+                {[
+                  { name: "naver", color: "from-green-500 to-emerald-600" },
+                  { name: "kakaotalk", color: "from-yellow-400 to-amber-500" },
+                  { name: "meta", color: "from-blue-500 to-indigo-600" },
+                  { name: "youtube", color: "from-red-500 to-rose-600" },
+                  { name: "google", color: "from-sky-500 to-blue-500" },
+                  { name: "instagram", color: "from-pink-500 to-rose-500" },
+                  { name: "facebook", color: "from-blue-500 to-indigo-600" },
+                ].map((p) => (
+                  <div key={p.name} className="relative group">
+                    <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-lg bg-linear-to-br ${p.color} opacity-50 blur-[1px]`} />
+                    <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                      <img src={`/images/logos/${p.name}.svg`} alt={p.name} className="h-4 sm:h-5 w-auto brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: 6 hex isometric stack */}
+            <div className="hidden lg:flex lg:col-span-5 justify-center items-center">
+              <div className="relative w-72 h-72">
+                <div className="absolute inset-0 bg-accent-blue/20 rounded-full blur-3xl" />
+                {/* 6 floating hex cards */}
+                {[
+                  { name: "meta", color: "from-blue-500 to-indigo-600", pos: { top: "0%", left: "30%" } },
+                  { name: "naver", color: "from-green-500 to-emerald-600", pos: { top: "10%", right: "0%" } },
+                  { name: "kakaotalk", color: "from-yellow-400 to-amber-500", pos: { top: "45%", right: "5%" } },
+                  { name: "youtube", color: "from-red-500 to-rose-600", pos: { bottom: "10%", right: "20%" } },
+                  { name: "google", color: "from-sky-500 to-blue-500", pos: { bottom: "10%", left: "10%" } },
+                  { name: "instagram", color: "from-pink-500 to-rose-500", pos: { top: "30%", left: "0%" } },
+                ].map((p, i) => (
+                  <div
+                    key={p.name}
+                    className="absolute w-16 h-16 sm:w-20 sm:h-20"
+                    style={{ ...p.pos, animation: `float ${4 + (i % 3)}s ease-in-out infinite ${i * 0.4}s` }}
+                  >
+                    <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-2xl bg-linear-to-br ${p.color} opacity-50`} />
+                    <div className="relative w-full h-full rounded-2xl bg-white shadow-xl border border-white flex items-center justify-center">
+                      <img src={`/images/logos/${p.name}.svg`} alt={p.name} className="w-7 h-7 sm:w-9 sm:h-9 object-contain" />
+                    </div>
+                  </div>
+                ))}
+                {/* Center mark */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-linear-to-br from-white/15 to-white/5 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-2xl">
+                  <div className="text-center">
+                    <p className="text-[8px] font-extrabold text-accent-blue tracking-[0.3em]">여울</p>
+                    <p className="text-base sm:text-lg font-extrabold text-white">D&C</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -188,15 +253,15 @@ export default function ServicesPage() {
             <div className="lg:col-span-6 relative">
               <div className="relative mx-auto max-w-md aspect-square">
                 {/* Background decorative circle */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] rounded-full bg-linear-to-br from-green-50 to-emerald-50/40 -z-0" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] rounded-full bg-linear-to-br from-green-50 to-emerald-50/40 z-0" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-500/10 rounded-full blur-3xl" />
 
                 {/* Phone back */}
                 <div
-                  className="absolute top-[8%] right-[4%] w-36 sm:w-44 aspect-[9/19] z-10 animate-float-slow"
+                  className="absolute top-[8%] right-[4%] w-36 sm:w-44 aspect-9/19 z-10 animate-float-slow"
                   style={{ transform: "rotate(15deg)" }}
                 >
-                  <div className="relative w-full h-full rounded-[24px] bg-slate-900 shadow-2xl shadow-green-900/25 p-1.5 border border-slate-700">
+                  <div className="relative w-full h-full rounded-3xl bg-slate-900 shadow-2xl shadow-green-900/25 p-1.5 border border-slate-700">
                     <div className="relative w-full h-full rounded-[18px] overflow-hidden bg-white">
                       <Image src="/images/stock/naver-search.jpg" alt="" fill className="object-cover" />
                     </div>
@@ -206,7 +271,7 @@ export default function ServicesPage() {
 
                 {/* Phone middle */}
                 <div
-                  className="absolute top-[18%] left-1/2 -translate-x-1/2 w-40 sm:w-48 aspect-[9/19] z-20"
+                  className="absolute top-[18%] left-1/2 -translate-x-1/2 w-40 sm:w-48 aspect-9/19 z-20"
                   style={{ transform: "translate(-50%, 0) rotate(-4deg)", animation: "float 6s ease-in-out infinite 1s" }}
                 >
                   <div className="relative w-full h-full rounded-[26px] bg-slate-900 shadow-2xl shadow-green-900/30 p-1.5 border border-slate-700">
@@ -219,10 +284,10 @@ export default function ServicesPage() {
 
                 {/* Phone front */}
                 <div
-                  className="absolute bottom-[6%] left-[2%] w-36 sm:w-44 aspect-[9/19] z-30"
+                  className="absolute bottom-[6%] left-[2%] w-36 sm:w-44 aspect-9/19 z-30"
                   style={{ transform: "rotate(-12deg)", animation: "float 5s ease-in-out infinite 2s" }}
                 >
-                  <div className="relative w-full h-full rounded-[24px] bg-slate-900 shadow-2xl shadow-green-900/25 p-1.5 border border-slate-700">
+                  <div className="relative w-full h-full rounded-3xl bg-slate-900 shadow-2xl shadow-green-900/25 p-1.5 border border-slate-700">
                     <div className="relative w-full h-full rounded-[18px] overflow-hidden bg-white">
                       <Image src="/images/stock/consultation.jpg" alt="" fill className="object-cover" />
                     </div>
@@ -328,7 +393,7 @@ export default function ServicesPage() {
 
                 {/* Main tilted phone */}
                 <div
-                  className="absolute top-1/2 left-1/2 w-48 sm:w-56 aspect-[9/19] z-20"
+                  className="absolute top-1/2 left-1/2 w-48 sm:w-56 aspect-9/19 z-20"
                   style={{ transform: "translate(-50%, -50%) rotate(-18deg)", animation: "float 6s ease-in-out infinite" }}
                 >
                   <div className="relative w-full h-full rounded-[28px] bg-slate-900 shadow-2xl shadow-pink-900/25 p-1.5 border border-slate-700">
@@ -371,7 +436,7 @@ export default function ServicesPage() {
 
                 {/* Phone */}
                 <div
-                  className="absolute top-1/2 left-1/2 w-48 sm:w-56 aspect-[9/19] z-20"
+                  className="absolute top-1/2 left-1/2 w-48 sm:w-56 aspect-9/19 z-20"
                   style={{ transform: "translate(-50%, -50%) rotate(12deg)", animation: "float 6s ease-in-out infinite" }}
                 >
                   <div className="relative w-full h-full rounded-[28px] bg-slate-900 shadow-2xl shadow-amber-900/25 p-1.5 border border-slate-700">
@@ -592,7 +657,7 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Phone ad card (front) */}
-                <div className="absolute bottom-[5%] right-[6%] w-32 sm:w-36 aspect-[9/16] z-30" style={{ transform: "rotate(8deg)", animation: "float 5s ease-in-out infinite 2s" }}>
+                <div className="absolute bottom-[5%] right-[6%] w-32 sm:w-36 aspect-9/16 z-30" style={{ transform: "rotate(8deg)", animation: "float 5s ease-in-out infinite 2s" }}>
                   <div className="relative w-full h-full rounded-2xl bg-slate-900 shadow-2xl shadow-sky-900/25 p-1 border border-slate-700">
                     <div className="relative w-full h-full rounded-xl overflow-hidden bg-white">
                       <Image src="/images/stock/mobile-ads.jpg" alt="" fill className="object-cover" />

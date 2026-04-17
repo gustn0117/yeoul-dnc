@@ -107,24 +107,81 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 1. Brand message + logo */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-20 lg:items-center">
-            <div className="flex justify-center mb-10 sm:mb-12 lg:mb-0">
-              <Image src="/images/logo-vertical-color.png" alt="여울디앤씨 로고" width={1000} height={1250} className="w-36 sm:w-44 lg:w-56 h-auto" />
+      {/* 1. Brand message + logo (3D framed) */}
+      <section className="relative py-16 sm:py-20 lg:py-28 bg-white overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-[0.025]" style={{
+          backgroundImage: "radial-gradient(circle at 20% 30%, #2563eb 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }} />
+        <div className="absolute top-1/2 -translate-y-1/2 left-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
+            {/* Left: 3D framed logo with floating elements */}
+            <div className="flex justify-center mb-12 lg:mb-0">
+              <div className="relative">
+                {/* Background depth */}
+                <div className="absolute inset-0 translate-x-3 translate-y-4 rounded-3xl bg-linear-to-br from-accent-blue to-blue-600 opacity-20 blur-[3px]" />
+                <div className="absolute inset-0 translate-x-1.5 translate-y-2 rounded-3xl bg-linear-to-br from-accent-blue to-blue-600 opacity-10" />
+
+                {/* Logo container */}
+                <div className="relative bg-linear-to-br from-white via-blue-50/40 to-white rounded-3xl p-10 sm:p-14 border border-white shadow-2xl shadow-blue-900/10">
+                  <div className="absolute inset-0 rounded-3xl" style={{
+                    backgroundImage: "linear-gradient(135deg, transparent, transparent 40%, rgba(37,99,235,0.04) 50%, transparent 60%, transparent)",
+                  }} />
+                  <Image src="/images/logo-vertical-color.png" alt="여울디앤씨 로고" width={1000} height={1250} className="relative w-32 sm:w-40 lg:w-48 h-auto mx-auto" />
+
+                  {/* Decorative ring */}
+                  <div className="absolute -inset-2 rounded-3xl border border-blue-200/30 -z-10" />
+                </div>
+
+                {/* Floating tags */}
+                <div className="absolute -top-3 -right-3 bg-white rounded-xl shadow-xl shadow-blue-900/10 px-3 py-2 border border-blue-100 animate-float">
+                  <p className="text-[9px] text-slate-400 font-medium">EST.</p>
+                  <p className="text-sm font-extrabold text-accent-blue">YEOUL D&C</p>
+                </div>
+                <div className="absolute -bottom-3 -left-3 bg-white rounded-xl shadow-xl shadow-blue-900/10 px-3 py-2 border border-emerald-100 flex items-center gap-2" style={{ animation: "float 5s ease-in-out infinite 1s" }}>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-soft" />
+                  <p className="text-[10px] font-bold text-slate-600">ONLINE AD PARTNER</p>
+                </div>
+              </div>
             </div>
+
+            {/* Right: Brand message + 3 mini cards */}
             <div>
-              <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4">Brand</p>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 sm:mb-5">
-                광고는 집행보다<br />구조가 중요합니다
+              <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">BRAND</p>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 sm:mb-5 leading-tight">
+                광고는 집행보다<br />
+                <span className="relative inline-block">
+                  <span className="relative z-10">구조가 중요</span>
+                  <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
+                </span>
+                합니다
               </h2>
-              <p className="text-[13px] sm:text-sm text-slate-500 mb-3 leading-relaxed">
-                여울디앤씨는 업종에 맞는 채널 선택부터<br className="sm:hidden" />
-                {" "}소재 제작, 운영, 보완까지<br className="hidden sm:inline lg:hidden" />
-                {" "}연결하는 온라인 광고 실행 파트너입니다.
+              <p className="text-[13px] sm:text-sm text-slate-500 mb-5 leading-relaxed">
+                여울디앤씨는 업종에 맞는 채널 선택부터 소재 제작, 운영, 보완까지<br className="hidden sm:inline lg:hidden" />
+                {" "}연결하는 <span className="font-semibold text-deep-navy">온라인 광고 실행 파트너</span>입니다.
               </p>
-              <p className="text-[13px] sm:text-sm text-slate-500">결과를 만드는 광고는 시작부터 다릅니다.</p>
+              <p className="text-[13px] sm:text-sm text-deep-navy font-bold mb-6">
+                결과를 만드는 광고는 시작부터 다릅니다.
+              </p>
+
+              {/* 3 mission mini cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {[
+                  { label: "MISSION", text: "전환까지 책임지는 운영", color: "from-blue-500 to-indigo-600" },
+                  { label: "VISION", text: "업종 맞춤 광고 파트너", color: "from-violet-500 to-purple-600" },
+                  { label: "PROMISE", text: "데이터로 증명되는 성과", color: "from-emerald-500 to-teal-600" },
+                ].map((m) => (
+                  <div key={m.label} className="relative group">
+                    <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-linear-to-br ${m.color} opacity-15`} />
+                    <div className="relative bg-white rounded-xl p-3.5 border border-slate-100 shadow-sm group-hover:-translate-y-0.5 transition-transform duration-300">
+                      <span className={`text-[9px] font-extrabold bg-linear-to-br ${m.color} bg-clip-text text-transparent tracking-widest`}>{m.label}</span>
+                      <p className="text-[12px] sm:text-xs text-deep-navy font-bold mt-0.5 leading-tight">{m.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

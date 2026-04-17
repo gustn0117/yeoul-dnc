@@ -294,18 +294,106 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-br from-[#060d1b] via-deep-navy to-[#0d2240]" />
-        <div className="absolute top-20 right-1/4 w-64 h-64 rounded-full bg-accent-blue/10 blur-[80px]" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-cta-orange/5 blur-[100px]" />
+      <section className="relative overflow-hidden bg-[#060e1e]">
+        <div className="absolute inset-0 bg-linear-to-br from-[#060e1e] via-[#0a1428]/95 to-[#060e1e]" />
+        <div
+          className="absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage: "linear-gradient(to right, #60a5fa 1px, transparent 1px), linear-gradient(to bottom, #60a5fa 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+        <div className="absolute top-20 right-1/4 w-96 h-96 rounded-full bg-accent-blue/15 blur-[100px]" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-cta-orange/10 blur-[100px]" />
+
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-24">
-          <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4">Contact</p>
-          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-3 sm:mb-4 tracking-tight">문의하기</h1>
-          <p className="text-base sm:text-lg text-slate-300/90">광고가 처음이셔도 괜찮습니다</p>
-          <p className="text-[13px] sm:text-sm text-slate-400/80 mt-2 leading-relaxed">
-            업종, 예산, 현재 고민을 남겨주시면<br className="sm:hidden" />
-            {" "}맞는 방향부터 정리해드립니다
-          </p>
+          <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 mb-5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
+                <span className="text-[11px] font-bold text-slate-300 tracking-wider uppercase">CONTACT · 무료 상담</span>
+              </div>
+              <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-3 sm:mb-4 tracking-tight">
+                <span className="relative inline-block">
+                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">문의하기</span>
+                  <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/25 z-0 rounded-sm" />
+                </span>
+              </h1>
+              <p className="text-base sm:text-lg text-white/90 font-semibold">광고가 처음이셔도 괜찮습니다</p>
+              <p className="text-[13px] sm:text-sm text-slate-400 mt-2 leading-relaxed mb-6">
+                업종, 예산, 현재 고민을 남겨주시면<br className="sm:hidden" />
+                {" "}맞는 방향부터 정리해드립니다
+              </p>
+
+              {/* Trust badges */}
+              <div className="flex flex-wrap gap-2 sm:gap-3">
+                {[
+                  { label: "무료 상담", icon: "💬" },
+                  { label: "24시간 응답", icon: "⚡" },
+                  { label: "맞춤 제안", icon: "🎯" },
+                ].map((b) => (
+                  <div key={b.label} className="relative">
+                    <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-full bg-accent-blue/20" />
+                    <div className="relative inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full">
+                      <span className="text-sm">{b.icon}</span>
+                      <span className="text-[11px] font-bold text-slate-200">{b.label}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Floating contact card */}
+            <div className="hidden lg:block lg:col-span-5">
+              <div className="relative">
+                <div className="absolute inset-0 translate-x-2 translate-y-3 rounded-2xl bg-accent-blue/30 blur-[3px]" />
+                <div className="relative bg-linear-to-br from-white/10 to-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-2xl">
+                  <div className="flex items-center justify-between mb-4">
+                    <p className="text-[10px] font-extrabold text-accent-blue tracking-[0.2em] uppercase">QUICK CONTACT</p>
+                    <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30">
+                      <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse-soft" />
+                      <span className="text-[9px] font-bold text-emerald-400">LIVE</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 mb-5">
+                    {[
+                      { label: "전화", value: "OOO-OOOO-OOOO", color: "from-accent-blue to-blue-600" },
+                      { label: "카카오톡", value: "실시간 상담", color: "from-yellow-400 to-amber-500" },
+                      { label: "이메일", value: "OOO@OOO.com", color: "from-violet-500 to-purple-600" },
+                    ].map((c, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <div className="relative w-10 h-10 shrink-0">
+                          <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-linear-to-br ${c.color} opacity-50 blur-[1px]`} />
+                          <div className={`relative w-full h-full rounded-xl bg-linear-to-br ${c.color} flex items-center justify-center shadow-md`}>
+                            <span className="text-[10px] font-extrabold text-white">{c.label.charAt(0)}</span>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-[10px] text-slate-400">{c.label}</p>
+                          <p className="text-sm font-extrabold text-white">{c.value}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Stats */}
+                  <div className="pt-4 border-t border-white/10 grid grid-cols-3 gap-2 text-center">
+                    {[
+                      { v: "100+", l: "캠페인" },
+                      { v: "4.8x", l: "ROAS" },
+                      { v: "24h", l: "응답" },
+                    ].map((s, i) => (
+                      <div key={i}>
+                        <p className="text-base font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent">{s.v}</p>
+                        <p className="text-[9px] text-slate-500">{s.l}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -414,19 +502,65 @@ export default function ContactPage() {
             </form>
           )}
 
-          {/* Contact Info */}
-          <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+          {/* Contact Info (3D isometric cards) */}
+          <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
             {[
-              { icon: <IconPhone className="w-5 h-5 text-accent-blue" />, bg: "bg-accent-blue/8", title: "전화 상담", sub: "OOO-OOOO-OOOO" },
-              { icon: <svg className="w-5 h-5 text-amber-600" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 10.9c0 2.78 1.8 5.22 4.51 6.6-.2.73-.72 2.65-.82 3.06-.13.52.19.51.4.37.17-.11 2.69-1.83 3.78-2.57.69.1 1.4.15 2.13.15 5.52 0 10-3.58 10-7.9S17.52 3 12 3z" /></svg>, bg: "bg-amber-50", title: "카카오톡 상담", sub: "빠른 상담 가능" },
-              { icon: <IconClock className="w-5 h-5 text-accent-blue" />, bg: "bg-accent-blue/8", title: "운영시간", sub: "평일 09:00 - 18:00" },
-            ].map((item) => (
-              <div key={item.title} className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-100 text-center">
-                <div className={`w-10 h-10 sm:w-11 sm:h-11 mx-auto ${item.bg} rounded-xl flex items-center justify-center mb-2.5 sm:mb-3`}>
-                  {item.icon}
+              {
+                icon: <IconPhone className="w-5 h-5 text-white" />,
+                title: "전화 상담",
+                sub: "OOO-OOOO-OOOO",
+                hint: "빠른 답변",
+                color: "from-accent-blue to-blue-600",
+              },
+              {
+                icon: <svg className="w-5 h-5 text-[#3C1E1E]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 10.9c0 2.78 1.8 5.22 4.51 6.6-.2.73-.72 2.65-.82 3.06-.13.52.19.51.4.37.17-.11 2.69-1.83 3.78-2.57.69.1 1.4.15 2.13.15 5.52 0 10-3.58 10-7.9S17.52 3 12 3z" /></svg>,
+                title: "카카오톡 상담",
+                sub: "실시간 상담 가능",
+                hint: "추천",
+                color: "from-yellow-400 to-amber-500",
+                special: true,
+              },
+              {
+                icon: <IconClock className="w-5 h-5 text-white" />,
+                title: "운영시간",
+                sub: "평일 09:00 - 18:00",
+                hint: "주말 다음 영업일",
+                color: "from-violet-500 to-purple-600",
+              },
+            ].map((item, i) => (
+              <div
+                key={item.title}
+                className="group relative"
+                style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
+              >
+                <div className={`absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-linear-to-br ${item.color} opacity-25 blur-[2px]`} />
+
+                <div className="relative bg-white p-5 sm:p-6 rounded-2xl border border-white shadow-lg shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden text-center">
+                  <div className={`absolute -top-6 -right-6 w-20 h-20 rounded-full bg-linear-to-br ${item.color} opacity-10 blur-xl`} />
+
+                  {item.special && (
+                    <div className="absolute top-2 right-2">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-linear-to-br from-amber-400 to-amber-500 text-white text-[9px] font-extrabold shadow-md">
+                        <span className="w-1 h-1 rounded-full bg-white animate-pulse-soft" />
+                        {item.hint}
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="relative">
+                    <div className="relative w-12 h-12 mx-auto mb-3">
+                      <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-linear-to-br ${item.color} opacity-60 blur-[1px]`} />
+                      <div className={`relative w-full h-full rounded-xl bg-linear-to-br ${item.color} flex items-center justify-center shadow-md`}>
+                        {item.icon}
+                      </div>
+                    </div>
+                    <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy">{item.title}</p>
+                    <p className="text-[11px] sm:text-xs text-slate-500 mt-1">{item.sub}</p>
+                    {!item.special && (
+                      <p className="text-[10px] text-slate-400 mt-1.5 font-medium">{item.hint}</p>
+                    )}
+                  </div>
                 </div>
-                <p className="text-[13px] sm:text-sm font-semibold text-slate-700">{item.title}</p>
-                <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5">{item.sub}</p>
               </div>
             ))}
           </div>

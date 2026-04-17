@@ -216,6 +216,45 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ━━━━━━━━━━━━━ STATS strip (between hero and WHY) ━━━━━━━━━━━━━ */}
+      <section className="relative py-12 sm:py-16 bg-white border-y border-slate-100 overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-r from-blue-50/40 via-white to-amber-50/30" />
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {[
+              { value: "100+", label: "누적 캠페인", sub: "다양한 업종 운영", icon: <IconBarChart className="w-5 h-5" />, color: "from-blue-500 to-indigo-600" },
+              { value: "4.8x", label: "평균 ROAS", sub: "광고비 대비 수익", icon: <IconZap className="w-5 h-5" />, color: "from-emerald-500 to-teal-600" },
+              { value: "+56%", label: "문의 증가율", sub: "운영 후 평균치", icon: <IconTarget className="w-5 h-5" />, color: "from-amber-500 to-orange-500" },
+              { value: "24h", label: "빠른 응답", sub: "영업일 기준", icon: <IconRefresh className="w-5 h-5" />, color: "from-violet-500 to-purple-600" },
+            ].map((s, i) => (
+              <div
+                key={i}
+                className="group relative"
+                style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.08}s backwards` }}
+              >
+                <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-linear-to-br ${s.color} opacity-15 blur-[2px]`} />
+                <div className="relative bg-white rounded-2xl p-4 sm:p-5 border border-white shadow-md shadow-deep-navy/5 group-hover:-translate-y-0.5 transition-transform duration-300 overflow-hidden">
+                  <div className={`absolute -top-6 -right-6 w-20 h-20 rounded-full bg-linear-to-br ${s.color} opacity-10 blur-xl`} />
+                  <div className="relative flex items-center gap-3 sm:gap-4">
+                    <div className="relative shrink-0">
+                      <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-linear-to-br ${s.color} opacity-50 blur-[1px]`} />
+                      <div className={`relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-linear-to-br ${s.color} flex items-center justify-center shadow-md text-white`}>
+                        {s.icon}
+                      </div>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className={`text-2xl sm:text-3xl font-black bg-linear-to-br ${s.color} bg-clip-text text-transparent leading-none tracking-tight`}>{s.value}</p>
+                      <p className="text-[12px] sm:text-sm font-bold text-deep-navy mt-1">{s.label}</p>
+                      <p className="text-[10px] sm:text-[11px] text-slate-400">{s.sub}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ━━━━━━━━━━━━━ WHY ━━━━━━━━━━━━━ */}
       <section className="relative py-20 sm:py-24 lg:py-32 bg-linear-to-b from-white via-white to-[#f5f9ff] overflow-hidden">
         <div className="absolute top-20 right-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl" />
@@ -615,6 +654,112 @@ export default function Home() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ━━━━━━━━━━━━━ TESTIMONIALS ━━━━━━━━━━━━━ */}
+      <section className="relative py-20 sm:py-24 lg:py-32 bg-linear-to-b from-white via-[#f5f9ff] to-white overflow-hidden">
+        <div className="absolute top-20 left-0 w-96 h-96 bg-violet-100/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-100/30 rounded-full blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-14">
+            <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">VOICES</p>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
+              여울디앤씨와 함께한<br />
+              <span className="relative inline-block">
+                <span className="relative z-10">실제 광고주 후기</span>
+                <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
+              </span>
+            </h2>
+            <p className="text-slate-500 text-sm max-w-lg mx-auto leading-relaxed">
+              과장된 후기보다,<br className="sm:hidden" />
+              {" "}실제 운영 결과로 들어온 피드백을 정리했습니다.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+            {[
+              {
+                industry: "병원",
+                summary: "예약 문의가 눈에 띄게 늘었어요",
+                quote: "광고만 돌리는 곳이 아니라, 어떤 채널이 우리에게 맞는지 처음부터 같이 정리해주셨어요. 예약 문의가 두 배 가까이 늘었습니다.",
+                role: "원장",
+                color: "from-emerald-500 to-teal-600",
+                stat: { label: "예약 문의", value: "+128%" },
+              },
+              {
+                industry: "분양",
+                summary: "DB 유입 구조가 안정됐습니다",
+                quote: "리드폼만 하고 끝나는게 아니라, 후속 문자까지 흐름을 잡아주셔서 실제 상담 전환율이 좋아졌습니다.",
+                role: "마케팅 팀장",
+                color: "from-blue-500 to-indigo-600",
+                stat: { label: "전환율", value: "+32.8%" },
+              },
+              {
+                industry: "지역 자영업",
+                summary: "지역 단골이 늘었어요",
+                quote: "당근하고 메타 조합으로 동네 사람들이 가게를 알아보기 시작했어요. 작은 예산이지만 효율은 확실히 다릅니다.",
+                role: "대표",
+                color: "from-orange-500 to-red-500",
+                stat: { label: "방문 증가", value: "+56%" },
+              },
+            ].map((t, i) => (
+              <div
+                key={i}
+                className="group relative"
+                style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
+              >
+                <div className={`absolute inset-0 translate-x-1.5 translate-y-2 rounded-2xl bg-linear-to-br ${t.color} opacity-25 blur-[3px]`} />
+                <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-2xl bg-linear-to-br ${t.color} opacity-15`} />
+
+                <div className="relative bg-white rounded-2xl p-6 sm:p-7 border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden h-full flex flex-col">
+                  <div className={`absolute -top-10 -right-10 w-32 h-32 rounded-full bg-linear-to-br ${t.color} opacity-10 blur-2xl`} />
+
+                  {/* Quote mark */}
+                  <div className={`absolute top-3 right-4 text-7xl font-black bg-linear-to-br ${t.color} bg-clip-text text-transparent opacity-25 leading-none select-none`}>
+                    &ldquo;
+                  </div>
+
+                  <div className="relative flex-1">
+                    {/* Industry badge */}
+                    <div className="inline-flex items-center gap-1.5 mb-4">
+                      <div className={`px-2.5 py-1 rounded-full bg-linear-to-br ${t.color} shadow-sm`}>
+                        <span className="text-[10px] font-extrabold text-white tracking-wider uppercase">{t.industry}</span>
+                      </div>
+                      {/* Star rating */}
+                      <div className="flex gap-0.5 ml-1">
+                        {[...Array(5)].map((_, n) => (
+                          <svg key={n} className="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                    </div>
+
+                    <p className="text-base font-extrabold text-deep-navy mb-3 leading-tight">{t.summary}</p>
+                    <p className="text-[12px] sm:text-[13px] text-slate-600 leading-relaxed mb-5">
+                      &ldquo;{t.quote}&rdquo;
+                    </p>
+                  </div>
+
+                  {/* Footer with stat */}
+                  <div className="relative pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className={`w-7 h-7 rounded-full bg-linear-to-br ${t.color} flex items-center justify-center shadow-sm`}>
+                        <span className="text-white text-[10px] font-black">{t.industry.charAt(0)}</span>
+                      </div>
+                      <span className="text-[11px] text-slate-500 font-medium">{t.industry} {t.role}</span>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-[9px] text-slate-400">{t.stat.label}</p>
+                      <p className={`text-sm font-extrabold bg-linear-to-br ${t.color} bg-clip-text text-transparent`}>{t.stat.value}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
