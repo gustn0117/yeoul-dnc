@@ -469,38 +469,74 @@ export default function ContactPage() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="bg-white rounded-2xl sm:rounded-3xl border border-slate-100 shadow-sm p-5 sm:p-8 lg:p-10">
-              {/* Required */}
+              {/* Required - PDF page 58 with header icon + subtitle */}
               <div className="mb-7 sm:mb-8">
-                <h2 className="text-base font-extrabold text-deep-navy mb-1">기본 정보</h2>
-                <p className="text-xs text-cta-orange mb-5 sm:mb-6">* 표시 항목은 필수입니다</p>
+                <div className="flex items-start gap-3 mb-5 sm:mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center shrink-0">
+                    <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 className="text-base font-extrabold text-deep-navy">기본 정보</h2>
+                    <p className="text-[11px] text-slate-500 mt-0.5">문의 내용을 빠르게 확인하고 답변드리기 위한 정보입니다.</p>
+                    <p className="text-xs text-cta-orange mt-1">* 표시 항목은 필수입니다.</p>
+                  </div>
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-600 mb-1.5">업체명 *</label>
-                    <input type="text" required value={form.company_name} onChange={(e) => updateField("company_name", e.target.value)} className={inputClass} placeholder="업체명" />
+                    <input type="text" required value={form.company_name} onChange={(e) => updateField("company_name", e.target.value)} className={inputClass} placeholder="업체명을 입력해주세요" />
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-slate-600 mb-1.5">담당자명 *</label>
-                    <input type="text" required value={form.contact_name} onChange={(e) => updateField("contact_name", e.target.value)} className={inputClass} placeholder="담당자명" />
+                    <input type="text" required value={form.contact_name} onChange={(e) => updateField("contact_name", e.target.value)} className={inputClass} placeholder="담당자명을 입력해주세요" />
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-slate-600 mb-1.5">연락처 *</label>
-                    <input type="tel" required value={form.phone} onChange={(e) => updateField("phone", e.target.value)} className={inputClass} placeholder="010-0000-0000" />
+                    <div className="relative">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                      </span>
+                      <input type="tel" required value={form.phone} onChange={(e) => updateField("phone", e.target.value)} className={`${inputClass} pl-9`} placeholder="010-0000-0000" />
+                    </div>
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-slate-600 mb-1.5">업종 *</label>
-                    <input type="text" required value={form.industry} onChange={(e) => updateField("industry", e.target.value)} className={inputClass} placeholder="예: 병원, 부동산, 음식점" />
+                    <div className="relative">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                      </span>
+                      <input type="text" required value={form.industry} onChange={(e) => updateField("industry", e.target.value)} className={`${inputClass} pl-9`} placeholder="예: 병원, 부동산, 음식점 등" />
+                    </div>
                   </div>
                 </div>
                 <div className="mt-3 sm:mt-4">
                   <label className="block text-xs font-semibold text-slate-600 mb-1.5">문의내용 *</label>
-                  <textarea required rows={4} value={form.message} onChange={(e) => updateField("message", e.target.value)} className={`${inputClass} resize-none`} placeholder="현재 상황, 고민, 원하시는 방향 등을 자유롭게 적어주세요" />
+                  <div className="relative">
+                    <textarea required rows={4} maxLength={500} value={form.message} onChange={(e) => updateField("message", e.target.value)} className={`${inputClass} resize-none`} placeholder="현재 상황, 고민, 원하시는 방향 등을 자유롭게 적어주세요." />
+                    <span className="absolute bottom-2 right-3 text-[10px] text-slate-400 font-medium pointer-events-none">{form.message.length} / 500</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Optional */}
+              {/* Optional - PDF page 58 with header icon + subtitle */}
               <div className="pt-5 sm:pt-6 border-t border-slate-100 mb-7 sm:mb-8">
-                <h2 className="text-base font-extrabold text-deep-navy mb-1">추가 정보</h2>
-                <p className="text-xs text-slate-400 mb-5 sm:mb-6">선택 항목입니다</p>
+                <div className="flex items-start gap-3 mb-5 sm:mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center shrink-0">
+                    <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 className="text-base font-extrabold text-deep-navy">추가 정보</h2>
+                    <p className="text-[11px] text-slate-500 mt-0.5">선택 항목을 작성해주시면 보다 정확한 상담이 가능합니다.</p>
+                  </div>
+                </div>
                 <div className="space-y-5 sm:space-y-6">
                   <div>
                     <label className="flex items-center justify-between text-xs font-semibold text-slate-600 mb-2">
@@ -531,23 +567,35 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Privacy */}
-              <div className="pt-5 sm:pt-6 border-t border-slate-100 mb-5 sm:mb-6">
-                <label className="flex items-start gap-3 cursor-pointer">
+              {/* Privacy with 자세히 보기 */}
+              <div className="pt-5 sm:pt-6 border-t border-slate-100 mb-5 sm:mb-6 flex items-center justify-between gap-3 flex-wrap">
+                <label className="flex items-start gap-3 cursor-pointer flex-1 min-w-0">
                   <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} className="mt-0.5 accent-accent-blue w-4 h-4 shrink-0" />
                   <span className="text-[11px] sm:text-xs text-slate-500 leading-relaxed">
-                    개인정보 수집 및 이용에 동의합니다.<br className="sm:hidden" />
-                    {" "}수집된 정보는 상담 목적으로만 사용되며,<br className="sm:hidden" />
-                    {" "}상담 완료 후 즉시 파기됩니다.
+                    개인정보 수집 및 이용에 동의합니다. 수집된 정보는 상담 목적으로만 사용되며, 상담 완료 후 즉시 파기됩니다.
                   </span>
                 </label>
+                <a href="#" className="text-[11px] sm:text-xs text-slate-500 hover:text-accent-blue font-medium whitespace-nowrap inline-flex items-center gap-1">
+                  자세히 보기
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
               </div>
 
               {error && <p className="text-sm text-red-500 mb-4">{error}</p>}
 
+              {/* PDF page 58: full-width blue submit with paper plane icon */}
               <button type="submit" disabled={submitting}
-                className="w-full py-3.5 sm:py-4 bg-linear-to-r from-cta-orange to-orange-500 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-cta-orange/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
-                {submitting ? "접수 중..." : <>상담 요청하기 <IconArrowRight className="w-4 h-4" /></>}
+                className="w-full py-4 sm:py-4.5 bg-linear-to-r from-accent-blue to-blue-600 text-white font-bold rounded-xl hover:shadow-xl hover:shadow-accent-blue/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-base">
+                {submitting ? "접수 중..." : (
+                  <>
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                    </svg>
+                    문의 내용 보내기
+                  </>
+                )}
               </button>
             </form>
           )}

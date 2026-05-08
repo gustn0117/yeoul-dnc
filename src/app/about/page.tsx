@@ -357,6 +357,22 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
+
+              {/* PDF page 28: 전문 컨설팅으로 광고 효율 극대화 부가 박스 */}
+              <div className="mt-5 relative">
+                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-accent-blue/15" />
+                <div className="relative flex items-center gap-3 p-3.5 rounded-xl bg-linear-to-br from-accent-blue/5 to-blue-50 border border-accent-blue/20">
+                  <div className="w-10 h-10 rounded-xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shrink-0 shadow-md">
+                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy">전문 컨설팅으로 광고 효율을 극대화합니다</p>
+                    <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">업종 특성에 맞는 전략으로 확실한 성과를 만들어드립니다.</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Visual side with layered mockups */}
