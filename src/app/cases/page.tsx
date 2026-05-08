@@ -12,36 +12,86 @@ const industries = ["분양", "병원", "교육", "지역 자영업", "상담형
 
 const operations = [
   {
+    no: "01",
     industry: "분양 광고",
-    channel: "메타 리드폼 + 문자 후속",
-    desc: "DB 유입과 재접촉 구조가 중요하고, 리드폼으로 관심 고객을 확보한 뒤 문자로 후속 관리까지 연결합니다.",
+    title: "메타 리드폼 + LMS 후속 운영",
+    desc: "분양 광고는 빠른 DB 확보와 관심 고객 재접촉 구조가 중요합니다. 메타 광고와 LMS 후속 시스템을 통해 방문 상담 전환까지 연결합니다.",
     logos: ["meta", "kakaotalk"],
-    color: "from-blue-500 to-blue-600",
+    point: "DB 유입 → 상담 전환",
+    target: "관심 고객 확보",
     img: "/images/stock/landing-page.jpg",
   },
   {
+    no: "02",
     industry: "병원 광고",
-    channel: "네이버 검색형 + 메타 노출형",
-    desc: "예약 문의와 신뢰 형성이 중요합니다. 검색 유입과 관심사 타겟팅을 병행하여 예약 전환을 유도합니다.",
+    title: "네이버 검색형 + 메타 노출형",
+    desc: "병원 광고는 검색 신뢰도와 반복 노출 분배율이 중요합니다. 플레이스·검색·블로그·메타 운영을 통해 예약 문의 전환율을 높입니다.",
     logos: ["naver", "instagram"],
-    color: "from-emerald-500 to-emerald-600",
+    point: "검색 유입 → 신뢰 형성",
+    target: "예약 문의 확보",
     img: "/images/stock/consultation.jpg",
   },
   {
+    no: "03",
+    industry: "교육 광고",
+    title: "상담 유입 · 카카오 채널 전환",
+    desc: "교육 업종은 상담 연결과 지속적인 상담 고객 관리가 중요합니다. 메타 광고와 카카오 채널 운영으로 수강 문의 전환율을 강화합니다.",
+    logos: ["meta", "kakaotalk"],
+    point: "문의 유입 → 상담 연결",
+    target: "수강생 모집",
+    img: "/images/stock/creative-design.jpg",
+  },
+  {
+    no: "04",
     industry: "지역 자영업",
-    channel: "당근 + 메타 생활권 타겟팅",
-    desc: "생활권 고객 유입이 핵심입니다. 지역 타겟팅 기반의 조합형 운영으로 방문 및 전화 문의를 늘립니다.",
-    logos: ["danggeun", "facebook"],
-    color: "from-orange-500 to-orange-600",
+    title: "플레이스 기반 지역 타겟 광고",
+    desc: "지역 자영업 광고는 생활권 노출과 실제 방문 고객 확보가 중요합니다. 네이버 플레이스와 메타 광고를 활용해 빠른 유입을 확보합니다.",
+    logos: ["naver", "meta"],
+    point: "지역 노출 강화",
+    target: "방문 고객 확보",
     img: "/images/stock/local-store.jpg",
+  },
+  {
+    no: "05",
+    industry: "상담형 서비스",
+    title: "문의 전환 중심 퍼포먼스 광고",
+    desc: "상담형 서비스는 고객 문의 확보와 전환 관리 구조가 중요합니다. 검색광고·메타·리드 수집 운영을 통해 실질적인 상담 문의를 유도합니다.",
+    logos: ["naver", "meta", "kakaotalk"],
+    point: "문의 확보 → 상담 전환",
+    target: "리드 고객 확보",
+    img: "/images/stock/consultation.jpg",
   },
 ];
 
 const works = [
-  { title: "분양 광고 랜딩페이지", type: "Landing", img: "/images/stock/landing-page.jpg" },
-  { title: "병원 검색 광고 배너", type: "Banner", img: "/images/stock/creative-design.jpg" },
-  { title: "지역 매장 SNS 광고", type: "Social Ad", img: "/images/stock/mobile-ads.jpg" },
-  { title: "리드 수집형 폼 디자인", type: "Lead Form", img: "/images/stock/monitor-data.jpg" },
+  {
+    title: "홈페이지 제작",
+    type: "Website",
+    desc: "브랜드의 첫 인상을 책임지는 홈페이지를 기획부터 디자인, 개발까지 맞춤형으로 제작합니다.",
+    point: "브랜드 신뢰 + 정보 전달",
+    img: "/images/stock/landing-page.jpg",
+  },
+  {
+    title: "홍보영상 제작",
+    type: "Video",
+    desc: "브랜드의 메시지를 영상으로 전달하여 신뢰감과 전문성을 높이는 고퀄리티 홍보영상을 제작합니다.",
+    point: "브랜드 이미지 + 인지도 상승",
+    img: "/images/stock/creative-design.jpg",
+  },
+  {
+    title: "릴스·쇼츠영상 제작",
+    type: "Reels",
+    desc: "짧은 시간 안에 강한 인상을 남기는 숏폼 콘텐츠로 SNS 노출과 문의 확보를 극대화합니다.",
+    point: "유입 강화 + 문의 확보",
+    img: "/images/stock/mobile-ads.jpg",
+  },
+  {
+    title: "광고이미지 제작",
+    type: "Ad Image",
+    desc: "시선을 사로잡는 디자인으로 클릭률과 전환율을 높이는 광고 배너 이미지를 제작합니다.",
+    point: "시선 집중 + 클릭 유도 + 광고 성과 향상",
+    img: "/images/stock/monitor-data.jpg",
+  },
 ];
 
 export default function CasesPage() {
@@ -108,22 +158,63 @@ export default function CasesPage() {
         </div>
       </section>
 
-      {/* 1. 거래 업종 (isometric pills) */}
-      <section className="relative py-12 sm:py-16 lg:py-20 bg-linear-to-b from-white via-[#f5f9ff] to-white overflow-hidden">
-        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
-          <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-2.5">INDUSTRIES</p>
-          <p className="text-[12px] sm:text-sm text-slate-500 mb-6 sm:mb-8 leading-relaxed">
-            다양한 업종의 광고 운영과 제작 경험을 바탕으로<br className="sm:hidden" />
-            {" "}방향을 제안합니다
-          </p>
-          <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3">
-            {industries.map((ind) => (
-              <div key={ind} className="relative group">
-                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-full bg-accent-blue/15 blur-[2px]" />
-                <span className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-white shadow-md shadow-deep-navy/5 text-[13px] sm:text-sm font-bold text-deep-navy group-hover:-translate-y-0.5 transition-transform duration-300">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
-                  {ind}
-                </span>
+      {/* 1. 업종 + 제작 카테고리 카드 */}
+      <section className="relative py-14 sm:py-18 lg:py-24 bg-linear-to-b from-white via-[#f5f9ff] to-white overflow-hidden">
+        <div className="relative max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-12">
+            <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">INDUSTRIES</p>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-3 leading-tight">
+              다양한 업종의 광고 운영과 제작 경험을 바탕으로<br className="hidden sm:inline" />
+              {" "}<span className="relative inline-block">
+                <span className="relative z-10">방향을 제안</span>
+                <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
+              </span>
+              합니다
+            </h2>
+            <p className="text-[12px] sm:text-sm text-slate-500 leading-relaxed">
+              업종별 특성에 맞는 최적의 채널 조합과 운영 전략을 제공합니다.
+            </p>
+          </div>
+
+          {/* 5 업종 row */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-4 sm:mb-5">
+            {[
+              { name: "분양", icon: <svg className="w-6 h-6 sm:w-7 sm:h-7 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}><path strokeLinecap="round" strokeLinejoin="round" d="M3 21h18M3 21V7l9-4 9 4v14M9 21v-6h6v6M9 9h.01M15 9h.01M9 13h.01M15 13h.01" /></svg> },
+              { name: "병원", icon: <svg className="w-6 h-6 sm:w-7 sm:h-7 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}><path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5V18a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18V7.5m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v1.5M21 7.5H3m9 4.5v6m-3-3h6" /></svg> },
+              { name: "교육", icon: <svg className="w-6 h-6 sm:w-7 sm:h-7 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}><path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" /></svg> },
+              { name: "지역 자영업", icon: <svg className="w-6 h-6 sm:w-7 sm:h-7 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.25h3v-3h-3v3z" /></svg> },
+              { name: "상담형 서비스", icon: <svg className="w-6 h-6 sm:w-7 sm:h-7 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}><path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M9.879 16.121A3 3 0 1012.015 11L11.288 9.273M16 11.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" /></svg> },
+            ].map((it) => (
+              <div key={it.name} className="relative group">
+                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/15 blur-[2px]" />
+                <div className="relative bg-white rounded-2xl border border-white shadow-3d py-5 sm:py-6 px-4 text-center group-hover:-translate-y-1 transition-transform duration-300">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-xl bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center mb-2.5 sm:mb-3">
+                    {it.icon}
+                  </div>
+                  <p className="text-[12px] sm:text-sm font-extrabold text-deep-navy">{it.name}</p>
+                  <div className="w-6 h-0.5 bg-accent-blue/40 mx-auto mt-2" />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* 4 제작 카테고리 row */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            {[
+              { name: "홈페이지", icon: <svg className="w-5 h-5 sm:w-6 sm:h-6 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}><path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" /></svg> },
+              { name: "홍보영상", icon: <svg className="w-5 h-5 sm:w-6 sm:h-6 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" /></svg> },
+              { name: "릴스·쇼츠영상", icon: <svg className="w-5 h-5 sm:w-6 sm:h-6 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5zM13.5 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5z" /></svg> },
+              { name: "광고이미지", icon: <svg className="w-5 h-5 sm:w-6 sm:h-6 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg> },
+            ].map((it) => (
+              <div key={it.name} className="relative group">
+                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/15 blur-[2px]" />
+                <div className="relative bg-white rounded-2xl border border-white shadow-3d py-5 sm:py-6 px-4 text-center group-hover:-translate-y-1 transition-transform duration-300">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 mx-auto rounded-xl bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center mb-2.5 sm:mb-3">
+                    {it.icon}
+                  </div>
+                  <p className="text-[12px] sm:text-sm font-extrabold text-deep-navy">{it.name}</p>
+                  <div className="w-6 h-0.5 bg-accent-blue/40 mx-auto mt-2" />
+                </div>
               </div>
             ))}
           </div>
@@ -146,80 +237,64 @@ export default function CasesPage() {
             </h2>
           </div>
 
-          <div className="space-y-8 sm:space-y-10">
+          <div className="space-y-6 sm:space-y-8">
             {operations.map((op, i) => (
               <div
                 key={op.industry}
                 className="group relative"
                 style={{ animation: `fade-in-up 0.6s ease-out ${i * 0.1}s backwards` }}
               >
-                {/* 3D depth */}
-                <div className={`absolute inset-0 translate-x-2 translate-y-3 rounded-3xl bg-linear-to-br ${op.color} opacity-20 blur-xs`} />
-                <div className={`absolute inset-0 translate-x-1 translate-y-1.5 rounded-3xl bg-linear-to-br ${op.color} opacity-10`} />
+                <div className="absolute inset-0 translate-x-1 translate-y-2 rounded-2xl sm:rounded-3xl bg-accent-blue/15 blur-[2px]" />
 
-                <div className={`relative lg:grid lg:grid-cols-2 lg:gap-8 items-center bg-white rounded-2xl sm:rounded-3xl border border-white shadow-2xl shadow-deep-navy/5 overflow-hidden group-hover:-translate-y-1 transition-transform duration-300`}>
-                  {/* Image */}
-                  <div className={`relative aspect-video lg:aspect-auto lg:h-full min-h-60 sm:min-h-72 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+                <div className={`relative grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch bg-white rounded-2xl sm:rounded-3xl border border-white shadow-3d overflow-hidden group-hover:-translate-y-1 transition-transform duration-300`}>
+                  {/* Image side */}
+                  <div className={`relative aspect-video lg:aspect-auto lg:min-h-72 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
                     <Image src={op.img} alt={op.industry} fill className="object-cover" />
-                    <div className="absolute inset-0 bg-linear-to-br from-deep-navy/40 via-deep-navy/10 to-transparent" />
-
-                    {/* Industry badge - 3D */}
-                    <div className="absolute top-4 left-4">
-                      <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-full bg-linear-to-r ${op.color} opacity-50 blur-[1px]`} />
-                      <div className={`relative px-4 py-1.5 rounded-full bg-linear-to-r ${op.color} text-white text-[11px] sm:text-xs font-extrabold shadow-lg flex items-center gap-1.5`}>
-                        <span className="w-1 h-1 rounded-full bg-white" />
-                        {op.industry}
-                      </div>
-                    </div>
-
-                    {/* Corner stat */}
-                    <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl px-3 py-2 shadow-lg border border-white/50">
-                      <p className="text-[9px] text-slate-400 font-medium">CASE</p>
-                      <p className="text-sm font-extrabold text-deep-navy">#{String(i + 1).padStart(3, "0")}</p>
-                    </div>
-
-                    {/* Number overlay */}
-                    <div className={`absolute top-4 right-4 text-6xl sm:text-7xl font-black bg-linear-to-br ${op.color} bg-clip-text text-transparent opacity-40 leading-none`}>
-                      {String(i + 1).padStart(2, "0")}
+                    <div className="absolute inset-0 bg-linear-to-br from-deep-navy/30 via-transparent to-transparent" />
+                    {/* Big number watermark */}
+                    <div className="absolute top-3 right-4 text-6xl sm:text-7xl font-black text-white/30 leading-none">
+                      {op.no}
                     </div>
                   </div>
 
-                  {/* Content */}
-                  <div className={`p-6 sm:p-8 lg:p-10 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                    {/* Logo chips */}
-                    <div className="inline-flex items-center gap-2 mb-4 bg-slate-50 rounded-full px-3 py-1.5 border border-slate-100">
-                      {op.logos.map((logo) => (
-                        <img key={logo} src={`/images/logos/${logo}.svg`} alt={logo} className="h-4 sm:h-5 w-auto" />
-                      ))}
+                  {/* Content side */}
+                  <div className={`relative p-6 sm:p-8 lg:p-10 flex flex-col ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                    {/* Industry badge + logos */}
+                    <div className="flex items-center gap-2 mb-4 flex-wrap">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20">
+                        <span className="w-1 h-1 rounded-full bg-accent-blue" />
+                        <span className="text-[10px] font-extrabold text-accent-blue tracking-wider uppercase">{op.industry}</span>
+                      </span>
+                      <div className="flex items-center gap-1.5 bg-slate-50 rounded-full px-2 py-1 border border-slate-100">
+                        {op.logos.map((logo) => (
+                          <img key={logo} src={`/images/logos/${logo}.svg`} alt={logo} className="h-3.5 sm:h-4 w-auto" />
+                        ))}
+                      </div>
                     </div>
 
-                    <h3 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-deep-navy mb-2 sm:mb-3 leading-tight">{op.channel}</h3>
-                    <p className="text-[13px] sm:text-sm text-slate-500 mb-6 leading-relaxed">{op.desc}</p>
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-deep-navy mb-2 sm:mb-3 leading-tight">{op.title}</h3>
+                    <p className="text-[13px] sm:text-sm text-slate-500 mb-5 sm:mb-6 leading-relaxed">{op.desc}</p>
 
-                    {/* KPI cards */}
-                    <div className="grid grid-cols-2 gap-3">
+                    {/* KPI badges */}
+                    <div className="mt-auto grid grid-cols-2 gap-3">
                       <div className="relative">
-                        <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-linear-to-br ${op.color} opacity-15`} />
+                        <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/15" />
                         <div className="relative bg-white rounded-xl p-3 border border-slate-100 shadow-sm">
                           <div className="flex items-center gap-1.5 mb-1">
-                            <span className={`w-1.5 h-1.5 rounded-full bg-linear-to-br ${op.color}`} />
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
                             <p className="text-[10px] text-slate-400 font-bold tracking-wider uppercase">핵심</p>
                           </div>
-                          <p className="text-[11px] sm:text-xs text-deep-navy font-extrabold leading-tight">
-                            {op.industry === "분양 광고" ? "DB 유입 → 후속" : op.industry === "병원 광고" ? "검색 → 예약" : "노출 → 방문"}
-                          </p>
+                          <p className="text-[11px] sm:text-xs text-deep-navy font-extrabold leading-tight">{op.point}</p>
                         </div>
                       </div>
                       <div className="relative">
-                        <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-linear-to-br ${op.color} opacity-15`} />
+                        <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/15" />
                         <div className="relative bg-white rounded-xl p-3 border border-slate-100 shadow-sm">
                           <div className="flex items-center gap-1.5 mb-1">
-                            <span className={`w-1.5 h-1.5 rounded-full bg-linear-to-br ${op.color}`} />
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
                             <p className="text-[10px] text-slate-400 font-bold tracking-wider uppercase">목표</p>
                           </div>
-                          <p className="text-[11px] sm:text-xs text-deep-navy font-extrabold leading-tight">
-                            {op.industry === "분양 광고" ? "관심 고객 확보" : op.industry === "병원 광고" ? "상담 예약" : "매장 방문"}
-                          </p>
+                          <p className="text-[11px] sm:text-xs text-deep-navy font-extrabold leading-tight">{op.target}</p>
                         </div>
                       </div>
                     </div>
@@ -251,38 +326,46 @@ export default function CasesPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {works.map((w, i) => (
               <div
                 key={w.title}
-                className="group relative"
+                className="group relative flex"
                 style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.08}s backwards` }}
               >
                 <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/15 blur-[2px]" />
 
-                <div className="relative rounded-2xl overflow-hidden border border-white bg-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-all duration-300">
+                <div className="relative w-full rounded-2xl overflow-hidden border border-white bg-white shadow-3d group-hover:-translate-y-1 transition-all duration-300 flex flex-col">
                   <div className="aspect-4/3 relative overflow-hidden">
                     <Image src={w.img} alt={w.title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-linear-to-t from-deep-navy/80 via-deep-navy/30 to-transparent" />
-
-                    <div className="absolute top-3 left-3">
-                      <span className="relative inline-block px-2 py-0.5 bg-white/95 text-accent-blue text-[9px] font-extrabold rounded-md uppercase tracking-wider shadow-md">
-                        {w.type}
-                      </span>
+                    <div className="absolute inset-0 bg-linear-to-t from-deep-navy/70 via-deep-navy/20 to-transparent" />
+                    {/* Big number watermark */}
+                    <div className="absolute top-2 right-3 text-3xl font-black text-white/40 leading-none">
+                      {String(i + 1).padStart(2, "0")}
                     </div>
-
-                    <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-md">
-                      <span className="text-[10px] font-black text-accent-blue">{String(i + 1).padStart(2, "0")}</span>
+                    <div className="absolute top-3 left-3 w-9 h-9 rounded-lg bg-accent-blue/90 backdrop-blur-sm flex items-center justify-center shadow-md">
+                      <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        {i === 0 && <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />}
+                        {i === 1 && <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />}
+                        {i === 2 && <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.25v13.5m-2.25-13.5h16.5l-2.25 4.5h-12l-2.25-4.5zm5.25 6h6m-3-3v6" />}
+                        {i === 3 && <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />}
+                      </svg>
                     </div>
                   </div>
 
-                  <div className="p-3 sm:p-4 bg-white">
-                    <p className="text-[11px] sm:text-sm font-extrabold text-deep-navy leading-tight">{w.title}</p>
-                    <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-100">
-                      <span className="text-[9px] font-bold text-accent-blue tracking-widest">
+                  <div className="p-4 sm:p-5 flex-1 flex flex-col">
+                    <p className="text-sm sm:text-base font-extrabold text-deep-navy leading-tight">{w.title}</p>
+                    <p className="text-[11px] sm:text-xs text-slate-500 mt-1.5 sm:mt-2 leading-relaxed flex-1">{w.desc}</p>
+
+                    <div className="mt-3 pt-3 border-t border-slate-100">
+                      <p className="text-[9px] text-slate-400 font-bold tracking-widest uppercase mb-1">핵심 포인트</p>
+                      <p className="text-[11px] sm:text-xs text-accent-blue font-bold">{w.point}</p>
+                    </div>
+                    <div className="mt-3 flex items-center justify-between">
+                      <span className="text-[9px] font-extrabold text-accent-blue tracking-widest">
                         WORK {String(i + 1).padStart(2, "0")}
                       </span>
-                      <div className="w-5 h-5 rounded-full bg-slate-50 group-hover:bg-accent-blue flex items-center justify-center transition-colors">
+                      <div className="w-6 h-6 rounded-full bg-slate-50 group-hover:bg-accent-blue flex items-center justify-center transition-colors">
                         <svg className="w-2.5 h-2.5 text-slate-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                         </svg>

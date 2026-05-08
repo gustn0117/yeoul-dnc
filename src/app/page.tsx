@@ -405,22 +405,22 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-stretch">
             {whyUs.map((item, i) => (
               <div
                 key={item.title}
-                className="group relative"
+                className="group relative flex"
                 style={{ animation: `fade-in-up 0.6s ease-out ${i * 0.1}s backwards` }}
               >
                 {/* Subtle blue depth */}
                 <div className="absolute inset-0 translate-x-0.5 translate-y-1.5 rounded-2xl bg-accent-blue/20 blur-[2px]" />
 
-                <div className="relative bg-white rounded-2xl p-5 sm:p-7 border border-white shadow-3d overflow-hidden bevel-edge hover:-translate-y-1 transition-transform duration-300">
+                <div className="relative w-full bg-white rounded-2xl p-5 sm:p-7 border border-white shadow-3d overflow-hidden bevel-edge hover:-translate-y-1 transition-transform duration-300 flex flex-col">
                   <div className="absolute -top-3 -right-3 text-6xl sm:text-7xl font-black text-slate-50 select-none leading-none">
                     0{i + 1}
                   </div>
 
-                  <div className="relative">
+                  <div className="relative flex-1 flex flex-col">
                     <div className="relative w-11 h-11 sm:w-14 sm:h-14 mb-4 sm:mb-5">
                       <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl sm:rounded-2xl bg-accent-blue/50 blur-[1px]" />
                       <div className="relative w-full h-full rounded-xl sm:rounded-2xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-lg">
@@ -428,7 +428,7 @@ export default function Home() {
                       </div>
                     </div>
                     <h3 className="text-[13px] sm:text-base font-extrabold text-deep-navy mb-1.5 sm:mb-2 whitespace-pre-line leading-tight">{item.title}</h3>
-                    <p className="text-[11px] sm:text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+                    <p className="text-[11px] sm:text-xs text-slate-500 leading-relaxed flex-1">{item.desc}</p>
 
                     <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-slate-100">
                       <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold text-accent-blue">

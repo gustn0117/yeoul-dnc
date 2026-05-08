@@ -69,8 +69,8 @@ export default function Footer() {
               />
             </Link>
             <p className="text-slate-400 text-[13px] sm:text-sm mb-6 max-w-xs leading-relaxed">
-              유입부터 상담 전환까지 설계하는<br />
-              온라인 광고 실행 파트너
+              유입부터 상담 전환, 재접촉까지 설계하는<br />
+              <span className="font-semibold text-white">온라인 광고 전문 실행사</span>
             </p>
             <div className="space-y-2 text-[12px] sm:text-[13px] text-slate-500 leading-relaxed">
               <div className="flex items-start gap-2">

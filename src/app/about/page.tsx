@@ -60,10 +60,54 @@ export default function AboutPage() {
                 </span>
                 까지 설계합니다
               </h1>
-              <p className="text-[13px] sm:text-base text-slate-300/90 max-w-xl leading-relaxed mb-8">
+              <p className="text-[13px] sm:text-base text-slate-300/90 max-w-xl leading-relaxed mb-6">
                 여울디앤씨는 업종에 맞는 채널 선택부터 소재 제작, 운영, 보완까지<br className="hidden sm:inline lg:hidden" />
                 {" "}연결하는 <span className="font-semibold text-white">온라인 광고 실행 파트너</span>입니다.
               </p>
+
+              {/* 3 mini feature cards */}
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6 max-w-xl">
+                {[
+                  {
+                    title: "업종 맞춤 전략",
+                    desc: "업종별 목표에 최적화된 광고 전략 설계",
+                    icon: (
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <circle cx="12" cy="12" r="9" strokeLinecap="round" />
+                        <circle cx="12" cy="12" r="5" strokeLinecap="round" />
+                        <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    title: "데이터 기반 운영",
+                    desc: "실시간 데이터 분석으로 성과를 극대화",
+                    icon: (
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    title: "상담 전환 최적화",
+                    desc: "유입에서 상담까지 이어지는 전환 구조 설계",
+                    icon: (
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87m-4-12a4 4 0 110 7.75M9 20H4v-2a4 4 0 014-4h.5a4 4 0 014 4v2zm0-12a4 4 0 11-8 0 4 4 0 018 0z" />
+                      </svg>
+                    ),
+                  },
+                ].map((f) => (
+                  <div key={f.title} className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-3">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-accent-blue/20 border border-accent-blue/30 flex items-center justify-center mb-2">
+                      {f.icon}
+                    </div>
+                    <p className="text-[11px] sm:text-[12px] font-extrabold text-white mb-0.5 leading-tight">{f.title}</p>
+                    <p className="text-[9px] sm:text-[10px] text-slate-400 leading-tight">{f.desc}</p>
+                  </div>
+                ))}
+              </div>
+
               {/* Quick highlight stats */}
               <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-md">
                 {[
@@ -594,6 +638,34 @@ export default function AboutPage() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* "결과로 증명합니다" footer band */}
+            <div className="mt-8 sm:mt-10 relative">
+              <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-accent-blue/15 blur-[2px]" />
+              <div className="relative bg-white rounded-2xl border border-white shadow-3d px-5 sm:px-7 py-5 flex items-center gap-4 sm:gap-6 overflow-hidden">
+                <div className="relative w-11 h-11 sm:w-12 sm:h-12 shrink-0">
+                  <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/40 blur-[1px]" />
+                  <div className="relative w-full h-full rounded-xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-md">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[14px] sm:text-base font-extrabold text-deep-navy leading-tight">결과로 증명합니다</p>
+                  <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-relaxed">작은 개선이 쌓여 성과가 됩니다. 데이터가 말해주는 결과로 신뢰를 만듭니다.</p>
+                </div>
+                {/* mini sparkline */}
+                <div className="hidden sm:block shrink-0">
+                  <svg viewBox="0 0 120 32" className="w-24 h-8" fill="none">
+                    <path d="M0 28 L18 22 L36 24 L54 16 L72 18 L90 8 L108 10 L120 4" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" />
+                    {[0, 18, 36, 54, 72, 90, 108, 120].map((x, i) => (
+                      <circle key={i} cx={x} cy={[28, 22, 24, 16, 18, 8, 10, 4][i]} r="2" fill="#2563eb" />
+                    ))}
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
         </div>

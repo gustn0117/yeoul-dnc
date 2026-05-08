@@ -434,15 +434,26 @@ export default function ServicesPage() {
                   style={{ transform: "translate(-50%, -50%) rotate(12deg)", animation: "float 6s ease-in-out infinite" }}
                 >
                   <div className="relative w-full h-full rounded-[28px] bg-slate-900 shadow-2xl shadow-amber-900/25 p-1.5 border border-slate-700">
-                    <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-white">
-                      <Image src="/images/stock/kakao-chat.jpg" alt="" fill className="object-cover" />
-                      {/* Fake chat bubble overlay */}
-                      <div className="absolute top-3 left-2 right-2 space-y-1.5">
+                    <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-linear-to-b from-[#FEE500]/40 to-white">
+                      {/* Mock kakaotalk header */}
+                      <div className="absolute top-0 left-0 right-0 px-3 py-2 bg-white/90 backdrop-blur-sm border-b border-slate-100 flex items-center gap-1.5">
+                        <div className="w-5 h-5 rounded-md bg-[#FEE500] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-[#3C1E1E]" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 3C6.48 3 2 6.58 2 10.9c0 2.78 1.8 5.22 4.51 6.6-.2.73-.72 2.65-.82 3.06-.13.52.19.51.4.37.17-.11 2.69-1.83 3.78-2.57.69.1 1.4.15 2.13.15 5.52 0 10-3.58 10-7.9S17.52 3 12 3z" />
+                          </svg>
+                        </div>
+                        <span className="text-[7px] font-bold text-slate-700">여울디앤씨</span>
+                      </div>
+                      {/* Fake chat bubbles */}
+                      <div className="absolute top-7 left-2 right-2 space-y-1.5">
                         <div className="flex justify-start">
-                          <div className="bg-white/90 rounded-lg px-2 py-1 text-[7px] text-slate-700 shadow-sm">상담 문의드립니다</div>
+                          <div className="bg-white rounded-lg px-2 py-1 text-[7px] text-slate-700 shadow-sm border border-slate-100">광고 상담 문의드려요</div>
                         </div>
                         <div className="flex justify-end">
-                          <div className="bg-[#FEE500] rounded-lg px-2 py-1 text-[7px] text-slate-800 shadow-sm">안녕하세요! 편하게 말씀해주세요 😊</div>
+                          <div className="bg-[#FEE500] rounded-lg px-2 py-1 text-[7px] text-slate-800 shadow-sm">반갑습니다 :) 업종부터 알려주세요</div>
+                        </div>
+                        <div className="flex justify-start">
+                          <div className="bg-white rounded-lg px-2 py-1 text-[7px] text-slate-700 shadow-sm border border-slate-100">병원 광고를 시작하려고 합니다</div>
                         </div>
                       </div>
                     </div>
@@ -682,7 +693,7 @@ export default function ServicesPage() {
                   <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white border border-slate-200 shadow-sm">
                     <img src="/images/logos/google.svg" alt="" className="w-5 h-5" />
                   </span>
-                  <span className="bg-linear-to-r from-[#4285F4] via-[#EA4335] to-[#FBBC05] bg-clip-text text-transparent">구글 마케팅</span>
+                  <span className="text-accent-blue">구글 마케팅</span>
                 </span>
               </h2>
               <p className="text-[13px] sm:text-sm text-slate-500 leading-relaxed mb-6">
@@ -878,11 +889,36 @@ export default function ServicesPage() {
               </h2>
               <div className="space-y-3">
                 {[
-                  { industry: "분양", desc: "DB 유입과 후속 문자 구조", logos: ["meta"] },
-                  { industry: "병원", desc: "예약 문의와 신뢰 형성", logos: ["naver", "instagram"] },
-                  { industry: "교육", desc: "수강 상담, 카카오 채널 연결", logos: ["kakaotalk"] },
-                  { industry: "지역 자영업", desc: "생활권 고객 유입", logos: ["danggeun"] },
-                  { industry: "상담형 서비스", desc: "문의 전환, 리드폼 활용", logos: ["google"] },
+                  {
+                    industry: "분양",
+                    bullets: ["DB 수집 · 방문 예약 · LMS 전환 운영"],
+                    result: "관심 고객 유입부터 계약 상담까지 메타 · 네이버 · LMS 기반 통합 운영",
+                    iconType: "building",
+                  },
+                  {
+                    industry: "병원",
+                    bullets: ["예약 문의 확보", "신뢰 기반 브랜딩 운영"],
+                    result: "플레이스 · 블로그 기반 의료 마케팅 — 지역 검색 노출 · 상담 문의 최적화",
+                    iconType: "hospital",
+                  },
+                  {
+                    industry: "교육",
+                    bullets: ["수강 상담", "카카오 채널 연동 운영"],
+                    result: "수강생 모집 중심 광고 운영 — 상담 유입 · 리드 확보 · 전환 최적화",
+                    iconType: "edu",
+                  },
+                  {
+                    industry: "지역 자영업",
+                    bullets: ["지역 타겟 광고", "신규 고객 유입 확대"],
+                    result: "플레이스 기반 지역 마케팅 — 생활권 고객 확보 · 방문 유도 최적화",
+                    iconType: "store",
+                  },
+                  {
+                    industry: "상담형 서비스",
+                    bullets: ["문의 전환", "리드 확보 최적화"],
+                    result: "고객 문의 확보 중심 운영 — 상담 신청 · DB 유입 · 전환 관리",
+                    iconType: "consult",
+                  },
                 ].map((item, i) => (
                   <div
                     key={item.industry}
@@ -890,20 +926,52 @@ export default function ServicesPage() {
                     style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.08}s backwards` }}
                   >
                     <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-accent-blue/10" />
-                    <div className="relative flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-white border border-white shadow-md shadow-deep-navy/5 group-hover:-translate-y-0.5 transition-transform duration-300">
-                      <div className="text-2xl font-black text-accent-blue shrink-0 leading-none tracking-tight">
+                    <div className="relative flex items-start gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-white border border-white shadow-3d group-hover:-translate-y-0.5 transition-transform duration-300">
+                      {/* Number */}
+                      <div className="text-xl font-black text-accent-blue shrink-0 leading-none tracking-tight pt-0.5">
                         {String(i + 1).padStart(2, "0")}
                       </div>
-                      <div className="flex items-center gap-1.5 shrink-0 bg-slate-50 rounded-lg px-2 py-1.5">
-                        {item.logos.map((l) => <img key={l} src={`/images/logos/${l}.svg`} alt={l} className="h-3.5 sm:h-4 w-auto" />)}
+                      {/* Industry icon */}
+                      <div className="w-10 h-10 rounded-xl bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center shrink-0">
+                        <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
+                          {item.iconType === "building" && <path strokeLinecap="round" strokeLinejoin="round" d="M3 21h18M3 21V7l9-4 9 4v14M9 21v-6h6v6M9 9h.01M15 9h.01M9 13h.01M15 13h.01" />}
+                          {item.iconType === "hospital" && <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5V18a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18V7.5m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v1.5M21 7.5H3m9 4.5v6m-3-3h6" />}
+                          {item.iconType === "edu" && <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342" />}
+                          {item.iconType === "store" && <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72" />}
+                          {item.iconType === "consult" && <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M9.879 16.121A3 3 0 1012.015 11L11.288 9.273M16 11.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />}
+                        </svg>
                       </div>
+                      {/* Industry content */}
                       <div className="flex-1 min-w-0">
-                        <p className="text-[12px] sm:text-sm font-extrabold text-deep-navy">{item.industry}</p>
-                        <p className="text-[10px] sm:text-[11px] text-slate-400">{item.desc}</p>
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy">{item.industry}</p>
+                          {item.bullets.map((b) => (
+                            <span key={b} className="text-[10px] text-slate-400">· {b}</span>
+                          ))}
+                        </div>
+                        <div className="hidden sm:block w-8 h-px bg-slate-200 my-1" />
+                        <p className="text-[10px] sm:text-[11px] text-slate-500 leading-relaxed mt-1">{item.result}</p>
                       </div>
                     </div>
                   </div>
                 ))}
+              </div>
+
+              <div className="mt-5 relative">
+                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-accent-blue/15" />
+                <div className="relative flex items-center gap-3 p-3.5 rounded-xl bg-linear-to-br from-accent-blue/5 to-blue-50 border border-accent-blue/20">
+                  <div className="w-10 h-10 rounded-xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shrink-0 shadow-md">
+                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <circle cx="12" cy="12" r="9" strokeLinecap="round" />
+                      <circle cx="12" cy="12" r="5" strokeLinecap="round" />
+                      <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy">업종별 맞춤 전략으로 더 높은 성과를</p>
+                    <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">업종의 특성과 고객 행동을 분석하여 가장 효과적인 광고 전략을 설계합니다.</p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -934,19 +1002,38 @@ export default function ServicesPage() {
                 </div>
               </div>
 
-              {/* Step chips */}
-              <div className="space-y-2">
-                {["전략 수립", "소재 제작", "채널 세팅", "운영 및 최적화", "결과 체크"].map((step, i) => (
-                  <div key={step} className="flex items-center gap-2">
+              {/* Step rows - more detailed */}
+              <div className="space-y-2.5">
+                {[
+                  { step: "전략 수립", desc: "시장/경쟁사까지 분석을 통한 광고 전략 기획" },
+                  { step: "소재 제작", desc: "타겟에 최적화된 광고 소재 기획 및 제작" },
+                  { step: "채널 세팅", desc: "광고 채널 설정 및 캠페인 구조 세팅" },
+                  { step: "운영 및 최적화", desc: "데이터 기반 운영으로 성과 지속 개선" },
+                  { step: "결과 체크", desc: "성과 리포트 제공 및 다음 전략 제안" },
+                ].map((s, i) => (
+                  <div key={s.step} className="flex items-start gap-3 p-3 rounded-xl bg-white border border-slate-100 shadow-sm">
                     <div className="w-8 h-8 rounded-lg bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-md shrink-0">
                       <span className="text-white text-[10px] font-black">{i + 1}</span>
                     </div>
-                    <span className="text-[12px] sm:text-sm font-bold text-deep-navy">{step}</span>
-                    {i < 4 && (
-                      <div className="flex-1 h-px bg-linear-to-r from-slate-200 to-transparent" />
-                    )}
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[12px] sm:text-sm font-extrabold text-deep-navy leading-tight">{s.step}</p>
+                      <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 leading-tight">{s.desc}</p>
+                    </div>
                   </div>
                 ))}
+              </div>
+
+              <div className="mt-5 relative">
+                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-accent-blue/15" />
+                <div className="relative flex items-center gap-3 p-3.5 rounded-xl bg-white border border-accent-blue/20">
+                  <div className="w-10 h-10 rounded-xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shrink-0 shadow-md">
+                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                  </div>
+                  <div>
+                    <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy">데이터 기반 성과 관리</p>
+                    <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">실시간 데이터 분석과 지속적인 최적화로 광고 효율을 극대화합니다.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import SectionCTA from "@/components/SectionCTA";
-import { IllustRocket, IllustPieChart } from "@/components/Illustrations";
 import { IconClipboard, IconCompass, IconImage, IconSettings, IconBarChart, IconCheck, IconArrowRight } from "@/components/Icons";
 
 export const metadata: Metadata = {
@@ -51,25 +50,53 @@ export default function ProcessPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-br from-[#060d1b] via-deep-navy to-[#0d2240]" />
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-accent-blue/5 to-transparent" />
+      <section className="relative overflow-hidden bg-[#060e1e]">
+        <div className="absolute inset-0 bg-linear-to-br from-[#060e1e] via-[#0a1428]/95 to-[#060e1e]" />
+        <div
+          className="absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage: "linear-gradient(to right, #60a5fa 1px, transparent 1px), linear-gradient(to bottom, #60a5fa 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+        <div className="absolute -top-20 right-10 w-96 h-96 bg-accent-blue/15 rounded-full blur-[100px]" />
+
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
             <div>
-              <p className="section-label text-accent-blue font-semibold text-xs tracking-widest uppercase mb-4">Process</p>
-              <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">진행절차</h1>
+              <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">— PROCESS</p>
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">진행절차</h1>
               <p className="text-base sm:text-lg text-slate-300/90 max-w-md">
                 맡기면 어떻게 흘러가는지,<br className="sm:hidden" />
-                {" "}짧고 확실하게 안내드립니다
+                {" "}<span className="text-accent-blue font-semibold">짧고 확실하게</span> 안내드립니다.
               </p>
-              <p className="text-[13px] sm:text-sm text-slate-400/80 mt-2.5 sm:mt-3 max-w-md leading-relaxed">
+              <div className="my-4 w-12 h-0.5 bg-accent-blue/50" />
+              <p className="text-[13px] sm:text-sm text-slate-400/80 max-w-md leading-relaxed">
                 각 단계는 짧고 확실하며,<br className="sm:hidden" />
                 {" "}처음이셔도 바로 이해할 수 있습니다.
               </p>
             </div>
-            <div className="hidden lg:flex justify-center">
-              <IllustRocket className="w-56 h-56 animate-float-slow" />
+
+            {/* Clipboard with orbital rings */}
+            <div className="hidden lg:flex justify-center items-center perspective-1200">
+              <div className="relative w-72 h-72" style={{ transform: "rotateX(8deg) rotateY(-6deg)", transformStyle: "preserve-3d" }}>
+                <div className="absolute inset-0 bg-accent-blue/20 rounded-full blur-3xl" />
+                {/* Orbital rings (dashed) */}
+                <div className="absolute inset-0 rounded-full border-2 border-dashed border-accent-blue/30" />
+                <div className="absolute inset-6 rounded-full border-2 border-dashed border-accent-blue/20" />
+                {/* Orbital dots */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-accent-blue shadow-lg" style={{ animation: "float 4s ease-in-out infinite" }} />
+                <div className="absolute bottom-2 right-2 w-2.5 h-2.5 rounded-full bg-sky-400 shadow-lg" style={{ animation: "float 5s ease-in-out infinite 1s" }} />
+                <div className="absolute left-2 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-violet-400 shadow-lg" style={{ animation: "float 4.5s ease-in-out infinite 2s" }} />
+                {/* Center clipboard */}
+                <div className="absolute inset-12 rounded-full glass-3d-dark flex items-center justify-center shadow-3d-lg">
+                  <svg className="w-20 h-20 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+                    <circle cx="17" cy="14" r="3" fill="currentColor" stroke="none" />
+                    <path d="M15.5 14L16.5 15L18.5 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -275,32 +302,58 @@ export default function ProcessPage() {
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
             <div>
               <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">OUR WAY</p>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-6 leading-tight">
-                단순 집행이 아닌,<br />
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-3 leading-tight">
+                단순 광고가 아닌,<br />
                 <span className="relative inline-block">
-                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">실행 중심</span>
+                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">성과 중심</span>
                   <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/25 z-0 rounded-sm" />
                 </span>
-                으로 진행합니다
+                으로 운영합니다
               </h2>
-              <div className="space-y-3 sm:space-y-4">
+              <p className="text-[13px] sm:text-sm text-slate-400 mb-6 max-w-md leading-relaxed">
+                전략부터 운영, 데이터 분석까지 전 과정을 유기적으로 연결하여<br className="hidden sm:inline" />
+                {" "}지속 가능한 성과를 만듭니다.
+              </p>
+              <div className="space-y-3 sm:space-y-4 mb-6">
                 {[
-                  { text: "시작 전 방향부터 명확히 정리합니다", tag: "DIRECTION" },
-                  { text: "광고 집행 후에도 운영과 보완까지 함께합니다", tag: "OPERATION" },
-                  { text: "모든 과정을 데이터 기반으로 판단합니다", tag: "DATA-DRIVEN" },
+                  {
+                    num: "01",
+                    tag: "STRATEGY",
+                    title: "업종별 맞춤 전략으로 광고 방향을 설계합니다",
+                    desc: "타겟 분석과 시장 데이터를 기반으로 최적의 채널 전략을 수립합니다.",
+                    icon: <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><circle cx="12" cy="12" r="9" strokeLinecap="round" /><circle cx="12" cy="12" r="5" strokeLinecap="round" /><circle cx="12" cy="12" r="1.5" fill="currentColor" /></svg>,
+                  },
+                  {
+                    num: "02",
+                    tag: "OPERATION",
+                    title: "광고 운영 이후까지 지속적으로 관리합니다",
+                    desc: "광고 집행부터 예산 관리, 소재 운영까지 전문적으로 운영합니다.",
+                    icon: <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>,
+                  },
+                  {
+                    num: "03",
+                    tag: "DATA-DRIVEN",
+                    title: "데이터 기반 분석으로 광고 효율을 최적화합니다",
+                    desc: "실시간 데이터 분석과 인사이트 도출로 광고 성과를 극대화합니다.",
+                    icon: <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path strokeLinecap="round" strokeLinejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>,
+                  },
                 ].map((item, i) => (
-                  <div key={item.text} className="group relative" style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}>
+                  <div key={item.num} className="group relative" style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}>
                     <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
-                    <div className="relative flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 group-hover:border-accent-blue/40 transition-all">
-                      <div className="relative w-9 h-9 sm:w-10 sm:h-10 shrink-0">
+                    <div className="relative flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 group-hover:border-accent-blue/40 transition-all">
+                      <div className="relative w-10 h-10 shrink-0">
                         <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-lg bg-accent-blue/60 blur-[1px]" />
                         <div className="relative w-full h-full rounded-lg bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-lg">
-                          <IconCheck className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                          {item.icon}
                         </div>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <span className="text-[9px] sm:text-[10px] font-extrabold text-accent-blue tracking-widest">{item.tag}</span>
-                        <p className="text-[13px] sm:text-sm text-white font-semibold leading-snug">{item.text}</p>
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="text-base font-black text-accent-blue leading-none">{item.num}</span>
+                          <span className="text-[9px] sm:text-[10px] font-extrabold text-accent-blue tracking-widest">{item.tag}</span>
+                        </div>
+                        <p className="text-[13px] sm:text-sm text-white font-bold leading-snug mb-1">{item.title}</p>
+                        <p className="text-[11px] sm:text-xs text-slate-400 leading-relaxed">{item.desc}</p>
                       </div>
                     </div>
                   </div>
@@ -308,26 +361,56 @@ export default function ProcessPage() {
               </div>
             </div>
 
-            {/* Isometric pie chart with stats */}
+            {/* Right: orbital marketing flow */}
             <div className="hidden lg:block relative">
               <div className="absolute inset-0 bg-accent-blue/20 rounded-full blur-3xl" />
-              <div className="relative flex flex-col items-center">
-                <IllustPieChart className="w-48 h-48" />
-                <div className="grid grid-cols-3 gap-3 mt-6 w-full">
-                  {[
-                    { v: "100%", l: "실행" },
-                    { v: "5단계", l: "프로세스" },
-                    { v: "데이터", l: "기반" },
-                  ].map((s, i) => (
-                    <div key={i} className="relative">
-                      <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
-                      <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-2.5 text-center">
-                        <p className="text-sm font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent">{s.v}</p>
-                        <p className="text-[9px] text-slate-400 mt-0.5">{s.l}</p>
+              <div className="relative w-full aspect-square max-w-md mx-auto">
+                {/* Orbital rings */}
+                <div className="absolute inset-0 rounded-full border border-dashed border-accent-blue/30" />
+                <div className="absolute inset-8 rounded-full border border-dashed border-accent-blue/20" />
+                {/* Center mark */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full glass-3d-dark flex items-center justify-center shadow-3d-lg">
+                  <div className="text-center">
+                    <p className="text-[9px] font-extrabold text-accent-blue tracking-[0.3em] mb-1">PERFORMANCE</p>
+                    <p className="text-[14px] font-extrabold text-white leading-tight">성과 중심<br />마케팅 플로우</p>
+                  </div>
+                </div>
+                {/* Orbital nodes */}
+                {[
+                  { label: "전략 수립", num: "01", pos: "top-[6%] right-[12%]", icon: <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z" /></svg> },
+                  { label: "광고 집행", num: "02", pos: "top-[35%] right-[2%]", icon: <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 3l14 9-14 9V3z" /></svg> },
+                  { label: "데이터 분석", num: "03", pos: "bottom-[14%] right-[6%]", icon: <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2" /></svg> },
+                  { label: "성과 최적화", num: "04", pos: "bottom-[14%] left-[6%]", icon: <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 7l3-3 4 4 4-4 4 4 3-3M3 17l3-3 4 4 4-4 4 4 3-3" /></svg> },
+                  { label: "리포트 & 인사이트", num: "05", pos: "top-[35%] left-[2%]", icon: <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" /></svg> },
+                ].map((n) => (
+                  <div key={n.num} className={`absolute ${n.pos} flex items-center gap-2`}>
+                    <div className="relative">
+                      <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-lg bg-accent-blue/60 blur-[1px]" />
+                      <div className="relative w-8 h-8 rounded-lg bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-lg">
+                        {n.icon}
                       </div>
                     </div>
-                  ))}
-                </div>
+                    <div className="bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 px-2 py-1 whitespace-nowrap">
+                      <p className="text-[9px] font-extrabold text-accent-blue leading-none">{n.num}</p>
+                      <p className="text-[10px] text-white font-bold leading-tight">{n.label}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* 3 feature cards below */}
+              <div className="grid grid-cols-3 gap-3 mt-6">
+                {[
+                  { title: "업종 맞춤 전략", desc: "업종과 목표에 최적화된 광고 전략을 설계합니다." },
+                  { title: "실시간 성과 운영", desc: "광고 데이터를 실시간으로 모니터링하고 효율을 높입니다." },
+                  { title: "데이터 기반 분석", desc: "정확한 데이터 분석으로 더 나은 성과를 만듭니다." },
+                ].map((c) => (
+                  <div key={c.title} className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-3 text-center">
+                    <p className="text-[11px] font-extrabold text-white leading-tight mb-1">{c.title}</p>
+                    <div className="w-6 h-0.5 bg-accent-blue/50 mx-auto mb-1.5" />
+                    <p className="text-[9px] text-slate-400 leading-snug">{c.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
