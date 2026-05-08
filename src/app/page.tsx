@@ -10,14 +10,14 @@ import {
 } from "@/components/Icons";
 
 const channels = [
-  { name: "메타 광고", purpose: "관심사 기반 타겟팅과 리드 수집", logos: ["instagram", "facebook"], color: "from-blue-500 to-indigo-600" },
-  { name: "네이버 광고", purpose: "검색 수요 기반 문의 확보", logos: ["naver"], color: "from-green-500 to-emerald-600" },
-  { name: "카카오 광고", purpose: "상담 유입과 재접촉 운영", logos: ["kakaotalk"], color: "from-yellow-400 to-amber-500" },
-  { name: "유튜브 광고", purpose: "브랜드 인지도와 신뢰 형성", logos: ["youtube"], color: "from-red-500 to-rose-600" },
-  { name: "구글 광고", purpose: "검색+디스플레이+리타겟팅 확장", logos: ["google", "google-ads"], color: "from-sky-500 to-cyan-600" },
-  { name: "문자 마케팅", purpose: "기존 고객 재접촉 및 안내", logos: [], Icon: IconMail, color: "from-violet-500 to-purple-600" },
-  { name: "당근/지역 광고", purpose: "생활권 고객 유입", logos: ["danggeun"], color: "from-orange-400 to-orange-600" },
-  { name: "부동산 특화", purpose: "분양 임대 실수요 타겟", logos: [], Icon: IconBuilding, color: "from-teal-500 to-teal-600" },
+  { name: "메타 광고", purpose: "관심사·행동 기반 정밀 타겟팅과 리드 수집", logos: ["instagram", "facebook"], color: "from-blue-500 to-indigo-600" },
+  { name: "네이버 광고", purpose: "검색 수요 기반 문의 확보와 브랜드 노출", logos: ["naver"], color: "from-green-500 to-emerald-600" },
+  { name: "카카오 광고", purpose: "상담 유입과 채널 메시지로 재접촉 운영", logos: ["kakaotalk"], color: "from-yellow-400 to-amber-500" },
+  { name: "유튜브 광고", purpose: "영상 콘텐츠로 브랜드 인지도와 신뢰 형성", logos: ["youtube"], color: "from-red-500 to-rose-600" },
+  { name: "구글 광고", purpose: "검색·디스플레이·리타겟팅까지 확장 운영", logos: ["google", "google-ads"], color: "from-sky-500 to-cyan-600" },
+  { name: "문자 마케팅", purpose: "LMS 기반 지역 타겟팅과 기존 고객 안내", logos: [], Icon: IconMail, color: "from-violet-500 to-purple-600" },
+  { name: "당근/지역 광고", purpose: "생활권 기반 동네 고객 유입과 재방문", logos: ["danggeun"], color: "from-orange-400 to-orange-600" },
+  { name: "부동산 특화", purpose: "분양·임대 실수요 타겟 전문 플랫폼 광고", logos: [], Icon: IconBuilding, color: "from-teal-500 to-teal-600" },
 ];
 
 const whyUs = [
@@ -36,9 +36,48 @@ const processSteps = [
 ];
 
 const caseStudies = [
-  { industry: "분양", channel: "메타 리드폼 + 문자 후속", desc: "DB 유입과 재접촉 구조 중심", color: "bg-blue-500" },
-  { industry: "병원", channel: "네이버 검색형 + 메타 노출형", desc: "예약 문의와 신뢰 형성 중심", color: "bg-emerald-500" },
-  { industry: "지역 자영업", channel: "당근 + 메타 생활권 타겟팅", desc: "생활권 고객 유입 중심", color: "bg-orange-500" },
+  {
+    industry: "분양·부동산",
+    title: "분양 현장 맞춤 마케팅",
+    subtitle: "관심 고객 확보부터 상담 연결",
+    desc: "메타 리드폼과 관심 고객 확보로 시작해, 문자 후속과 카카오 채널까지 연결해 방문 상담 전환으로 이어지는 흐름을 구축합니다.",
+    channels: ["meta", "naver", "kakaotalk", "google"],
+    channelLabels: ["메타 리드폼", "디스플레이", "문자 마케팅", "리타겟팅"],
+    metrics: [
+      { label: "목표 ROAS 달성", value: "4.2x" },
+      { label: "문의 증가 사례", value: "+58%" },
+      { label: "CPA 절감", value: "-32%" },
+      { label: "상담 연결", value: "120+" },
+    ],
+  },
+  {
+    industry: "병원·클리닉",
+    title: "병원 신규 환자 유입",
+    subtitle: "검색·노출 광고로 예약 전환 극대화",
+    desc: "네이버 검색과 메타 광고를 함께 운영하여 검색 고객과 잠재 고객을 동시에 유입시키고, 예약까지 이어지는 구조를 설계합니다.",
+    channels: ["naver", "meta", "google", "kakaotalk"],
+    channelLabels: ["네이버 검색", "메타 광고", "디스플레이", "카카오톡 채널"],
+    metrics: [
+      { label: "목표 ROAS 달성", value: "3.6x" },
+      { label: "예약 문의 증가", value: "+41%" },
+      { label: "검색 효율 개선", value: "-28%" },
+      { label: "예약 전환율", value: "89%" },
+    ],
+  },
+  {
+    industry: "지역 자영업",
+    title: "지역 매장 매출 증대",
+    subtitle: "당근·메타 생활권 타겟팅으로 방문 고객 유도",
+    desc: "당근 광고와 지역 타겟 광고를 활용해 생활권 고객에게 노출하고, 프로모션과 연계하여 방문과 매출을 끌어올립니다.",
+    channels: ["danggeun", "instagram", "naver", "kakaotalk"],
+    channelLabels: ["당근 광고", "인스타그램", "네이버 플레이스", "문자 마케팅"],
+    metrics: [
+      { label: "광고 수익률", value: "2.8x" },
+      { label: "방문 고객 증가", value: "+36%" },
+      { label: "매출 증가", value: "+27%" },
+      { label: "재방문율", value: "65%" },
+    ],
+  },
 ];
 
 export default function Home() {
@@ -68,17 +107,26 @@ export default function Home() {
                 <span className="text-[11px] font-bold text-slate-600 tracking-wider uppercase">Online Ad Partner</span>
               </div>
 
-              <h1 className="text-[2rem] sm:text-[2.5rem] lg:text-[3.25rem] font-extrabold leading-hero text-deep-navy tracking-tight mb-5">
-                온라인 광고,<br />
+              <h1 className="text-[1.85rem] sm:text-[2.4rem] lg:text-[3rem] font-extrabold leading-hero text-deep-navy tracking-tight mb-5">
+                광고비는 쓰고 있는데<br />
                 <span className="relative inline-block">
-                  <span className="relative z-10 gradient-text">결과</span>
+                  <span className="relative z-10 gradient-text">문의가 부족</span>
                   <span className="absolute bottom-1 sm:bottom-1.5 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
                 </span>
-                로 말합니다
+                하신가요?
               </h1>
 
-              <div className="space-y-2.5 mb-7">
-                {["광고비만 쓰고 끝나셨나요?", "문의 없는 광고는 의미 없습니다"].map((t) => (
+              <p className="text-base text-slate-600 mb-7 max-w-md leading-relaxed">
+                <span className="font-semibold text-deep-navy">유입부터 문의, 상담 전환, 재접촉까지</span> 설계하는<br className="hidden sm:inline" />
+                {" "}온라인 광고 전문 실행사입니다.
+              </p>
+
+              <div className="space-y-2.5 mb-8">
+                {[
+                  "업종 맞춤 채널 선별과 운영 구조 설계",
+                  "광고 소재 제작부터 운영·분석까지 통합 관리",
+                  "문의 전환과 재접촉 흐름까지 한 번에",
+                ].map((t) => (
                   <div key={t} className="flex items-center gap-2.5 bg-white/80 backdrop-blur-sm rounded-lg px-3.5 sm:px-4 py-2.5 w-fit border border-slate-100 shadow-sm shadow-blue-500/5">
                     <div className="w-5 h-5 rounded-full bg-accent-blue flex items-center justify-center shrink-0">
                       <IconCheck className="w-3 h-3 text-white" />
@@ -88,18 +136,12 @@ export default function Home() {
                 ))}
               </div>
 
-              <p className="text-sm text-slate-600 mb-8 max-w-sm leading-relaxed">
-                <span className="font-semibold text-deep-navy">전환 중심으로 설계된 광고 운영.</span><br />
-                불필요한 광고비 지출없이,<br className="hidden sm:inline lg:hidden" />
-                {" "}결과가 달라집니다.
-              </p>
-
               <div className="flex flex-col sm:flex-row gap-3 mb-10">
-                <Link href="/contact" className="group px-7 py-3.5 bg-linear-to-r from-accent-blue to-blue-600 text-white text-sm font-bold rounded-xl hover:shadow-xl hover:shadow-accent-blue/30 transition-all duration-300 flex items-center justify-center sm:justify-start gap-2">
-                  상담 신청하기 <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <Link href="/contact" className="group px-7 py-3.5 bg-linear-to-r from-cta-orange to-orange-500 text-white text-sm font-bold rounded-xl hover:shadow-xl hover:shadow-cta-orange/30 transition-all duration-300 flex items-center justify-center sm:justify-start gap-2">
+                  무료 광고 상담받기 <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
-                <Link href="/about" className="px-7 py-3.5 text-sm text-slate-600 font-semibold rounded-xl border border-slate-200 bg-white/60 backdrop-blur-sm hover:border-accent-blue/30 hover:bg-accent-blue/4 hover:text-accent-blue transition-all duration-300 text-center sm:text-left">
-                  우리만의 차별점 보기
+                <Link href="/services" className="px-7 py-3.5 text-sm text-slate-700 font-semibold rounded-xl border border-slate-200 bg-white/60 backdrop-blur-sm hover:border-accent-blue/30 hover:bg-accent-blue/4 hover:text-accent-blue transition-all duration-300 text-center sm:text-left flex items-center justify-center sm:justify-start gap-2">
+                  광고상품 보기 <IconArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
 
@@ -148,14 +190,14 @@ export default function Home() {
                   <div className="p-6 pt-5">
                     <div className="flex items-end justify-between mb-1">
                       <div>
-                        <p className="text-[10px] text-slate-400 font-medium">광고 효율 추이</p>
+                        <p className="text-[10px] text-slate-400 font-medium">목표 ROAS 달성</p>
                         <div className="flex items-baseline gap-1.5 mt-0.5">
-                          <span className="text-3xl font-black text-accent-blue leading-none">4.8x</span>
-                          <span className="text-xs font-bold text-emerald-600">+38.5% ↑</span>
+                          <span className="text-3xl font-black text-accent-blue leading-none">2~4x</span>
+                          <span className="text-xs font-bold text-slate-500">업종별 상이</span>
                         </div>
                       </div>
                       <div className="text-right">
-                        <p className="text-[9px] text-slate-400">vs 이전 분기</p>
+                        <p className="text-[9px] text-slate-400">운영 사례 기준</p>
                       </div>
                     </div>
 
@@ -179,26 +221,26 @@ export default function Home() {
 
                     <div className="mt-4 pt-4 border-t border-slate-100 grid grid-cols-3 gap-3">
                       <div>
-                        <p className="text-[9px] text-slate-400 font-medium">전환율</p>
-                        <p className="text-lg font-extrabold text-deep-navy leading-tight">+32.8%</p>
+                        <p className="text-[9px] text-slate-400 font-medium">누적 캠페인</p>
+                        <p className="text-lg font-extrabold text-deep-navy leading-tight">100+</p>
                         <div className="flex items-end gap-0.75 h-3 mt-1">
                           {[40, 55, 70, 85].map((h, i) => (
-                            <div key={i} className="flex-1 rounded-sm bg-emerald-500" style={{ height: `${h}%` }} />
-                          ))}
-                        </div>
-                      </div>
-                      <div>
-                        <p className="text-[9px] text-slate-400 font-medium">문의 증가</p>
-                        <p className="text-lg font-extrabold text-deep-navy leading-tight">+56%</p>
-                        <div className="flex items-end gap-0.75 h-3 mt-1">
-                          {[30, 50, 65, 90].map((h, i) => (
                             <div key={i} className="flex-1 rounded-sm bg-accent-blue" style={{ height: `${h}%` }} />
                           ))}
                         </div>
                       </div>
                       <div>
-                        <p className="text-[9px] text-slate-400 font-medium">캠페인</p>
-                        <p className="text-lg font-extrabold text-deep-navy leading-tight">100+</p>
+                        <p className="text-[9px] text-slate-400 font-medium">문의 증가 사례</p>
+                        <p className="text-lg font-extrabold text-deep-navy leading-tight">+56%</p>
+                        <div className="flex items-end gap-0.75 h-3 mt-1">
+                          {[30, 50, 65, 90].map((h, i) => (
+                            <div key={i} className="flex-1 rounded-sm bg-emerald-500" style={{ height: `${h}%` }} />
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-[9px] text-slate-400 font-medium">빠른 응답</p>
+                        <p className="text-lg font-extrabold text-deep-navy leading-tight">24h</p>
                         <div className="flex items-end gap-0.75 h-3 mt-1">
                           {[50, 60, 75, 80].map((h, i) => (
                             <div key={i} className="flex-1 rounded-sm bg-violet-500/60" style={{ height: `${h}%` }} />
@@ -209,7 +251,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Floating card: ROAS (top right) */}
+                {/* Floating card: 목표 ROAS (top right) */}
                 <div
                   className="absolute -top-4 -right-6 bg-white rounded-2xl shadow-3d px-4 py-3 border border-blue-100/80 z-20 animate-float backdrop-blur-sm bevel-edge"
                   style={{ transform: "translateZ(20px)", transformStyle: "preserve-3d" }}
@@ -221,8 +263,8 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-[10px] text-slate-400 font-medium">광고 효율</p>
-                      <p className="text-lg font-extrabold text-emerald-600 leading-tight">ROAS 4.8x</p>
+                      <p className="text-[10px] text-slate-400 font-medium">목표 ROAS</p>
+                      <p className="text-lg font-extrabold text-emerald-600 leading-tight">2~4x 달성</p>
                     </div>
                   </div>
                 </div>
@@ -265,9 +307,9 @@ export default function Home() {
                   </div>
                   <div className="p-4">
                     <div className="flex items-baseline gap-2 mb-3">
-                      <span className="text-2xl font-black text-accent-blue leading-none">4.8x</span>
-                      <span className="text-[11px] font-bold text-emerald-600">+38.5% ↑</span>
-                      <span className="text-[9px] text-slate-400 ml-auto">ROAS</span>
+                      <span className="text-2xl font-black text-accent-blue leading-none">2~4x</span>
+                      <span className="text-[11px] font-bold text-slate-500">업종별 상이</span>
+                      <span className="text-[9px] text-slate-400 ml-auto">목표 ROAS</span>
                     </div>
                     <svg viewBox="0 0 300 80" className="w-full h-20" preserveAspectRatio="none">
                       <defs>
@@ -282,16 +324,16 @@ export default function Home() {
                     </svg>
                     <div className="mt-3 pt-3 border-t border-slate-100 grid grid-cols-3 gap-2">
                       <div>
-                        <p className="text-[8px] text-slate-400">전환율</p>
-                        <p className="text-sm font-extrabold text-deep-navy">+32.8%</p>
+                        <p className="text-[8px] text-slate-400">누적 캠페인</p>
+                        <p className="text-sm font-extrabold text-deep-navy">100+</p>
                       </div>
                       <div>
-                        <p className="text-[8px] text-slate-400">문의 증가</p>
+                        <p className="text-[8px] text-slate-400">문의 증가 사례</p>
                         <p className="text-sm font-extrabold text-deep-navy">+56%</p>
                       </div>
                       <div>
-                        <p className="text-[8px] text-slate-400">캠페인</p>
-                        <p className="text-sm font-extrabold text-deep-navy">100+</p>
+                        <p className="text-[8px] text-slate-400">빠른 응답</p>
+                        <p className="text-sm font-extrabold text-deep-navy">24h</p>
                       </div>
                     </div>
                   </div>
@@ -310,8 +352,8 @@ export default function Home() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               { value: "100+", label: "누적 캠페인", sub: "다양한 업종 운영", icon: <IconBarChart className="w-5 h-5" /> },
-              { value: "4.8x", label: "평균 ROAS", sub: "광고비 대비 수익", icon: <IconZap className="w-5 h-5" />, positive: true },
-              { value: "+56%", label: "문의 증가율", sub: "운영 후 평균치", icon: <IconTarget className="w-5 h-5" />, positive: true },
+              { value: "2~4x", label: "목표 ROAS", sub: "업종별 상이", icon: <IconZap className="w-5 h-5" />, positive: true },
+              { value: "+56%", label: "문의 증가 사례", sub: "운영 사례 기준", icon: <IconTarget className="w-5 h-5" />, positive: true },
               { value: "24h", label: "빠른 응답", sub: "영업일 기준", icon: <IconRefresh className="w-5 h-5" /> },
             ].map((s, i) => (
               <div
@@ -688,7 +730,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6">
             {caseStudies.map((c, i) => (
               <div
                 key={i}
@@ -697,28 +739,54 @@ export default function Home() {
               >
                 <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-accent-blue/15 blur-[2px]" />
 
-                <div className="relative bg-white rounded-2xl p-6 sm:p-7 border border-white shadow-3d overflow-hidden min-h-52 bevel-edge group-hover:-translate-y-1 transition-transform duration-300">
-                  <div className="absolute -bottom-6 -right-4 text-[8rem] font-black text-slate-50 leading-none select-none">
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-
-                  <div className="relative">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold text-accent-blue bg-accent-blue/10 border border-accent-blue/20 mb-4">
+                <div className="relative bg-white rounded-2xl border border-white shadow-3d overflow-hidden bevel-edge group-hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
+                  {/* Industry badge top */}
+                  <div className="px-5 sm:px-6 pt-5 pb-3">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold text-accent-blue bg-accent-blue/10 border border-accent-blue/20">
                       <span className="w-1 h-1 rounded-full bg-accent-blue" />
                       {c.industry}
                     </div>
-                    <p className="text-base font-extrabold text-deep-navy mb-2 leading-tight">{c.channel}</p>
-                    <p className="text-xs text-slate-500 leading-relaxed mb-4">{c.desc}</p>
+                  </div>
 
-                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                      <span className="text-[10px] font-extrabold text-accent-blue tracking-widest">
-                        CASE {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <div className="w-7 h-7 rounded-full bg-slate-50 group-hover:bg-accent-blue flex items-center justify-center transition-colors">
-                        <IconArrowRight className="w-3 h-3 text-slate-400 group-hover:text-white transition-colors" />
-                      </div>
+                  {/* Title block */}
+                  <div className="px-5 sm:px-6 pb-4">
+                    <h3 className="text-lg font-extrabold text-deep-navy mb-1.5 leading-tight">{c.title}</h3>
+                    <p className="text-[12px] text-slate-500 mb-3 leading-relaxed">{c.subtitle}</p>
+                    <p className="text-[12px] text-slate-600 leading-relaxed">{c.desc}</p>
+                  </div>
+
+                  {/* Channel combo */}
+                  <div className="px-5 sm:px-6 py-4 bg-linear-to-br from-slate-50 to-blue-50/30 border-t border-slate-100">
+                    <p className="text-[9px] font-extrabold text-slate-400 tracking-widest uppercase mb-2.5">채널 조합</p>
+                    <div className="grid grid-cols-4 gap-1.5">
+                      {c.channels.map((ch, idx) => (
+                        <div key={ch + idx} className="flex flex-col items-center gap-1">
+                          <div className="w-9 h-9 rounded-lg bg-white border border-slate-100 flex items-center justify-center shadow-sm">
+                            <img src={`/images/logos/${ch}.svg`} alt="" className="h-4 w-auto" />
+                          </div>
+                          <span className="text-[8px] text-slate-500 font-medium leading-tight text-center">{c.channelLabels[idx]}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
+
+                  {/* Metrics */}
+                  <div className="px-5 sm:px-6 py-4 bg-white border-t border-slate-100">
+                    <p className="text-[9px] font-extrabold text-slate-400 tracking-widest uppercase mb-2.5">운영 성과</p>
+                    <div className="grid grid-cols-4 gap-2">
+                      {c.metrics.map((m, idx) => (
+                        <div key={idx} className="text-center">
+                          <p className="text-sm font-black text-accent-blue leading-none">{m.value}</p>
+                          <p className="text-[8px] text-slate-400 mt-1 leading-tight">{m.label}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* CTA bottom */}
+                  <Link href="/cases" className="mt-auto block px-5 sm:px-6 py-3.5 bg-linear-to-r from-accent-blue to-blue-600 text-white text-center text-[12px] font-bold hover:shadow-lg hover:shadow-accent-blue/20 transition-shadow">
+                    CASE {String(i + 1).padStart(2, "0")} 자세히 보기 →
+                  </Link>
                 </div>
               </div>
             ))}
@@ -829,7 +897,7 @@ export default function Home() {
       <SectionCTA
         title="우리 업종에는 어떤 광고가 맞을지, 지금 방향부터 정리해보세요"
         description="여울디앤씨가 업종과 예산에 맞는 광고 구조를 먼저 정리해드립니다. 부담 없이 문의 남겨주시면 빠르게 상담 도와드립니다."
-        buttonText="문의하기"
+        buttonText="무료 광고 상담받기"
         variant="dark"
       />
     </>

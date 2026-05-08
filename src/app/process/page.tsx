@@ -338,7 +338,7 @@ export default function ProcessPage() {
       <SectionCTA
         title="복잡하게 고민하지 마시고, 현재 상황부터 편하게 말씀해 주세요"
         description="여울디앤씨가 현재 업종과 광고 상황을 확인한 뒤, 필요한 방향부터 빠르게 정리해드립니다."
-        buttonText="맞춤 상담 받기"
+        buttonText="무료 광고 상담받기"
         variant="dark"
       />
     </>

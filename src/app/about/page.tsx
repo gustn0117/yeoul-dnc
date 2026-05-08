@@ -68,8 +68,8 @@ export default function AboutPage() {
               <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-md">
                 {[
                   { value: "6+", label: "운영 채널" },
-                  { value: "100+", label: "캠페인" },
-                  { value: "4.8", label: "평균 ROAS" },
+                  { value: "100+", label: "누적 캠페인" },
+                  { value: "2~4x", label: "목표 ROAS" },
                 ].map((s, i) => (
                   <div key={i} className="relative">
                     <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
@@ -338,8 +338,8 @@ export default function AboutPage() {
                   ))}
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <span className="text-[10px] text-slate-400">ROAS</span>
-                  <span className="text-sm font-extrabold text-accent-blue">4.8배 ↑</span>
+                  <span className="text-[10px] text-slate-400">목표 ROAS</span>
+                  <span className="text-sm font-extrabold text-accent-blue">2~4x 달성</span>
                 </div>
               </div>
 
@@ -421,7 +421,7 @@ export default function AboutPage() {
             {[
               { value: "6+", label: "운영 플랫폼" },
               { value: "100+", label: "누적 캠페인" },
-              { value: "4.8", label: "평균 ROAS" },
+              { value: "2~4x", label: "목표 ROAS" },
             ].map((s, i) => (
               <div key={i} className="text-center">
                 <p className="text-2xl sm:text-3xl font-extrabold bg-linear-to-br from-white to-slate-300 bg-clip-text text-transparent">{s.value}</p>
@@ -603,7 +603,7 @@ export default function AboutPage() {
       <SectionCTA
         title="말보다 실행이 중요한 광고, 이제 방향부터 제대로 잡아보세요"
         description="업종에 맞는 광고 구조가 궁금하시다면 여울디앤씨가 먼저 정리해드립니다."
-        buttonText="무료 상담 받기"
+        buttonText="무료 광고 상담받기"
         variant="dark"
       />
     </>

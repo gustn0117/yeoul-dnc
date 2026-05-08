@@ -1128,7 +1128,7 @@ export default function ServicesPage() {
       <SectionCTA
         title="정해진 틀보다, 업종에 맞는 구성으로 제안드립니다"
         description="어떤 채널이 맞는지 모르셔도 괜찮습니다. 업종과 예산을 알려주시면 맞는 방향부터 정리해드립니다."
-        buttonText="맞춤 상담 받기"
+        buttonText="무료 광고 상담받기"
         variant="dark"
       />
     </>

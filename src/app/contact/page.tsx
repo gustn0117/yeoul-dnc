@@ -430,9 +430,9 @@ export default function ContactPage() {
                   {/* Stats */}
                   <div className="pt-4 border-t border-white/10 grid grid-cols-3 gap-2 text-center">
                     {[
-                      { v: "100+", l: "캠페인" },
-                      { v: "4.8x", l: "ROAS" },
-                      { v: "24h", l: "응답" },
+                      { v: "100+", l: "누적 캠페인" },
+                      { v: "2~4x", l: "목표 ROAS" },
+                      { v: "24h", l: "빠른 응답" },
                     ].map((s, i) => (
                       <div key={i}>
                         <p className="text-base font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent">{s.v}</p>

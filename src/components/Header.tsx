@@ -81,7 +81,7 @@ export default function Header() {
               href="/contact"
               className="ml-3 inline-flex items-center gap-1.5 px-4 py-2 bg-deep-navy text-white text-[13px] font-semibold rounded-lg hover:bg-deep-navy/90 transition-colors duration-200"
             >
-              광고 문의
+              무료 상담받기
               <IconArrowRight className="w-3 h-3" />
             </Link>
           </nav>
@@ -135,7 +135,7 @@ export default function Header() {
                 onClick={() => setMobileOpen(false)}
                 className="flex items-center justify-center gap-2 mt-3 px-4 py-3.5 bg-linear-to-r from-deep-navy to-slate-800 text-white text-sm font-bold rounded-xl"
               >
-                광고 문의하기
+                무료 광고 상담받기
                 <IconArrowRight className="w-3.5 h-3.5" />
               </Link>
             </nav>

@@ -305,7 +305,7 @@ export default function CasesPage() {
       <SectionCTA
         title="우리 업종에는 어떤 방식이 맞을지, 먼저 방향부터 상담받아보세요"
         description="여울디앤씨가 업종에 맞는 채널 조합과 운영 구조를 정리해드립니다."
-        buttonText="문의하기"
+        buttonText="무료 광고 상담받기"
         variant="dark"
       />
     </>

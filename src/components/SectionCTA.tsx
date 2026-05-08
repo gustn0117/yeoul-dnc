@@ -13,7 +13,7 @@ interface SectionCTAProps {
 export default function SectionCTA({
   title,
   description,
-  buttonText = "광고 문의하기",
+  buttonText = "무료 광고 상담받기",
   buttonHref = "/contact",
   variant = "light",
 }: SectionCTAProps) {
@@ -156,25 +156,18 @@ export default function SectionCTA({
                 {/* Bottom mini stats */}
                 <div className={`pt-4 border-t ${isDark ? "border-white/10" : "border-slate-100"} grid grid-cols-3 gap-2 text-center`}>
                   <div>
-                    <p className={`text-base font-extrabold ${isDark ? "bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent" : "text-accent-blue"}`}>4.8</p>
-                    <p className={`text-[9px] ${isDark ? "text-slate-500" : "text-slate-400"}`}>ROAS</p>
+                    <p className={`text-base font-extrabold ${isDark ? "bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent" : "text-accent-blue"}`}>2~4x</p>
+                    <p className={`text-[9px] ${isDark ? "text-slate-500" : "text-slate-400"}`}>목표 ROAS</p>
                   </div>
                   <div>
                     <p className={`text-base font-extrabold ${isDark ? "bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent" : "text-accent-blue"}`}>100+</p>
-                    <p className={`text-[9px] ${isDark ? "text-slate-500" : "text-slate-400"}`}>캠페인</p>
+                    <p className={`text-[9px] ${isDark ? "text-slate-500" : "text-slate-400"}`}>누적 캠페인</p>
                   </div>
                   <div>
                     <p className={`text-base font-extrabold ${isDark ? "bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent" : "text-accent-blue"}`}>24h</p>
                     <p className={`text-[9px] ${isDark ? "text-slate-500" : "text-slate-400"}`}>응답</p>
                   </div>
                 </div>
-              </div>
-
-              {/* Floating logos */}
-              <div className="absolute -bottom-4 -left-4 flex gap-1.5 bg-white rounded-xl p-2 shadow-xl border border-slate-100">
-                {["naver", "kakaotalk", "meta"].map((n) => (
-                  <img key={n} src={`/images/logos/${n}.svg`} alt="" className="h-4 w-auto" />
-                ))}
               </div>
             </div>
           </div>
