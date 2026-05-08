@@ -422,56 +422,108 @@ export default function AboutPage() {
         />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-75 bg-accent-blue/15 rounded-full blur-[120px]" />
 
-        <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
-          <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">TEAM</p>
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-4 leading-tight">
-            전략을 세우고, 빠르게 실행하고,<br />
-            <span className="relative inline-block">
-              <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">데이터로 보완</span>
-              <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/25 z-0 rounded-sm" />
-            </span>
-            하는 팀
-          </h2>
-          <p className="text-[13px] sm:text-sm text-slate-400 max-w-lg mx-auto mb-10 sm:mb-12 leading-relaxed">
-            회의/기획/모니터링/리포트 중심으로<br className="sm:hidden" />
-            {" "}움직이는 실행 조직입니다.
-          </p>
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
+            {/* Left: text + platforms + stats */}
+            <div className="mb-10 lg:mb-0">
+              <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">TEAM</p>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-4 leading-tight">
+                전략을 세우고, 빠르게 실행하고,<br />
+                <span className="relative inline-block">
+                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">데이터로 보완</span>
+                  <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/25 z-0 rounded-sm" />
+                </span>
+                하는 팀
+              </h2>
+              <p className="text-[13px] sm:text-sm text-slate-400 mb-6 leading-relaxed max-w-md">
+                회의/기획/모니터링/리포트 중심으로 움직이는 실행 조직입니다.
+              </p>
 
-          {/* Isometric platform cards grid */}
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 sm:gap-4 max-w-2xl mx-auto mb-10">
-            {[
-              { name: "naver", color: "from-green-500 to-emerald-600" },
-              { name: "kakaotalk", color: "from-yellow-400 to-amber-500" },
-              { name: "meta", color: "from-blue-500 to-indigo-600" },
-              { name: "youtube", color: "from-red-500 to-rose-600" },
-              { name: "google", color: "from-sky-500 to-blue-500" },
-              { name: "instagram", color: "from-pink-500 to-rose-500" },
-            ].map((p, i) => (
-              <div key={p.name} className="relative group" style={{ animation: `float ${4 + (i % 3)}s ease-in-out infinite ${i * 0.3}s` }}>
-                {/* Glow */}
-                <div className={`absolute inset-0 rounded-2xl bg-linear-to-br ${p.color} opacity-20 blur-xl group-hover:opacity-50 transition-opacity`} />
-                {/* Depth layer */}
-                <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-2xl bg-linear-to-br ${p.color} opacity-60`} />
-                {/* Front card */}
-                <div className="relative w-full aspect-square rounded-2xl bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 flex items-center justify-center shadow-xl group-hover:-translate-y-1 transition-transform duration-300">
-                  <img src={`/images/logos/${p.name}.svg`} alt={p.name} className={`h-6 sm:h-7 w-auto ${p.name === "kakaotalk" ? "" : "brightness-0 invert"}`} />
+              {/* Platform mini grid */}
+              <div className="grid grid-cols-6 gap-2 sm:gap-3 mb-6">
+                {[
+                  { name: "naver", color: "from-green-500 to-emerald-600" },
+                  { name: "kakaotalk", color: "from-yellow-400 to-amber-500" },
+                  { name: "meta", color: "from-blue-500 to-indigo-600" },
+                  { name: "youtube", color: "from-red-500 to-rose-600" },
+                  { name: "google", color: "from-sky-500 to-blue-500" },
+                  { name: "instagram", color: "from-pink-500 to-rose-500" },
+                ].map((p, i) => (
+                  <div key={p.name} className="relative group" style={{ animation: `float ${4 + (i % 3)}s ease-in-out infinite ${i * 0.3}s` }}>
+                    <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-lg bg-linear-to-br ${p.color} opacity-50`} />
+                    <div className="relative w-full aspect-square rounded-lg bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 flex items-center justify-center shadow-xl">
+                      <img src={`/images/logos/${p.name}.svg`} alt={p.name} className={`h-4 sm:h-5 w-auto ${p.name === "kakaotalk" ? "" : "brightness-0 invert"}`} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* 3 stats */}
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  { value: "6+", label: "운영 플랫폼", sub: "주요 매체 운영 경험" },
+                  { value: "100+", label: "누적 캠페인", sub: "다양한 업종 캠페인" },
+                  { value: "2~4x", label: "목표 ROAS", sub: "업종별 평균 대비 성과" },
+                ].map((s, i) => (
+                  <div key={i} className="relative">
+                    <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
+                    <div className="relative bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-3">
+                      <div className="flex items-center gap-1.5 mb-1">
+                        <svg className="w-3.5 h-3.5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          {i === 0 && <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87m-4-12a4 4 0 110 7.75M9 20H4v-2a4 4 0 014-4h.5a4 4 0 014 4v2zm0-12a4 4 0 11-8 0 4 4 0 018 0z" />}
+                          {i === 1 && <path strokeLinecap="round" strokeLinejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />}
+                          {i === 2 && <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.306a11.95 11.95 0 015.814-5.518l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941" />}
+                        </svg>
+                        <p className="text-base sm:text-lg font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent leading-none">{s.value}</p>
+                      </div>
+                      <p className="text-[11px] text-white font-bold leading-tight">{s.label}</p>
+                      <p className="text-[9px] text-slate-400 mt-0.5">{s.sub}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: floating performance card */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-accent-blue/15 rounded-3xl blur-3xl" />
+
+              {/* Main image (data-driven) */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-accent-blue/20 ring-1 ring-white/10">
+                <Image src="/images/stock/team-strategy.jpg" alt="" width={800} height={533} className="w-full h-auto" />
+                <div className="absolute inset-0 bg-linear-to-t from-deep-navy/60 via-transparent to-transparent" />
+              </div>
+
+              {/* PERFORMANCE floating card (top right) */}
+              <div className="absolute -top-4 -right-4 sm:-right-6 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl shadow-accent-blue/15 p-3 border border-white animate-float w-44">
+                <p className="text-[9px] font-bold text-slate-400 tracking-wider uppercase">PERFORMANCE</p>
+                <p className="text-[11px] font-extrabold text-deep-navy">월간 광고 성과</p>
+                <div className="flex items-end gap-0.5 h-7 mt-2">
+                  {[35, 50, 40, 60, 55, 75, 90].map((h, i) => (
+                    <div key={i} className="flex-1 rounded-t bg-linear-to-t from-accent-blue to-sky-400" style={{ height: `${h}%` }} />
+                  ))}
+                </div>
+                <div className="flex items-baseline justify-between mt-1.5">
+                  <span className="text-[10px] text-slate-400">전년 대비</span>
+                  <span className="text-xs font-extrabold text-emerald-600">+24.5% ↑</span>
                 </div>
               </div>
-            ))}
-          </div>
 
-          {/* Team stats */}
-          <div className="grid grid-cols-3 gap-3 sm:gap-6 max-w-xl mx-auto pt-8 border-t border-white/10">
-            {[
-              { value: "6+", label: "운영 플랫폼" },
-              { value: "100+", label: "누적 캠페인" },
-              { value: "2~4x", label: "목표 ROAS" },
-            ].map((s, i) => (
-              <div key={i} className="text-center">
-                <p className="text-2xl sm:text-3xl font-extrabold bg-linear-to-br from-white to-slate-300 bg-clip-text text-transparent">{s.value}</p>
-                <p className="text-[10px] sm:text-xs text-slate-500 mt-1">{s.label}</p>
+              {/* 데이터 기반 의사결정 floating card (bottom right) */}
+              <div className="absolute -bottom-4 -right-4 sm:-right-6 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl shadow-accent-blue/15 p-3 border border-white w-52" style={{ animation: "float 5s ease-in-out infinite 1s" }}>
+                <div className="flex items-start gap-2.5">
+                  <div className="w-9 h-9 rounded-lg bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shrink-0">
+                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[11px] font-extrabold text-deep-navy">데이터 기반 의사결정</p>
+                    <p className="text-[9px] text-slate-500 mt-0.5 leading-tight">실시간 모니터링과 빠른 개선점도</p>
+                  </div>
+                </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>

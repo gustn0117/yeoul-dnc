@@ -129,18 +129,20 @@ export default function CasesPage() {
                 업종별 고민에 맞춰<br className="sm:hidden" />
                 {" "}<span className="font-semibold text-white">채널 조합과 운영 흐름을 설계</span>합니다.
               </p>
-              {/* Stat strip */}
-              <div className="flex flex-wrap gap-2 sm:gap-3">
+              {/* Stat strip - 4 stats (PDF page 45) */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
                 {[
-                  { value: "5+", label: "주요 업종" },
-                  { value: "100+", label: "누적 캠페인" },
-                  { value: "6개", label: "운영 채널" },
+                  { value: "5+", label: "주요 업종", sub: "다양한 업종 경험" },
+                  { value: "100+", label: "누적 캠페인", sub: "실제 기반 운영" },
+                  { value: "6개", label: "운영 채널", sub: "통합 마케팅 운영" },
+                  { value: "성과 중심", label: "퍼포먼스 마케팅", sub: "데이터 기반 최적화" },
                 ].map((s, i) => (
                   <div key={i} className="relative">
-                    <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-lg bg-accent-blue/20" />
-                    <div className="relative bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 px-3 py-2 flex items-baseline gap-1.5">
-                      <span className="text-sm font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent">{s.value}</span>
-                      <span className="text-[10px] text-slate-400">{s.label}</span>
+                    <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
+                    <div className="relative bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-3">
+                      <p className="text-base sm:text-lg font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent leading-none">{s.value}</p>
+                      <p className="text-[10px] sm:text-[11px] text-white font-bold mt-1">{s.label}</p>
+                      <p className="text-[9px] text-slate-400 mt-0.5">{s.sub}</p>
                     </div>
                   </div>
                 ))}
@@ -154,6 +156,45 @@ export default function CasesPage() {
                 <IllustLaptop className="relative w-80 h-auto animate-float-slow" />
               </div>
             </div>
+          </div>
+
+          {/* 4 features bar (PDF page 45) */}
+          <div className="mt-8 sm:mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            {[
+              {
+                title: "실제 운영 경험이 만드는 차이",
+                desc: "업종별 특성과 목표에 맞는 전략 설계부터 최적화까지 검증된 운영 노하우로 성과를 만들어냅니다.",
+                icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>,
+              },
+              {
+                title: "정확한 분석",
+                desc: "데이터 기반 인사이트",
+                icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><circle cx="11" cy="11" r="7" strokeLinecap="round" /><path strokeLinecap="round" d="M21 21l-4.35-4.35" /></svg>,
+              },
+              {
+                title: "전략 설계",
+                desc: "업종 맞춤 전략 수립",
+                icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" /></svg>,
+              },
+              {
+                title: "실행 및 최적화",
+                desc: "지속적인 성과 개선",
+                icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>,
+              },
+            ].map((f, idx) => (
+              <div key={idx} className="relative">
+                <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
+                <div className="relative bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-3 sm:p-4 flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-accent-blue/15 border border-accent-blue/30 flex items-center justify-center shrink-0">
+                    {f.icon}
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[12px] sm:text-[13px] font-extrabold text-white mb-0.5 leading-tight">{f.title}</p>
+                    <p className="text-[10px] text-slate-400 leading-snug">{f.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
