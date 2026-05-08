@@ -38,7 +38,7 @@ const faqs = [
 ];
 
 export default function FAQSection() {
-  const [openIdx, setOpenIdx] = useState<number | null>(0);
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
     <section className="relative py-20 sm:py-24 lg:py-32 bg-linear-to-b from-white via-[#f5f9ff] to-white overflow-hidden">
@@ -60,13 +60,13 @@ export default function FAQSection() {
           </p>
         </div>
 
-        <div className="space-y-3 sm:space-y-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
           {faqs.map((f, i) => {
             const isOpen = openIdx === i;
             return (
               <div
                 key={i}
-                className="relative group"
+                className="relative group self-start"
                 style={{ animation: `fade-in-up 0.4s ease-out ${i * 0.06}s backwards` }}
               >
                 <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/10 blur-[2px]" />

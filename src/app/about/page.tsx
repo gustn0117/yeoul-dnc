@@ -52,17 +52,17 @@ export default function AboutPage() {
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
                 <span className="text-[11px] font-bold text-slate-300 tracking-wider uppercase">About 여울디앤씨</span>
               </div>
-              <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">
-                유입이 끝이 아니라,<br />
+              <h1 className="text-2xl sm:text-3xl lg:text-[2.75rem] font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">
+                광고는 많이 하는 것보다,<br />
                 <span className="relative inline-block">
-                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">상담 전환</span>
+                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">맞는 방향</span>
                   <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/25 z-0 rounded-sm" />
                 </span>
-                까지 설계합니다
+                으로 하는 것이 중요합니다
               </h1>
               <p className="text-[13px] sm:text-base text-slate-300/90 max-w-xl leading-relaxed mb-6">
-                여울디앤씨는 업종에 맞는 채널 선택부터 소재 제작, 운영, 보완까지<br className="hidden sm:inline lg:hidden" />
-                {" "}연결하는 <span className="font-semibold text-white">온라인 광고 실행 파트너</span>입니다.
+                업종, 예산, 목표를 먼저 확인하고<br className="hidden sm:inline lg:hidden" />
+                {" "}<span className="font-semibold text-white">필요한 광고 구조부터 제안</span>하는 온라인 광고 전문 실행사입니다.
               </p>
 
               {/* 3 mini feature cards */}
@@ -673,8 +673,8 @@ export default function AboutPage() {
 
       {/* 7. CTA */}
       <SectionCTA
-        title="말보다 실행이 중요한 광고, 이제 방향부터 제대로 잡아보세요"
-        description="업종에 맞는 광고 구조가 궁금하시다면 여울디앤씨가 먼저 정리해드립니다."
+        title="우리 회사 광고, 어떤 방향이 맞는지 함께 정리해드릴게요"
+        description="업종, 예산, 목표를 먼저 확인하고 필요한 광고 구조부터 제안합니다. 무료 상담으로 부담없이 시작해보세요."
         buttonText="무료 광고 상담받기"
         variant="dark"
       />

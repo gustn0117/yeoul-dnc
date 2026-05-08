@@ -65,10 +65,17 @@ export default function ProcessPage() {
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
             <div>
               <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">— PROCESS</p>
-              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">진행절차</h1>
-              <p className="text-base sm:text-lg text-slate-300/90 max-w-md">
-                맡기면 어떻게 흘러가는지,<br className="sm:hidden" />
-                {" "}<span className="text-accent-blue font-semibold">짧고 확실하게</span> 안내드립니다.
+              <h1 className="text-2xl sm:text-3xl lg:text-[2.75rem] font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">
+                처음 상담부터 광고 운영,<br />
+                <span className="relative inline-block">
+                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">결과 정리</span>
+                  <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/25 z-0 rounded-sm" />
+                </span>
+                까지 한 번에
+              </h1>
+              <p className="text-[13px] sm:text-base text-slate-300/90 max-w-md leading-relaxed">
+                고객 상황을 먼저 확인한 뒤<br className="sm:hidden" />
+                {" "}<span className="font-semibold text-white">필요한 채널과 실행 방법</span>을 제안합니다.
               </p>
               <div className="my-4 w-12 h-0.5 bg-accent-blue/50" />
               <p className="text-[13px] sm:text-sm text-slate-400/80 max-w-md leading-relaxed">
@@ -420,7 +427,7 @@ export default function ProcessPage() {
       {/* CTA */}
       <SectionCTA
         title="복잡하게 고민하지 마시고, 현재 상황부터 편하게 말씀해 주세요"
-        description="여울디앤씨가 현재 업종과 광고 상황을 확인한 뒤, 필요한 방향부터 빠르게 정리해드립니다."
+        description="업종과 광고 상황을 확인한 뒤, 필요한 채널과 실행 방법부터 빠르게 정리해드립니다."
         buttonText="무료 광고 상담받기"
         variant="dark"
       />

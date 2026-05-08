@@ -117,17 +117,17 @@ export default function CasesPage() {
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
                 <span className="text-[11px] font-bold text-slate-300 tracking-wider uppercase">Portfolio · 실적</span>
               </div>
-              <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">
-                실제 이런 업종,<br />
+              <h1 className="text-2xl sm:text-3xl lg:text-[2.75rem] font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">
+                성과는 광고비보다<br />
                 <span className="relative inline-block">
-                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">이런 작업</span>
+                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">구조에서 달라</span>
                   <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/25 z-0 rounded-sm" />
                 </span>
-                을 해왔습니다
+                집니다
               </h1>
               <p className="text-[13px] sm:text-base text-slate-300/90 max-w-md leading-relaxed mb-6">
-                큰 성과 자랑보다,<br className="sm:hidden" />
-                {" "}<span className="font-semibold text-white">실제 작업과 운영 구조</span>를 보여드립니다.
+                업종별 고민에 맞춰<br className="sm:hidden" />
+                {" "}<span className="font-semibold text-white">채널 조합과 운영 흐름을 설계</span>합니다.
               </p>
               {/* Stat strip */}
               <div className="flex flex-wrap gap-2 sm:gap-3">
@@ -386,8 +386,8 @@ export default function CasesPage() {
 
       {/* CTA */}
       <SectionCTA
-        title="우리 업종에는 어떤 방식이 맞을지, 먼저 방향부터 상담받아보세요"
-        description="여울디앤씨가 업종에 맞는 채널 조합과 운영 구조를 정리해드립니다."
+        title="성과는 광고비보다 구조에서 달라집니다"
+        description="우리 업종에 맞는 채널 조합과 운영 흐름부터 정리해드립니다. 광고가 처음이셔도 부담 없이 상황만 남겨주세요."
         buttonText="무료 광고 상담받기"
         variant="dark"
       />

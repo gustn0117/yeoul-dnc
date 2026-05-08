@@ -52,17 +52,17 @@ export default function ServicesPage() {
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
                 <span className="text-[11px] font-bold text-slate-300 tracking-wider uppercase">Services · 광고 상품</span>
               </div>
-              <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">
-                필요한 채널만 골라,<br />
+              <h1 className="text-2xl sm:text-3xl lg:text-[2.75rem] font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">
+                업종과 목표에 따라<br />
                 <span className="relative inline-block">
-                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">업종에 맞게 설계</span>
+                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">필요한 광고 채널</span>
                   <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/25 z-0 rounded-sm" />
                 </span>
-                합니다
+                은 달라집니다
               </h1>
               <p className="text-[13px] sm:text-base text-slate-300/90 max-w-xl leading-relaxed mb-6">
-                플랫폼 기능 설명이 아니라,<br className="sm:hidden" />
-                {" "}<span className="font-semibold text-white">무엇을 맡길 수 있는지</span>를 명확히 보여드립니다.
+                메타·네이버·카카오·구글·당근·문자까지<br className="sm:hidden" />
+                {" "}<span className="font-semibold text-white">목적에 맞게 조합</span>합니다.
               </p>
 
               {/* Platform pills */}
@@ -1213,8 +1213,8 @@ export default function ServicesPage() {
 
       {/* ━━━━ CTA ━━━━ */}
       <SectionCTA
-        title="정해진 틀보다, 업종에 맞는 구성으로 제안드립니다"
-        description="어떤 채널이 맞는지 모르셔도 괜찮습니다. 업종과 예산을 알려주시면 맞는 방향부터 정리해드립니다."
+        title="어떤 채널 조합이 맞는지, 업종과 목표부터 같이 정리해드릴게요"
+        description="메타·네이버·카카오·구글·당근·문자까지 목적에 맞게 조합합니다. 광고가 처음이셔도 현재 상황만 남겨주시면 정리해드립니다."
         buttonText="무료 광고 상담받기"
         variant="dark"
       />
