@@ -153,8 +153,61 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* PDF page 24: 무료 광고 상담 신청 + 안심하고 맡길 수 있는 파트너 */}
+        <div className="mt-10 sm:mt-12 pt-8 border-t border-white/5 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
+          {/* 무료 광고 상담 신청 카드 */}
+          <Link href="/contact" className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-5 flex items-center gap-4 hover:bg-white/10 transition-colors">
+            <div className="w-11 h-11 rounded-xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-lg shrink-0">
+              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.068.157 2.148.279 3.238.364.466.037.893.281 1.153.671L12 21l2.652-3.978c.26-.39.687-.634 1.153-.67 1.09-.086 2.17-.208 3.238-.365 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm sm:text-base font-extrabold text-white leading-tight">무료 광고 상담 신청</p>
+              <p className="text-[11px] text-slate-400 mt-0.5">업종과 예산에 맞는 광고 전략을 무료로 제안해드립니다.</p>
+            </div>
+            <svg className="w-4 h-4 text-slate-500 group-hover:text-white transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+
+          {/* 안심하고 맡길 수 있는 파트너 */}
+          <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-5 flex items-center gap-4">
+            <div className="w-11 h-11 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center shrink-0">
+              <svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm sm:text-base font-extrabold text-white leading-tight">안심하고 맡길 수 있는 파트너</p>
+              <p className="text-[11px] text-slate-400 mt-0.5">광고 운영부터 성과 분석, 후속 관리까지 정직하고 투명하게 함께합니다.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* PDF page 24: 인사이트(뉴스레터) */}
+        <div className="mt-5 relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-3 flex-1 min-w-0">
+            <div className="w-10 h-10 rounded-xl bg-violet-500/20 border border-violet-500/30 flex items-center justify-center shrink-0">
+              <svg className="w-5 h-5 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div className="min-w-0">
+              <p className="text-[13px] sm:text-sm font-extrabold text-white">여울디앤씨의 인사이트를 받아보세요</p>
+              <p className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">광고 트렌드와 실무 노하우를 정기적으로 전해드립니다.</p>
+            </div>
+          </div>
+          <div className="flex items-stretch gap-2 w-full sm:w-auto">
+            <input type="email" placeholder="이메일을 입력해주세요" className="flex-1 sm:w-56 px-3 py-2 text-[12px] rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-slate-500 focus:border-accent-blue focus:outline-none" />
+            <button type="button" className="px-4 py-2 bg-linear-to-r from-accent-blue to-blue-600 text-white text-[12px] font-bold rounded-lg whitespace-nowrap hover:shadow-lg hover:shadow-accent-blue/25 transition-shadow">
+              구독하기
+            </button>
+          </div>
+        </div>
+
         {/* Bottom strip */}
-        <div className="mt-12 sm:mt-14 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="mt-10 sm:mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[11px] sm:text-xs text-slate-500 text-center sm:text-left">
             &copy; {new Date().getFullYear()} 여울디앤씨.<br className="sm:hidden" />
             {" "}All rights reserved.

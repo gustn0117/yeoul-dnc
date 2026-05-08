@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import SectionCTA from "@/components/SectionCTA";
-import { IllustPieChart } from "@/components/Illustrations";
 import { IconCheck, IconTarget, IconBarChart, IconLayers } from "@/components/Icons";
 import { LogoMark } from "@/components/Logo";
 
@@ -26,6 +25,7 @@ const caseSummary = [
   { industry: "분양", desc: "DB 유입과 재접촉 구조 중심, 메타 리드폼 + 문자 후속", logos: ["meta"] },
   { industry: "병원", desc: "예약 문의와 신뢰 형성, 네이버 검색형 + 메타 노출형", logos: ["naver", "instagram"] },
   { industry: "지역 자영업", desc: "생활권 타겟팅, 당근 + 메타 조합형 운영", logos: ["danggeun"] },
+  { industry: "그 외 모든 업종", desc: "교육·상담형·B2B·쇼핑까지 업종에 맞춰 채널 조합 설계", logos: ["google", "kakaotalk"], isAll: true },
 ];
 
 export default function AboutPage() {
@@ -403,9 +403,29 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Floating pie chart (bottom left) */}
-              <div className="absolute -bottom-6 -left-6 hidden lg:block animate-float-slow">
-                <IllustPieChart className="w-40 h-40 drop-shadow-2xl" />
+              {/* PDF page 28: 68% 도넛 차트 카드 */}
+              <div className="absolute -bottom-6 -left-6 hidden lg:block animate-float-slow bg-white rounded-2xl shadow-2xl shadow-blue-900/15 p-4 border border-blue-100">
+                <div className="relative w-32 h-32">
+                  <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
+                    <circle cx="18" cy="18" r="14" fill="none" stroke="#e2e8f0" strokeWidth="4" />
+                    <circle cx="18" cy="18" r="14" fill="none" stroke="#2563eb" strokeWidth="4" strokeDasharray="59.83 87.96" strokeLinecap="round" />
+                  </svg>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    <p className="text-2xl font-black text-deep-navy leading-none">68%</p>
+                    <p className="text-[9px] text-slate-500 font-medium mt-1">전환율</p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-center gap-2 mt-2">
+                  <span className="flex items-center gap-1 text-[9px] text-slate-500">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />검색
+                  </span>
+                  <span className="flex items-center gap-1 text-[9px] text-slate-500">
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-200" />SNS
+                  </span>
+                  <span className="flex items-center gap-1 text-[9px] text-slate-500">
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />디스플레이
+                  </span>
+                </div>
               </div>
 
               {/* Floating stat card (bottom right) */}
@@ -560,7 +580,7 @@ export default function AboutPage() {
               은 달라집니다
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {caseSummary.map((c, i) => (
               <div
                 key={c.industry}
@@ -694,14 +714,50 @@ export default function AboutPage() {
                     </div>
 
                     <h3 className="text-base sm:text-lg font-extrabold text-deep-navy mb-2 leading-tight">{p.title}</h3>
+
+                    {/* PDF page 31: 각 카드에 사진 추가 */}
+                    <div className="relative mb-3 rounded-xl overflow-hidden aspect-video bg-slate-100">
+                      <Image
+                        src={`/images/stock/${["consultation", "strategy-board", "monitor-data"][i]}.jpg`}
+                        alt={p.title}
+                        fill
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-linear-to-t from-deep-navy/20 to-transparent" />
+                    </div>
+
                     <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed mb-4">{p.desc}</p>
 
-                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
-                      {p.tags.map((t) => (
-                        <span key={t} className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-50 border border-slate-100 text-slate-600">
-                          {t}
-                        </span>
-                      ))}
+                    {/* PDF page 31: 미니 아이콘 3개 */}
+                    <div className="grid grid-cols-3 gap-2 pt-3 border-t border-slate-100">
+                      {p.tags.map((tag, idx) => {
+                        // Different icons per step
+                        const icons = i === 0
+                          ? [
+                              <svg key={0} className="w-3.5 h-3.5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>,
+                              <svg key={1} className="w-3.5 h-3.5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><circle cx="12" cy="12" r="9" strokeLinecap="round" /><circle cx="12" cy="12" r="5" strokeLinecap="round" /><circle cx="12" cy="12" r="1.5" fill="currentColor" /></svg>,
+                              <svg key={2} className="w-3.5 h-3.5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75z" /></svg>,
+                            ]
+                          : i === 1
+                          ? [
+                              <svg key={0} className="w-3.5 h-3.5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766" /></svg>,
+                              <svg key={1} className="w-3.5 h-3.5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>,
+                              <svg key={2} className="w-3.5 h-3.5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>,
+                            ]
+                          : [
+                              <svg key={0} className="w-3.5 h-3.5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2" /></svg>,
+                              <svg key={1} className="w-3.5 h-3.5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>,
+                              <svg key={2} className="w-3.5 h-3.5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>,
+                            ];
+                        return (
+                          <div key={tag} className="text-center">
+                            <div className="w-9 h-9 mx-auto rounded-lg bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center mb-1">
+                              {icons[idx]}
+                            </div>
+                            <p className="text-[9px] text-slate-500 font-bold leading-tight">{tag}</p>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>

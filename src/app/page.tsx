@@ -818,49 +818,80 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+          {/* PDF page 19: 6 testimonials with names */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
             {[
               {
                 industry: "병원",
                 summary: "예약 문의가 눈에 띄게 늘었어요",
-                quote: "광고만 돌리는 곳이 아니라, 어떤 채널이 우리에게 맞는지 처음부터 같이 정리해주셨어요. 예약 문의가 두 배 가까이 늘었습니다.",
-                role: "원장",
-                stat: { label: "예약 문의", value: "+128%" },
+                quote: "광고만 돌리는 게 아니라, 어떤 채널이 우리 병원에 맞는지 처음부터 같이 정리해주셨어요. 예약 문의가 두 배 이상 늘고, 상담부터 내원까지 흐름이 훨씬 좋아졌습니다.",
+                name: "박 원장",
+                desc: "서울 OO 정형외과",
+                stat: { label: "예약 문의 증가", value: "+128%" },
+                size: "lg",
               },
               {
                 industry: "분양",
                 summary: "DB 유입 구조가 안정됐습니다",
-                quote: "리드폼만 하고 끝나는게 아니라, 후속 문자까지 흐름을 잡아주셔서 실제 상담 전환율이 좋아졌습니다.",
-                role: "마케팅 팀장",
-                stat: { label: "전환율", value: "+32.8%" },
+                quote: "리드폼만 하고 끝나는 게 아니라, 후속 문자까지 흐름을 잡아주셔서 실제 상담 전환율이 좋아졌습니다. 현장 상황을 빠르게 이해하고 전략을 제안해주셔서 맡길 수 있었습니다.",
+                name: "이 팀장",
+                desc: "OO 더 테라스 분양팀",
+                stat: { label: "상담 전환율", value: "+32.8%" },
+                size: "lg",
               },
               {
                 industry: "지역 자영업",
-                summary: "지역 단골이 늘었어요",
-                quote: "당근하고 메타 조합으로 동네 사람들이 가게를 알아보기 시작했어요. 작은 예산이지만 효율은 확실히 다릅니다.",
-                role: "대표",
-                stat: { label: "방문 증가", value: "+56%" },
+                summary: "지역 단골이 꾸준히 늘었어요",
+                quote: "당근하고 인스타 광고를 함께 진행했는데, 매장 주변 고객이 부쩍이 늘었습니다. 작은 예산이지만 효율을 확실히 높여주셔서 만족스럽게 운영하고 있어요.",
+                name: "정 대표",
+                desc: "OO 카페/베이커리",
+                stat: { label: "방문 고객 증가", value: "+56%" },
+                size: "lg",
+              },
+              {
+                industry: "쇼핑몰",
+                summary: "ROAS가 안정적으로 개선됐어요",
+                quote: "광고 구조를 꼼꼼하게 점검해주셔서 관리가 편해졌습니다.",
+                name: "김 과장",
+                desc: "OO 패션 쇼핑몰",
+                size: "sm",
+              },
+              {
+                industry: "약국",
+                summary: "문의부터 상담까지 자동화 흐름을 만들어주셔서 상담 누락이 거의 없어졌습니다.",
+                name: "최 원장",
+                desc: "OO 메디케어",
+                size: "sm",
+              },
+              {
+                industry: "B2B",
+                summary: "B2B 문의가 꾸준히 들어오고 있습니다.",
+                quote: "타겟팅과 소재 퀄리티가 확실히 다릅니다.",
+                name: "오 부장",
+                desc: "OO 제조업체",
+                size: "sm",
               },
             ].map((t, i) => (
               <div
                 key={i}
-                className="group relative"
-                style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
+                className={`group relative ${t.size === "sm" ? "" : ""}`}
+                style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.08}s backwards` }}
               >
-                <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-accent-blue/15 blur-[2px]" />
+                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/15 blur-[2px]" />
 
-                <div className="relative bg-white rounded-2xl p-6 sm:p-7 border border-white shadow-3d overflow-hidden h-full flex flex-col bevel-edge group-hover:-translate-y-1 transition-transform duration-300">
+                <div className={`relative bg-white rounded-2xl border border-white shadow-3d overflow-hidden h-full flex flex-col bevel-edge group-hover:-translate-y-1 transition-transform duration-300 ${t.size === "sm" ? "p-4 sm:p-5" : "p-5 sm:p-6"}`}>
                   {/* Quote mark */}
-                  <div className="absolute top-3 right-4 text-7xl font-black text-accent-blue/10 leading-none select-none">
+                  <div className={`absolute top-3 right-4 font-black text-accent-blue/10 leading-none select-none ${t.size === "sm" ? "text-4xl" : "text-6xl"}`}>
                     &ldquo;
                   </div>
 
                   <div className="relative flex-1">
-                    <div className="inline-flex items-center gap-1.5 mb-4">
+                    {/* Industry + stars */}
+                    <div className="flex items-center gap-1.5 mb-3 flex-wrap">
                       <div className="px-2.5 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20">
                         <span className="text-[10px] font-extrabold text-accent-blue tracking-wider uppercase">{t.industry}</span>
                       </div>
-                      <div className="flex gap-0.5 ml-1">
+                      <div className="flex gap-0.5">
                         {[...Array(5)].map((_, n) => (
                           <svg key={n} className="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -869,24 +900,39 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <p className="text-base font-extrabold text-deep-navy mb-3 leading-tight">{t.summary}</p>
-                    <p className="text-[12px] sm:text-[13px] text-slate-600 leading-relaxed mb-5">
-                      &ldquo;{t.quote}&rdquo;
-                    </p>
+                    {/* Person info (PDF: 박 원장 / 서울 OO 정형외과) */}
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <div className={`rounded-full bg-linear-to-br from-slate-200 to-slate-300 flex items-center justify-center shrink-0 ${t.size === "sm" ? "w-8 h-8" : "w-10 h-10"}`}>
+                        <svg className={`text-slate-500 ${t.size === "sm" ? "w-4 h-4" : "w-5 h-5"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className={`font-extrabold text-deep-navy leading-tight ${t.size === "sm" ? "text-[12px]" : "text-sm"}`}>{t.name}</p>
+                        <p className="text-[10px] text-slate-500 leading-tight">{t.desc}</p>
+                      </div>
+                    </div>
+
+                    <p className={`font-extrabold text-deep-navy mb-2 leading-tight ${t.size === "sm" ? "text-[13px]" : "text-base"}`}>{t.summary}</p>
+                    {t.quote && (
+                      <p className={`text-slate-600 leading-relaxed ${t.size === "sm" ? "text-[11px]" : "text-[12px] sm:text-[13px]"} ${t.size === "sm" ? "mb-2" : "mb-4"}`}>
+                        &ldquo;{t.quote}&rdquo;
+                      </p>
+                    )}
                   </div>
 
-                  <div className="relative pt-4 border-t border-slate-100 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-full bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-sm">
-                        <span className="text-white text-[10px] font-black">{t.industry.charAt(0)}</span>
-                      </div>
-                      <span className="text-[11px] text-slate-500 font-medium">{t.industry} {t.role}</span>
+                  {/* Footer with stat (only large cards) */}
+                  {t.stat && (
+                    <div className="relative pt-3 border-t border-slate-100 flex items-center justify-between">
+                      <span className="text-[10px] text-slate-500 font-medium flex items-center gap-1">
+                        <svg className="w-3 h-3 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        {t.stat.label}
+                      </span>
+                      <span className="text-sm font-extrabold text-emerald-600">{t.stat.value}</span>
                     </div>
-                    <div className="text-right">
-                      <p className="text-[9px] text-slate-400">{t.stat.label}</p>
-                      <p className="text-sm font-extrabold text-emerald-600">{t.stat.value}</p>
-                    </div>
-                  </div>
+                  )}
                 </div>
               </div>
             ))}

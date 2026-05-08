@@ -294,6 +294,18 @@ export default function ServicesPage() {
                   <p className="text-[9px] text-slate-400 font-medium">검색 전환</p>
                   <p className="text-sm font-extrabold text-[#03C75A]">매우 높음 ↑</p>
                 </div>
+
+                {/* PDF page 35: 200+ / 98% bottom stats card */}
+                <div className="absolute bottom-2 left-2 right-2 bg-white rounded-xl shadow-xl shadow-green-900/10 px-3 py-2 border border-green-100 z-40 grid grid-cols-2 gap-3" style={{ animation: "float 5s ease-in-out infinite 1.5s" }}>
+                  <div className="text-center">
+                    <p className="text-base font-black text-[#03C75A] leading-none">200+</p>
+                    <p className="text-[9px] text-slate-500 mt-0.5">운영 키워드</p>
+                  </div>
+                  <div className="text-center border-l border-slate-100">
+                    <p className="text-base font-black text-[#03C75A] leading-none">98%</p>
+                    <p className="text-[9px] text-slate-500 mt-0.5">노출 정상화</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -495,6 +507,54 @@ export default function ServicesPage() {
                   </div>
                   <p className="text-[11px] sm:text-[12px] font-extrabold text-deep-navy mb-0.5 leading-tight">{f.title}</p>
                   <p className="text-[9px] sm:text-[10px] text-slate-500 leading-snug">{f.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* PDF page 36: 메타 3 작업물 카드 (인스타그램 이미지 광고/쇼츠 영상 광고/인스타그램 비즈니스 프로필) */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 mt-8 sm:mt-10">
+            {[
+              {
+                tag: "1번",
+                title: "인스타그램 이미지 광고",
+                desc: "감각적인 이미지로 브랜드와 상품을 효과적으로 노출하는 광고",
+                img: "/images/stock/meta-social.jpg",
+                badge: "📷",
+              },
+              {
+                tag: "2번",
+                title: "쇼츠 영상 광고",
+                desc: "짧은 시간 안에 강한 인상을 남기는 숏폼 영상 광고",
+                img: "/images/stock/mobile-ads.jpg",
+                badge: "🎬",
+              },
+              {
+                tag: "3번",
+                title: "인스타그램 비즈니스 프로필",
+                desc: "브랜드 신뢰도와 정보 전달력을 강화하는 공식 프로필 운영",
+                img: "/images/stock/landing-page.jpg",
+                badge: "👥 102,540+",
+              },
+            ].map((w, idx) => (
+              <div key={w.title} className="relative group">
+                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-pink-500/15 blur-[2px]" />
+                <div className="relative bg-white rounded-2xl border border-white shadow-3d overflow-hidden group-hover:-translate-y-1 transition-transform duration-300">
+                  <div className="relative aspect-[5/6]">
+                    <Image src={w.img} alt={w.title} fill className="object-cover" />
+                    <div className="absolute inset-0 bg-linear-to-t from-deep-navy/30 via-transparent to-transparent" />
+                    <div className="absolute top-3 left-3 flex items-center gap-1.5">
+                      <span className="px-2 py-0.5 bg-white/95 text-pink-600 text-[9px] font-extrabold rounded uppercase tracking-wider shadow-md">{w.tag}</span>
+                      <span className="px-2 py-0.5 bg-pink-500 text-white text-[9px] font-extrabold rounded shadow-md flex items-center gap-1">
+                        <svg className="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" /></svg>
+                        Instagram
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-4 sm:p-5">
+                    <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy mb-1 leading-tight">{w.title}</p>
+                    <p className="text-[10px] sm:text-[11px] text-slate-500 leading-relaxed">{w.desc}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -1263,23 +1323,29 @@ export default function ServicesPage() {
                     </div>
                     {Object.entries(row.matches).map(([ch, level]) => (
                       <div key={ch} className="px-2 py-4 flex items-center justify-center">
+                        {/* PDF page 44 5단계: 추천(green) / 적합(2 dots) / 보조(yellow dots) / 비추보조(orange dot) / 비추(grey dots) */}
                         {level === 3 ? (
-                          <div className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-linear-to-br ${row.color} shadow-sm`}>
+                          <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500 shadow-sm">
                             <span className="text-[9px] font-extrabold text-white">추천</span>
                           </div>
                         ) : level === 2 ? (
-                          <div className="flex gap-0.5">
-                            {[1, 2].map((n) => <span key={n} className={`w-1.5 h-3 rounded-full bg-linear-to-br ${row.color}`} />)}
-                            <span className="w-1.5 h-3 rounded-full bg-slate-100" />
+                          <div className="flex gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
                           </div>
                         ) : level === 1 ? (
-                          <div className="flex gap-0.5">
-                            <span className={`w-1.5 h-3 rounded-full bg-linear-to-br ${row.color} opacity-60`} />
-                            <span className="w-1.5 h-3 rounded-full bg-slate-100" />
-                            <span className="w-1.5 h-3 rounded-full bg-slate-100" />
+                          <div className="flex gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
                           </div>
+                        ) : level === -1 ? (
+                          <span className="w-1.5 h-1.5 rounded-full bg-orange-400 inline-block" />
                         ) : (
-                          <span className="text-[10px] text-slate-300 font-bold">—</span>
+                          <div className="flex gap-0.5">
+                            <span className="w-1 h-1 rounded-full bg-slate-300" />
+                            <span className="w-1 h-1 rounded-full bg-slate-300" />
+                            <span className="w-1 h-1 rounded-full bg-slate-300" />
+                          </div>
                         )}
                       </div>
                     ))}
@@ -1321,33 +1387,39 @@ export default function ServicesPage() {
                 ))}
               </div>
 
-              {/* Legend */}
+              {/* Legend - PDF page 44 5단계 */}
               <div className="p-4 sm:p-5 bg-linear-to-r from-slate-50 to-white border-t border-slate-100 flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-[10px] sm:text-[11px]">
                 <div className="flex items-center gap-1.5">
-                  <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-linear-to-br from-accent-blue to-blue-600 shadow-sm">
+                  <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500 shadow-sm">
                     <span className="text-[9px] font-extrabold text-white">추천</span>
                   </div>
-                  <span className="text-slate-500 font-medium">최적</span>
+                  <span className="text-slate-500 font-medium">최적의 채널</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="flex gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
+                  </div>
+                  <span className="text-slate-500 font-medium">적합한 채널</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="flex gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                  </div>
+                  <span className="text-slate-500 font-medium">보조 채널</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-orange-400" />
+                  <span className="text-slate-500 font-medium">비추천/보조 수준</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <div className="flex gap-0.5">
-                    <span className="w-1.5 h-3 rounded-full bg-accent-blue" />
-                    <span className="w-1.5 h-3 rounded-full bg-accent-blue" />
-                    <span className="w-1.5 h-3 rounded-full bg-slate-100" />
+                    <span className="w-1 h-1 rounded-full bg-slate-300" />
+                    <span className="w-1 h-1 rounded-full bg-slate-300" />
+                    <span className="w-1 h-1 rounded-full bg-slate-300" />
                   </div>
-                  <span className="text-slate-500 font-medium">적합</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <div className="flex gap-0.5">
-                    <span className="w-1.5 h-3 rounded-full bg-accent-blue/60" />
-                    <span className="w-1.5 h-3 rounded-full bg-slate-100" />
-                    <span className="w-1.5 h-3 rounded-full bg-slate-100" />
-                  </div>
-                  <span className="text-slate-500 font-medium">보조</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="text-slate-300 font-bold">—</span>
-                  <span className="text-slate-500 font-medium">추천 안함</span>
+                  <span className="text-slate-500 font-medium">비추천</span>
                 </div>
               </div>
             </div>
