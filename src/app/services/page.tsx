@@ -710,24 +710,41 @@ export default function ServicesPage() {
           </div>
 
           {/* 카카오 5 features (PDF page 38) */}
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4 mt-10 sm:mt-14">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4 mt-10 sm:mt-14 items-stretch">
             {[
-              { title: "실시간 상담 유입", desc: "카카오톡 채널로 실시간 상담 유입", icon: "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" },
-              { title: "빠른 응답 & 전환", desc: "즉시 응답으로 고객 만족도와 전환율 상승", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-              { title: "기존 고객 재접촉", desc: "다른 고객에게 메시지를 발송해 재방문과 재구매 유도", icon: "M16 12a4 4 0 10-8 0m8 0a4 4 0 11-8 0m8 0H8m8 0h4l-2-2m0 4l2-2M4 12l2-2m0 4l-2-2" },
-              { title: "광고 효율 극대화", desc: "키워드 디스플레이와 비즈메시지를 효과적인 광고 운영", icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625z" },
-              { title: "결과 분석 & 최적화", desc: "데이터 기반 분석으로 광고 성과를 지속적으로 최적화", icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2" },
-            ].map((f) => (
-              <div key={f.title} className="relative group">
-                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-amber-500/15 blur-[2px]" />
-                <div className="relative bg-white rounded-xl p-3 sm:p-4 border border-white shadow-3d group-hover:-translate-y-0.5 transition-transform duration-300 text-center">
-                  <div className="w-10 h-10 mx-auto rounded-lg bg-amber-50 border border-amber-100 flex items-center justify-center mb-2">
-                    <svg className="w-5 h-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d={f.icon} />
-                    </svg>
+              { title: "실시간 상담 유입", desc: "카카오톡 채널로 빠른 상담 유입", icon: "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" },
+              { title: "빠른 응답 & 전환", desc: "즉시 응답으로 만족도·전환율 상승", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+              { title: "기존 고객 재접촉", desc: "메시지 발송으로 재방문·재구매 유도", icon: "M3 10h10a8 8 0 018 8v2M3 10l6-6m-6 6l6 6" },
+              { title: "광고 효율 극대화", desc: "키워드·비즈메시지 통합 운영으로 효율 극대화", icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625z" },
+              { title: "결과 분석 & 최적화", desc: "데이터 기반 성과 분석과 지속 최적화", icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2" },
+            ].map((f, i) => (
+              <div key={f.title} className="relative group h-full" style={{ perspective: "800px" }}>
+                {/* Layered depth shadows */}
+                <div className="absolute inset-0 translate-x-1 translate-y-2 rounded-2xl bg-amber-500/25 blur-[6px]" aria-hidden="true" />
+                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-amber-100/80" aria-hidden="true" />
+
+                <div
+                  className="relative h-full bg-white rounded-2xl p-4 sm:p-5 border border-amber-50 transition-all duration-300 group-hover:-translate-y-1 flex flex-col items-center text-center"
+                  style={{
+                    boxShadow:
+                      "inset 0 1px 0 rgba(255,255,255,0.9), 0 2px 6px rgba(180,83,9,0.06), 0 8px 20px rgba(180,83,9,0.08), 0 16px 40px rgba(245,158,11,0.06)",
+                    animation: `fade-in-up 0.5s ease-out ${i * 0.06}s backwards`,
+                  }}
+                >
+                  {/* Icon - 3D 입체 박스 */}
+                  <div className="relative shrink-0 mb-3">
+                    <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-amber-500/40 blur-[3px]" aria-hidden="true" />
+                    <div
+                      className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-linear-to-br from-amber-400 to-orange-500 flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-0.5"
+                      style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 4px rgba(124,45,18,0.2), 0 6px 16px rgba(245,158,11,0.4)" }}
+                    >
+                      <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white drop-shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d={f.icon} />
+                      </svg>
+                    </div>
                   </div>
-                  <p className="text-[11px] sm:text-[12px] font-extrabold text-deep-navy mb-0.5 leading-tight">{f.title}</p>
-                  <p className="text-[9px] sm:text-[10px] text-slate-500 leading-snug">{f.desc}</p>
+                  <p className="text-[12px] sm:text-[13px] font-extrabold text-deep-navy mb-1.5 leading-tight">{f.title}</p>
+                  <p className="text-[10px] sm:text-[11px] text-slate-500 leading-relaxed flex-1 break-keep">{f.desc}</p>
                 </div>
               </div>
             ))}
