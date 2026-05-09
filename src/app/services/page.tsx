@@ -566,54 +566,100 @@ export default function ServicesPage() {
       <section className="py-16 sm:py-20 lg:py-28 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
-            {/* Tilted kakao phone */}
+            {/* Kakao phone — 폰 콘텐츠 가리지 않는 레이아웃 */}
             <div className="lg:col-span-5 order-1 relative mb-12 lg:mb-0">
-              <div className="relative mx-auto max-w-sm aspect-square">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] rounded-3xl bg-linear-to-br from-yellow-50 to-amber-50/60" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-amber-400/15 rounded-full blur-3xl" />
+              <div className="relative mx-auto w-full max-w-[340px] py-8">
+                {/* Background blob (폰 뒤 장식만 — 콘텐츠 가리지 않음) */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-amber-300/15 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 rounded-[2rem] bg-linear-to-br from-yellow-50 to-amber-50/60 -z-10" />
 
-                {/* Phone */}
+                {/* Phone (가운데 정렬, 회전 없음) */}
                 <div
-                  className="absolute top-1/2 left-1/2 w-48 sm:w-56 aspect-9/19 z-20"
-                  style={{ transform: "translate(-50%, -50%) rotate(12deg)", animation: "float 6s ease-in-out infinite" }}
+                  className="relative mx-auto w-48 sm:w-52 aspect-[9/18]"
+                  style={{ animation: "float 6s ease-in-out infinite" }}
                 >
-                  <div className="relative w-full h-full rounded-[28px] bg-slate-900 shadow-2xl shadow-amber-900/25 p-1.5 border border-slate-700">
-                    <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-linear-to-b from-[#FEE500]/40 to-white">
-                      {/* Mock kakaotalk header */}
-                      <div className="absolute top-0 left-0 right-0 px-3 py-2 bg-white/90 backdrop-blur-sm border-b border-slate-100 flex items-center gap-1.5">
-                        <div className="w-5 h-5 rounded-md bg-[#FEE500] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-[#3C1E1E]" viewBox="0 0 24 24" fill="currentColor">
+                  {/* 3D depth layers */}
+                  <div className="absolute inset-0 translate-x-1.5 translate-y-3 rounded-[28px] bg-slate-900/30 blur-md" aria-hidden="true" />
+                  <div className="absolute inset-0 translate-x-0.5 translate-y-1.5 rounded-[28px] bg-slate-800/50" aria-hidden="true" />
+
+                  <div
+                    className="relative w-full h-full rounded-[28px] bg-slate-900 p-[5px] border border-slate-700"
+                    style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1), 0 20px 40px rgba(15,23,42,0.25), 0 8px 16px rgba(15,23,42,0.15)" }}
+                  >
+                    <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-[#B2C7D9]">
+                      {/* Notch */}
+                      <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-14 h-3.5 bg-slate-900 rounded-full z-30" />
+
+                      {/* Kakaotalk header */}
+                      <div className="absolute top-0 left-0 right-0 px-2.5 pt-6 pb-2 bg-[#A8BECF] flex items-center gap-1.5 z-20 border-b border-black/5">
+                        <svg className="w-2.5 h-2.5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.4}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                        </svg>
+                        <div className="w-4 h-4 rounded-md bg-[#FEE500] flex items-center justify-center shrink-0">
+                          <svg className="w-2.5 h-2.5 text-[#3C1E1E]" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 3C6.48 3 2 6.58 2 10.9c0 2.78 1.8 5.22 4.51 6.6-.2.73-.72 2.65-.82 3.06-.13.52.19.51.4.37.17-.11 2.69-1.83 3.78-2.57.69.1 1.4.15 2.13.15 5.52 0 10-3.58 10-7.9S17.52 3 12 3z" />
                           </svg>
                         </div>
-                        <span className="text-[7px] font-bold text-slate-700">여울디앤씨</span>
+                        <span className="text-[8px] font-bold text-slate-800">여울디앤씨</span>
+                        <div className="ml-auto flex gap-1">
+                          <svg className="w-2.5 h-2.5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><circle cx="11" cy="11" r="7" /><path strokeLinecap="round" d="M21 21l-4.35-4.35" /></svg>
+                          <svg className="w-2.5 h-2.5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                        </div>
                       </div>
-                      {/* Fake chat bubbles */}
-                      <div className="absolute top-7 left-2 right-2 space-y-1.5">
+
+                      {/* Chat area */}
+                      <div className="absolute top-[44px] left-2 right-2 bottom-7 space-y-1.5 overflow-hidden">
+                        <p className="text-center text-[6.5px] text-slate-600/70 mb-1">오늘</p>
                         <div className="flex justify-start">
-                          <div className="bg-white rounded-lg px-2 py-1 text-[7px] text-slate-700 shadow-sm border border-slate-100">광고 상담 문의드려요</div>
+                          <div className="bg-white rounded-lg rounded-tl-sm px-2 py-1 text-[7px] text-slate-700 shadow-sm max-w-[78%]">광고 상담 문의드려요</div>
                         </div>
                         <div className="flex justify-end">
-                          <div className="bg-[#FEE500] rounded-lg px-2 py-1 text-[7px] text-slate-800 shadow-sm">반갑습니다 :) 업종부터 알려주세요</div>
+                          <div className="bg-[#FEE500] rounded-lg rounded-tr-sm px-2 py-1 text-[7px] text-slate-800 shadow-sm max-w-[78%]">반갑습니다 :)<br />업종부터 알려주세요</div>
                         </div>
                         <div className="flex justify-start">
-                          <div className="bg-white rounded-lg px-2 py-1 text-[7px] text-slate-700 shadow-sm border border-slate-100">병원 광고를 시작하려고 합니다</div>
+                          <div className="bg-white rounded-lg rounded-tl-sm px-2 py-1 text-[7px] text-slate-700 shadow-sm max-w-[78%]">병원 광고를 시작하려고 합니다</div>
+                        </div>
+                        <div className="flex justify-end">
+                          <div className="bg-[#FEE500] rounded-lg rounded-tr-sm px-2 py-1 text-[7px] text-slate-800 shadow-sm max-w-[78%]">예약 문의 흐름까지<br />함께 설계해드릴게요</div>
+                        </div>
+                        <div className="flex justify-start">
+                          <div className="bg-white rounded-lg rounded-tl-sm px-2 py-1 text-[7px] text-slate-700 shadow-sm max-w-[78%]">감사합니다!</div>
                         </div>
                       </div>
+
+                      {/* Bottom input bar */}
+                      <div className="absolute bottom-0 left-0 right-0 bg-white px-2 py-1.5 border-t border-slate-100 flex items-center gap-1.5">
+                        <div className="w-3 h-3 rounded-full bg-slate-200 shrink-0" />
+                        <div className="flex-1 h-3 rounded-full bg-slate-100" />
+                        <div className="w-3 h-3 rounded-full bg-[#FEE500] shrink-0" />
+                      </div>
                     </div>
-                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-16 h-3.5 bg-slate-900 rounded-full" />
                   </div>
                 </div>
 
-                {/* Kakao logo floating */}
-                <div className="absolute top-6 right-4 w-14 h-14 bg-[#FEE500] rounded-2xl shadow-xl shadow-amber-900/15 flex items-center justify-center z-30 animate-float-slow" style={{ transform: "rotate(-8deg)" }}>
-                  <svg className="w-8 h-8 text-[#3C1E1E]" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 3C6.48 3 2 6.58 2 10.9c0 2.78 1.8 5.22 4.51 6.6-.2.73-.72 2.65-.82 3.06-.13.52.19.51.4.37.17-.11 2.69-1.83 3.78-2.57.69.1 1.4.15 2.13.15 5.52 0 10-3.58 10-7.9S17.52 3 12 3z" />
-                  </svg>
-                </div>
-                <div className="absolute bottom-8 left-4 bg-white rounded-xl shadow-lg shadow-amber-900/10 px-3 py-2 border border-amber-100 z-30" style={{ animation: "float 5s ease-in-out infinite 1s" }}>
+                {/* 실시간 stat - 폰 우측 외곽 (폰 콘텐츠 가리지 않음) */}
+                <div
+                  className="absolute top-12 right-0 sm:right-2 bg-white rounded-xl shadow-xl shadow-amber-900/10 px-3 py-2 border border-amber-100 z-30"
+                  style={{ animation: "float 5s ease-in-out infinite 0.8s" }}
+                >
                   <p className="text-[9px] text-slate-400">상담 유입</p>
-                  <p className="text-sm font-extrabold text-amber-600">실시간 ↑</p>
+                  <p className="text-sm font-extrabold text-amber-600 leading-tight">실시간 ↑</p>
+                </div>
+
+                {/* 채널 카드 - 폰 좌측 외곽 */}
+                <div
+                  className="absolute bottom-10 left-0 sm:left-2 bg-white rounded-xl shadow-xl shadow-amber-900/10 px-3 py-2 border border-slate-100 z-30 flex items-center gap-2"
+                  style={{ animation: "float 5.5s ease-in-out infinite 1.4s" }}
+                >
+                  <div className="w-6 h-6 rounded-md bg-[#FEE500] flex items-center justify-center shrink-0">
+                    <svg className="w-3.5 h-3.5 text-[#3C1E1E]" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 3C6.48 3 2 6.58 2 10.9c0 2.78 1.8 5.22 4.51 6.6-.2.73-.72 2.65-.82 3.06-.13.52.19.51.4.37.17-.11 2.69-1.83 3.78-2.57.69.1 1.4.15 2.13.15 5.52 0 10-3.58 10-7.9S17.52 3 12 3z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[8px] text-slate-400">카카오톡 채널</p>
+                    <p className="text-[10px] font-extrabold text-deep-navy leading-tight">실시간 응답</p>
+                  </div>
                 </div>
               </div>
             </div>
