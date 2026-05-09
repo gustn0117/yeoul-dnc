@@ -587,7 +587,7 @@ export default function ContactPage() {
 
               {/* PDF page 58: full-width blue submit with paper plane icon */}
               <button type="submit" disabled={submitting}
-                className="w-full py-4 sm:py-4.5 bg-linear-to-r from-accent-blue to-blue-600 text-white font-bold rounded-xl hover:shadow-xl hover:shadow-accent-blue/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-base">
+                className="btn-premium w-full py-4 sm:py-4.5 bg-linear-to-r from-accent-blue to-blue-600 text-white font-bold rounded-xl shadow-lg shadow-accent-blue/25 hover:shadow-xl hover:shadow-accent-blue/40 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-base">
                 {submitting ? "접수 중..." : (
                   <>
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

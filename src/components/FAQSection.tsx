@@ -42,13 +42,26 @@ export default function FAQSection() {
 
   return (
     <section className="relative py-20 sm:py-24 lg:py-32 bg-linear-to-b from-white via-[#f5f9ff] to-white overflow-hidden">
+      {/* Decorative elements */}
       <div className="absolute top-40 right-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-0 w-72 h-72 bg-blue-100/20 rounded-full blur-3xl" />
+      <div
+        className="absolute inset-0 opacity-[0.025]"
+        style={{
+          backgroundImage: "radial-gradient(circle at 25% 25%, #2563eb 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+        }}
+      />
 
       <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 sm:mb-14">
-          <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">FAQ</p>
+        {/* Header */}
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-blue-100 rounded-full mb-4 shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-blue animate-pulse-soft" />
+            <p className="text-[11px] font-extrabold tracking-[0.25em] text-accent-blue">FAQ</p>
+          </div>
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
-            문의 전에 많이 물어보신<br />
+            문의 전에 많이 물어보신{" "}
             <span className="relative inline-block">
               <span className="relative z-10">자주 묻는 질문</span>
               <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
@@ -60,6 +73,7 @@ export default function FAQSection() {
           </p>
         </div>
 
+        {/* Cards grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
           {faqs.map((f, i) => {
             const isOpen = openIdx === i;
@@ -67,55 +81,116 @@ export default function FAQSection() {
               <div
                 key={i}
                 className="relative group self-start"
-                style={{ animation: `fade-in-up 0.4s ease-out ${i * 0.06}s backwards` }}
+                style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.07}s backwards` }}
               >
+                {/* Glow shadow when open */}
+                <div
+                  className={`absolute inset-0 rounded-2xl blur-xl transition-all duration-500 pointer-events-none ${
+                    isOpen ? "bg-accent-blue/25 scale-105" : "bg-accent-blue/0 scale-100"
+                  }`}
+                />
+                {/* Subtle 3D depth */}
                 <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/10 blur-[2px]" />
 
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : i)}
-                  className={`relative w-full bg-white rounded-2xl border transition-all duration-300 text-left overflow-hidden ${
-                    isOpen ? "border-white shadow-xl shadow-deep-navy/8" : "border-slate-100 shadow-md shadow-deep-navy/3 hover:-translate-y-0.5"
+                  className={`relative w-full bg-white rounded-2xl text-left overflow-hidden transition-all duration-500 ${
+                    isOpen
+                      ? "shadow-3d-lg shadow-accent-blue/15 ring-1 ring-accent-blue/30"
+                      : "shadow-3d hover:-translate-y-0.5 ring-1 ring-slate-100 hover:ring-accent-blue/20"
                   }`}
                   aria-expanded={isOpen}
                 >
+                  {/* Top gradient line on open */}
+                  <div
+                    className={`absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-accent-blue to-transparent transition-opacity duration-500 ${
+                      isOpen ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
+                  {/* Bg accent on open */}
+                  <div
+                    className={`absolute -top-12 -right-12 w-32 h-32 rounded-full bg-accent-blue/10 blur-3xl transition-opacity duration-500 ${
+                      isOpen ? "opacity-100" : "opacity-0 group-hover:opacity-50"
+                    }`}
+                  />
+
                   <div className="relative p-5 sm:p-6">
                     <div className="flex items-start gap-4">
+                      {/* Q badge with glow */}
                       <div className="relative shrink-0">
+                        {/* Outer glow ring */}
+                        <div
+                          className={`absolute -inset-1 rounded-xl bg-accent-blue/30 blur-md transition-opacity duration-500 ${
+                            isOpen ? "opacity-100" : "opacity-0 group-hover:opacity-60"
+                          }`}
+                        />
+                        {/* Depth */}
                         <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/40 blur-[1px]" />
-                        <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-md">
-                          <span className="text-white font-black text-sm sm:text-base">Q</span>
+                        {/* Front */}
+                        <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-linear-to-br from-accent-blue via-blue-500 to-blue-600 flex items-center justify-center shadow-lg shadow-accent-blue/30 ring-1 ring-white/50">
+                          <span className="text-white font-black text-sm sm:text-base drop-shadow-sm">Q</span>
                         </div>
                       </div>
 
-                      <div className="flex-1 min-w-0 pt-1">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-[10px] font-extrabold text-accent-blue tracking-widest uppercase">
+                      {/* Content */}
+                      <div className="flex-1 min-w-0 pt-0.5">
+                        <div className="flex items-center gap-2 mb-1.5">
+                          <span className={`inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-extrabold tracking-wider uppercase transition-colors duration-300 ${
+                            isOpen ? "bg-accent-blue text-white" : "bg-accent-blue/10 text-accent-blue"
+                          }`}>
                             {f.tag}
                           </span>
-                          <span className="text-[10px] text-slate-400 font-medium">#{String(i + 1).padStart(2, "0")}</span>
+                          <span className="text-[10px] text-slate-400 font-bold tracking-wider">#{String(i + 1).padStart(2, "0")}</span>
                         </div>
-                        <p className="text-[14px] sm:text-[15px] font-extrabold text-deep-navy leading-snug">{f.q}</p>
+                        <p className={`text-[14px] sm:text-[15px] font-extrabold leading-snug transition-colors duration-300 ${
+                          isOpen ? "text-accent-blue" : "text-deep-navy"
+                        }`}>
+                          {f.q}
+                        </p>
                       </div>
 
-                      <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? "bg-linear-to-br from-accent-blue to-blue-600 rotate-180" : "bg-slate-50"}`}>
-                        <svg className={`w-4 h-4 ${isOpen ? "text-white" : "text-slate-400"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                        </svg>
+                      {/* Chevron with glow */}
+                      <div className="relative shrink-0">
+                        <div
+                          className={`absolute inset-0 rounded-full bg-accent-blue/30 blur-md transition-opacity duration-500 ${
+                            isOpen ? "opacity-100" : "opacity-0"
+                          }`}
+                        />
+                        <div className={`relative w-9 h-9 rounded-full flex items-center justify-center transition-all duration-500 ${
+                          isOpen
+                            ? "bg-linear-to-br from-accent-blue to-blue-600 shadow-md shadow-accent-blue/30 rotate-180"
+                            : "bg-slate-50 group-hover:bg-slate-100"
+                        }`}>
+                          <svg className={`w-4 h-4 transition-colors duration-300 ${isOpen ? "text-white" : "text-slate-400 group-hover:text-accent-blue"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </div>
                       </div>
                     </div>
 
-                    {isOpen && (
-                      <div className="animate-accordion mt-4 pt-4 border-t border-slate-100 flex gap-3 sm:gap-4">
-                        <div className="shrink-0 w-10 sm:w-11 flex justify-center">
-                          <div className="w-7 h-7 rounded-lg bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-sm opacity-80">
-                            <span className="text-white font-black text-[11px]">A</span>
+                    {/* Answer with smooth slide */}
+                    <div
+                      className={`grid transition-[grid-template-rows] duration-500 ease-out ${
+                        isOpen ? "grid-rows-[1fr] mt-4" : "grid-rows-[0fr]"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <div className="pt-4 border-t border-slate-100 flex gap-3 sm:gap-4">
+                          {/* A badge */}
+                          <div className="shrink-0 w-10 sm:w-11 flex justify-center">
+                            <div className="relative">
+                              <div className="absolute -inset-0.5 rounded-lg bg-accent-blue/20 blur-sm" />
+                              <div className="relative w-7 h-7 rounded-lg bg-linear-to-br from-accent-blue/15 to-accent-blue/5 border border-accent-blue/20 flex items-center justify-center">
+                                <span className="text-accent-blue font-black text-[11px]">A</span>
+                              </div>
+                            </div>
                           </div>
+                          <p className="flex-1 text-[12px] sm:text-sm text-slate-600 leading-relaxed">
+                            {f.a}
+                          </p>
                         </div>
-                        <p className="flex-1 text-[12px] sm:text-sm text-slate-600 leading-relaxed">
-                          {f.a}
-                        </p>
                       </div>
-                    )}
+                    </div>
                   </div>
                 </button>
               </div>
@@ -123,14 +198,16 @@ export default function FAQSection() {
           })}
         </div>
 
-        <div className="text-center mt-10">
+        {/* Bottom CTA */}
+        <div className="text-center mt-12 sm:mt-14">
           <p className="text-[13px] text-slate-500 mb-4">원하는 답변을 못 찾으셨나요?</p>
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 px-7 py-3.5 bg-linear-to-r from-accent-blue to-blue-600 text-white text-sm font-bold rounded-xl shadow-lg shadow-accent-blue/25 hover:shadow-xl transition-shadow"
+            className="group relative inline-flex items-center gap-2 px-7 py-3.5 bg-linear-to-r from-accent-blue to-blue-600 text-white text-sm font-bold rounded-xl shadow-lg shadow-accent-blue/25 hover:shadow-xl hover:shadow-accent-blue/40 hover:-translate-y-0.5 transition-all duration-300"
           >
-            직접 문의하기
-            <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            <span className="absolute -inset-px rounded-xl bg-linear-to-r from-accent-blue/0 via-white/20 to-accent-blue/0 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <span className="relative">직접 문의하기</span>
+            <IconArrowRight className="relative w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
       </div>

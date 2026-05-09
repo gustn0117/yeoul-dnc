@@ -137,11 +137,11 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-10">
-                <Link href="/contact" className="group px-7 py-3.5 bg-linear-to-r from-cta-orange to-orange-500 text-white text-sm font-bold rounded-xl hover:shadow-xl hover:shadow-cta-orange/30 transition-all duration-300 flex items-center justify-center sm:justify-start gap-2">
+                <Link href="/contact" className="btn-premium group px-7 py-3.5 bg-linear-to-r from-cta-orange to-orange-500 text-white text-sm font-bold rounded-xl shadow-lg shadow-cta-orange/25 hover:shadow-xl hover:shadow-cta-orange/40 flex items-center justify-center sm:justify-start gap-2">
                   무료 광고 상담받기 <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
-                <Link href="/services" className="px-7 py-3.5 text-sm text-slate-700 font-semibold rounded-xl border border-slate-200 bg-white/60 backdrop-blur-sm hover:border-accent-blue/30 hover:bg-accent-blue/4 hover:text-accent-blue transition-all duration-300 text-center sm:text-left flex items-center justify-center sm:justify-start gap-2">
-                  광고상품 보기 <IconArrowRight className="w-3.5 h-3.5" />
+                <Link href="/services" className="hover-lift group px-7 py-3.5 text-sm text-slate-700 font-semibold rounded-xl border border-slate-200 bg-white/80 backdrop-blur-sm hover:border-accent-blue/40 hover:bg-white hover:text-accent-blue text-center sm:text-left flex items-center justify-center sm:justify-start gap-2 shadow-sm">
+                  광고상품 보기 <IconArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
 

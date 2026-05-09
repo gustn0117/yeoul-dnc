@@ -74,7 +74,7 @@ export default function SectionCTA({
                 <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-xl bg-cta-orange/40 blur-[2px]" />
                 <Link
                   href={buttonHref}
-                  className="relative inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 bg-linear-to-r from-cta-orange to-orange-500 text-white text-sm font-bold rounded-xl shadow-lg shadow-cta-orange/25 group-hover:-translate-y-0.5 transition-transform duration-300"
+                  className="btn-premium relative inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 bg-linear-to-r from-cta-orange to-orange-500 text-white text-sm font-bold rounded-xl shadow-lg shadow-cta-orange/25 hover:shadow-xl hover:shadow-cta-orange/40"
                 >
                   {buttonText}
                   <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

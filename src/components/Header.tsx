@@ -52,7 +52,7 @@ export default function Header() {
       <div className="scroll-progress">
         <div className="scroll-progress-bar" style={{ "--progress": progress } as React.CSSProperties} />
       </div>
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-white/70 backdrop-blur-sm"}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "glass-header shadow-[0_1px_0_rgba(15,29,50,0.04),0_4px_12px_rgba(15,29,50,0.04)]" : "bg-white/60 backdrop-blur-sm"}`}>
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-18">
           <Link href="/" aria-label="여울디앤씨 홈">
@@ -79,7 +79,7 @@ export default function Header() {
             ))}
             <Link
               href="/contact"
-              className="ml-3 inline-flex items-center gap-1.5 px-4 py-2 bg-deep-navy text-white text-[13px] font-semibold rounded-lg hover:bg-deep-navy/90 transition-colors duration-200"
+              className="btn-premium ml-3 inline-flex items-center gap-1.5 px-4 py-2 bg-linear-to-br from-deep-navy to-slate-800 text-white text-[13px] font-semibold rounded-lg shadow-md shadow-deep-navy/20 hover:shadow-lg hover:shadow-deep-navy/30"
             >
               무료 상담받기
               <IconArrowRight className="w-3 h-3" />
