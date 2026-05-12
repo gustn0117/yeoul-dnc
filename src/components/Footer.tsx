@@ -13,10 +13,19 @@ const channels = [
 export default function Footer() {
   return (
     <footer className="relative bg-[#080e1a] overflow-hidden">
-      {/* 은은한 사진 텍스처 */}
+      {/* 희미하게 스며드는 사진 — 상단에서 아래로 페이드 */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <Image src="/images/stock/office-space.jpg" alt="" fill className="object-cover opacity-[0.07] grayscale" sizes="100vw" />
-        <div className="absolute inset-0 bg-linear-to-b from-[#080e1a]/92 via-[#080e1a]/95 to-[#080e1a]" />
+        <Image
+          src="/images/stock/office-space.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-[0.13] grayscale"
+          style={{
+            maskImage: "linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.25) 30%, transparent 55%)",
+            WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.25) 30%, transparent 55%)",
+          }}
+        />
       </div>
       {/* Decorative grid */}
       <div

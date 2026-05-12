@@ -168,10 +168,19 @@ export default function AboutPage() {
 
       {/* 1. Brand message + logo (3D framed) */}
       <section className="relative py-16 sm:py-20 lg:py-28 bg-white overflow-hidden">
-        {/* 은은한 사진 텍스처 */}
+        {/* 희미하게 스며드는 사진 — 우상단 모서리에서 페이드 */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <Image src="/images/stock/meeting-room.jpg" alt="" fill className="object-cover opacity-[0.045] grayscale" sizes="100vw" />
-          <div className="absolute inset-0 bg-linear-to-b from-white via-white/90 to-white" />
+          <Image
+            src="/images/stock/meeting-room.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover opacity-[0.11] grayscale"
+            style={{
+              maskImage: "radial-gradient(125% 125% at 94% 6%, rgba(0,0,0,0.92), rgba(0,0,0,0.3) 36%, transparent 60%)",
+              WebkitMaskImage: "radial-gradient(125% 125% at 94% 6%, rgba(0,0,0,0.92), rgba(0,0,0,0.3) 36%, transparent 60%)",
+            }}
+          />
         </div>
         <div className="absolute top-0 left-0 w-full h-full opacity-[0.025]" style={{
           backgroundImage: "radial-gradient(circle at 20% 30%, #2563eb 1px, transparent 1px)",
@@ -571,10 +580,19 @@ export default function AboutPage() {
 
       {/* 5. Case summary (3D isometric) */}
       <section className="relative py-16 sm:py-20 lg:py-28 bg-linear-to-b from-white via-[#f5f9ff] to-white overflow-hidden">
-        {/* 은은한 사진 텍스처 */}
+        {/* 희미하게 스며드는 사진 — 좌측에서 페이드 */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <Image src="/images/stock/team-discussion.jpg" alt="" fill className="object-cover opacity-[0.045] grayscale" sizes="100vw" />
-          <div className="absolute inset-0 bg-linear-to-b from-white via-[#f5f9ff]/85 to-white" />
+          <Image
+            src="/images/stock/team-discussion.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover opacity-[0.11] grayscale"
+            style={{
+              maskImage: "linear-gradient(100deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.28) 32%, transparent 56%)",
+              WebkitMaskImage: "linear-gradient(100deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.28) 32%, transparent 56%)",
+            }}
+          />
         </div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/25 rounded-full blur-3xl" />
 
@@ -625,10 +643,19 @@ export default function AboutPage() {
 
       {/* 6. Approach timeline (our way of working) */}
       <section className="relative py-16 sm:py-20 lg:py-28 bg-linear-to-b from-white via-[#f5f9ff] to-white overflow-hidden">
-        {/* 은은한 사진 텍스처 */}
+        {/* 희미하게 스며드는 사진 — 우하단 모서리에서 페이드 */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <Image src="/images/stock/laptop-work.jpg" alt="" fill className="object-cover opacity-[0.04] grayscale" sizes="100vw" />
-          <div className="absolute inset-0 bg-linear-to-b from-white via-[#f5f9ff]/85 to-white" />
+          <Image
+            src="/images/stock/laptop-work.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover opacity-[0.1] grayscale"
+            style={{
+              maskImage: "radial-gradient(125% 125% at 96% 100%, rgba(0,0,0,0.9), rgba(0,0,0,0.28) 36%, transparent 60%)",
+              WebkitMaskImage: "radial-gradient(125% 125% at 96% 100%, rgba(0,0,0,0.9), rgba(0,0,0,0.28) 36%, transparent 60%)",
+            }}
+          />
         </div>
         <div
           className="absolute inset-0 opacity-[0.025]"

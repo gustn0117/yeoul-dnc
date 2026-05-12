@@ -44,10 +44,19 @@ const faqs = [
 export default function FAQSection() {
   return (
     <section className="relative py-20 sm:py-24 lg:py-32 bg-linear-to-b from-white via-[#f5f9ff] to-white overflow-hidden">
-      {/* 은은한 사진 텍스처 */}
+      {/* 희미하게 스며드는 사진 — 좌상단 모서리에서 페이드 */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <Image src="/images/stock/developer-desk.jpg" alt="" fill className="object-cover opacity-[0.045] grayscale" sizes="100vw" />
-        <div className="absolute inset-0 bg-linear-to-b from-white via-[#f5f9ff]/85 to-white" />
+        <Image
+          src="/images/stock/developer-desk.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-[0.11] grayscale"
+          style={{
+            maskImage: "radial-gradient(125% 125% at 4% 4%, rgba(0,0,0,0.92), rgba(0,0,0,0.3) 36%, transparent 60%)",
+            WebkitMaskImage: "radial-gradient(125% 125% at 4% 4%, rgba(0,0,0,0.92), rgba(0,0,0,0.3) 36%, transparent 60%)",
+          }}
+        />
       </div>
       {/* Decorative blobs */}
       <div className="absolute top-40 right-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl" />
