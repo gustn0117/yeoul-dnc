@@ -131,9 +131,9 @@ export default function ProcessPage() {
               <div className="absolute top-11.5 left-[10%] right-[10%] h-0.5 bg-slate-200/70" />
               <div className="absolute top-11.5 left-[10%] w-[80%] h-0.5 bg-linear-to-r from-accent-blue/60 via-accent-blue/40 to-accent-blue/10" />
 
-              <div className="grid grid-cols-5 gap-4 relative">
+              <div className="grid grid-cols-5 gap-4 relative items-stretch">
                 {steps.map((s, i) => (
-                  <div key={i} className="relative">
+                  <div key={i} className="relative flex flex-col h-full">
                     {/* Step label pill */}
                     <div className="flex justify-center mb-2">
                       <div className={`px-3 py-1 rounded-full text-[10px] font-bold text-white bg-linear-to-r ${s.color} shadow-sm`}>
@@ -149,8 +149,8 @@ export default function ProcessPage() {
                       </div>
                     </div>
                     {/* Screenshot thumbnail card */}
-                    <div className="relative rounded-2xl overflow-hidden shadow-lg shadow-blue-900/8 border border-slate-100 group hover:-translate-y-1 transition-transform duration-300">
-                      <div className="relative aspect-4/3">
+                    <div className="relative flex-1 flex flex-col rounded-2xl overflow-hidden shadow-lg shadow-blue-900/8 border border-slate-100 group hover:-translate-y-1 transition-transform duration-300">
+                      <div className="relative aspect-4/3 shrink-0">
                         <Image
                           src={`/images/stock/${["consultation", "strategy-board", "creative-design", "dashboard", "monitor-data"][i]}.jpg`}
                           alt={s.title}
@@ -162,7 +162,7 @@ export default function ProcessPage() {
                           <s.Icon className="w-4 h-4 text-white" />
                         </div>
                       </div>
-                      <div className="bg-white p-3">
+                      <div className="flex-1 flex flex-col bg-white p-3">
                         <p className="text-[12px] font-extrabold text-deep-navy mb-0.5">{s.title}</p>
                         <p className="text-[10px] text-slate-400 leading-tight">{s.main}</p>
                       </div>
