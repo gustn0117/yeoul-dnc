@@ -33,8 +33,8 @@ export default function AboutPage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#060e1e]">
-        <Image src="/images/stock/team-collab.jpg" alt="" fill className="object-cover opacity-30" aria-hidden="true" />
-        <div className="absolute inset-0 bg-linear-to-br from-[#060e1e] via-[#0a1428]/95 to-[#060e1e]" />
+        <Image src="/images/stock/boardroom.jpg" alt="" fill priority className="object-cover opacity-30" aria-hidden="true" sizes="100vw" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#060e1e]/93 via-[#0a1428]/90 to-[#060e1e]/95" />
         <div
           className="absolute inset-0 opacity-[0.06]"
           style={{
@@ -168,6 +168,11 @@ export default function AboutPage() {
 
       {/* 1. Brand message + logo (3D framed) */}
       <section className="relative py-16 sm:py-20 lg:py-28 bg-white overflow-hidden">
+        {/* 은은한 사진 텍스처 */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <Image src="/images/stock/meeting-room.jpg" alt="" fill className="object-cover opacity-[0.045] grayscale" sizes="100vw" />
+          <div className="absolute inset-0 bg-linear-to-b from-white via-white/90 to-white" />
+        </div>
         <div className="absolute top-0 left-0 w-full h-full opacity-[0.025]" style={{
           backgroundImage: "radial-gradient(circle at 20% 30%, #2563eb 1px, transparent 1px)",
           backgroundSize: "40px 40px",
@@ -447,8 +452,8 @@ export default function AboutPage() {
 
       {/* 4. Work environment (isometric platform grid) */}
       <section className="relative py-16 sm:py-20 lg:py-28 overflow-hidden bg-[#060e1e]">
-        <Image src="/images/stock/work-desk.jpg" alt="" fill className="object-cover opacity-25" aria-hidden="true" />
-        <div className="absolute inset-0 bg-linear-to-br from-[#060e1e] via-[#0a1428] to-[#060e1e]" />
+        <Image src="/images/stock/developer-desk.jpg" alt="" fill className="object-cover opacity-25" aria-hidden="true" sizes="100vw" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#060e1e]/94 via-[#0a1428]/91 to-[#060e1e]/96" />
         <div
           className="absolute inset-0 opacity-[0.06]"
           style={{
@@ -566,6 +571,11 @@ export default function AboutPage() {
 
       {/* 5. Case summary (3D isometric) */}
       <section className="relative py-16 sm:py-20 lg:py-28 bg-linear-to-b from-white via-[#f5f9ff] to-white overflow-hidden">
+        {/* 은은한 사진 텍스처 */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <Image src="/images/stock/team-discussion.jpg" alt="" fill className="object-cover opacity-[0.045] grayscale" sizes="100vw" />
+          <div className="absolute inset-0 bg-linear-to-b from-white via-[#f5f9ff]/85 to-white" />
+        </div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/25 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -615,6 +625,11 @@ export default function AboutPage() {
 
       {/* 6. Approach timeline (our way of working) */}
       <section className="relative py-16 sm:py-20 lg:py-28 bg-linear-to-b from-white via-[#f5f9ff] to-white overflow-hidden">
+        {/* 은은한 사진 텍스처 */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <Image src="/images/stock/laptop-work.jpg" alt="" fill className="object-cover opacity-[0.04] grayscale" sizes="100vw" />
+          <div className="absolute inset-0 bg-linear-to-b from-white via-[#f5f9ff]/85 to-white" />
+        </div>
         <div
           className="absolute inset-0 opacity-[0.025]"
           style={{

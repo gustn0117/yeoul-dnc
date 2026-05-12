@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { IconArrowRight } from "@/components/Icons";
 
 const faqs = [
@@ -43,6 +44,11 @@ const faqs = [
 export default function FAQSection() {
   return (
     <section className="relative py-20 sm:py-24 lg:py-32 bg-linear-to-b from-white via-[#f5f9ff] to-white overflow-hidden">
+      {/* 은은한 사진 텍스처 */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <Image src="/images/stock/developer-desk.jpg" alt="" fill className="object-cover opacity-[0.045] grayscale" sizes="100vw" />
+        <div className="absolute inset-0 bg-linear-to-b from-white via-[#f5f9ff]/85 to-white" />
+      </div>
       {/* Decorative blobs */}
       <div className="absolute top-40 right-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-0 w-72 h-72 bg-blue-100/30 rounded-full blur-3xl" />

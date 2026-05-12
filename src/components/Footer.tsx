@@ -13,6 +13,11 @@ const channels = [
 export default function Footer() {
   return (
     <footer className="relative bg-[#080e1a] overflow-hidden">
+      {/* 은은한 사진 텍스처 */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <Image src="/images/stock/office-space.jpg" alt="" fill className="object-cover opacity-[0.07] grayscale" sizes="100vw" />
+        <div className="absolute inset-0 bg-linear-to-b from-[#080e1a]/92 via-[#080e1a]/95 to-[#080e1a]" />
+      </div>
       {/* Decorative grid */}
       <div
         className="absolute inset-0 opacity-[0.04]"
@@ -195,10 +200,10 @@ export default function Footer() {
         <div className="mt-10 sm:mt-12 pt-8 border-t border-white/5 grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
           {/* 무료 광고 상담 신청 카드 */}
           <div className="group relative">
-            <div className="absolute inset-0 translate-x-1 translate-y-2 rounded-2xl bg-accent-blue/20 blur-[8px]" aria-hidden="true" />
+            <div className="absolute inset-0 translate-x-1 translate-y-2 rounded-2xl bg-accent-blue/20 blur-sm" aria-hidden="true" />
             <Link
               href="/contact"
-              className="relative block bg-linear-to-br from-white/[0.08] to-white/[0.03] backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5 transition-all duration-300 group-hover:-translate-y-1 group-hover:from-white/[0.12] group-hover:border-accent-blue/30 overflow-hidden"
+              className="relative block bg-linear-to-br from-white/8 to-white/3 backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5 transition-all duration-300 group-hover:-translate-y-1 group-hover:from-white/12 group-hover:border-accent-blue/30 overflow-hidden"
               style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1), 0 8px 24px rgba(8,14,26,0.5), 0 16px 48px rgba(37,99,235,0.08)" }}
             >
               <span className="pointer-events-none absolute inset-0 bg-linear-to-r from-white/0 via-white/5 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700" aria-hidden="true" />
@@ -227,9 +232,9 @@ export default function Footer() {
 
           {/* 안심하고 맡길 수 있는 파트너 */}
           <div className="group relative">
-            <div className="absolute inset-0 translate-x-1 translate-y-2 rounded-2xl bg-emerald-500/20 blur-[8px]" aria-hidden="true" />
+            <div className="absolute inset-0 translate-x-1 translate-y-2 rounded-2xl bg-emerald-500/20 blur-sm" aria-hidden="true" />
             <div
-              className="relative bg-linear-to-br from-white/[0.08] to-white/[0.03] backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5 flex items-center gap-4"
+              className="relative bg-linear-to-br from-white/8 to-white/3 backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5 flex items-center gap-4"
               style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1), 0 8px 24px rgba(8,14,26,0.5), 0 16px 48px rgba(16,185,129,0.06)" }}
             >
               <div className="relative shrink-0">
@@ -253,9 +258,9 @@ export default function Footer() {
 
         {/* PDF page 24: 인사이트(뉴스레터) - 3D card */}
         <div className="group relative mt-6">
-          <div className="absolute inset-0 translate-x-1 translate-y-2 rounded-2xl bg-violet-500/20 blur-[8px]" aria-hidden="true" />
+          <div className="absolute inset-0 translate-x-1 translate-y-2 rounded-2xl bg-violet-500/20 blur-sm" aria-hidden="true" />
           <div
-            className="relative bg-linear-to-br from-white/[0.08] to-white/[0.03] backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4"
+            className="relative bg-linear-to-br from-white/8 to-white/3 backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4"
             style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1), 0 8px 24px rgba(8,14,26,0.5), 0 16px 48px rgba(139,92,246,0.06)" }}
           >
             <div className="flex items-center gap-3 flex-1 min-w-0">

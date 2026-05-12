@@ -24,8 +24,8 @@ export default function SectionCTA({
       {/* Background image (dark mode) */}
       {isDark && (
         <>
-          <Image src="/images/stock/meeting.jpg" alt="" fill className="object-cover opacity-25" aria-hidden="true" />
-          <div className="absolute inset-0 bg-linear-to-br from-[#060e1e] via-[#0a1428]/95 to-[#060e1e]" />
+          <Image src="/images/stock/meeting-room.jpg" alt="" fill className="object-cover opacity-30" aria-hidden="true" sizes="100vw" />
+          <div className="absolute inset-0 bg-linear-to-br from-[#060e1e]/93 via-[#0a1428]/90 to-[#060e1e]/96" />
         </>
       )}
       {/* Grid pattern */}

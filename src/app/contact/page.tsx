@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { IconPhone, IconClock, IconCheck, IconArrowRight, IconMail, IconBuilding } from "@/components/Icons";
 
@@ -295,7 +296,8 @@ export default function ContactPage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#060e1e]">
-        <div className="absolute inset-0 bg-linear-to-br from-[#060e1e] via-[#0a1428]/95 to-[#060e1e]" />
+        <Image src="/images/stock/meeting-room.jpg" alt="" fill priority className="object-cover opacity-25" aria-hidden="true" sizes="100vw" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#060e1e]/93 via-[#0a1428]/91 to-[#060e1e]/96" />
         <div
           className="absolute inset-0 opacity-[0.06]"
           style={{

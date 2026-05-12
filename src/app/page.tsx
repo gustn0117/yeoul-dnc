@@ -85,6 +85,11 @@ export default function Home() {
     <>
       {/* ━━━━━━━━━━━━━ HERO ━━━━━━━━━━━━━ */}
       <section className="relative overflow-hidden bg-linear-to-br from-[#e8f0ff] via-[#f3f7ff] to-[#fafcff]">
+        {/* 은은한 사진 텍스처 */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <Image src="/images/stock/laptop-work.jpg" alt="" fill priority className="object-cover opacity-[0.04] grayscale" sizes="100vw" />
+          <div className="absolute inset-0 bg-linear-to-br from-[#e8f0ff]/90 via-[#f3f7ff]/85 to-[#fafcff]/95" />
+        </div>
         {/* Grid pattern overlay */}
         <div
           className="absolute inset-0 opacity-[0.03]"
@@ -389,6 +394,11 @@ export default function Home() {
 
       {/* ━━━━━━━━━━━━━ WHY ━━━━━━━━━━━━━ */}
       <section className="relative py-20 sm:py-24 lg:py-32 bg-linear-to-b from-white via-white to-[#f5f9ff] overflow-hidden">
+        {/* 은은한 사진 텍스처 */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <Image src="/images/stock/team-discussion.jpg" alt="" fill className="object-cover opacity-[0.05] grayscale" sizes="100vw" />
+          <div className="absolute inset-0 bg-linear-to-b from-white via-white/85 to-[#f5f9ff]" />
+        </div>
         <div className="absolute top-20 right-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -455,8 +465,8 @@ export default function Home() {
 
       {/* ━━━━━━━━━━━━━ HOW (isometric glowing steps) ━━━━━━━━━━━━━ */}
       <section className="relative py-20 sm:py-24 lg:py-32 overflow-hidden bg-[#060e1e]">
-        <Image src="/images/stock/dashboard.jpg" alt="" fill className="object-cover opacity-20" aria-hidden="true" />
-        <div className="absolute inset-0 bg-linear-to-br from-[#060e1e] via-[#0a1428] to-[#060e1e]" />
+        <Image src="/images/stock/code-screen.jpg" alt="" fill className="object-cover opacity-25" aria-hidden="true" sizes="100vw" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#060e1e]/95 via-[#0a1428]/92 to-[#060e1e]/96" />
         {/* Standard subtle grid */}
         <div
           className="absolute inset-0 opacity-[0.08]"
@@ -539,6 +549,11 @@ export default function Home() {
 
       {/* ━━━━━━━━━━━━━ WHAT (isometric channel cards) ━━━━━━━━━━━━━ */}
       <section className="relative py-20 sm:py-24 lg:py-32 bg-linear-to-b from-[#f5f9ff] via-white to-[#f0f5ff] overflow-hidden">
+        {/* 은은한 사진 텍스처 */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <Image src="/images/stock/analytics-screen.jpg" alt="" fill className="object-cover opacity-[0.05] grayscale" sizes="100vw" />
+          <div className="absolute inset-0 bg-linear-to-b from-[#f5f9ff] via-white/85 to-[#f0f5ff]" />
+        </div>
         <div
           className="absolute inset-0 opacity-[0.025]"
           style={{
@@ -623,6 +638,11 @@ export default function Home() {
 
       {/* ━━━━━━━━━━━━━ TARGET (isometric check cards) ━━━━━━━━━━━━━ */}
       <section className="relative py-20 sm:py-24 lg:py-32 bg-linear-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
+        {/* 은은한 사진 텍스처 */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <Image src="/images/stock/boardroom.jpg" alt="" fill className="object-cover opacity-[0.05] grayscale" sizes="100vw" />
+          <div className="absolute inset-0 bg-linear-to-b from-slate-50 via-white/88 to-slate-50" />
+        </div>
         <div className="absolute top-20 left-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -712,6 +732,11 @@ export default function Home() {
 
       {/* ━━━━━━━━━━━━━ PORTFOLIO (3D case cards) ━━━━━━━━━━━━━ */}
       <section className="relative py-20 sm:py-24 lg:py-32 bg-white overflow-hidden">
+        {/* 은은한 사진 텍스처 */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <Image src="/images/stock/office-space.jpg" alt="" fill className="object-cover opacity-[0.045] grayscale" sizes="100vw" />
+          <div className="absolute inset-0 bg-linear-to-b from-white via-white/90 to-white" />
+        </div>
         <div className="absolute top-0 left-0 w-full h-full opacity-[0.025]" style={{
           backgroundImage: "radial-gradient(circle at 20% 30%, #2563eb 1px, transparent 1px)",
           backgroundSize: "40px 40px",
@@ -800,6 +825,11 @@ export default function Home() {
 
       {/* ━━━━━━━━━━━━━ TESTIMONIALS ━━━━━━━━━━━━━ */}
       <section className="relative py-20 sm:py-24 lg:py-32 bg-linear-to-b from-white via-[#f5f9ff] to-white overflow-hidden">
+        {/* 은은한 사진 텍스처 */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <Image src="/images/stock/meeting-room.jpg" alt="" fill className="object-cover opacity-[0.05] grayscale" sizes="100vw" />
+          <div className="absolute inset-0 bg-linear-to-b from-white via-[#f5f9ff]/85 to-white" />
+        </div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
