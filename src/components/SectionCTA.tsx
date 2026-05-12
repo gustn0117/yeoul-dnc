@@ -20,12 +20,16 @@ export default function SectionCTA({
   const isDark = variant === "dark";
 
   return (
-    <section className={`relative py-20 sm:py-24 lg:py-32 overflow-hidden ${isDark ? "bg-[#060e1e]" : "bg-linear-to-b from-[#f5f9ff] via-white to-[#f0f5ff]"}`}>
+    <section className={`relative ${isDark ? "pt-28 sm:pt-32 lg:pt-40 pb-20 sm:pb-24 lg:pb-32" : "py-20 sm:py-24 lg:py-32"} overflow-hidden ${isDark ? "bg-[#060e1e]" : "bg-linear-to-b from-[#f5f9ff] via-white to-[#f0f5ff]"}`}>
       {/* Background image (dark mode) */}
       {isDark && (
         <>
           <Image src="/images/stock/meeting-room.jpg" alt="" fill className="object-cover opacity-30" aria-hidden="true" sizes="100vw" />
           <div className="absolute inset-0 bg-linear-to-br from-[#060e1e]/93 via-[#0a1428]/90 to-[#060e1e]/96" />
+          {/* 곡선 디바이더 — 위 (밝은 섹션에서 흘러내림) */}
+          <svg className="absolute top-0 left-0 w-full h-9 sm:h-14 lg:h-18" viewBox="0 0 1440 72" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,0 H1440 V36 C1140,76 900,4 720,30 C540,56 300,4 0,40 Z" fill="#ffffff" />
+          </svg>
         </>
       )}
       {/* Grid pattern */}

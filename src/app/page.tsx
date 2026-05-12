@@ -483,9 +483,17 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━━━━ HOW (isometric glowing steps) ━━━━━━━━━━━━━ */}
-      <section className="relative py-20 sm:py-24 lg:py-32 overflow-hidden bg-[#060e1e]">
+      <section className="relative py-24 sm:py-28 lg:py-36 overflow-hidden bg-[#060e1e]">
         <Image src="/images/stock/code-screen.jpg" alt="" fill className="object-cover opacity-25" aria-hidden="true" sizes="100vw" />
         <div className="absolute inset-0 bg-linear-to-br from-[#060e1e]/95 via-[#0a1428]/92 to-[#060e1e]/96" />
+        {/* 곡선 디바이더 — 위 (밝은 섹션에서 흘러내림) */}
+        <svg className="absolute top-0 left-0 w-full h-9 sm:h-14 lg:h-18" viewBox="0 0 1440 72" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,0 H1440 V36 C1140,76 900,4 720,30 C540,56 300,4 0,40 Z" fill="#f5f9ff" />
+        </svg>
+        {/* 곡선 디바이더 — 아래 (다음 밝은 섹션으로 이어짐) */}
+        <svg className="absolute bottom-0 left-0 w-full h-9 sm:h-14 lg:h-18" viewBox="0 0 1440 72" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,72 H1440 V36 C1140,-4 900,68 720,42 C540,16 300,68 0,32 Z" fill="#f5f9ff" />
+        </svg>
         {/* Standard subtle grid */}
         <div
           className="absolute inset-0 opacity-[0.08]"
