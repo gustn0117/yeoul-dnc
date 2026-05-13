@@ -427,39 +427,84 @@ export default function ServicesPage() {
               </Link>
             </div>
 
-            {/* Tilted phone mockup */}
+            {/* Phone mockup — Instagram feed (정렬·비율 정리, 다음 섹션 침범 방지) */}
             <div className="lg:col-span-5 order-1 lg:order-2 relative">
-              <div className="relative mx-auto max-w-sm aspect-square">
+              <div className="relative mx-auto w-full max-w-[340px] py-8">
                 {/* Decorative blur */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] rounded-3xl bg-linear-to-br from-pink-100/60 to-blue-100/40" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pink-400/15 rounded-full blur-3xl" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-pink-400/15 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 rounded-[2rem] bg-linear-to-br from-pink-100/60 to-blue-100/40 -z-10" />
 
-                {/* Main tilted phone */}
+                {/* Phone (회전 없음, 자연스러운 비율) */}
                 <div
-                  className="absolute top-1/2 left-1/2 w-48 sm:w-56 aspect-9/19 z-20"
-                  style={{ transform: "translate(-50%, -50%) rotate(-18deg)", animation: "float 6s ease-in-out infinite" }}
+                  className="relative mx-auto w-48 sm:w-52 aspect-[9/18]"
+                  style={{ animation: "float 6s ease-in-out infinite" }}
                 >
-                  <div className="relative w-full h-full rounded-[28px] bg-slate-900 shadow-2xl shadow-pink-900/25 p-1.5 border border-slate-700">
+                  {/* 3D depth */}
+                  <div className="absolute inset-0 translate-x-1.5 translate-y-3 rounded-[28px] bg-slate-900/30 blur-md" aria-hidden="true" />
+                  <div className="absolute inset-0 translate-x-0.5 translate-y-1.5 rounded-[28px] bg-slate-800/50" aria-hidden="true" />
+
+                  <div
+                    className="relative w-full h-full rounded-[28px] bg-slate-900 p-[5px] border border-slate-700"
+                    style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1), 0 20px 40px rgba(15,23,42,0.25)" }}
+                  >
                     <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-white">
-                      <Image src="/images/stock/meta-social.jpg" alt="" fill className="object-cover" />
-                      {/* Fake IG UI overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 p-2 bg-linear-to-t from-black/60 to-transparent">
-                        <div className="flex items-center gap-1 text-white text-[8px]">
-                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+                      {/* Notch */}
+                      <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-14 h-3.5 bg-slate-900 rounded-full z-30" />
+
+                      {/* IG header */}
+                      <div className="absolute top-0 left-0 right-0 px-2.5 pt-6 pb-2 bg-white flex items-center gap-1.5 z-20 border-b border-slate-100">
+                        <span className="text-[9px] font-extrabold text-deep-navy">Instagram</span>
+                        <div className="ml-auto flex gap-1.5">
+                          <svg className="w-2.5 h-2.5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                          <svg className="w-2.5 h-2.5 text-slate-700" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                         </div>
                       </div>
+
+                      {/* Stories row */}
+                      <div className="absolute top-[42px] left-0 right-0 px-2 py-1.5 flex items-center gap-1.5 border-b border-slate-100 z-10 bg-white">
+                        {["from-[#FEDA77] via-[#F58529] to-[#DD2A7B]", "from-[#833AB4] to-[#E1306C]", "from-[#F77737] to-[#FCAF45]", "from-[#DD2A7B] to-[#833AB4]"].map((g, idx) => (
+                          <div key={idx} className={`w-7 h-7 rounded-full p-[1.5px] bg-linear-to-br ${g}`}>
+                            <div className="w-full h-full rounded-full bg-slate-100 border-2 border-white" />
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Feed post */}
+                      <div className="absolute top-[80px] left-0 right-0 bottom-7">
+                        <div className="flex items-center gap-1.5 px-2 py-1.5">
+                          <div className="w-5 h-5 rounded-full bg-linear-to-br from-[#FEDA77] via-[#F58529] to-[#DD2A7B] p-[1px]">
+                            <div className="w-full h-full rounded-full bg-white" />
+                          </div>
+                          <span className="text-[7px] font-bold text-deep-navy">yeoul_dnc</span>
+                        </div>
+                        <div className="aspect-square bg-linear-to-br from-[#833AB4] via-[#E1306C] to-[#F77737] flex items-center justify-center">
+                          <svg className="w-12 h-12 text-white/95 drop-shadow" viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 2A5.5 5.5 0 002 7.5v9A5.5 5.5 0 007.5 22h9a5.5 5.5 0 005.5-5.5v-9A5.5 5.5 0 0016.5 2h-9zm0 1.5h9a4 4 0 014 4v9a4 4 0 01-4 4h-9a4 4 0 01-4-4v-9a4 4 0 014-4zm10 1.75a1 1 0 100 2 1 1 0 000-2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 1.5a3.5 3.5 0 110 7 3.5 3.5 0 010-7z"/></svg>
+                        </div>
+                        <div className="flex items-center gap-2 px-2 py-1.5">
+                          <svg className="w-3 h-3 text-slate-800" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                          <svg className="w-3 h-3 text-slate-800" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" /></svg>
+                          <svg className="w-3 h-3 text-slate-800" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                        </div>
+                      </div>
+
+                      {/* Bottom nav */}
+                      <div className="absolute bottom-0 left-0 right-0 bg-white border-t border-slate-100 flex items-center justify-around py-1.5">
+                        <svg className="w-3 h-3 text-slate-800" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3l9 8h-3v9h-4v-6h-4v6H6v-9H3z"/></svg>
+                        <svg className="w-3 h-3 text-slate-500" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path strokeLinecap="round" d="M21 21l-4.35-4.35" /></svg>
+                        <svg className="w-3 h-3 text-slate-500" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" /><path d="M12 4v16M4 12h16" /></svg>
+                        <svg className="w-3 h-3 text-slate-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        <div className="w-3 h-3 rounded-full bg-linear-to-br from-[#833AB4] via-[#E1306C] to-[#F77737]" />
+                      </div>
                     </div>
-                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-16 h-3.5 bg-slate-900 rounded-full" />
                   </div>
                 </div>
 
-                {/* Floating platform logos */}
-                <div className="absolute top-4 right-4 w-12 h-12 bg-white rounded-2xl shadow-xl shadow-pink-900/10 flex items-center justify-center z-30 animate-float-slow">
-                  <img src="/images/logos/instagram.svg" alt="" className="w-7 h-7" />
+                {/* Floating platform logos — 폰 외곽, 콘텐츠 안 가림 */}
+                <div className="absolute top-2 right-0 sm:right-2 w-11 h-11 bg-white rounded-2xl shadow-xl shadow-pink-900/10 flex items-center justify-center z-30 animate-float-slow">
+                  <img src="/images/logos/instagram.svg" alt="" className="w-6 h-6" />
                 </div>
-                <div className="absolute bottom-8 left-4 w-12 h-12 bg-white rounded-2xl shadow-xl shadow-blue-900/10 flex items-center justify-center z-30" style={{ animation: "float 5s ease-in-out infinite 1s" }}>
-                  <img src="/images/logos/facebook.svg" alt="" className="w-7 h-7" />
+                <div className="absolute bottom-10 left-0 sm:left-2 w-11 h-11 bg-white rounded-2xl shadow-xl shadow-blue-900/10 flex items-center justify-center z-30" style={{ animation: "float 5s ease-in-out infinite 1s" }}>
+                  <img src="/images/logos/facebook.svg" alt="" className="w-6 h-6" />
                 </div>
               </div>
             </div>
