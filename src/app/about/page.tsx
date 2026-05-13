@@ -608,18 +608,18 @@ export default function AboutPage() {
               은 달라집니다
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 items-stretch">
             {caseSummary.map((c, i) => (
               <div
                 key={c.industry}
-                className="group relative"
+                className="group relative h-full"
                 style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
               >
                 <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-accent-blue/15 blur-[2px]" />
 
-                <div className="relative bg-white p-6 sm:p-7 rounded-2xl border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden min-h-48">
-                  <div className="relative">
-                    <div className="inline-flex items-center gap-1 mb-3 px-2.5 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20">
+                <div className="relative h-full bg-white p-6 sm:p-7 rounded-2xl border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden flex flex-col">
+                  <div className="relative flex flex-col flex-1">
+                    <div className="inline-flex items-center gap-1 mb-3 px-2.5 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 w-fit">
                       <span className="text-[10px] font-extrabold text-accent-blue tracking-wider uppercase">{c.industry}</span>
                     </div>
                     <div className="flex items-center gap-2 mb-3 bg-slate-50 rounded-lg px-2.5 py-1.5 w-fit">
@@ -627,8 +627,8 @@ export default function AboutPage() {
                         <img key={logo} src={`/images/logos/${logo}.svg`} alt={logo} className="h-4 w-auto" />
                       ))}
                     </div>
-                    <p className="text-[13px] sm:text-sm text-slate-600 leading-relaxed mb-4">{c.desc}</p>
-                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <p className="text-[13px] sm:text-sm text-slate-600 leading-relaxed mb-4 flex-1">{c.desc}</p>
+                    <div className="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between">
                       <span className="text-[10px] font-extrabold text-accent-blue tracking-widest">
                         CASE {String(i + 1).padStart(2, "0")}
                       </span>
