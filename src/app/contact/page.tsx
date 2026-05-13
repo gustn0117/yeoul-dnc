@@ -385,7 +385,7 @@ export default function ContactPage() {
                     {[
                       {
                         label: "전화",
-                        value: "OOO-OOOO-OOOO",
+                        value: "개통 진행 중",
                         color: "from-accent-blue to-blue-600",
                         icon: (
                           <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -405,7 +405,7 @@ export default function ContactPage() {
                       },
                       {
                         label: "이메일",
-                        value: "OOO@OOO.com",
+                        value: "info@yeouldnc.com",
                         color: "from-violet-500 to-purple-600",
                         icon: (
                           <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -608,7 +608,7 @@ export default function ContactPage() {
               {
                 icon: <IconPhone className="w-5 h-5 text-white" />,
                 title: "전화 상담",
-                sub: "OOO-OOOO-OOOO",
+                sub: "개통 진행 중",
                 hint: "빠른 답변",
                 color: "from-accent-blue to-blue-600",
               },
