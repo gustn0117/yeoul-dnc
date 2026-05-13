@@ -137,7 +137,7 @@ export default function SectionCTA({
                     </div>
                     <div>
                       <p className={`text-[10px] ${isDark ? "text-slate-400" : "text-slate-400"}`}>대표 번호</p>
-                      <p className={`text-sm font-extrabold ${isDark ? "text-white" : "text-deep-navy"}`}>개통 진행 중</p>
+                      <p className={`text-sm font-extrabold ${isDark ? "text-white" : "text-deep-navy"}`}>1668-5832</p>
                     </div>
                   </div>
 
