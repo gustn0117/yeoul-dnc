@@ -3,10 +3,16 @@ import "./globals.css";
 import LayoutShell from "@/components/LayoutShell";
 
 export const metadata: Metadata = {
-  title: "여울디앤씨 | 온라인 광고 실행 파트너",
+  title: "AI 퍼포먼스 마케팅 실행사, 여울디앤씨",
   description:
-    "유입부터 상담 전환까지 설계하는 온라인 광고 실행사. 카카오, 네이버, 메타, 유튜브, 구글 등 다양한 광고 채널을 업종에 맞게 운영합니다.",
-  keywords: "온라인광고, 광고대행사, 네이버광고, 메타광고, 카카오광고, 구글광고, 여울디앤씨",
+    "홈페이지, 랜딩페이지 제작 및 광고 운영과 콘텐츠 제작, 분양 광고 마케팅, DB 자동화 서비스 제공.",
+  keywords: "AI 퍼포먼스 마케팅, 홈페이지 제작, 랜딩페이지, 광고 운영, 콘텐츠 제작, 분양 광고, DB 자동화, 여울디앤씨",
+  verification: {
+    google: "Jgb5fVHXF8BK-kUW2N1GDfnIWm5cYGYJnQMiAEDZWjE",
+    other: {
+      "naver-site-verification": "62a58f20ebf5bdf2d9fd14618b6ddbdf5fd36caf",
+    },
+  },
 };
 
 export default function RootLayout({
