@@ -143,17 +143,6 @@ p, li { line-height: 1.75 !important; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── 3D 궤도 회전 (서비스 히어로 다이어그램) ── */
-@keyframes orbit-disk-spin {
-  from { transform: rotateZ(0deg); }
-  to   { transform: rotateZ(360deg); }
-}
-/* 카운터-스핀: 카드가 항상 정면을 보도록 디스크 회전 + 기울임을 상쇄
-   부모 tilt-wrapper에 rotateX(58deg)이 걸려있다고 가정 */
-@keyframes orbit-card-upright {
-  from { transform: translate(-50%, -50%) rotateX(-58deg) rotateZ(0deg); }
-  to   { transform: translate(-50%, -50%) rotateX(-58deg) rotateZ(-360deg); }
-}
 
 .animate-float { animation: float 5s ease-in-out infinite; }
 .animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
