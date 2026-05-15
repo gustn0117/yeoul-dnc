@@ -113,69 +113,79 @@ export default function ProcessPage() {
       {/* Timeline overview (PDF reference style) */}
       <section className="py-16 sm:py-20 lg:py-24 bg-linear-to-b from-[#eef4ff] via-[#f5f9ff] to-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-14">
-            <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">TIMELINE</p>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy leading-tight">
-              문의부터 리포트까지,<br className="sm:hidden" />
-              {" "}<span className="relative inline-block">
-                <span className="relative z-10">5단계로 진행</span>
-                <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
-              </span>
+          <div className="text-center mb-12 sm:mb-16">
+            <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-4">TIMELINE</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-deep-navy leading-tight mb-3">
+              문의부터 리포트까지,{" "}
+              <span className="text-accent-blue">5단계로 진행합니다</span>
             </h2>
+            <p className="text-[13px] sm:text-[14px] text-slate-500 leading-relaxed">
+              체계적인 프로세스로 효율적인 광고 운영을 만듭니다.
+            </p>
           </div>
 
-          {/* Horizontal connected steps with screenshot thumbs */}
+          {/* Horizontal connected steps — STEP pill bar + 카드 (사진 매칭) */}
           <div className="hidden md:block">
-            <div className="relative">
-              {/* Connecting line through dots */}
-              <div className="absolute top-11.5 left-[10%] right-[10%] h-0.5 bg-slate-200/70" />
-              <div className="absolute top-11.5 left-[10%] w-[80%] h-0.5 bg-linear-to-r from-accent-blue/60 via-accent-blue/40 to-accent-blue/10" />
-
-              <div className="grid grid-cols-5 gap-4 relative items-stretch">
-                {steps.map((s, i) => (
-                  <div key={i} className="relative flex flex-col h-full">
-                    {/* Step label pill */}
-                    <div className="flex justify-center mb-2">
-                      <div className={`px-3 py-1 rounded-full text-[11px] font-bold text-white bg-linear-to-r ${s.color} shadow-sm`}>
-                        STEP {s.step}
-                      </div>
+            {/* STEP NN pill bar with connecting line */}
+            <div className="relative mb-6 sm:mb-8">
+              {/* 연결선 */}
+              <div className="absolute top-1/2 -translate-y-1/2 left-[8%] right-[8%] h-px bg-accent-blue/40" />
+              <div className="grid grid-cols-5 gap-4 relative">
+                {steps.map((s) => (
+                  <div key={s.step} className="flex flex-col items-center">
+                    <div className="px-4 py-1.5 rounded-full bg-accent-blue text-white text-[11px] font-extrabold shadow-md tracking-wider mb-2">
+                      STEP {s.step}
                     </div>
-                    {/* Dot + ring */}
-                    <div className="relative flex justify-center mb-6">
-                      <div className="relative w-6 h-6">
-                        <div className="absolute inset-0 rounded-full bg-accent-blue/20 animate-pulse-soft" />
-                        <div className={`absolute inset-1 rounded-full bg-linear-to-br ${s.color} shadow-md`} />
-                        <div className="absolute inset-1.75 rounded-full bg-white" />
-                      </div>
-                    </div>
-                    {/* Screenshot thumbnail card */}
-                    <div className="relative flex-1 flex flex-col rounded-2xl overflow-hidden shadow-lg shadow-blue-900/8 border border-slate-100 group hover:-translate-y-1 transition-transform duration-300">
-                      <div className="relative aspect-4/3 shrink-0">
-                        <Image
-                          src={[
-                            "/images/0515/team-presentation-1.png",
-                            "/images/0515/team-presentation-3.png",
-                            "/images/stock/creative-design.jpg",
-                            "/images/stock/analytics-screen.jpg",
-                            "/images/stock/monitor-data.jpg",
-                          ][i]}
-                          alt={s.title}
-                          fill
-                          className="object-cover"
-                        />
-                        <div className="absolute inset-0 bg-linear-to-t from-deep-navy/50 via-transparent to-transparent" />
-                        <div className={`absolute top-2 left-2 w-8 h-8 rounded-xl bg-linear-to-br ${s.color} flex items-center justify-center shadow-lg`}>
-                          <s.Icon className="w-4 h-4 text-white" />
-                        </div>
-                      </div>
-                      <div className="flex-1 flex flex-col bg-white p-3">
-                        <p className="text-[13px] font-extrabold text-deep-navy mb-0.5">{s.title}</p>
-                        <p className="text-[11px] text-slate-400 leading-tight">{s.main}</p>
-                      </div>
-                    </div>
+                    <div className="w-3.5 h-3.5 rounded-full bg-white border-2 border-accent-blue shadow-md" />
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* 5 카드 — 사진 + 아이콘 원 + STEP NN + 제목 + 설명 (화살표로 연결) */}
+            <div className="grid grid-cols-5 gap-3 sm:gap-4 relative items-stretch">
+              {steps.map((s, i) => (
+                <div key={s.step} className="relative flex flex-col h-full group">
+                  <div className="relative flex-1 flex flex-col rounded-2xl overflow-hidden shadow-lg shadow-blue-900/10 border border-slate-100 bg-white hover:-translate-y-1 transition-transform duration-300">
+                    {/* 이미지 */}
+                    <div className="relative aspect-4/3 shrink-0">
+                      <Image
+                        src={[
+                          "/images/0515/team-presentation-1.png",
+                          "/images/0515/team-presentation-3.png",
+                          "/images/stock/creative-design.jpg",
+                          "/images/stock/analytics-screen.jpg",
+                          "/images/stock/monitor-data.jpg",
+                        ][i]}
+                        alt={s.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    {/* 아이콘 원형 (이미지와 텍스트 사이에 걸침) */}
+                    <div className="relative -mt-8 mb-2 flex justify-center z-10">
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white border-2 border-slate-100 shadow-md flex items-center justify-center">
+                        <s.Icon className="w-6 h-6 sm:w-7 sm:h-7 text-accent-blue" />
+                      </div>
+                    </div>
+                    {/* 텍스트 */}
+                    <div className="flex-1 flex flex-col items-center text-center px-3 sm:px-4 pb-5 pt-1">
+                      <p className="text-[10px] sm:text-[11px] font-extrabold text-slate-400 tracking-[0.2em]">STEP {s.step}</p>
+                      <h3 className="text-base sm:text-lg font-extrabold text-deep-navy mt-1 mb-2.5 leading-tight">{s.title}</h3>
+                      <p className="text-[11px] sm:text-[12px] text-slate-500 leading-relaxed">{s.main}</p>
+                    </div>
+                  </div>
+
+                  {/* 카드 사이 화살표 (마지막 카드 제외) */}
+                  {i < steps.length - 1 && (
+                    <div className="absolute top-1/2 -right-2.5 -translate-y-1/2 z-20 text-accent-blue/40 pointer-events-none">
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
 
