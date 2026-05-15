@@ -365,37 +365,46 @@ export default function AboutPage() {
               {" "}광고의 본질적인 성과를 만들어냅니다.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 items-stretch">
             {coreValues.map((v, i) => (
               <div
                 key={v.title}
-                className="group relative"
+                className="group relative h-full"
                 style={{ animation: `fade-in-up 0.6s ease-out ${i * 0.1}s backwards` }}
               >
                 <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-accent-blue/20 blur-[2px]" />
 
-                <div className="relative bg-white p-6 sm:p-8 rounded-2xl border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-all duration-300 overflow-hidden min-h-60">
-                  {/* 큰 숫자 워터마크 — 우상단 (PDF 변경시안) */}
-                  <div className="absolute top-3 right-4 text-[3.5rem] sm:text-[4.5rem] font-black text-slate-100 leading-none select-none pointer-events-none">
+                <div className="relative h-full bg-white p-7 sm:p-8 lg:p-9 rounded-2xl border border-slate-100 shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+                  {/* 큰 숫자 워터마크 — 우상단 */}
+                  <div className="absolute top-4 right-5 text-[3.75rem] sm:text-[4.75rem] lg:text-[5.25rem] font-black text-slate-100 leading-none select-none pointer-events-none">
                     {String(i + 1).padStart(2, "0")}
                   </div>
 
-                  <div className="relative">
-                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 mb-5 sm:mb-6">
-                      <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-2xl bg-accent-blue/50 blur-[1px]" />
-                      <div className="relative w-full h-full rounded-2xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-lg">
-                        <v.Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+                  <div className="relative flex flex-col flex-1">
+                    {/* 아이콘 박스 — 키움 */}
+                    <div className="relative w-16 h-16 sm:w-[72px] sm:h-[72px] mb-5 sm:mb-6">
+                      <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/50 blur-[2px]" />
+                      <div className="relative w-full h-full rounded-2xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-lg shadow-accent-blue/30">
+                        <v.Icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                       </div>
                     </div>
-                    <h3 className="text-[17px] sm:text-lg font-extrabold text-deep-navy mb-2.5 sm:mb-3">{v.title}</h3>
-                    <p className="text-[13px] sm:text-[14px] text-slate-500 leading-relaxed">{v.desc}</p>
 
-                    {/* VALUE NN + 화살표 (PDF 변경시안) */}
-                    <div className="mt-5 sm:mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                      <span className="inline-flex items-center gap-1 text-[11px] sm:text-[12px] font-extrabold text-accent-blue">
+                    {/* 제목 — 키움 (lg → xl, 굵게) */}
+                    <h3 className="text-[19px] sm:text-xl lg:text-[1.375rem] font-extrabold text-deep-navy mb-3 sm:mb-4 leading-tight">
+                      {v.title}
+                    </h3>
+
+                    {/* 설명 — 키움 (14px → 15-16px) + 시인성 강화 (slate-500 → slate-600) */}
+                    <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed flex-1">
+                      {v.desc}
+                    </p>
+
+                    {/* VALUE NN + 화살표 — 하단 정렬 (mt-auto) */}
+                    <div className="mt-7 sm:mt-8 pt-4 sm:pt-5 border-t border-slate-100 flex items-center justify-between">
+                      <span className="inline-flex items-center gap-1 text-[13px] sm:text-[14px] font-extrabold text-accent-blue tracking-wider">
                         VALUE {String(i + 1).padStart(2, "0")}
                       </span>
-                      <svg className="w-4 h-4 text-accent-blue group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <svg className="w-5 h-5 text-accent-blue group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
                     </div>
