@@ -45,74 +45,195 @@ export default function ServicesPage() {
         <div className="absolute -top-20 right-10 w-96 h-96 bg-accent-blue/15 rounded-full blur-[100px]" />
         <div className="absolute bottom-0 left-10 w-80 h-80 bg-violet-500/10 rounded-full blur-[100px]" />
 
-        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
+            {/* LEFT — 타이틀 / 플랫폼 행 / 3 feature / CTA 바 */}
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 mb-5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
                 <span className="text-[11px] font-bold text-slate-300 tracking-wider uppercase">Services · 광고 상품</span>
               </div>
-              <h1 className="text-2xl sm:text-3xl lg:text-[2.75rem] font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">
-                업종과 목표에 따라<br />
+              <h1 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">
+                필요한 채널만 골라,<br />
                 <span className="relative inline-block">
-                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">필요한 광고 채널</span>
+                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">업종에 맞게 설계</span>
                   <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/25 z-0 rounded-sm" />
                 </span>
-                은 달라집니다
+                합니다
               </h1>
-              <p className="text-[13px] sm:text-base text-slate-300/90 max-w-xl leading-relaxed mb-6">
-                메타·네이버·카카오·구글·당근·문자까지<br className="sm:hidden" />
-                {" "}<span className="font-semibold text-white">목적에 맞게 조합</span>합니다.
+              <p className="text-[13px] sm:text-base text-slate-300/90 max-w-xl leading-relaxed mb-7">
+                플랫폼 기능 설명이 아니라,<br className="sm:hidden" />
+                {" "}<span className="font-semibold text-white">무엇을 맡길 수 있는지</span>를 명확히 보여드립니다.
               </p>
 
-              {/* Platform pills */}
-              <div className="flex items-center gap-2 sm:gap-2.5 flex-wrap">
+              {/* 6 플랫폼 아이콘 행 (라벨 동반) */}
+              <div className="grid grid-cols-6 gap-2 sm:gap-3 mb-7 max-w-md">
                 {[
-                  { name: "naver", color: "from-green-500 to-emerald-600" },
-                  { name: "kakaotalk", color: "from-yellow-400 to-amber-500" },
-                  { name: "meta", color: "from-blue-500 to-indigo-600" },
-                  { name: "youtube", color: "from-red-500 to-rose-600" },
-                  { name: "google", color: "from-sky-500 to-blue-500" },
-                  { name: "instagram", color: "from-pink-500 to-rose-500" },
-                  { name: "facebook", color: "from-blue-500 to-indigo-600" },
+                  { name: "naver", label: "네이버" },
+                  { name: "kakaotalk", label: "카카오" },
+                  { name: "meta", label: "메타" },
+                  { name: "youtube", label: "유튜브" },
+                  { name: "google", label: "구글" },
+                  { name: "instagram", label: "인스타" },
                 ].map((p) => (
-                  <div key={p.name} className="relative group">
-                    <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-lg bg-linear-to-br ${p.color} opacity-50 blur-[1px]`} />
-                    <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/10 transition-colors">
-                      <img src={`/images/logos/${p.name}.svg`} alt={p.name} className={`h-4 sm:h-5 w-auto ${p.name === "kakaotalk" ? "opacity-90 group-hover:opacity-100" : "brightness-0 invert opacity-70 group-hover:opacity-100"} transition-opacity`} />
+                  <div key={p.name} className="flex flex-col items-center gap-1.5">
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center">
+                      <img src={`/images/logos/${p.name}.svg`} alt={p.name} className={`h-4 sm:h-5 w-auto ${p.name === "kakaotalk" ? "" : "brightness-0 invert opacity-80"}`} />
                     </div>
+                    <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium">{p.label}</span>
                   </div>
                 ))}
               </div>
-            </div>
 
-            {/* Right: 6 hex isometric stack */}
-            <div className="hidden lg:flex lg:col-span-5 justify-center items-center">
-              <div className="relative w-72 h-72">
-                <div className="absolute inset-0 bg-accent-blue/20 rounded-full blur-3xl" />
-                {/* 6 floating hex cards */}
+              {/* 3 feature 카드 */}
+              <div className="grid grid-cols-3 gap-2.5 sm:gap-3 mb-5 max-w-2xl">
                 {[
-                  { name: "meta", color: "from-blue-500 to-indigo-600", pos: { top: "0%", left: "30%" } },
-                  { name: "naver", color: "from-green-500 to-emerald-600", pos: { top: "10%", right: "0%" } },
-                  { name: "kakaotalk", color: "from-yellow-400 to-amber-500", pos: { top: "45%", right: "5%" } },
-                  { name: "youtube", color: "from-red-500 to-rose-600", pos: { bottom: "10%", right: "20%" } },
-                  { name: "google", color: "from-sky-500 to-blue-500", pos: { bottom: "10%", left: "10%" } },
-                  { name: "instagram", color: "from-pink-500 to-rose-500", pos: { top: "30%", left: "0%" } },
-                ].map((p, i) => (
-                  <div
-                    key={p.name}
-                    className="absolute w-16 h-16 sm:w-20 sm:h-20"
-                    style={{ ...p.pos, animation: `float ${4 + (i % 3)}s ease-in-out infinite ${i * 0.4}s` }}
-                  >
-                    <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-2xl bg-linear-to-br ${p.color} opacity-50`} />
-                    <div className="relative w-full h-full rounded-2xl bg-white shadow-xl border border-white flex items-center justify-center">
-                      <img src={`/images/logos/${p.name}.svg`} alt={p.name} className="w-7 h-7 sm:w-9 sm:h-9 object-contain" />
+                  {
+                    title: "맞춤 채널 제안",
+                    desc: "업종·목표에 맞는 최적 채널 조합 제안",
+                    color: "from-accent-blue to-blue-600",
+                    icon: (
+                      <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                        <circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    title: "전략 설계",
+                    desc: "데이터 기반 타겟 설정과 광고 전략 수립",
+                    color: "from-sky-500 to-blue-600",
+                    icon: (
+                      <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    title: "통합 운영 · 분석",
+                    desc: "채널별 성과 분석으로 지속적인 개선",
+                    color: "from-blue-500 to-indigo-600",
+                    icon: (
+                      <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 015.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                      </svg>
+                    ),
+                  },
+                ].map((f) => (
+                  <div key={f.title} className="relative bg-white/[0.04] backdrop-blur-sm border border-white/10 rounded-xl p-3 sm:p-3.5">
+                    <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-lg mb-2 sm:mb-2.5">
+                      <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-lg bg-linear-to-br ${f.color} opacity-50 blur-[1px]`} aria-hidden="true" />
+                      <div className={`relative w-full h-full rounded-lg bg-linear-to-br ${f.color} flex items-center justify-center shadow-md`}>
+                        {f.icon}
+                      </div>
                     </div>
+                    <p className="text-[12px] sm:text-[13px] font-extrabold text-white mb-0.5 leading-tight">{f.title}</p>
+                    <p className="text-[10px] sm:text-[11px] text-slate-400 leading-snug">{f.desc}</p>
                   </div>
                 ))}
-                {/* Center mark */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-linear-to-br from-white/15 to-white/5 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-2xl">
-                  <LogoMark variant="white" className="w-12 sm:w-14" />
+              </div>
+
+              {/* 블루 CTA 바 */}
+              <div className="relative max-w-2xl">
+                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/30 blur-[3px]" aria-hidden="true" />
+                <div className="relative bg-linear-to-r from-accent-blue/25 via-accent-blue/15 to-blue-600/10 backdrop-blur-sm border border-accent-blue/30 rounded-2xl px-4 sm:px-5 py-3 sm:py-3.5 flex items-center gap-3 sm:gap-4">
+                  <div className="relative shrink-0 w-9 h-9 sm:w-10 sm:h-10">
+                    <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue opacity-50 blur-[2px]" aria-hidden="true" />
+                    <div className="relative w-full h-full rounded-xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-lg shadow-accent-blue/30">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[12px] sm:text-sm font-extrabold text-white leading-tight">채널은 도구일 뿐, 결과가 중요합니다.</p>
+                    <p className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">여울디앤씨는 성과로 증명합니다.</p>
+                  </div>
+                  <Link
+                    href="/contact"
+                    className="shrink-0 inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 sm:py-2.5 bg-white text-deep-navy text-[11px] sm:text-[12px] font-extrabold rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                  >
+                    상담 문의하기
+                    <IconArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT — 6각 궤도 다이어그램 (중앙 로고 + 6 플랫폼 카드 + 점선 연결) */}
+            <div className="hidden lg:flex lg:col-span-5 justify-center items-center mt-12 lg:mt-0">
+              <div className="relative w-full aspect-square max-w-[460px]">
+                {/* 중앙 글로우 */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 bg-accent-blue/25 rounded-full blur-3xl" aria-hidden="true" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-accent-blue/30 rounded-full blur-2xl" aria-hidden="true" />
+
+                {/* 점선 연결 SVG — 중앙에서 6개 카드 위치로 */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <radialGradient id="lineGrad" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.55" />
+                      <stop offset="100%" stopColor="#60a5fa" stopOpacity="0.15" />
+                    </radialGradient>
+                  </defs>
+                  {[0, 60, 120, 180, 240, 300].map((deg) => {
+                    const rad = ((deg - 90) * Math.PI) / 180;
+                    const r = 38; // 카드까지의 반경(% — viewBox 단위)
+                    const x = 50 + r * Math.cos(rad);
+                    const y = 50 + r * Math.sin(rad);
+                    const midX = 50 + (r * 0.55) * Math.cos(rad);
+                    const midY = 50 + (r * 0.55) * Math.sin(rad);
+                    return (
+                      <g key={deg}>
+                        <line x1="50" y1="50" x2={x} y2={y} stroke="url(#lineGrad)" strokeWidth="0.4" strokeDasharray="0.8 1.4" />
+                        <circle cx={midX} cy={midY} r="0.6" fill="#60a5fa" opacity="0.7" />
+                      </g>
+                    );
+                  })}
+                </svg>
+
+                {/* 6개 카드 — 6각형 배치 */}
+                {[
+                  { name: "meta", label: "메타 광고", color: "from-blue-500 to-indigo-600" },
+                  { name: "naver", label: "네이버 광고", color: "from-green-500 to-emerald-600" },
+                  { name: "kakaotalk", label: "카카오 광고", color: "from-yellow-400 to-amber-500" },
+                  { name: "youtube", label: "유튜브 광고", color: "from-red-500 to-rose-600" },
+                  { name: "google", label: "구글 광고", color: "from-sky-500 to-blue-500" },
+                  { name: "instagram", label: "인스타그램 광고", color: "from-pink-500 via-rose-500 to-orange-500" },
+                ].map((item, i) => {
+                  const deg = i * 60 - 90; // 첫 카드 = 정상단
+                  const rad = (deg * Math.PI) / 180;
+                  const r = 38; // 반경(%)
+                  const x = 50 + r * Math.cos(rad);
+                  const y = 50 + r * Math.sin(rad);
+                  return (
+                    <div
+                      key={item.name}
+                      className="absolute -translate-x-1/2 -translate-y-1/2 z-10"
+                      style={{ top: `${y}%`, left: `${x}%`, animation: `float ${5 + (i % 3)}s ease-in-out infinite ${i * 0.4}s` }}
+                    >
+                      <div className="relative">
+                        <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-xl bg-black/40 blur-md" aria-hidden="true" />
+                        <div className="relative flex items-center gap-2 bg-linear-to-br from-white/[0.12] to-white/[0.05] backdrop-blur-md border border-white/20 rounded-xl pl-1.5 pr-3 py-1.5 shadow-xl">
+                          <div className={`shrink-0 relative w-8 h-8 rounded-lg bg-linear-to-br ${item.color} flex items-center justify-center shadow-md`}>
+                            <img src={`/images/logos/${item.name}.svg`} alt="" className={`w-4 h-4 ${item.name === "kakaotalk" || item.name === "google" ? "" : "brightness-0 invert"}`} />
+                          </div>
+                          <span className="text-[11px] font-extrabold text-white whitespace-nowrap">{item.label}</span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+
+                {/* 중앙 로고 — 글로우 강한 원형 배지 */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-full bg-accent-blue/40 blur-2xl animate-pulse-soft" aria-hidden="true" />
+                    <div
+                      className="relative w-24 h-24 rounded-full bg-linear-to-br from-accent-blue to-blue-700 flex items-center justify-center border-2 border-white/25"
+                      style={{ boxShadow: "inset 0 2px 0 rgba(255,255,255,0.25), 0 8px 32px rgba(37,99,235,0.5), 0 0 60px rgba(96,165,250,0.3)" }}
+                    >
+                      <LogoMark variant="white" className="w-12" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
