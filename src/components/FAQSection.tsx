@@ -76,9 +76,9 @@ export default function FAQSection() {
         {/* Header */}
         <div className="text-center mb-14 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-blue-100 rounded-full shadow-sm mb-5">
-            <span className="text-[10px] font-extrabold tracking-[0.2em] text-accent-blue">FAQ</span>
+            <span className="text-[11px] font-extrabold tracking-[0.2em] text-accent-blue">FAQ</span>
             <span className="w-1 h-1 rounded-full bg-accent-blue/40" />
-            <span className="text-[10px] font-semibold text-slate-500">자주 묻는 질문</span>
+            <span className="text-[11px] font-semibold text-slate-500">자주 묻는 질문</span>
           </div>
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
             문의 전에 많이 물어보신{" "}
@@ -126,7 +126,7 @@ export default function FAQSection() {
                     style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6)" }}
                   >
                     <span className="w-1 h-1 rounded-full bg-accent-blue shadow-[0_0_4px_rgba(37,99,235,0.6)]" />
-                    <span className="text-[10px] font-bold text-accent-blue tracking-wider">{f.tag}</span>
+                    <span className="text-[11px] font-bold text-accent-blue tracking-wider">{f.tag}</span>
                   </div>
 
                   {/* Q row - 3D icon */}
@@ -140,7 +140,7 @@ export default function FAQSection() {
                         <span className="text-white font-black text-sm drop-shadow-sm">Q</span>
                       </div>
                     </div>
-                    <p className="flex-1 text-[14px] sm:text-[15px] font-extrabold text-deep-navy leading-snug pt-1.5">
+                    <p className="flex-1 text-[15px] sm:text-[16px] font-extrabold text-deep-navy leading-snug pt-1.5">
                       {f.q}
                     </p>
                   </div>
@@ -163,7 +163,7 @@ export default function FAQSection() {
                         <span className="text-accent-blue font-black text-sm">A</span>
                       </div>
                     </div>
-                    <p className="flex-1 text-[12px] sm:text-[13px] text-slate-600 leading-relaxed pt-2.5">
+                    <p className="flex-1 text-[13px] sm:text-[14px] text-slate-600 leading-relaxed pt-2.5">
                       {f.a}
                     </p>
                   </div>
@@ -175,7 +175,7 @@ export default function FAQSection() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-14 sm:mt-16">
-          <p className="text-[13px] text-slate-500 mb-4">원하는 답변을 못 찾으셨나요?</p>
+          <p className="text-[14px] text-slate-500 mb-4">원하는 답변을 못 찾으셨나요?</p>
           <Link
             href="/contact"
             className="group relative inline-flex items-center gap-2 px-7 py-3.5 bg-linear-to-r from-accent-blue to-blue-600 text-white text-sm font-bold rounded-xl shadow-lg shadow-accent-blue/25 hover:shadow-xl hover:shadow-accent-blue/40 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"

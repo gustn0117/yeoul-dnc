@@ -121,7 +121,7 @@ function ChannelSelect({ value, onChange }: { value: string; onChange: (v: strin
       {open && (
         <div className="absolute left-0 right-0 top-full mt-2 bg-white border border-slate-100 rounded-2xl shadow-xl shadow-deep-navy/8 z-30 overflow-hidden animate-fade-in-up">
           <div className="max-h-80 overflow-y-auto py-1.5">
-            <p className="px-4 pt-2 pb-1.5 text-[10px] font-bold text-slate-400 uppercase tracking-widest">광고 채널</p>
+            <p className="px-4 pt-2 pb-1.5 text-[11px] font-bold text-slate-400 uppercase tracking-widest">광고 채널</p>
             <ul role="listbox" className="grid grid-cols-2 gap-1 px-1.5 pb-1.5">
               {channelOptions.map((opt, i) => {
                 const isSelected = opt.value === value;
@@ -144,7 +144,7 @@ function ChannelSelect({ value, onChange }: { value: string; onChange: (v: strin
                       <span className={`w-8 h-8 rounded-lg ${t.bg} flex items-center justify-center shrink-0`}>
                         <ChannelIcon item={opt} className="w-4 h-4" />
                       </span>
-                      <span className={`text-[12px] font-semibold text-left truncate ${isSelected ? t.text : "text-slate-700"}`}>
+                      <span className={`text-[13px] font-semibold text-left truncate ${isSelected ? t.text : "text-slate-700"}`}>
                         {opt.value}
                       </span>
                       {isSelected && (
@@ -201,7 +201,7 @@ function BudgetSelect({ value, onChange }: { value: string; onChange: (v: string
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l4-4 4 4M8 15l4 4 4-4" />
               </svg>
             )}
-            <span className={`text-[12.5px] font-bold ${isSelected ? "text-accent-blue" : "text-deep-navy"}`}>
+            <span className={`text-[13.5px] font-bold ${isSelected ? "text-accent-blue" : "text-deep-navy"}`}>
               {opt.value}
             </span>
             {isSelected && (
@@ -238,10 +238,10 @@ function WebsiteSelect({ value, onChange }: { value: string; onChange: (v: strin
                 : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/50"
             }`}
           >
-            <span className={`text-[13px] font-bold ${isSelected ? "text-accent-blue" : "text-deep-navy"}`}>
+            <span className={`text-[14px] font-bold ${isSelected ? "text-accent-blue" : "text-deep-navy"}`}>
               {o.v}
             </span>
-            <span className="text-[10px] text-slate-400">{o.sub}</span>
+            <span className="text-[11px] text-slate-400">{o.sub}</span>
             {isSelected && (
               <span className="absolute top-2 right-2 w-4 h-4 rounded-full bg-accent-blue flex items-center justify-center">
                 <IconCheck className="w-2.5 h-2.5 text-white" />
@@ -313,7 +313,7 @@ export default function ContactPage() {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 mb-5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
-                <span className="text-[11px] font-bold text-slate-300 tracking-wider uppercase">CONTACT · 무료 상담</span>
+                <span className="text-[12px] font-bold text-slate-300 tracking-wider uppercase">CONTACT · 무료 상담</span>
               </div>
               <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-3 sm:mb-4 tracking-tight">
                 <span className="relative inline-block">
@@ -322,7 +322,7 @@ export default function ContactPage() {
                 </span>
               </h1>
               <p className="text-base sm:text-lg text-white/90 font-semibold">광고가 처음이셔도 괜찮습니다</p>
-              <p className="text-[13px] sm:text-sm text-slate-400 mt-2 leading-relaxed mb-6">
+              <p className="text-[14px] sm:text-sm text-slate-400 mt-2 leading-relaxed mb-6">
                 업종, 예산, 현재 고민을 남겨주시면<br className="sm:hidden" />
                 {" "}맞는 방향부터 정리해드립니다
               </p>
@@ -361,7 +361,7 @@ export default function ContactPage() {
                     <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-full bg-accent-blue/20" />
                     <div className="relative inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full">
                       {b.icon}
-                      <span className="text-[11px] font-bold text-slate-200">{b.label}</span>
+                      <span className="text-[12px] font-bold text-slate-200">{b.label}</span>
                     </div>
                   </div>
                 ))}
@@ -374,10 +374,10 @@ export default function ContactPage() {
                 <div className="absolute inset-0 translate-x-2 translate-y-3 rounded-2xl bg-accent-blue/30 blur-[3px]" />
                 <div className="relative bg-linear-to-br from-white/10 to-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-2xl">
                   <div className="flex items-center justify-between mb-4">
-                    <p className="text-[10px] font-extrabold text-accent-blue tracking-[0.2em] uppercase">QUICK CONTACT</p>
+                    <p className="text-[11px] font-extrabold text-accent-blue tracking-[0.2em] uppercase">QUICK CONTACT</p>
                     <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30">
                       <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse-soft" />
-                      <span className="text-[9px] font-bold text-emerald-400">LIVE</span>
+                      <span className="text-[10px] font-bold text-emerald-400">LIVE</span>
                     </div>
                   </div>
 
@@ -422,7 +422,7 @@ export default function ContactPage() {
                           </div>
                         </div>
                         <div>
-                          <p className="text-[10px] text-slate-400">{c.label}</p>
+                          <p className="text-[11px] text-slate-400">{c.label}</p>
                           <p className="text-sm font-extrabold text-white">{c.value}</p>
                         </div>
                       </div>
@@ -438,7 +438,7 @@ export default function ContactPage() {
                     ].map((s, i) => (
                       <div key={i}>
                         <p className="text-base font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent">{s.v}</p>
-                        <p className="text-[9px] text-slate-500">{s.l}</p>
+                        <p className="text-[10px] text-slate-500">{s.l}</p>
                       </div>
                     ))}
                   </div>
@@ -460,7 +460,7 @@ export default function ContactPage() {
               <h2 className="text-xl sm:text-2xl font-extrabold text-deep-navy mb-2.5 sm:mb-3">
                 문의가 접수되었습니다
               </h2>
-              <p className="text-slate-500 text-[13px] sm:text-sm mb-6 sm:mb-8 leading-relaxed">
+              <p className="text-slate-500 text-[14px] sm:text-sm mb-6 sm:mb-8 leading-relaxed">
                 빠른 시일 내에<br className="sm:hidden" />
                 {" "}담당자가 연락드리겠습니다.
               </p>
@@ -481,7 +481,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h2 className="text-base font-extrabold text-deep-navy">기본 정보</h2>
-                    <p className="text-[11px] text-slate-500 mt-0.5">문의 내용을 빠르게 확인하고 답변드리기 위한 정보입니다.</p>
+                    <p className="text-[12px] text-slate-500 mt-0.5">문의 내용을 빠르게 확인하고 답변드리기 위한 정보입니다.</p>
                     <p className="text-xs text-cta-orange mt-1">* 표시 항목은 필수입니다.</p>
                   </div>
                 </div>
@@ -521,7 +521,7 @@ export default function ContactPage() {
                   <label className="block text-xs font-semibold text-slate-600 mb-1.5">문의내용 *</label>
                   <div className="relative">
                     <textarea required rows={4} maxLength={500} value={form.message} onChange={(e) => updateField("message", e.target.value)} className={`${inputClass} resize-none`} placeholder="현재 상황, 고민, 원하시는 방향 등을 자유롭게 적어주세요." />
-                    <span className="absolute bottom-2 right-3 text-[10px] text-slate-400 font-medium pointer-events-none">{form.message.length} / 500</span>
+                    <span className="absolute bottom-2 right-3 text-[11px] text-slate-400 font-medium pointer-events-none">{form.message.length} / 500</span>
                   </div>
                 </div>
               </div>
@@ -536,7 +536,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h2 className="text-base font-extrabold text-deep-navy">추가 정보</h2>
-                    <p className="text-[11px] text-slate-500 mt-0.5">선택 항목을 작성해주시면 보다 정확한 상담이 가능합니다.</p>
+                    <p className="text-[12px] text-slate-500 mt-0.5">선택 항목을 작성해주시면 보다 정확한 상담이 가능합니다.</p>
                   </div>
                 </div>
                 <div className="space-y-5 sm:space-y-6">
@@ -544,7 +544,7 @@ export default function ContactPage() {
                     <label className="flex items-center justify-between text-xs font-semibold text-slate-600 mb-2">
                       <span>희망 광고 채널</span>
                       {form.channel && (
-                        <button type="button" onClick={() => updateField("channel", "")} className="text-[11px] text-slate-400 hover:text-slate-600 font-medium">
+                        <button type="button" onClick={() => updateField("channel", "")} className="text-[12px] text-slate-400 hover:text-slate-600 font-medium">
                           초기화
                         </button>
                       )}
@@ -555,7 +555,7 @@ export default function ContactPage() {
                     <label className="flex items-center justify-between text-xs font-semibold text-slate-600 mb-2">
                       <span>월 광고 예산</span>
                       {form.budget && (
-                        <button type="button" onClick={() => updateField("budget", "")} className="text-[11px] text-slate-400 hover:text-slate-600 font-medium">
+                        <button type="button" onClick={() => updateField("budget", "")} className="text-[12px] text-slate-400 hover:text-slate-600 font-medium">
                           초기화
                         </button>
                       )}
@@ -573,11 +573,11 @@ export default function ContactPage() {
               <div className="pt-5 sm:pt-6 border-t border-slate-100 mb-5 sm:mb-6 flex items-center justify-between gap-3 flex-wrap">
                 <label className="flex items-start gap-3 cursor-pointer flex-1 min-w-0">
                   <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} className="mt-0.5 accent-accent-blue w-4 h-4 shrink-0" />
-                  <span className="text-[11px] sm:text-xs text-slate-500 leading-relaxed">
+                  <span className="text-[12px] sm:text-xs text-slate-500 leading-relaxed">
                     개인정보 수집 및 이용에 동의합니다. 수집된 정보는 상담 목적으로만 사용되며, 상담 완료 후 즉시 파기됩니다.
                   </span>
                 </label>
-                <a href="#" className="text-[11px] sm:text-xs text-slate-500 hover:text-accent-blue font-medium whitespace-nowrap inline-flex items-center gap-1">
+                <a href="#" className="text-[12px] sm:text-xs text-slate-500 hover:text-accent-blue font-medium whitespace-nowrap inline-flex items-center gap-1">
                   자세히 보기
                   <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -640,7 +640,7 @@ export default function ContactPage() {
 
                   {item.special && (
                     <div className="absolute top-2 right-2">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-linear-to-br from-amber-400 to-amber-500 text-white text-[9px] font-extrabold shadow-md">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-linear-to-br from-amber-400 to-amber-500 text-white text-[10px] font-extrabold shadow-md">
                         <span className="w-1 h-1 rounded-full bg-white animate-pulse-soft" />
                         {item.hint}
                       </span>
@@ -654,10 +654,10 @@ export default function ContactPage() {
                         {item.icon}
                       </div>
                     </div>
-                    <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy">{item.title}</p>
-                    <p className="text-[11px] sm:text-xs text-slate-500 mt-1">{item.sub}</p>
+                    <p className="text-[14px] sm:text-sm font-extrabold text-deep-navy">{item.title}</p>
+                    <p className="text-[12px] sm:text-xs text-slate-500 mt-1">{item.sub}</p>
                     {!item.special && (
-                      <p className="text-[10px] text-slate-400 mt-1.5 font-medium">{item.hint}</p>
+                      <p className="text-[11px] text-slate-400 mt-1.5 font-medium">{item.hint}</p>
                     )}
                   </div>
                 </div>

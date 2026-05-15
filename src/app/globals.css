@@ -18,9 +18,25 @@ body {
   font-family: "Pretendard", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* 0515 피드백: 전역 폰트 8~10% 키움.
+     Tailwind의 text-xs/sm/base 등 rem 기반 클래스는 html font-size 확대로 비례 증가.
+     text-[Npx] 같은 픽셀 고정값은 별도 sed로 +1px 일괄 치환. */
 }
 
+/* 데스크탑: 16 → 17.5px (+9.4%), 모바일: 16px 유지(최소 16px 보장) */
+html { font-size: 16px; }
+@media (min-width: 640px) { html { font-size: 17.5px; } }
+
 ::selection { background: rgba(37, 99, 235, 0.12); color: #0f1d32; }
+
+/* 0515 피드백: 텍스트 밑줄/강조 색상을 검정 → 액센트 블루로
+   페이지 본문 내 강조용 <u>, <strong>, .text-accent-underline 클래스에 적용 */
+u { text-decoration-color: #2563eb; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.text-accent-underline {
+  background-image: linear-gradient(to top, rgba(37,99,235,0.18) 0%, rgba(37,99,235,0.18) 35%, transparent 35%);
+  color: #2563eb;
+  font-weight: 800;
+}
 
 /* ── Subtle film grain (premium tactile feel) ── */
 body::before {

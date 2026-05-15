@@ -74,12 +74,12 @@ export default function ProcessPage() {
                 </span>
                 까지 한 번에
               </h1>
-              <p className="text-[13px] sm:text-base text-slate-300/90 max-w-md leading-relaxed">
+              <p className="text-[14px] sm:text-base text-slate-300/90 max-w-md leading-relaxed">
                 고객 상황을 먼저 확인한 뒤<br className="sm:hidden" />
                 {" "}<span className="font-semibold text-white">필요한 채널과 실행 방법</span>을 제안합니다.
               </p>
               <div className="my-4 w-12 h-0.5 bg-accent-blue/50" />
-              <p className="text-[13px] sm:text-sm text-slate-400/80 max-w-md leading-relaxed">
+              <p className="text-[14px] sm:text-sm text-slate-400/80 max-w-md leading-relaxed">
                 각 단계는 짧고 확실하며,<br className="sm:hidden" />
                 {" "}처음이셔도 바로 이해할 수 있습니다.
               </p>
@@ -136,7 +136,7 @@ export default function ProcessPage() {
                   <div key={i} className="relative flex flex-col h-full">
                     {/* Step label pill */}
                     <div className="flex justify-center mb-2">
-                      <div className={`px-3 py-1 rounded-full text-[10px] font-bold text-white bg-linear-to-r ${s.color} shadow-sm`}>
+                      <div className={`px-3 py-1 rounded-full text-[11px] font-bold text-white bg-linear-to-r ${s.color} shadow-sm`}>
                         STEP {s.step}
                       </div>
                     </div>
@@ -163,8 +163,8 @@ export default function ProcessPage() {
                         </div>
                       </div>
                       <div className="flex-1 flex flex-col bg-white p-3">
-                        <p className="text-[12px] font-extrabold text-deep-navy mb-0.5">{s.title}</p>
-                        <p className="text-[10px] text-slate-400 leading-tight">{s.main}</p>
+                        <p className="text-[13px] font-extrabold text-deep-navy mb-0.5">{s.title}</p>
+                        <p className="text-[11px] text-slate-400 leading-tight">{s.main}</p>
                       </div>
                     </div>
                   </div>
@@ -183,10 +183,10 @@ export default function ProcessPage() {
                   <div className="bg-white rounded-2xl overflow-hidden shadow-md shadow-blue-900/5 border border-slate-100">
                     <div className="p-4">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className={`inline-flex px-2 py-0.5 rounded-full bg-linear-to-r ${s.color} text-white text-[9px] font-bold`}>STEP {s.step}</span>
+                        <span className={`inline-flex px-2 py-0.5 rounded-full bg-linear-to-r ${s.color} text-white text-[10px] font-bold`}>STEP {s.step}</span>
                       </div>
                       <p className="text-sm font-extrabold text-deep-navy mb-0.5">{s.title}</p>
-                      <p className="text-[11px] text-slate-500 leading-relaxed">{s.main}</p>
+                      <p className="text-[12px] text-slate-500 leading-relaxed">{s.main}</p>
                     </div>
                   </div>
                 </div>
@@ -247,18 +247,18 @@ export default function ProcessPage() {
                               </div>
                             </div>
                             <div>
-                              <span className={`text-[11px] font-extrabold bg-linear-to-br ${s.color} bg-clip-text text-transparent tracking-widest uppercase`}>STEP {s.step}</span>
+                              <span className={`text-[12px] font-extrabold bg-linear-to-br ${s.color} bg-clip-text text-transparent tracking-widest uppercase`}>STEP {s.step}</span>
                             </div>
                           </div>
                           <span className={`hidden lg:inline-flex text-xs font-extrabold bg-linear-to-br ${s.color} bg-clip-text text-transparent tracking-widest uppercase mb-2`}>STEP {s.step}</span>
                           <h3 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-deep-navy mb-2 leading-tight">{s.title}</h3>
-                          <p className="text-[13px] sm:text-sm text-deep-navy font-semibold mb-2 leading-relaxed">{s.main}</p>
-                          <p className="text-[11px] sm:text-xs text-slate-500 mb-4 sm:mb-5 leading-relaxed">{s.detail}</p>
+                          <p className="text-[14px] sm:text-sm text-deep-navy font-semibold mb-2 leading-relaxed">{s.main}</p>
+                          <p className="text-[12px] sm:text-xs text-slate-500 mb-4 sm:mb-5 leading-relaxed">{s.detail}</p>
                           <div className="flex flex-wrap gap-1.5 sm:gap-2">
                             {s.tags.map((tag) => (
                               <span
                                 key={tag}
-                                className={`px-2.5 sm:px-3 py-1 bg-linear-to-br ${s.color.replace("500", "50").replace("600", "100").replace("400", "50")} text-[10px] sm:text-[11px] rounded-full border border-slate-100 font-bold`}
+                                className={`px-2.5 sm:px-3 py-1 bg-linear-to-br ${s.color.replace("500", "50").replace("600", "100").replace("400", "50")} text-[11px] sm:text-[12px] rounded-full border border-slate-100 font-bold`}
                               >
                                 <span className={`bg-linear-to-br ${s.color} bg-clip-text text-transparent`}>{tag}</span>
                               </span>
@@ -318,7 +318,7 @@ export default function ProcessPage() {
                 </span>
                 으로 운영합니다
               </h2>
-              <p className="text-[13px] sm:text-sm text-slate-400 mb-6 max-w-md leading-relaxed">
+              <p className="text-[14px] sm:text-sm text-slate-400 mb-6 max-w-md leading-relaxed">
                 전략부터 운영, 데이터 분석까지 전 과정을 유기적으로 연결하여<br className="hidden sm:inline" />
                 {" "}지속 가능한 성과를 만듭니다.
               </p>
@@ -358,10 +358,10 @@ export default function ProcessPage() {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="text-base font-black text-accent-blue leading-none">{item.num}</span>
-                          <span className="text-[9px] sm:text-[10px] font-extrabold text-accent-blue tracking-widest">{item.tag}</span>
+                          <span className="text-[10px] sm:text-[11px] font-extrabold text-accent-blue tracking-widest">{item.tag}</span>
                         </div>
-                        <p className="text-[13px] sm:text-sm text-white font-bold leading-snug mb-1">{item.title}</p>
-                        <p className="text-[11px] sm:text-xs text-slate-400 leading-relaxed">{item.desc}</p>
+                        <p className="text-[14px] sm:text-sm text-white font-bold leading-snug mb-1">{item.title}</p>
+                        <p className="text-[12px] sm:text-xs text-slate-400 leading-relaxed">{item.desc}</p>
                       </div>
                     </div>
                   </div>
@@ -379,8 +379,8 @@ export default function ProcessPage() {
                 {/* Center mark */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full glass-3d-dark flex items-center justify-center shadow-3d-lg">
                   <div className="text-center">
-                    <p className="text-[9px] font-extrabold text-accent-blue tracking-[0.3em] mb-1">PERFORMANCE</p>
-                    <p className="text-[14px] font-extrabold text-white leading-tight">성과 중심<br />마케팅 플로우</p>
+                    <p className="text-[10px] font-extrabold text-accent-blue tracking-[0.3em] mb-1">PERFORMANCE</p>
+                    <p className="text-[15px] font-extrabold text-white leading-tight">성과 중심<br />마케팅 플로우</p>
                   </div>
                 </div>
                 {/* Orbital nodes */}
@@ -399,8 +399,8 @@ export default function ProcessPage() {
                       </div>
                     </div>
                     <div className="bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 px-2 py-1 whitespace-nowrap">
-                      <p className="text-[9px] font-extrabold text-accent-blue leading-none">{n.num}</p>
-                      <p className="text-[10px] text-white font-bold leading-tight">{n.label}</p>
+                      <p className="text-[10px] font-extrabold text-accent-blue leading-none">{n.num}</p>
+                      <p className="text-[11px] text-white font-bold leading-tight">{n.label}</p>
                     </div>
                   </div>
                 ))}
@@ -414,9 +414,9 @@ export default function ProcessPage() {
                   { title: "데이터 기반 분석", desc: "정확한 데이터 분석으로 더 나은 성과를 만듭니다." },
                 ].map((c) => (
                   <div key={c.title} className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-3 text-center">
-                    <p className="text-[11px] font-extrabold text-white leading-tight mb-1">{c.title}</p>
+                    <p className="text-[12px] font-extrabold text-white leading-tight mb-1">{c.title}</p>
                     <div className="w-6 h-0.5 bg-accent-blue/50 mx-auto mb-1.5" />
-                    <p className="text-[9px] text-slate-400 leading-snug">{c.desc}</p>
+                    <p className="text-[10px] text-slate-400 leading-snug">{c.desc}</p>
                   </div>
                 ))}
               </div>

@@ -115,7 +115,7 @@ export default function CasesPage() {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
-                <span className="text-[11px] font-bold text-slate-300 tracking-wider uppercase">Portfolio · 실적</span>
+                <span className="text-[12px] font-bold text-slate-300 tracking-wider uppercase">Portfolio · 실적</span>
               </div>
               <h1 className="text-2xl sm:text-3xl lg:text-[2.75rem] font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">
                 성과는 광고비보다<br />
@@ -125,7 +125,7 @@ export default function CasesPage() {
                 </span>
                 집니다
               </h1>
-              <p className="text-[13px] sm:text-base text-slate-300/90 max-w-md leading-relaxed mb-6">
+              <p className="text-[14px] sm:text-base text-slate-300/90 max-w-md leading-relaxed mb-6">
                 업종별 고민에 맞춰<br className="sm:hidden" />
                 {" "}<span className="font-semibold text-white">채널 조합과 운영 흐름을 설계</span>합니다.
               </p>
@@ -141,8 +141,8 @@ export default function CasesPage() {
                     <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
                     <div className="relative bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-3">
                       <p className="text-base sm:text-lg font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent leading-none">{s.value}</p>
-                      <p className="text-[10px] sm:text-[11px] text-white font-bold mt-1">{s.label}</p>
-                      <p className="text-[9px] text-slate-400 mt-0.5">{s.sub}</p>
+                      <p className="text-[11px] sm:text-[12px] text-white font-bold mt-1">{s.label}</p>
+                      <p className="text-[10px] text-slate-400 mt-0.5">{s.sub}</p>
                     </div>
                   </div>
                 ))}
@@ -189,8 +189,8 @@ export default function CasesPage() {
                     {f.icon}
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[12px] sm:text-[13px] font-extrabold text-white mb-0.5 leading-tight">{f.title}</p>
-                    <p className="text-[10px] text-slate-400 leading-snug">{f.desc}</p>
+                    <p className="text-[13px] sm:text-[14px] font-extrabold text-white mb-0.5 leading-tight">{f.title}</p>
+                    <p className="text-[11px] text-slate-400 leading-snug">{f.desc}</p>
                   </div>
                 </div>
               </div>
@@ -212,7 +212,7 @@ export default function CasesPage() {
               </span>
               합니다
             </h2>
-            <p className="text-[12px] sm:text-sm text-slate-500 leading-relaxed">
+            <p className="text-[13px] sm:text-sm text-slate-500 leading-relaxed">
               업종별 특성에 맞는 최적의 채널 조합과 운영 전략을 제공합니다.
             </p>
           </div>
@@ -232,7 +232,7 @@ export default function CasesPage() {
                   <div className="w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-xl bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center mb-2.5 sm:mb-3">
                     {it.icon}
                   </div>
-                  <p className="text-[12px] sm:text-sm font-extrabold text-deep-navy">{it.name}</p>
+                  <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy">{it.name}</p>
                   <div className="w-6 h-0.5 bg-accent-blue/40 mx-auto mt-2" />
                 </div>
               </div>
@@ -253,7 +253,7 @@ export default function CasesPage() {
                   <div className="w-11 h-11 sm:w-12 sm:h-12 mx-auto rounded-xl bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center mb-2.5 sm:mb-3">
                     {it.icon}
                   </div>
-                  <p className="text-[12px] sm:text-sm font-extrabold text-deep-navy">{it.name}</p>
+                  <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy">{it.name}</p>
                   <div className="w-6 h-0.5 bg-accent-blue/40 mx-auto mt-2" />
                 </div>
               </div>
@@ -304,7 +304,7 @@ export default function CasesPage() {
                     <div className="flex items-center gap-2 mb-4 flex-wrap">
                       <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20">
                         <span className="w-1 h-1 rounded-full bg-accent-blue" />
-                        <span className="text-[10px] font-extrabold text-accent-blue tracking-wider uppercase">{op.industry}</span>
+                        <span className="text-[11px] font-extrabold text-accent-blue tracking-wider uppercase">{op.industry}</span>
                       </span>
                       <div className="flex items-center gap-1.5 bg-slate-50 rounded-full px-2 py-1 border border-slate-100">
                         {op.logos.map((logo) => (
@@ -314,7 +314,7 @@ export default function CasesPage() {
                     </div>
 
                     <h3 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-deep-navy mb-2 sm:mb-3 leading-tight">{op.title}</h3>
-                    <p className="text-[13px] sm:text-sm text-slate-500 mb-5 sm:mb-6 leading-relaxed">{op.desc}</p>
+                    <p className="text-[14px] sm:text-sm text-slate-500 mb-5 sm:mb-6 leading-relaxed">{op.desc}</p>
 
                     {/* KPI badges */}
                     <div className="mt-auto grid grid-cols-2 gap-3">
@@ -323,9 +323,9 @@ export default function CasesPage() {
                         <div className="relative bg-white rounded-xl p-3 border border-slate-100 shadow-sm">
                           <div className="flex items-center gap-1.5 mb-1">
                             <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
-                            <p className="text-[10px] text-slate-400 font-bold tracking-wider uppercase">핵심</p>
+                            <p className="text-[11px] text-slate-400 font-bold tracking-wider uppercase">핵심</p>
                           </div>
-                          <p className="text-[11px] sm:text-xs text-deep-navy font-extrabold leading-tight">{op.point}</p>
+                          <p className="text-[12px] sm:text-xs text-deep-navy font-extrabold leading-tight">{op.point}</p>
                         </div>
                       </div>
                       <div className="relative">
@@ -333,9 +333,9 @@ export default function CasesPage() {
                         <div className="relative bg-white rounded-xl p-3 border border-slate-100 shadow-sm">
                           <div className="flex items-center gap-1.5 mb-1">
                             <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
-                            <p className="text-[10px] text-slate-400 font-bold tracking-wider uppercase">목표</p>
+                            <p className="text-[11px] text-slate-400 font-bold tracking-wider uppercase">목표</p>
                           </div>
-                          <p className="text-[11px] sm:text-xs text-deep-navy font-extrabold leading-tight">{op.target}</p>
+                          <p className="text-[12px] sm:text-xs text-deep-navy font-extrabold leading-tight">{op.target}</p>
                         </div>
                       </div>
                     </div>
@@ -396,14 +396,14 @@ export default function CasesPage() {
 
                   <div className="p-4 sm:p-5 flex-1 flex flex-col">
                     <p className="text-sm sm:text-base font-extrabold text-deep-navy leading-tight">{w.title}</p>
-                    <p className="text-[11px] sm:text-xs text-slate-500 mt-1.5 sm:mt-2 leading-relaxed flex-1">{w.desc}</p>
+                    <p className="text-[12px] sm:text-xs text-slate-500 mt-1.5 sm:mt-2 leading-relaxed flex-1">{w.desc}</p>
 
                     <div className="mt-3 pt-3 border-t border-slate-100">
-                      <p className="text-[9px] text-slate-400 font-bold tracking-widest uppercase mb-1">핵심 포인트</p>
-                      <p className="text-[11px] sm:text-xs text-accent-blue font-bold">{w.point}</p>
+                      <p className="text-[10px] text-slate-400 font-bold tracking-widest uppercase mb-1">핵심 포인트</p>
+                      <p className="text-[12px] sm:text-xs text-accent-blue font-bold">{w.point}</p>
                     </div>
                     <div className="mt-3 flex items-center justify-between">
-                      <span className="text-[9px] font-extrabold text-accent-blue tracking-widest">
+                      <span className="text-[10px] font-extrabold text-accent-blue tracking-widest">
                         WORK {String(i + 1).padStart(2, "0")}
                       </span>
                       <div className="w-6 h-6 rounded-full bg-slate-50 group-hover:bg-accent-blue flex items-center justify-center transition-colors">
@@ -418,7 +418,7 @@ export default function CasesPage() {
             ))}
           </div>
 
-          <p className="text-center text-[11px] sm:text-xs text-slate-400 mt-8 sm:mt-12 leading-relaxed">
+          <p className="text-center text-[12px] sm:text-xs text-slate-400 mt-8 sm:mt-12 leading-relaxed">
             포트폴리오는 지속적으로 업데이트됩니다.<br className="sm:hidden" />
             {" "}업종에 따라 필요한 방식은 다르게 제안됩니다.
           </p>

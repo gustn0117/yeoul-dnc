@@ -65,7 +65,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative px-3.5 py-2 rounded-lg text-[13px] font-medium transition-colors duration-200 ${
+                className={`relative px-3.5 py-2 rounded-lg text-[14px] font-medium transition-colors duration-200 ${
                   pathname === item.href
                     ? "text-accent-blue"
                     : "text-slate-500 hover:text-deep-navy"
@@ -79,7 +79,7 @@ export default function Header() {
             ))}
             <Link
               href="/contact"
-              className="btn-premium ml-3 inline-flex items-center gap-1.5 px-4 py-2 bg-linear-to-br from-deep-navy to-slate-800 text-white text-[13px] font-semibold rounded-lg shadow-md shadow-deep-navy/20 hover:shadow-lg hover:shadow-deep-navy/30"
+              className="btn-premium ml-3 inline-flex items-center gap-1.5 px-4 py-2 bg-linear-to-br from-deep-navy to-slate-800 text-white text-[14px] font-semibold rounded-lg shadow-md shadow-deep-navy/20 hover:shadow-lg hover:shadow-deep-navy/30"
             >
               무료 상담받기
               <IconArrowRight className="w-3 h-3" />

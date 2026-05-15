@@ -50,21 +50,21 @@ export default function SectionCTA({
           <div className="lg:col-span-7 text-center lg:text-left mb-10 lg:mb-0">
             <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-5 ${isDark ? "bg-white/5 backdrop-blur-sm border border-white/10" : "bg-white border border-blue-100 shadow-sm"}`}>
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-soft" />
-              <span className={`text-[11px] font-bold tracking-wider uppercase ${isDark ? "text-slate-300" : "text-slate-600"}`}>지금 무료 상담</span>
+              <span className={`text-[12px] font-bold tracking-wider uppercase ${isDark ? "text-slate-300" : "text-slate-600"}`}>지금 무료 상담</span>
             </div>
 
             <h2 className={`text-2xl sm:text-3xl lg:text-[2.5rem] font-extrabold mb-5 leading-tight ${isDark ? "text-white" : "text-deep-navy"}`}>
               {title}
             </h2>
 
-            <p className={`text-[13px] sm:text-sm mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed ${isDark ? "text-slate-400" : "text-slate-500"}`}>
+            <p className={`text-[14px] sm:text-sm mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed ${isDark ? "text-slate-400" : "text-slate-500"}`}>
               {description}
             </p>
 
             {/* Trust badges */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 mb-8">
               {["부담 없는 무료 상담", "업종 맞춤 제안", "빠른 답변"].map((t) => (
-                <div key={t} className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold ${isDark ? "bg-white/5 text-slate-300 border border-white/10" : "bg-white text-slate-600 border border-slate-100 shadow-sm"}`}>
+                <div key={t} className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-semibold ${isDark ? "bg-white/5 text-slate-300 border border-white/10" : "bg-white text-slate-600 border border-slate-100 shadow-sm"}`}>
                   <IconCheck className={`w-3 h-3 ${isDark ? "text-accent-blue" : "text-emerald-500"}`} />
                   {t}
                 </div>
@@ -110,18 +110,18 @@ export default function SectionCTA({
                 className={`absolute top-0 right-4 w-full ${isDark ? "bg-white/5 backdrop-blur-sm border border-white/10" : "bg-white border border-slate-100"} rounded-2xl p-5 shadow-xl`}
                 style={{ transform: "rotate(4deg) translateY(-8px)" }}
               >
-                <p className={`text-[10px] font-bold tracking-widest uppercase mb-2 ${isDark ? "text-slate-400" : "text-slate-400"}`}>운영 시간</p>
+                <p className={`text-[11px] font-bold tracking-widest uppercase mb-2 ${isDark ? "text-slate-400" : "text-slate-400"}`}>운영 시간</p>
                 <p className={`text-base font-extrabold ${isDark ? "text-white" : "text-deep-navy"}`}>평일 09:00 - 18:00</p>
-                <p className={`text-[11px] mt-1 ${isDark ? "text-slate-500" : "text-slate-400"}`}>주말/공휴일 답변 다음 영업일</p>
+                <p className={`text-[12px] mt-1 ${isDark ? "text-slate-500" : "text-slate-400"}`}>주말/공휴일 답변 다음 영업일</p>
               </div>
 
               {/* Front card - main contact */}
               <div className={`relative ${isDark ? "bg-linear-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20" : "bg-white border border-blue-100"} rounded-2xl p-6 shadow-2xl shadow-deep-navy/10`}>
                 <div className="flex items-center justify-between mb-4">
-                  <p className={`text-[10px] font-extrabold tracking-widest uppercase ${isDark ? "text-accent-blue" : "text-accent-blue"}`}>CONTACT</p>
+                  <p className={`text-[11px] font-extrabold tracking-widest uppercase ${isDark ? "text-accent-blue" : "text-accent-blue"}`}>CONTACT</p>
                   <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30">
                     <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse-soft" />
-                    <span className="text-[9px] font-bold text-emerald-400">ONLINE</span>
+                    <span className="text-[10px] font-bold text-emerald-400">ONLINE</span>
                   </div>
                 </div>
 
@@ -136,7 +136,7 @@ export default function SectionCTA({
                       </div>
                     </div>
                     <div>
-                      <p className={`text-[10px] ${isDark ? "text-slate-400" : "text-slate-400"}`}>대표 번호</p>
+                      <p className={`text-[11px] ${isDark ? "text-slate-400" : "text-slate-400"}`}>대표 번호</p>
                       <p className={`text-sm font-extrabold ${isDark ? "text-white" : "text-deep-navy"}`}>1668-5832</p>
                     </div>
                   </div>
@@ -151,7 +151,7 @@ export default function SectionCTA({
                       </div>
                     </div>
                     <div>
-                      <p className={`text-[10px] ${isDark ? "text-slate-400" : "text-slate-400"}`}>카카오톡</p>
+                      <p className={`text-[11px] ${isDark ? "text-slate-400" : "text-slate-400"}`}>카카오톡</p>
                       <p className={`text-sm font-extrabold ${isDark ? "text-white" : "text-deep-navy"}`}>실시간 상담</p>
                     </div>
                   </div>
@@ -161,15 +161,15 @@ export default function SectionCTA({
                 <div className={`pt-4 border-t ${isDark ? "border-white/10" : "border-slate-100"} grid grid-cols-3 gap-2 text-center`}>
                   <div>
                     <p className={`text-base font-extrabold ${isDark ? "bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent" : "text-accent-blue"}`}>2~4x</p>
-                    <p className={`text-[9px] ${isDark ? "text-slate-500" : "text-slate-400"}`}>목표 ROAS</p>
+                    <p className={`text-[10px] ${isDark ? "text-slate-500" : "text-slate-400"}`}>목표 ROAS</p>
                   </div>
                   <div>
                     <p className={`text-base font-extrabold ${isDark ? "bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent" : "text-accent-blue"}`}>100+</p>
-                    <p className={`text-[9px] ${isDark ? "text-slate-500" : "text-slate-400"}`}>누적 캠페인</p>
+                    <p className={`text-[10px] ${isDark ? "text-slate-500" : "text-slate-400"}`}>누적 캠페인</p>
                   </div>
                   <div>
                     <p className={`text-base font-extrabold ${isDark ? "bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent" : "text-accent-blue"}`}>24h</p>
-                    <p className={`text-[9px] ${isDark ? "text-slate-500" : "text-slate-400"}`}>응답</p>
+                    <p className={`text-[10px] ${isDark ? "text-slate-500" : "text-slate-400"}`}>응답</p>
                   </div>
                 </div>
               </div>

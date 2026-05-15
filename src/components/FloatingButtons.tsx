@@ -30,7 +30,7 @@ export default function FloatingButtons() {
       {/* KakaoTalk */}
       <a
         href="#"
-        className="btn-premium flex items-center gap-2 pl-3 pr-3.5 sm:pl-4 sm:pr-4 py-2.5 bg-[#FEE500] text-[#3C1E1E] rounded-full shadow-lg shadow-amber-900/15 hover:shadow-xl text-[12px] sm:text-[13px] font-semibold"
+        className="btn-premium flex items-center gap-2 pl-3 pr-3.5 sm:pl-4 sm:pr-4 py-2.5 bg-[#FEE500] text-[#3C1E1E] rounded-full shadow-lg shadow-amber-900/15 hover:shadow-xl text-[13px] sm:text-[14px] font-semibold"
         aria-label="카카오톡 상담"
       >
         <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5" viewBox="0 0 24 24" fill="currentColor">
@@ -42,7 +42,7 @@ export default function FloatingButtons() {
       {/* Quick Contact - blue accent */}
       <Link
         href="/contact"
-        className="btn-premium flex items-center gap-2 pl-3 pr-3.5 sm:pl-4 sm:pr-4 py-2.5 bg-linear-to-br from-accent-blue to-blue-600 text-white rounded-full shadow-lg shadow-accent-blue/25 hover:shadow-xl hover:shadow-accent-blue/40 text-[12px] sm:text-[13px] font-semibold"
+        className="btn-premium flex items-center gap-2 pl-3 pr-3.5 sm:pl-4 sm:pr-4 py-2.5 bg-linear-to-br from-accent-blue to-blue-600 text-white rounded-full shadow-lg shadow-accent-blue/25 hover:shadow-xl hover:shadow-accent-blue/40 text-[13px] sm:text-[14px] font-semibold"
       >
         <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />

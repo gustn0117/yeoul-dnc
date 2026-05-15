@@ -50,7 +50,7 @@ export default function AboutPage() {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
-                <span className="text-[11px] font-bold text-slate-300 tracking-wider uppercase">About 여울디앤씨</span>
+                <span className="text-[12px] font-bold text-slate-300 tracking-wider uppercase">About 여울디앤씨</span>
               </div>
               <h1 className="text-2xl sm:text-3xl lg:text-[2.75rem] font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">
                 광고는 많이 하는 것보다,<br />
@@ -60,7 +60,7 @@ export default function AboutPage() {
                 </span>
                 으로 하는 것이 중요합니다
               </h1>
-              <p className="text-[13px] sm:text-base text-slate-300/90 max-w-xl leading-relaxed mb-6">
+              <p className="text-[14px] sm:text-base text-slate-300/90 max-w-xl leading-relaxed mb-6">
                 업종, 예산, 목표를 먼저 확인하고<br className="hidden sm:inline lg:hidden" />
                 {" "}<span className="font-semibold text-white">필요한 광고 구조부터 제안</span>하는 온라인 광고 전문 실행사입니다.
               </p>
@@ -102,8 +102,8 @@ export default function AboutPage() {
                     <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-accent-blue/20 border border-accent-blue/30 flex items-center justify-center mb-2">
                       {f.icon}
                     </div>
-                    <p className="text-[11px] sm:text-[12px] font-extrabold text-white mb-0.5 leading-tight">{f.title}</p>
-                    <p className="text-[9px] sm:text-[10px] text-slate-400 leading-tight">{f.desc}</p>
+                    <p className="text-[12px] sm:text-[13px] font-extrabold text-white mb-0.5 leading-tight">{f.title}</p>
+                    <p className="text-[10px] sm:text-[11px] text-slate-400 leading-tight">{f.desc}</p>
                   </div>
                 ))}
               </div>
@@ -119,7 +119,7 @@ export default function AboutPage() {
                     <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
                     <div className="relative bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-3 text-center">
                       <p className="text-lg sm:text-xl font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent">{s.value}</p>
-                      <p className="text-[9px] sm:text-[10px] text-slate-400 mt-0.5">{s.label}</p>
+                      <p className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">{s.label}</p>
                     </div>
                   </div>
                 ))}
@@ -212,13 +212,13 @@ export default function AboutPage() {
                 <div className="absolute -top-3 -right-3 bg-white rounded-xl shadow-xl shadow-blue-900/10 px-3 py-2 border border-blue-100 animate-float flex items-center gap-2">
                   <LogoMark className="w-6" />
                   <div>
-                    <p className="text-[9px] text-slate-400 font-medium leading-none">EST.</p>
-                    <p className="text-[11px] font-extrabold text-accent-blue leading-tight">여울디앤씨</p>
+                    <p className="text-[10px] text-slate-400 font-medium leading-none">EST.</p>
+                    <p className="text-[12px] font-extrabold text-accent-blue leading-tight">여울디앤씨</p>
                   </div>
                 </div>
                 <div className="absolute -bottom-3 -left-3 bg-white rounded-xl shadow-xl shadow-blue-900/10 px-3 py-2 border border-emerald-100 flex items-center gap-2" style={{ animation: "float 5s ease-in-out infinite 1s" }}>
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-soft" />
-                  <p className="text-[10px] font-bold text-slate-600">ONLINE AD PARTNER</p>
+                  <p className="text-[11px] font-bold text-slate-600">ONLINE AD PARTNER</p>
                 </div>
               </div>
             </div>
@@ -234,11 +234,11 @@ export default function AboutPage() {
                 </span>
                 합니다
               </h2>
-              <p className="text-[13px] sm:text-sm text-slate-500 mb-5 leading-relaxed">
+              <p className="text-[14px] sm:text-sm text-slate-500 mb-5 leading-relaxed">
                 여울디앤씨는 업종에 맞는 채널 선택부터 소재 제작, 운영, 보완까지<br className="hidden sm:inline lg:hidden" />
                 {" "}연결하는 <span className="font-semibold text-deep-navy">온라인 광고 실행 파트너</span>입니다.
               </p>
-              <p className="text-[13px] sm:text-sm text-deep-navy font-bold mb-6">
+              <p className="text-[14px] sm:text-sm text-deep-navy font-bold mb-6">
                 결과를 만드는 광고는 시작부터 다릅니다.
               </p>
 
@@ -252,8 +252,8 @@ export default function AboutPage() {
                   <div key={m.label} className="relative group">
                     <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-linear-to-br ${m.color} opacity-15`} />
                     <div className="relative bg-white rounded-xl p-3.5 border border-slate-100 shadow-sm group-hover:-translate-y-0.5 transition-transform duration-300">
-                      <span className={`text-[9px] font-extrabold bg-linear-to-br ${m.color} bg-clip-text text-transparent tracking-widest`}>{m.label}</span>
-                      <p className="text-[12px] sm:text-xs text-deep-navy font-bold mt-0.5 leading-tight">{m.text}</p>
+                      <span className={`text-[10px] font-extrabold bg-linear-to-br ${m.color} bg-clip-text text-transparent tracking-widest`}>{m.label}</span>
+                      <p className="text-[13px] sm:text-xs text-deep-navy font-bold mt-0.5 leading-tight">{m.text}</p>
                     </div>
                   </div>
                 ))}
@@ -307,11 +307,11 @@ export default function AboutPage() {
                         <v.Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                       </div>
                     </div>
-                    <h3 className="text-[15px] sm:text-base font-extrabold text-deep-navy mb-2 sm:mb-2.5">{v.title}</h3>
-                    <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed">{v.desc}</p>
+                    <h3 className="text-[16px] sm:text-base font-extrabold text-deep-navy mb-2 sm:mb-2.5">{v.title}</h3>
+                    <p className="text-[13px] sm:text-[14px] text-slate-500 leading-relaxed">{v.desc}</p>
 
                     <div className="mt-5 sm:mt-6 pt-4 border-t border-slate-100">
-                      <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-extrabold text-accent-blue">
+                      <span className="inline-flex items-center gap-1 text-[11px] sm:text-[12px] font-extrabold text-accent-blue">
                         VALUE {String(i + 1).padStart(2, "0")}
                       </span>
                     </div>
@@ -340,7 +340,7 @@ export default function AboutPage() {
                 까지<br className="sm:hidden" />
                 {" "}함께 설계합니다
               </h2>
-              <p className="text-[13px] sm:text-sm text-slate-500 mb-6 sm:mb-8 leading-relaxed">
+              <p className="text-[14px] sm:text-sm text-slate-500 mb-6 sm:mb-8 leading-relaxed">
                 분양/병원/지역 자영업처럼 상담과 방문 전환이 중요한 업종은<br className="hidden sm:inline lg:hidden" />
                 {" "}매체 조합과 후속 운영 방식이 중요합니다.
               </p>
@@ -362,7 +362,7 @@ export default function AboutPage() {
                       </div>
                       <div className="w-0.5 h-10 bg-linear-to-b from-accent-blue to-blue-600 rounded-full shrink-0" />
                       <div className="flex-1">
-                        <p className="text-[13px] sm:text-sm text-deep-navy font-bold">{item.text}</p>
+                        <p className="text-[14px] sm:text-sm text-deep-navy font-bold">{item.text}</p>
                       </div>
                       <div className="w-9 h-9 rounded-xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-md shrink-0">
                         <IconCheck className="w-4 h-4 text-white" />
@@ -382,8 +382,8 @@ export default function AboutPage() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy">전문 컨설팅으로 광고 효율을 극대화합니다</p>
-                    <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">업종 특성에 맞는 전략으로 확실한 성과를 만들어드립니다.</p>
+                    <p className="text-[14px] sm:text-sm font-extrabold text-deep-navy">전문 컨설팅으로 광고 효율을 극대화합니다</p>
+                    <p className="text-[11px] sm:text-[12px] text-slate-500 mt-0.5">업종 특성에 맞는 전략으로 확실한 성과를 만들어드립니다.</p>
                   </div>
                 </div>
               </div>
@@ -399,8 +399,8 @@ export default function AboutPage() {
               {/* Floating dashboard card (top right) */}
               <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl shadow-blue-900/15 p-4 border border-blue-100 w-52 animate-float hidden sm:block">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="text-[10px] font-bold text-slate-400 tracking-wider">CAMPAIGN</p>
-                  <span className="flex items-center gap-1 text-[9px] font-bold text-emerald-500">
+                  <p className="text-[11px] font-bold text-slate-400 tracking-wider">CAMPAIGN</p>
+                  <span className="flex items-center gap-1 text-[10px] font-bold text-emerald-500">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-soft" />
                     LIVE
                   </span>
@@ -412,7 +412,7 @@ export default function AboutPage() {
                   ))}
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <span className="text-[10px] text-slate-400">목표 ROAS</span>
+                  <span className="text-[11px] text-slate-400">목표 ROAS</span>
                   <span className="text-sm font-extrabold text-accent-blue">2~4x 달성</span>
                 </div>
               </div>
@@ -426,17 +426,17 @@ export default function AboutPage() {
                   </svg>
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
                     <p className="text-2xl font-black text-deep-navy leading-none">68%</p>
-                    <p className="text-[9px] text-slate-500 font-medium mt-1">전환율</p>
+                    <p className="text-[10px] text-slate-500 font-medium mt-1">전환율</p>
                   </div>
                 </div>
                 <div className="flex items-center justify-center gap-2 mt-2">
-                  <span className="flex items-center gap-1 text-[9px] text-slate-500">
+                  <span className="flex items-center gap-1 text-[10px] text-slate-500">
                     <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />검색
                   </span>
-                  <span className="flex items-center gap-1 text-[9px] text-slate-500">
+                  <span className="flex items-center gap-1 text-[10px] text-slate-500">
                     <span className="w-1.5 h-1.5 rounded-full bg-slate-200" />SNS
                   </span>
-                  <span className="flex items-center gap-1 text-[9px] text-slate-500">
+                  <span className="flex items-center gap-1 text-[10px] text-slate-500">
                     <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />디스플레이
                   </span>
                 </div>
@@ -449,7 +449,7 @@ export default function AboutPage() {
                     <IconCheck className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <p className="text-[9px] text-slate-400">전환 달성</p>
+                    <p className="text-[10px] text-slate-400">전환 달성</p>
                     <p className="text-xs font-extrabold text-deep-navy">128건</p>
                   </div>
                 </div>
@@ -485,7 +485,7 @@ export default function AboutPage() {
                 </span>
                 하는 팀
               </h2>
-              <p className="text-[13px] sm:text-sm text-slate-400 mb-6 leading-relaxed max-w-md">
+              <p className="text-[14px] sm:text-sm text-slate-400 mb-6 leading-relaxed max-w-md">
                 회의/기획/모니터링/리포트 중심으로 움직이는 실행 조직입니다.
               </p>
 
@@ -526,8 +526,8 @@ export default function AboutPage() {
                         </svg>
                         <p className="text-base sm:text-lg font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent leading-none">{s.value}</p>
                       </div>
-                      <p className="text-[11px] text-white font-bold leading-tight">{s.label}</p>
-                      <p className="text-[9px] text-slate-400 mt-0.5">{s.sub}</p>
+                      <p className="text-[12px] text-white font-bold leading-tight">{s.label}</p>
+                      <p className="text-[10px] text-slate-400 mt-0.5">{s.sub}</p>
                     </div>
                   </div>
                 ))}
@@ -546,15 +546,15 @@ export default function AboutPage() {
 
               {/* PERFORMANCE floating card (top right) */}
               <div className="absolute -top-4 -right-4 sm:-right-6 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl shadow-accent-blue/15 p-3 border border-white animate-float w-44">
-                <p className="text-[9px] font-bold text-slate-400 tracking-wider uppercase">PERFORMANCE</p>
-                <p className="text-[11px] font-extrabold text-deep-navy">월간 광고 성과</p>
+                <p className="text-[10px] font-bold text-slate-400 tracking-wider uppercase">PERFORMANCE</p>
+                <p className="text-[12px] font-extrabold text-deep-navy">월간 광고 성과</p>
                 <div className="flex items-end gap-0.5 h-7 mt-2">
                   {[35, 50, 40, 60, 55, 75, 90].map((h, i) => (
                     <div key={i} className="flex-1 rounded-t bg-linear-to-t from-accent-blue to-sky-400" style={{ height: `${h}%` }} />
                   ))}
                 </div>
                 <div className="flex items-baseline justify-between mt-1.5">
-                  <span className="text-[10px] text-slate-400">전년 대비</span>
+                  <span className="text-[11px] text-slate-400">전년 대비</span>
                   <span className="text-xs font-extrabold text-emerald-600">+24.5% ↑</span>
                 </div>
               </div>
@@ -568,8 +568,8 @@ export default function AboutPage() {
                     </svg>
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[11px] font-extrabold text-deep-navy">데이터 기반 의사결정</p>
-                    <p className="text-[9px] text-slate-500 mt-0.5 leading-tight">실시간 모니터링과 빠른 개선점도</p>
+                    <p className="text-[12px] font-extrabold text-deep-navy">데이터 기반 의사결정</p>
+                    <p className="text-[10px] text-slate-500 mt-0.5 leading-tight">실시간 모니터링과 빠른 개선점도</p>
                   </div>
                 </div>
               </div>
@@ -620,16 +620,16 @@ export default function AboutPage() {
                 <div className="relative h-full bg-white p-6 sm:p-7 rounded-2xl border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden flex flex-col">
                   <div className="relative flex flex-col flex-1">
                     <div className="inline-flex items-center gap-1 mb-3 px-2.5 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 w-fit">
-                      <span className="text-[10px] font-extrabold text-accent-blue tracking-wider uppercase">{c.industry}</span>
+                      <span className="text-[11px] font-extrabold text-accent-blue tracking-wider uppercase">{c.industry}</span>
                     </div>
                     <div className="flex items-center gap-2 mb-3 bg-slate-50 rounded-lg px-2.5 py-1.5 w-fit">
                       {c.logos.map((logo) => (
                         <img key={logo} src={`/images/logos/${logo}.svg`} alt={logo} className="h-4 w-auto" />
                       ))}
                     </div>
-                    <p className="text-[13px] sm:text-sm text-slate-600 leading-relaxed mb-4 flex-1">{c.desc}</p>
+                    <p className="text-[14px] sm:text-sm text-slate-600 leading-relaxed mb-4 flex-1">{c.desc}</p>
                     <div className="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between">
-                      <span className="text-[10px] font-extrabold text-accent-blue tracking-widest">
+                      <span className="text-[11px] font-extrabold text-accent-blue tracking-widest">
                         CASE {String(i + 1).padStart(2, "0")}
                       </span>
                     </div>
@@ -746,7 +746,7 @@ export default function AboutPage() {
                         </div>
                       </div>
                       <div>
-                        <p className="text-[10px] font-extrabold text-accent-blue tracking-[0.2em]">
+                        <p className="text-[11px] font-extrabold text-accent-blue tracking-[0.2em]">
                           {p.label}
                         </p>
                         <p className="text-3xl font-black text-accent-blue leading-none tracking-tight">
@@ -768,7 +768,7 @@ export default function AboutPage() {
                       <div className="absolute inset-0 bg-linear-to-t from-deep-navy/20 to-transparent" />
                     </div>
 
-                    <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed mb-4">{p.desc}</p>
+                    <p className="text-[13px] sm:text-[14px] text-slate-500 leading-relaxed mb-4">{p.desc}</p>
 
                     {/* PDF page 31: 미니 아이콘 3개 */}
                     <div className="grid grid-cols-3 gap-2 pt-3 border-t border-slate-100">
@@ -796,7 +796,7 @@ export default function AboutPage() {
                             <div className="w-9 h-9 mx-auto rounded-lg bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center mb-1">
                               {icons[idx]}
                             </div>
-                            <p className="text-[9px] text-slate-500 font-bold leading-tight">{tag}</p>
+                            <p className="text-[10px] text-slate-500 font-bold leading-tight">{tag}</p>
                           </div>
                         );
                       })}
@@ -819,8 +819,8 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[14px] sm:text-base font-extrabold text-deep-navy leading-tight">결과로 증명합니다</p>
-                  <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-relaxed">작은 개선이 쌓여 성과가 됩니다. 데이터가 말해주는 결과로 신뢰를 만듭니다.</p>
+                  <p className="text-[15px] sm:text-base font-extrabold text-deep-navy leading-tight">결과로 증명합니다</p>
+                  <p className="text-[12px] sm:text-xs text-slate-500 mt-0.5 leading-relaxed">작은 개선이 쌓여 성과가 됩니다. 데이터가 말해주는 결과로 신뢰를 만듭니다.</p>
                 </div>
                 {/* mini sparkline */}
                 <div className="hidden sm:block shrink-0">

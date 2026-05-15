@@ -151,14 +151,14 @@ export default function AdminPage() {
                     <div className="flex items-start justify-between gap-2">
                       <div className="min-w-0">
                         <div className="flex items-center gap-2 mb-1">
-                          <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${statusMap[inq.status]?.color || "bg-slate-100 text-slate-500"}`}>
+                          <span className={`px-2 py-0.5 rounded text-[11px] font-bold ${statusMap[inq.status]?.color || "bg-slate-100 text-slate-500"}`}>
                             {statusMap[inq.status]?.label || inq.status}
                           </span>
                           <span className="text-xs font-bold text-deep-navy truncate">{inq.company_name}</span>
                         </div>
-                        <p className="text-[11px] text-slate-400 truncate">{inq.contact_name} / {inq.phone} / {inq.industry}</p>
+                        <p className="text-[12px] text-slate-400 truncate">{inq.contact_name} / {inq.phone} / {inq.industry}</p>
                       </div>
-                      <span className="text-[10px] text-slate-300 shrink-0">{formatDate(inq.created_at)}</span>
+                      <span className="text-[11px] text-slate-300 shrink-0">{formatDate(inq.created_at)}</span>
                     </div>
                   </button>
                 ))}
@@ -183,7 +183,7 @@ export default function AdminPage() {
               <div className="bg-white rounded-2xl border border-slate-100 p-5 sticky top-20">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-sm font-bold text-deep-navy">{selected.company_name}</h2>
-                  <button onClick={() => deleteInquiry(selected.id)} className="text-[10px] text-red-400 hover:text-red-600">삭제</button>
+                  <button onClick={() => deleteInquiry(selected.id)} className="text-[11px] text-red-400 hover:text-red-600">삭제</button>
                 </div>
 
                 <div className="space-y-2.5 text-xs mb-5">
@@ -204,17 +204,17 @@ export default function AdminPage() {
                 </div>
 
                 <div className="bg-slate-50 rounded-xl p-4 mb-4">
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">문의 내용</p>
+                  <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">문의 내용</p>
                   <p className="text-xs text-slate-700 whitespace-pre-wrap">{selected.message}</p>
                 </div>
 
                 {/* Status change */}
                 <div className="mb-4">
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">상태 변경</p>
+                  <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">상태 변경</p>
                   <div className="flex flex-wrap gap-1.5">
                     {(["new", "in_progress", "completed", "cancelled"] as const).map((s) => (
                       <button key={s} onClick={() => updateStatus(selected.id, s)} disabled={saving}
-                        className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-colors ${selected.status === s ? statusMap[s].color : "bg-slate-50 text-slate-400 hover:bg-slate-100"}`}>
+                        className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-colors ${selected.status === s ? statusMap[s].color : "bg-slate-50 text-slate-400 hover:bg-slate-100"}`}>
                         {statusMap[s].label}
                       </button>
                     ))}
@@ -223,7 +223,7 @@ export default function AdminPage() {
 
                 {/* Memo */}
                 <div>
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">관리자 메모</p>
+                  <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">관리자 메모</p>
                   <textarea value={memo} onChange={(e) => setMemo(e.target.value)} rows={3}
                     className="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-accent-blue outline-none text-xs resize-none" placeholder="내부 메모를 남겨주세요" />
                   <button onClick={saveMemo} disabled={saving}

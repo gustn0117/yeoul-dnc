@@ -20,13 +20,13 @@ function Bullet({ children, color = "text-accent-blue" }: { children: React.Reac
       <div className="w-5 h-5 rounded-full bg-current/10 flex items-center justify-center shrink-0 mt-0.5">
         <IconCheck className="w-3 h-3" />
       </div>
-      <span className="text-[13px] sm:text-sm">{children}</span>
+      <span className="text-[14px] sm:text-sm">{children}</span>
     </li>
   );
 }
 
 function Tag({ children }: { children: React.ReactNode }) {
-  return <span className="px-2.5 sm:px-3 py-1 bg-white text-[11px] sm:text-xs text-slate-600 rounded-lg border border-slate-100 font-medium">{children}</span>;
+  return <span className="px-2.5 sm:px-3 py-1 bg-white text-[12px] sm:text-xs text-slate-600 rounded-lg border border-slate-100 font-medium">{children}</span>;
 }
 
 export default function ServicesPage() {
@@ -51,7 +51,7 @@ export default function ServicesPage() {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 mb-5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
-                <span className="text-[11px] font-bold text-slate-300 tracking-wider uppercase">Services · 광고 상품</span>
+                <span className="text-[12px] font-bold text-slate-300 tracking-wider uppercase">Services · 광고 상품</span>
               </div>
               <h1 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">
                 필요한 채널만 골라,<br />
@@ -61,73 +61,24 @@ export default function ServicesPage() {
                 </span>
                 합니다
               </h1>
-              <p className="text-[13px] sm:text-base text-slate-300/90 max-w-xl leading-relaxed mb-7">
+              <p className="text-[14px] sm:text-base text-slate-300/90 max-w-xl leading-relaxed mb-7">
                 플랫폼 기능 설명이 아니라,<br className="sm:hidden" />
                 {" "}<span className="font-semibold text-white">무엇을 맡길 수 있는지</span>를 명확히 보여드립니다.
               </p>
 
-              {/* 6 플랫폼 아이콘 행 (라벨 동반) */}
-              <div className="grid grid-cols-6 gap-2 sm:gap-3 mb-7 max-w-md">
+              {/* 6 플랫폼 아이콘 행 (텍스트 라벨 제거 — 로고만) */}
+              <div className="flex items-center gap-2.5 sm:gap-3 mb-7 flex-wrap">
                 {[
-                  { name: "naver", label: "네이버" },
-                  { name: "kakaotalk", label: "카카오" },
-                  { name: "meta", label: "메타" },
-                  { name: "youtube", label: "유튜브" },
-                  { name: "google", label: "구글" },
-                  { name: "instagram", label: "인스타" },
+                  { name: "naver" },
+                  { name: "kakaotalk" },
+                  { name: "meta" },
+                  { name: "youtube" },
+                  { name: "google" },
+                  { name: "instagram" },
+                  { name: "facebook" },
                 ].map((p) => (
-                  <div key={p.name} className="flex flex-col items-center gap-1.5">
-                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center">
-                      <img src={`/images/logos/${p.name}.svg`} alt={p.name} className={`h-4 sm:h-5 w-auto ${p.name === "kakaotalk" ? "" : "brightness-0 invert opacity-80"}`} />
-                    </div>
-                    <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium">{p.label}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* 3 feature 카드 */}
-              <div className="grid grid-cols-3 gap-2.5 sm:gap-3 mb-5 max-w-2xl">
-                {[
-                  {
-                    title: "맞춤 채널 제안",
-                    desc: "업종·목표에 맞는 최적 채널 조합 제안",
-                    color: "from-accent-blue to-blue-600",
-                    icon: (
-                      <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                        <circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.5" fill="currentColor" />
-                      </svg>
-                    ),
-                  },
-                  {
-                    title: "전략 설계",
-                    desc: "데이터 기반 타겟 설정과 광고 전략 수립",
-                    color: "from-sky-500 to-blue-600",
-                    icon: (
-                      <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-                      </svg>
-                    ),
-                  },
-                  {
-                    title: "통합 운영 · 분석",
-                    desc: "채널별 성과 분석으로 지속적인 개선",
-                    color: "from-blue-500 to-indigo-600",
-                    icon: (
-                      <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 015.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                      </svg>
-                    ),
-                  },
-                ].map((f) => (
-                  <div key={f.title} className="relative bg-white/[0.04] backdrop-blur-sm border border-white/10 rounded-xl p-3 sm:p-3.5">
-                    <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-lg mb-2 sm:mb-2.5">
-                      <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-lg bg-linear-to-br ${f.color} opacity-50 blur-[1px]`} aria-hidden="true" />
-                      <div className={`relative w-full h-full rounded-lg bg-linear-to-br ${f.color} flex items-center justify-center shadow-md`}>
-                        {f.icon}
-                      </div>
-                    </div>
-                    <p className="text-[12px] sm:text-[13px] font-extrabold text-white mb-0.5 leading-tight">{f.title}</p>
-                    <p className="text-[10px] sm:text-[11px] text-slate-400 leading-snug">{f.desc}</p>
+                  <div key={p.name} className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <img src={`/images/logos/${p.name}.svg`} alt={p.name} className={`h-5 sm:h-6 w-auto ${p.name === "kakaotalk" ? "" : "brightness-0 invert opacity-80"}`} />
                   </div>
                 ))}
               </div>
@@ -145,12 +96,12 @@ export default function ServicesPage() {
                     </div>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[12px] sm:text-sm font-extrabold text-white leading-tight">채널은 도구일 뿐, 결과가 중요합니다.</p>
-                    <p className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">여울디앤씨는 성과로 증명합니다.</p>
+                    <p className="text-[13px] sm:text-sm font-extrabold text-white leading-tight">채널은 도구일 뿐, 결과가 중요합니다.</p>
+                    <p className="text-[11px] sm:text-[12px] text-slate-400 mt-0.5">여울디앤씨는 성과로 증명합니다.</p>
                   </div>
                   <Link
                     href="/contact"
-                    className="shrink-0 inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 sm:py-2.5 bg-white text-deep-navy text-[11px] sm:text-[12px] font-extrabold rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                    className="shrink-0 inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 sm:py-2.5 bg-white text-deep-navy text-[12px] sm:text-[13px] font-extrabold rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
                   >
                     상담 문의하기
                     <IconArrowRight className="w-3 h-3" />
@@ -250,7 +201,7 @@ export default function ServicesPage() {
                                 />
                               </div>
                             </div>
-                            <span className="text-[11px] font-extrabold text-white whitespace-nowrap tracking-tight">{item.label}</span>
+                            <span className="text-[12px] font-extrabold text-white whitespace-nowrap tracking-tight">{item.label}</span>
                           </div>
                         </div>
                       </div>
@@ -301,7 +252,7 @@ export default function ServicesPage() {
             </span>
             {" "}운영
           </h2>
-          <p className="text-[13px] sm:text-sm text-slate-500 max-w-xl mx-auto leading-relaxed mb-12 sm:mb-16">
+          <p className="text-[14px] sm:text-sm text-slate-500 max-w-xl mx-auto leading-relaxed mb-12 sm:mb-16">
             <span className="font-semibold text-deep-navy">목표 ROAS 달성</span>을 위한 마케팅 전략을 수립하고,<br className="sm:hidden" />
             {" "}캠페인을 설계·집행·최적화합니다.
           </p>
@@ -356,8 +307,8 @@ export default function ServicesPage() {
               { label: "업종 특화", desc: "부동산·지역", color: "bg-teal-50 text-teal-700 border-teal-100" },
             ].map((c) => (
               <div key={c.label} className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl border ${c.color} text-center`}>
-                <p className="text-[11px] sm:text-xs font-bold">{c.label}</p>
-                <p className="text-[9px] sm:text-[10px] opacity-70">{c.desc}</p>
+                <p className="text-[12px] sm:text-xs font-bold">{c.label}</p>
+                <p className="text-[10px] sm:text-[11px] opacity-70">{c.desc}</p>
               </div>
             ))}
           </div>
@@ -370,7 +321,7 @@ export default function ServicesPage() {
           <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
             {/* Info */}
             <div className="lg:col-span-6 mb-12 lg:mb-0">
-              <p className="text-[11px] font-bold text-slate-400 tracking-[0.2em] uppercase mb-3">
+              <p className="text-[12px] font-bold text-slate-400 tracking-[0.2em] uppercase mb-3">
                 <span className="text-accent-blue">퍼포먼스 마케팅</span>  ·  네이버 마케팅
               </p>
               <p className="text-sm text-slate-500 mb-2">고객에게 다방면으로 노출 가능</p>
@@ -384,7 +335,7 @@ export default function ServicesPage() {
                   <span className="text-[#03C75A]">네이버 마케팅</span>
                 </span>
               </h2>
-              <p className="text-[13px] sm:text-sm text-slate-500 leading-relaxed mb-6 sm:mb-7">
+              <p className="text-[14px] sm:text-sm text-slate-500 leading-relaxed mb-6 sm:mb-7">
                 한국 사용자의 대부분이 사용하는 포털사이트로<br className="hidden sm:inline" />
                 {" "}<span className="font-semibold text-deep-navy">고객이 검색을 하는 순간</span>부터{" "}
                 <span className="font-semibold text-deep-navy">고객과 브랜드의 접점</span>을 확보할 수 있습니다.
@@ -399,7 +350,7 @@ export default function ServicesPage() {
                     <div className="w-5 h-5 rounded-full bg-[#03C75A]/15 flex items-center justify-center shrink-0 mt-0.5">
                       <IconCheck className="w-3 h-3 text-[#03C75A]" />
                     </div>
-                    <p className="text-[13px] sm:text-sm text-slate-700 leading-relaxed">{text}</p>
+                    <p className="text-[14px] sm:text-sm text-slate-700 leading-relaxed">{text}</p>
                   </div>
                 ))}
               </div>
@@ -459,7 +410,7 @@ export default function ServicesPage() {
 
                 {/* Floating green stat */}
                 <div className="absolute top-4 left-0 bg-white rounded-xl shadow-xl shadow-green-900/10 px-3 py-2 border border-green-100 z-40 animate-float">
-                  <p className="text-[9px] text-slate-400 font-medium">검색 전환</p>
+                  <p className="text-[10px] text-slate-400 font-medium">검색 전환</p>
                   <p className="text-sm font-extrabold text-[#03C75A]">매우 높음 ↑</p>
                 </div>
 
@@ -467,11 +418,11 @@ export default function ServicesPage() {
                 <div className="absolute bottom-2 left-2 right-2 bg-white rounded-xl shadow-xl shadow-green-900/10 px-3 py-2 border border-green-100 z-40 grid grid-cols-2 gap-3" style={{ animation: "float 5s ease-in-out infinite 1.5s" }}>
                   <div className="text-center">
                     <p className="text-base font-black text-[#03C75A] leading-none">200+</p>
-                    <p className="text-[9px] text-slate-500 mt-0.5">운영 키워드</p>
+                    <p className="text-[10px] text-slate-500 mt-0.5">운영 키워드</p>
                   </div>
                   <div className="text-center border-l border-slate-100">
                     <p className="text-base font-black text-[#03C75A] leading-none">98%</p>
-                    <p className="text-[9px] text-slate-500 mt-0.5">노출 정상화</p>
+                    <p className="text-[10px] text-slate-500 mt-0.5">노출 정상화</p>
                   </div>
                 </div>
               </div>
@@ -508,8 +459,8 @@ export default function ServicesPage() {
                   <div className="w-10 h-10 rounded-lg bg-[#03C75A]/10 border border-[#03C75A]/20 flex items-center justify-center mb-2.5">
                     {f.icon}
                   </div>
-                  <p className="text-[12px] sm:text-sm font-extrabold text-deep-navy mb-0.5 leading-tight">{f.title}</p>
-                  <p className="text-[10px] sm:text-[11px] text-slate-500 leading-snug">{f.desc}</p>
+                  <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy mb-0.5 leading-tight">{f.title}</p>
+                  <p className="text-[11px] sm:text-[12px] text-slate-500 leading-snug">{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -523,7 +474,7 @@ export default function ServicesPage() {
           <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
             {/* Info */}
             <div className="lg:col-span-7 order-2 lg:order-1 mt-12 lg:mt-0">
-              <p className="text-[11px] font-bold text-slate-400 tracking-[0.2em] uppercase mb-3">
+              <p className="text-[12px] font-bold text-slate-400 tracking-[0.2em] uppercase mb-3">
                 <span className="text-accent-blue">퍼포먼스 마케팅</span>  ·  메타 마케팅
               </p>
               <p className="text-sm text-slate-500 mb-2">브랜드 홍보부터 매출 증대까지!</p>
@@ -537,7 +488,7 @@ export default function ServicesPage() {
                   <span className="bg-linear-to-r from-[#833AB4] via-[#E1306C] to-[#F77737] bg-clip-text text-transparent">메타 마케팅</span>
                 </span>
               </h2>
-              <p className="text-[13px] sm:text-sm text-slate-500 leading-relaxed mb-7">
+              <p className="text-[14px] sm:text-sm text-slate-500 leading-relaxed mb-7">
                 <span className="font-semibold text-deep-navy">Meta(인스타그램 · 페이스북) 플랫폼</span>에 노출되는 맞춤형 광고로,<br className="hidden sm:inline" />
                 {" "}타겟의 관심사와 행동 데이터를 기반으로{" "}
                 <span className="font-semibold text-deep-navy">높은 전환을 유도하는 성과 중심</span> 광고입니다.
@@ -584,8 +535,8 @@ export default function ServicesPage() {
                     <div className={`w-9 h-9 sm:w-10 sm:h-10 mx-auto rounded-lg bg-linear-to-br ${f.color} flex items-center justify-center mb-2.5 shadow-md`}>
                       {f.icon}
                     </div>
-                    <p className="text-[10px] sm:text-[11px] text-slate-400 mb-0.5 leading-tight">{f.title}</p>
-                    <p className="text-[11px] sm:text-xs text-deep-navy font-bold leading-snug">{f.main}</p>
+                    <p className="text-[11px] sm:text-[12px] text-slate-400 mb-0.5 leading-tight">{f.title}</p>
+                    <p className="text-[12px] sm:text-xs text-deep-navy font-bold leading-snug">{f.main}</p>
                   </div>
                 ))}
               </div>
@@ -621,7 +572,7 @@ export default function ServicesPage() {
 
                       {/* IG header */}
                       <div className="absolute top-0 left-0 right-0 px-2.5 pt-6 pb-2 bg-white flex items-center gap-1.5 z-20 border-b border-slate-100">
-                        <span className="text-[9px] font-extrabold text-deep-navy">Instagram</span>
+                        <span className="text-[10px] font-extrabold text-deep-navy">Instagram</span>
                         <div className="ml-auto flex gap-1.5">
                           <svg className="w-2.5 h-2.5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
                           <svg className="w-2.5 h-2.5 text-slate-700" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
@@ -643,7 +594,7 @@ export default function ServicesPage() {
                           <div className="w-5 h-5 rounded-full bg-linear-to-br from-[#FEDA77] via-[#F58529] to-[#DD2A7B] p-[1px]">
                             <div className="w-full h-full rounded-full bg-white" />
                           </div>
-                          <span className="text-[7px] font-bold text-deep-navy">yeoul_dnc</span>
+                          <span className="text-[8px] font-bold text-deep-navy">yeoul_dnc</span>
                         </div>
                         <div className="aspect-square bg-linear-to-br from-[#833AB4] via-[#E1306C] to-[#F77737] flex items-center justify-center">
                           <svg className="w-12 h-12 text-white/95 drop-shadow" viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 2A5.5 5.5 0 002 7.5v9A5.5 5.5 0 007.5 22h9a5.5 5.5 0 005.5-5.5v-9A5.5 5.5 0 0016.5 2h-9zm0 1.5h9a4 4 0 014 4v9a4 4 0 01-4 4h-9a4 4 0 01-4-4v-9a4 4 0 014-4zm10 1.75a1 1 0 100 2 1 1 0 000-2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 1.5a3.5 3.5 0 110 7 3.5 3.5 0 010-7z"/></svg>
@@ -718,8 +669,8 @@ export default function ServicesPage() {
                   <div className="w-9 h-9 mx-auto rounded-lg bg-pink-50 border border-pink-100 flex items-center justify-center mb-2">
                     {f.icon}
                   </div>
-                  <p className="text-[11px] sm:text-[12px] font-extrabold text-deep-navy mb-0.5 leading-tight">{f.title}</p>
-                  <p className="text-[9px] sm:text-[10px] text-slate-500 leading-snug">{f.desc}</p>
+                  <p className="text-[12px] sm:text-[13px] font-extrabold text-deep-navy mb-0.5 leading-tight">{f.title}</p>
+                  <p className="text-[10px] sm:text-[11px] text-slate-500 leading-snug">{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -757,16 +708,16 @@ export default function ServicesPage() {
                     <Image src={w.img} alt={w.title} fill className="object-cover" />
                     <div className="absolute inset-0 bg-linear-to-t from-deep-navy/30 via-transparent to-transparent" />
                     <div className="absolute top-3 left-3 flex items-center gap-1.5">
-                      <span className="px-2 py-0.5 bg-white/95 text-pink-600 text-[9px] font-extrabold rounded uppercase tracking-wider shadow-md">{w.tag}</span>
-                      <span className="px-2 py-0.5 bg-pink-500 text-white text-[9px] font-extrabold rounded shadow-md flex items-center gap-1">
+                      <span className="px-2 py-0.5 bg-white/95 text-pink-600 text-[10px] font-extrabold rounded uppercase tracking-wider shadow-md">{w.tag}</span>
+                      <span className="px-2 py-0.5 bg-pink-500 text-white text-[10px] font-extrabold rounded shadow-md flex items-center gap-1">
                         <svg className="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" /></svg>
                         Instagram
                       </span>
                     </div>
                   </div>
                   <div className="p-4 sm:p-5">
-                    <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy mb-1 leading-tight">{w.title}</p>
-                    <p className="text-[10px] sm:text-[11px] text-slate-500 leading-relaxed">{w.desc}</p>
+                    <p className="text-[14px] sm:text-sm font-extrabold text-deep-navy mb-1 leading-tight">{w.title}</p>
+                    <p className="text-[11px] sm:text-[12px] text-slate-500 leading-relaxed">{w.desc}</p>
                   </div>
                 </div>
               </div>
@@ -813,7 +764,7 @@ export default function ServicesPage() {
                             <path d="M12 3C6.48 3 2 6.58 2 10.9c0 2.78 1.8 5.22 4.51 6.6-.2.73-.72 2.65-.82 3.06-.13.52.19.51.4.37.17-.11 2.69-1.83 3.78-2.57.69.1 1.4.15 2.13.15 5.52 0 10-3.58 10-7.9S17.52 3 12 3z" />
                           </svg>
                         </div>
-                        <span className="text-[8px] font-bold text-slate-800">여울디앤씨</span>
+                        <span className="text-[9px] font-bold text-slate-800">여울디앤씨</span>
                         <div className="ml-auto flex gap-1">
                           <svg className="w-2.5 h-2.5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><circle cx="11" cy="11" r="7" /><path strokeLinecap="round" d="M21 21l-4.35-4.35" /></svg>
                           <svg className="w-2.5 h-2.5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h7" /></svg>
@@ -822,21 +773,21 @@ export default function ServicesPage() {
 
                       {/* Chat area */}
                       <div className="absolute top-[44px] left-2 right-2 bottom-7 space-y-1.5 overflow-hidden">
-                        <p className="text-center text-[6.5px] text-slate-600/70 mb-1">오늘</p>
+                        <p className="text-center text-[7.5px] text-slate-600/70 mb-1">오늘</p>
                         <div className="flex justify-start">
-                          <div className="bg-white rounded-lg rounded-tl-sm px-2 py-1 text-[7px] text-slate-700 shadow-sm max-w-[78%]">광고 상담 문의드려요</div>
+                          <div className="bg-white rounded-lg rounded-tl-sm px-2 py-1 text-[8px] text-slate-700 shadow-sm max-w-[78%]">광고 상담 문의드려요</div>
                         </div>
                         <div className="flex justify-end">
-                          <div className="bg-[#FEE500] rounded-lg rounded-tr-sm px-2 py-1 text-[7px] text-slate-800 shadow-sm max-w-[78%]">반갑습니다 :)<br />업종부터 알려주세요</div>
+                          <div className="bg-[#FEE500] rounded-lg rounded-tr-sm px-2 py-1 text-[8px] text-slate-800 shadow-sm max-w-[78%]">반갑습니다 :)<br />업종부터 알려주세요</div>
                         </div>
                         <div className="flex justify-start">
-                          <div className="bg-white rounded-lg rounded-tl-sm px-2 py-1 text-[7px] text-slate-700 shadow-sm max-w-[78%]">병원 광고를 시작하려고 합니다</div>
+                          <div className="bg-white rounded-lg rounded-tl-sm px-2 py-1 text-[8px] text-slate-700 shadow-sm max-w-[78%]">병원 광고를 시작하려고 합니다</div>
                         </div>
                         <div className="flex justify-end">
-                          <div className="bg-[#FEE500] rounded-lg rounded-tr-sm px-2 py-1 text-[7px] text-slate-800 shadow-sm max-w-[78%]">예약 문의 흐름까지<br />함께 설계해드릴게요</div>
+                          <div className="bg-[#FEE500] rounded-lg rounded-tr-sm px-2 py-1 text-[8px] text-slate-800 shadow-sm max-w-[78%]">예약 문의 흐름까지<br />함께 설계해드릴게요</div>
                         </div>
                         <div className="flex justify-start">
-                          <div className="bg-white rounded-lg rounded-tl-sm px-2 py-1 text-[7px] text-slate-700 shadow-sm max-w-[78%]">감사합니다!</div>
+                          <div className="bg-white rounded-lg rounded-tl-sm px-2 py-1 text-[8px] text-slate-700 shadow-sm max-w-[78%]">감사합니다!</div>
                         </div>
                       </div>
 
@@ -855,7 +806,7 @@ export default function ServicesPage() {
                   className="absolute top-12 right-0 sm:right-2 bg-white rounded-xl shadow-xl shadow-amber-900/10 px-3 py-2 border border-amber-100 z-30"
                   style={{ animation: "float 5s ease-in-out infinite 0.8s" }}
                 >
-                  <p className="text-[9px] text-slate-400">상담 유입</p>
+                  <p className="text-[10px] text-slate-400">상담 유입</p>
                   <p className="text-sm font-extrabold text-amber-600 leading-tight">실시간 ↑</p>
                 </div>
 
@@ -870,8 +821,8 @@ export default function ServicesPage() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-[8px] text-slate-400">카카오톡 채널</p>
-                    <p className="text-[10px] font-extrabold text-deep-navy leading-tight">실시간 응답</p>
+                    <p className="text-[9px] text-slate-400">카카오톡 채널</p>
+                    <p className="text-[11px] font-extrabold text-deep-navy leading-tight">실시간 응답</p>
                   </div>
                 </div>
               </div>
@@ -879,7 +830,7 @@ export default function ServicesPage() {
 
             {/* Info */}
             <div className="lg:col-span-7 order-2">
-              <p className="text-[11px] font-bold text-slate-400 tracking-[0.2em] uppercase mb-3">
+              <p className="text-[12px] font-bold text-slate-400 tracking-[0.2em] uppercase mb-3">
                 <span className="text-accent-blue">상담 유입형</span>  ·  카카오 마케팅
               </p>
               <p className="text-sm text-slate-500 mb-2">빠른 커뮤니케이션이 중요한 업종에</p>
@@ -895,7 +846,7 @@ export default function ServicesPage() {
                   <span className="text-[#FBB034]">재접촉</span>
                 </span>
               </h2>
-              <p className="text-[13px] sm:text-sm text-slate-500 leading-relaxed mb-6">
+              <p className="text-[14px] sm:text-sm text-slate-500 leading-relaxed mb-6">
                 <span className="font-semibold text-deep-navy">카카오톡 채널을 활용</span>해 상담 유입부터 기존 고객 재접촉까지 운영합니다.
                 키워드 광고와 채널 메시지를 결합해 빠른 전환을 유도합니다.
               </p>
@@ -909,7 +860,7 @@ export default function ServicesPage() {
                     <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center shrink-0 mt-0.5">
                       <IconCheck className="w-3 h-3 text-amber-600" />
                     </div>
-                    <p className="text-[13px] sm:text-sm text-slate-700 leading-relaxed">{text}</p>
+                    <p className="text-[14px] sm:text-sm text-slate-700 leading-relaxed">{text}</p>
                   </div>
                 ))}
               </div>
@@ -956,8 +907,8 @@ export default function ServicesPage() {
                       </svg>
                     </div>
                   </div>
-                  <p className="text-[12px] sm:text-[13px] font-extrabold text-deep-navy mb-1.5 leading-tight">{f.title}</p>
-                  <p className="text-[10px] sm:text-[11px] text-slate-500 leading-relaxed flex-1 break-keep">{f.desc}</p>
+                  <p className="text-[13px] sm:text-[14px] font-extrabold text-deep-navy mb-1.5 leading-tight">{f.title}</p>
+                  <p className="text-[11px] sm:text-[12px] text-slate-500 leading-relaxed flex-1 break-keep">{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -971,7 +922,7 @@ export default function ServicesPage() {
           <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
             {/* Info */}
             <div className="lg:col-span-7 order-2 lg:order-1 mt-12 lg:mt-0">
-              <p className="text-[11px] font-bold text-slate-400 tracking-[0.2em] uppercase mb-3">
+              <p className="text-[12px] font-bold text-slate-400 tracking-[0.2em] uppercase mb-3">
                 <span className="text-accent-blue">브랜드 인지도</span>  ·  유튜브 마케팅
               </p>
               <p className="text-sm text-slate-500 mb-2">영상으로 전하는 브랜드 신뢰</p>
@@ -986,7 +937,7 @@ export default function ServicesPage() {
                   <span className="text-[#FF0000]">유튜브 마케팅</span>
                 </span>
               </h2>
-              <p className="text-[13px] sm:text-sm text-slate-500 leading-relaxed mb-6">
+              <p className="text-[14px] sm:text-sm text-slate-500 leading-relaxed mb-6">
                 <span className="font-semibold text-deep-navy">인스트림 · 범퍼 · Shorts</span> 등 다양한 포맷으로
                 브랜드 인지도와 신뢰를 동시에 확보합니다.
               </p>
@@ -1002,8 +953,8 @@ export default function ServicesPage() {
                     <div className={`w-9 h-9 mx-auto rounded-lg bg-linear-to-br ${f.color} flex items-center justify-center mb-2 shadow-md`}>
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                     </div>
-                    <p className="text-[11px] sm:text-xs text-deep-navy font-bold">{f.label}</p>
-                    <p className="text-[9px] sm:text-[10px] text-slate-400">{f.desc}</p>
+                    <p className="text-[12px] sm:text-xs text-deep-navy font-bold">{f.label}</p>
+                    <p className="text-[10px] sm:text-[11px] text-slate-400">{f.desc}</p>
                   </div>
                 ))}
               </div>
@@ -1018,7 +969,7 @@ export default function ServicesPage() {
                     <div className="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5">
                       <IconCheck className="w-3 h-3 text-red-600" />
                     </div>
-                    <p className="text-[13px] sm:text-sm text-slate-700">{text}</p>
+                    <p className="text-[14px] sm:text-sm text-slate-700">{text}</p>
                   </div>
                 ))}
               </div>
@@ -1055,7 +1006,7 @@ export default function ServicesPage() {
                         <svg className="w-6 h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                       </div>
                     </div>
-                    <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between text-white text-[9px]">
+                    <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between text-white text-[10px]">
                       <span className="bg-red-600 px-1.5 py-0.5 rounded font-bold">LIVE</span>
                       <span className="bg-black/60 px-1.5 py-0.5 rounded">0:15</span>
                     </div>
@@ -1099,7 +1050,7 @@ export default function ServicesPage() {
                     </div>
                     <div className="flex-1 bg-slate-50 rounded-lg px-3 py-1.5 flex items-center gap-2">
                       <img src="/images/logos/google.svg" alt="" className="h-3 w-auto" />
-                      <span className="text-[10px] text-slate-400">광고 캠페인 검색...</span>
+                      <span className="text-[11px] text-slate-400">광고 캠페인 검색...</span>
                       <svg className="w-3 h-3 text-slate-300 ml-auto" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" strokeLinecap="round" /><path strokeLinecap="round" d="M21 21l-4.35-4.35" /></svg>
                     </div>
                   </div>
@@ -1112,7 +1063,7 @@ export default function ServicesPage() {
                       <Image src="/images/stock/mobile-ads.jpg" alt="" fill className="object-cover" />
                       <div className="absolute top-1 left-1 right-1 flex items-center gap-1 bg-white/90 rounded-lg px-1.5 py-1">
                         <img src="/images/logos/google-ads.svg" alt="" className="h-2 w-auto" />
-                        <span className="text-[6px] font-bold text-slate-600">광고</span>
+                        <span className="text-[7px] font-bold text-slate-600">광고</span>
                       </div>
                     </div>
                   </div>
@@ -1127,7 +1078,7 @@ export default function ServicesPage() {
 
             {/* Info */}
             <div className="lg:col-span-7 order-2">
-              <p className="text-[11px] font-bold text-slate-400 tracking-[0.2em] uppercase mb-3">
+              <p className="text-[12px] font-bold text-slate-400 tracking-[0.2em] uppercase mb-3">
                 <span className="text-accent-blue">확장형 광고</span>  ·  구글 마케팅
               </p>
               <p className="text-sm text-slate-500 mb-2">검색 + 디스플레이 + 리타겟팅</p>
@@ -1140,7 +1091,7 @@ export default function ServicesPage() {
                   <span className="text-accent-blue">구글 마케팅</span>
                 </span>
               </h2>
-              <p className="text-[13px] sm:text-sm text-slate-500 leading-relaxed mb-6">
+              <p className="text-[14px] sm:text-sm text-slate-500 leading-relaxed mb-6">
                 <span className="font-semibold text-deep-navy">다양한 지면에서 광고를 확장</span>하고,
                 리타겟팅과 자동 최적화 기반으로 효율적으로 운영합니다.
                 검색, 디스플레이, 유튜브까지 통합 캠페인이 가능합니다.
@@ -1157,7 +1108,7 @@ export default function ServicesPage() {
                   <div key={s.label} className="relative">
                     <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-lg bg-linear-to-br ${s.color} opacity-40 blur-[1px]`} />
                     <div className="relative bg-white rounded-lg border border-slate-100 p-2.5 text-center shadow-sm">
-                      <p className="text-[11px] font-bold text-deep-navy">{s.label}</p>
+                      <p className="text-[12px] font-bold text-deep-navy">{s.label}</p>
                     </div>
                   </div>
                 ))}
@@ -1173,7 +1124,7 @@ export default function ServicesPage() {
                     <div className="w-5 h-5 rounded-full bg-sky-100 flex items-center justify-center shrink-0 mt-0.5">
                       <IconCheck className="w-3 h-3 text-sky-600" />
                     </div>
-                    <p className="text-[13px] sm:text-sm text-slate-700">{text}</p>
+                    <p className="text-[14px] sm:text-sm text-slate-700">{text}</p>
                   </div>
                 ))}
               </div>
@@ -1214,7 +1165,7 @@ export default function ServicesPage() {
                   <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4">
                     <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/20 backdrop-blur-sm rounded-full mb-1.5 sm:mb-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-violet-300" />
-                      <span className="text-[10px] font-bold text-white">재접촉 마케팅</span>
+                      <span className="text-[11px] font-bold text-white">재접촉 마케팅</span>
                     </div>
                     <h3 className="text-base sm:text-lg font-extrabold text-white">문자 마케팅</h3>
                   </div>
@@ -1224,13 +1175,13 @@ export default function ServicesPage() {
                   </div>
                 </div>
                 <div className="p-5 sm:p-6">
-                  <p className="text-[11px] sm:text-xs text-slate-500 mb-3 sm:mb-4 leading-relaxed">확보된 DB를 대상으로 직접 전달하는 SMS/LMS/MMS 광고</p>
+                  <p className="text-[12px] sm:text-xs text-slate-500 mb-3 sm:mb-4 leading-relaxed">확보된 DB를 대상으로 직접 전달하는 SMS/LMS/MMS 광고</p>
                   <ul className="space-y-2 text-violet-700 mb-4">
                     <Bullet color="text-violet-700">재문의 유도 / 방문·예약 안내</Bullet>
                     <Bullet color="text-violet-700">기존 고객 재접촉에 효과적</Bullet>
                   </ul>
                   <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-[10px] font-extrabold bg-linear-to-br from-violet-500 to-purple-600 bg-clip-text text-transparent">06</span>
+                    <span className="text-[11px] font-extrabold bg-linear-to-br from-violet-500 to-purple-600 bg-clip-text text-transparent">06</span>
                     <div className="w-6 h-6 rounded-full bg-violet-50 flex items-center justify-center">
                       <IconArrowRight className="w-3 h-3 text-violet-600" />
                     </div>
@@ -1251,7 +1202,7 @@ export default function ServicesPage() {
                     <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
                       <Logo name="danggeun" className="h-3.5 sm:h-4 w-auto brightness-0 invert" />
                       <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/20 backdrop-blur-sm rounded-full">
-                        <span className="text-[10px] font-bold text-white">지역 특화</span>
+                        <span className="text-[11px] font-bold text-white">지역 특화</span>
                       </div>
                     </div>
                     <h3 className="text-base sm:text-lg font-extrabold text-white">당근/지역 광고</h3>
@@ -1261,13 +1212,13 @@ export default function ServicesPage() {
                   </div>
                 </div>
                 <div className="p-5 sm:p-6">
-                  <p className="text-[11px] sm:text-xs text-slate-500 mb-3 sm:mb-4 leading-relaxed">지역 기반 피드/검색/카탈로그 광고로 생활권 고객을 확보</p>
+                  <p className="text-[12px] sm:text-xs text-slate-500 mb-3 sm:mb-4 leading-relaxed">지역 기반 피드/검색/카탈로그 광고로 생활권 고객을 확보</p>
                   <ul className="space-y-2 text-orange-700 mb-4">
                     <Bullet color="text-orange-700">지역 상권 업종에 최적화</Bullet>
                     <Bullet color="text-orange-700">생활권 고객이 중요한 서비스</Bullet>
                   </ul>
                   <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-[10px] font-extrabold bg-linear-to-br from-orange-500 to-orange-600 bg-clip-text text-transparent">07</span>
+                    <span className="text-[11px] font-extrabold bg-linear-to-br from-orange-500 to-orange-600 bg-clip-text text-transparent">07</span>
                     <div className="w-6 h-6 rounded-full bg-orange-50 flex items-center justify-center">
                       <IconArrowRight className="w-3 h-3 text-orange-600" />
                     </div>
@@ -1287,7 +1238,7 @@ export default function ServicesPage() {
                   <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4">
                     <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/20 backdrop-blur-sm rounded-full mb-1.5 sm:mb-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-teal-300" />
-                      <span className="text-[10px] font-bold text-white">업종 특화</span>
+                      <span className="text-[11px] font-bold text-white">업종 특화</span>
                     </div>
                     <h3 className="text-base sm:text-lg font-extrabold text-white">부동산 특화 광고</h3>
                   </div>
@@ -1296,13 +1247,13 @@ export default function ServicesPage() {
                   </div>
                 </div>
                 <div className="p-5 sm:p-6">
-                  <p className="text-[11px] sm:text-xs text-slate-500 mb-3 sm:mb-4 leading-relaxed">호갱노노, 직방, 다방, 네모 등 부동산 전문 플랫폼 광고</p>
+                  <p className="text-[12px] sm:text-xs text-slate-500 mb-3 sm:mb-4 leading-relaxed">호갱노노, 직방, 다방, 네모 등 부동산 전문 플랫폼 광고</p>
                   <ul className="space-y-2 text-teal-700 mb-4">
                     <Bullet color="text-teal-700">분양 / 임대 / 상가</Bullet>
                     <Bullet color="text-teal-700">지역 부동산 마케팅</Bullet>
                   </ul>
                   <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-[10px] font-extrabold bg-linear-to-br from-teal-500 to-teal-600 bg-clip-text text-transparent">08</span>
+                    <span className="text-[11px] font-extrabold bg-linear-to-br from-teal-500 to-teal-600 bg-clip-text text-transparent">08</span>
                     <div className="w-6 h-6 rounded-full bg-teal-50 flex items-center justify-center">
                       <IconArrowRight className="w-3 h-3 text-teal-600" />
                     </div>
@@ -1319,10 +1270,10 @@ export default function ServicesPage() {
               <div className="lg:col-span-6 mb-4 lg:mb-0">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 mb-3">
                   <span className="w-1 h-1 rounded-full bg-accent-blue" />
-                  <span className="text-[10px] font-extrabold text-accent-blue tracking-wider uppercase">04 — 그 외 모든 업종</span>
+                  <span className="text-[11px] font-extrabold text-accent-blue tracking-wider uppercase">04 — 그 외 모든 업종</span>
                 </span>
                 <h3 className="text-lg sm:text-xl font-extrabold text-deep-navy mb-2 leading-tight">모든 업종 맞춤 종합 마케팅 솔루션</h3>
-                <p className="text-[12px] sm:text-sm text-slate-500 leading-relaxed">네이버·구글·LMS·홈페이지 제작·메타 등 상담 후 업종에 맞게 진행합니다.</p>
+                <p className="text-[13px] sm:text-sm text-slate-500 leading-relaxed">네이버·구글·LMS·홈페이지 제작·메타 등 상담 후 업종에 맞게 진행합니다.</p>
               </div>
               <div className="lg:col-span-4 flex flex-wrap items-center gap-2 sm:gap-3">
                 {["naver", "google", "kakaotalk", "meta"].map((n) => (
@@ -1346,7 +1297,7 @@ export default function ServicesPage() {
                 </div>
               </div>
               <div className="lg:col-span-2">
-                <Link href="/contact" className="block w-full px-4 py-3 bg-linear-to-r from-accent-blue to-blue-600 text-white text-center text-[12px] sm:text-sm font-bold rounded-xl shadow-lg shadow-accent-blue/25 hover:shadow-xl transition-shadow">
+                <Link href="/contact" className="block w-full px-4 py-3 bg-linear-to-r from-accent-blue to-blue-600 text-white text-center text-[13px] sm:text-sm font-bold rounded-xl shadow-lg shadow-accent-blue/25 hover:shadow-xl transition-shadow">
                   상담 문의하기 →
                 </Link>
               </div>
@@ -1429,13 +1380,13 @@ export default function ServicesPage() {
                       {/* Industry content */}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 flex-wrap">
-                          <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy">{item.industry}</p>
+                          <p className="text-[14px] sm:text-sm font-extrabold text-deep-navy">{item.industry}</p>
                           {item.bullets.map((b) => (
-                            <span key={b} className="text-[10px] text-slate-400">· {b}</span>
+                            <span key={b} className="text-[11px] text-slate-400">· {b}</span>
                           ))}
                         </div>
                         <div className="hidden sm:block w-8 h-px bg-slate-200 my-1" />
-                        <p className="text-[10px] sm:text-[11px] text-slate-500 leading-relaxed mt-1">{item.result}</p>
+                        <p className="text-[11px] sm:text-[12px] text-slate-500 leading-relaxed mt-1">{item.result}</p>
                       </div>
                     </div>
                   </div>
@@ -1453,8 +1404,8 @@ export default function ServicesPage() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy">업종별 맞춤 전략으로 더 높은 성과를</p>
-                    <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">업종의 특성과 고객 행동을 분석하여 가장 효과적인 광고 전략을 설계합니다.</p>
+                    <p className="text-[14px] sm:text-sm font-extrabold text-deep-navy">업종별 맞춤 전략으로 더 높은 성과를</p>
+                    <p className="text-[11px] sm:text-[12px] text-slate-500 mt-0.5">업종의 특성과 고객 행동을 분석하여 가장 효과적인 광고 전략을 설계합니다.</p>
                   </div>
                 </div>
               </div>
@@ -1479,7 +1430,7 @@ export default function ServicesPage() {
                   <div className="absolute inset-0 bg-linear-to-t from-deep-navy/40 via-transparent to-transparent" />
                   {/* Floating stats */}
                   <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm rounded-lg px-2.5 py-1.5 shadow-lg">
-                    <p className="text-[9px] text-slate-400 font-medium">LIVE</p>
+                    <p className="text-[10px] text-slate-400 font-medium">LIVE</p>
                     <p className="text-xs font-extrabold text-accent-blue flex items-center gap-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-soft" /> 최적화 중
                     </p>
@@ -1498,11 +1449,11 @@ export default function ServicesPage() {
                 ].map((s, i) => (
                   <div key={s.step} className="flex items-start gap-3 p-3 rounded-xl bg-white border border-slate-100 shadow-sm">
                     <div className="w-8 h-8 rounded-lg bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-md shrink-0">
-                      <span className="text-white text-[10px] font-black">{i + 1}</span>
+                      <span className="text-white text-[11px] font-black">{i + 1}</span>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-[12px] sm:text-sm font-extrabold text-deep-navy leading-tight">{s.step}</p>
-                      <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 leading-tight">{s.desc}</p>
+                      <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy leading-tight">{s.step}</p>
+                      <p className="text-[11px] sm:text-[12px] text-slate-500 mt-0.5 leading-tight">{s.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -1515,8 +1466,8 @@ export default function ServicesPage() {
                     <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
                   </div>
                   <div>
-                    <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy">데이터 기반 성과 관리</p>
-                    <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">실시간 데이터 분석과 지속적인 최적화로 광고 효율을 극대화합니다.</p>
+                    <p className="text-[14px] sm:text-sm font-extrabold text-deep-navy">데이터 기반 성과 관리</p>
+                    <p className="text-[11px] sm:text-[12px] text-slate-500 mt-0.5">실시간 데이터 분석과 지속적인 최적화로 광고 효율을 극대화합니다.</p>
                   </div>
                 </div>
               </div>
@@ -1559,7 +1510,7 @@ export default function ServicesPage() {
             <div className="relative bg-white rounded-3xl border border-white shadow-2xl shadow-deep-navy/5 overflow-hidden">
               {/* Header row - desktop only */}
               <div className="hidden sm:grid grid-cols-8 gap-0 border-b border-slate-100 bg-linear-to-r from-slate-50 to-white">
-                <div className="col-span-2 px-4 py-4 text-[11px] font-extrabold text-slate-400 tracking-widest uppercase">업종</div>
+                <div className="col-span-2 px-4 py-4 text-[12px] font-extrabold text-slate-400 tracking-widest uppercase">업종</div>
                 {[
                   { name: "naver", label: "네이버" },
                   { name: "meta", label: "메타" },
@@ -1570,7 +1521,7 @@ export default function ServicesPage() {
                 ].map((ch) => (
                   <div key={ch.name} className="px-2 py-4 flex flex-col items-center gap-1.5">
                     <img src={`/images/logos/${ch.name}.svg`} alt="" className="h-5 w-auto" />
-                    <span className="text-[10px] font-bold text-slate-500">{ch.label}</span>
+                    <span className="text-[11px] font-bold text-slate-500">{ch.label}</span>
                   </div>
                 ))}
               </div>
@@ -1594,7 +1545,7 @@ export default function ServicesPage() {
                       </div>
                       <div>
                         <p className="text-sm font-extrabold text-deep-navy">{row.industry}</p>
-                        <p className={`text-[10px] font-bold bg-linear-to-br ${row.color} bg-clip-text text-transparent tracking-wider`}>{row.tag}</p>
+                        <p className={`text-[11px] font-bold bg-linear-to-br ${row.color} bg-clip-text text-transparent tracking-wider`}>{row.tag}</p>
                       </div>
                     </div>
                     {Object.entries(row.matches).map(([ch, level]) => (
@@ -1602,7 +1553,7 @@ export default function ServicesPage() {
                         {/* PDF page 44 5단계: 추천(green) / 적합(2 dots) / 보조(yellow dots) / 비추보조(orange dot) / 비추(grey dots) */}
                         {level === 3 ? (
                           <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500 shadow-sm">
-                            <span className="text-[9px] font-extrabold text-white">추천</span>
+                            <span className="text-[10px] font-extrabold text-white">추천</span>
                           </div>
                         ) : level === 2 ? (
                           <div className="flex gap-1">
@@ -1645,9 +1596,9 @@ export default function ServicesPage() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-extrabold text-deep-navy">{row.industry}</p>
-                        <p className={`text-[10px] font-bold bg-linear-to-br ${row.color} bg-clip-text text-transparent tracking-wider`}>{row.tag}</p>
+                        <p className={`text-[11px] font-bold bg-linear-to-br ${row.color} bg-clip-text text-transparent tracking-wider`}>{row.tag}</p>
                       </div>
-                      <span className="text-[9px] text-slate-400 font-bold tracking-widest uppercase">추천 채널</span>
+                      <span className="text-[10px] text-slate-400 font-bold tracking-widest uppercase">추천 채널</span>
                     </div>
                     <div className="flex items-center gap-2 pl-12">
                       {row.top.map((ch) => (
@@ -1664,10 +1615,10 @@ export default function ServicesPage() {
               </div>
 
               {/* Legend - PDF page 44 5단계 */}
-              <div className="p-4 sm:p-5 bg-linear-to-r from-slate-50 to-white border-t border-slate-100 flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-[10px] sm:text-[11px]">
+              <div className="p-4 sm:p-5 bg-linear-to-r from-slate-50 to-white border-t border-slate-100 flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-[11px] sm:text-[12px]">
                 <div className="flex items-center gap-1.5">
                   <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500 shadow-sm">
-                    <span className="text-[9px] font-extrabold text-white">추천</span>
+                    <span className="text-[10px] font-extrabold text-white">추천</span>
                   </div>
                   <span className="text-slate-500 font-medium">최적의 채널</span>
                 </div>
@@ -1701,7 +1652,7 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          <p className="text-center text-[11px] sm:text-xs text-slate-400 mt-6 leading-relaxed">
+          <p className="text-center text-[12px] sm:text-xs text-slate-400 mt-6 leading-relaxed">
             * 위 매트릭스는 일반적인 기준이며,<br className="sm:hidden" />
             {" "}실제 예산과 목표에 따라 조합이 달라질 수 있습니다.
           </p>

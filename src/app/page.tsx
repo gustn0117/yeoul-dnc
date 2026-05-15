@@ -119,21 +119,21 @@ export default function Home() {
             <div className="lg:col-span-6 py-14 sm:py-20 lg:py-0 relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-full border border-blue-100 mb-6 shadow-sm shadow-blue-500/5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-soft" />
-                <span className="text-[11px] font-bold text-slate-600 tracking-wider uppercase">Online Ad Partner</span>
+                <span className="text-[12px] font-bold text-slate-600 tracking-wider uppercase">Online Ad Partner</span>
               </div>
 
               <h1 className="text-[1.85rem] sm:text-[2.4rem] lg:text-[3rem] font-extrabold leading-hero text-deep-navy tracking-tight mb-5">
-                광고비는 쓰고 있는데<br />
+                온라인 광고,<br />
                 <span className="relative inline-block">
-                  <span className="relative z-10 gradient-text">문의가 부족</span>
+                  <span className="relative z-10 gradient-text">결과로 말합니다</span>
                   <span className="absolute bottom-1 sm:bottom-1.5 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
                 </span>
-                하신가요?
               </h1>
 
               <p className="text-base text-slate-600 mb-7 max-w-md leading-relaxed">
-                <span className="font-semibold text-deep-navy">유입부터 문의, 상담 전환, 재접촉까지</span> 설계하는<br className="hidden sm:inline" />
-                {" "}온라인 광고 전문 실행사입니다.
+                <span className="font-semibold text-deep-navy">데이터 기반 전략과 실행력</span>으로<br className="hidden sm:inline" />
+                {" "}유입부터 상담 전환, 재접촉까지 함께 만드는<br className="hidden sm:inline" />
+                {" "}온라인 광고 파트너입니다.
               </p>
 
               <div className="space-y-2.5 mb-8">
@@ -146,7 +146,7 @@ export default function Home() {
                     <div className="w-5 h-5 rounded-full bg-accent-blue flex items-center justify-center shrink-0">
                       <IconCheck className="w-3 h-3 text-white" />
                     </div>
-                    <p className="text-[13px] text-slate-700 font-medium">{t}</p>
+                    <p className="text-[14px] text-slate-700 font-medium">{t}</p>
                   </div>
                 ))}
               </div>
@@ -162,7 +162,7 @@ export default function Home() {
 
               {/* Media bar - real logos */}
               <div className="flex items-center gap-4 sm:gap-5 flex-wrap">
-                <p className="text-[10px] font-bold text-slate-400 tracking-widest uppercase w-full sm:w-auto">운영 채널</p>
+                <p className="text-[11px] font-bold text-slate-400 tracking-widest uppercase w-full sm:w-auto">운영 채널</p>
                 {["naver", "kakaotalk", "meta", "youtube", "google", "instagram"].map((name) => (
                   <img key={name} src={`/images/logos/${name}.svg`} alt={name} className="h-3.5 sm:h-4 w-auto opacity-50 hover:opacity-100 transition-opacity" />
                 ))}
@@ -178,12 +178,12 @@ export default function Home() {
                     <p className="text-base font-extrabold text-deep-navy">실시간 캠페인 대시보드</p>
                     <div className="flex items-center gap-2">
                       <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-50 border border-slate-100">
-                        <span className="text-[10px] text-slate-500 font-medium">전체 캠페인</span>
+                        <span className="text-[11px] text-slate-500 font-medium">전체 캠페인</span>
                         <svg className="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
                       </div>
                       <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-50 border border-slate-100">
                         <svg className="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                        <span className="text-[10px] text-slate-500 font-medium">최근 7일</span>
+                        <span className="text-[11px] text-slate-500 font-medium">최근 7일</span>
                         <svg className="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
                       </div>
                     </div>
@@ -198,9 +198,9 @@ export default function Home() {
                       { label: "ROAS", value: "4.8x", change: "▲ 32.5%", color: "text-amber-500" },
                     ].map((k) => (
                       <div key={k.label} className="bg-slate-50/60 rounded-xl p-3 border border-slate-100">
-                        <p className="text-[10px] text-slate-500 mb-1">{k.label}</p>
+                        <p className="text-[11px] text-slate-500 mb-1">{k.label}</p>
                         <p className="text-base font-extrabold text-deep-navy leading-tight">{k.value}</p>
-                        <p className={`text-[10px] font-bold ${k.color} mt-0.5`}>{k.change}</p>
+                        <p className={`text-[11px] font-bold ${k.color} mt-0.5`}>{k.change}</p>
                       </div>
                     ))}
                   </div>
@@ -232,7 +232,7 @@ export default function Home() {
                           ))}
                         </svg>
                         {/* Y axis labels */}
-                        <div className="absolute left-0 top-0 h-full flex flex-col justify-between text-[9px] text-slate-400 font-medium">
+                        <div className="absolute left-0 top-0 h-full flex flex-col justify-between text-[10px] text-slate-400 font-medium">
                           <span>40K</span>
                           <span>30K</span>
                           <span>20K</span>
@@ -241,14 +241,14 @@ export default function Home() {
                         </div>
                       </div>
                       {/* X axis */}
-                      <div className="flex justify-between text-[9px] text-slate-400 font-medium pl-4 pr-2 mt-1">
+                      <div className="flex justify-between text-[10px] text-slate-400 font-medium pl-4 pr-2 mt-1">
                         <span>05.03</span><span>05.04</span><span>05.05</span><span>05.06</span><span>05.07</span><span>05.08</span><span>05.09</span>
                       </div>
                     </div>
 
                     {/* Donut chart - 채널별 성과 */}
                     <div className="col-span-2">
-                      <p className="text-[10px] font-bold text-slate-500 mb-2">채널별 성과</p>
+                      <p className="text-[11px] font-bold text-slate-500 mb-2">채널별 성과</p>
                       <div className="flex items-center gap-3">
                         {/* Donut SVG */}
                         <div className="relative w-20 h-20 shrink-0">
@@ -276,8 +276,8 @@ export default function Home() {
                           ].map((it) => (
                             <div key={it.l} className="flex items-center gap-1.5">
                               <span className={`w-2 h-2 rounded-full ${it.c}`} />
-                              <span className="text-[9px] text-slate-600 font-medium flex-1">{it.l}</span>
-                              <span className="text-[9px] text-slate-500 font-bold">{it.v}</span>
+                              <span className="text-[10px] text-slate-600 font-medium flex-1">{it.l}</span>
+                              <span className="text-[10px] text-slate-500 font-bold">{it.v}</span>
                             </div>
                           ))}
                         </div>
@@ -293,9 +293,9 @@ export default function Home() {
                       </svg>
                     </div>
                     <div className="flex items-baseline gap-2">
-                      <span className="text-[10px] text-slate-500 font-medium">평균 ROAS</span>
+                      <span className="text-[11px] text-slate-500 font-medium">평균 ROAS</span>
                       <span className="text-2xl font-black text-accent-blue leading-none">4.8x</span>
-                      <span className="text-[11px] text-slate-600 font-bold">업종별 맞춤 운영으로 효율 극대화</span>
+                      <span className="text-[12px] text-slate-600 font-bold">업종별 맞춤 운영으로 효율 극대화</span>
                     </div>
                   </div>
                 </div>
@@ -316,10 +316,10 @@ export default function Home() {
                 <div className="rounded-3xl overflow-hidden shadow-xl shadow-blue-900/15 ring-1 ring-white/60 bg-white">
                   <div className="bg-linear-to-br from-deep-navy to-[#0d2240] p-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-[9px] font-bold text-slate-300 tracking-wider">CAMPAIGN DASHBOARD</span>
+                      <span className="text-[10px] font-bold text-slate-300 tracking-wider">CAMPAIGN DASHBOARD</span>
                       <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30">
                         <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse-soft" />
-                        <span className="text-[8px] font-bold text-emerald-400">LIVE</span>
+                        <span className="text-[9px] font-bold text-emerald-400">LIVE</span>
                       </div>
                     </div>
                     <p className="text-base font-extrabold text-white mt-1">월간 성과 리포트</p>
@@ -327,8 +327,8 @@ export default function Home() {
                   <div className="p-4">
                     <div className="flex items-baseline gap-2 mb-3">
                       <span className="text-2xl font-black text-accent-blue leading-none">2~4x</span>
-                      <span className="text-[11px] font-bold text-slate-500">업종별 상이</span>
-                      <span className="text-[9px] text-slate-400 ml-auto">목표 ROAS</span>
+                      <span className="text-[12px] font-bold text-slate-500">업종별 상이</span>
+                      <span className="text-[10px] text-slate-400 ml-auto">목표 ROAS</span>
                     </div>
                     <svg viewBox="0 0 300 80" className="w-full h-20" preserveAspectRatio="none">
                       <defs>
@@ -343,15 +343,15 @@ export default function Home() {
                     </svg>
                     <div className="mt-3 pt-3 border-t border-slate-100 grid grid-cols-3 gap-2">
                       <div>
-                        <p className="text-[8px] text-slate-400">누적 캠페인</p>
+                        <p className="text-[9px] text-slate-400">누적 캠페인</p>
                         <p className="text-sm font-extrabold text-deep-navy">100+</p>
                       </div>
                       <div>
-                        <p className="text-[8px] text-slate-400">문의 증가 사례</p>
+                        <p className="text-[9px] text-slate-400">문의 증가 사례</p>
                         <p className="text-sm font-extrabold text-deep-navy">+56%</p>
                       </div>
                       <div>
-                        <p className="text-[8px] text-slate-400">빠른 응답</p>
+                        <p className="text-[9px] text-slate-400">빠른 응답</p>
                         <p className="text-sm font-extrabold text-deep-navy">24h</p>
                       </div>
                     </div>
@@ -391,8 +391,8 @@ export default function Home() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className={`text-2xl sm:text-3xl font-black leading-none tracking-tight ${s.positive ? "text-emerald-600" : "text-deep-navy"}`}>{s.value}</p>
-                      <p className="text-[12px] sm:text-sm font-bold text-deep-navy mt-1">{s.label}</p>
-                      <p className="text-[10px] sm:text-[11px] text-slate-400">{s.sub}</p>
+                      <p className="text-[13px] sm:text-sm font-bold text-deep-navy mt-1">{s.label}</p>
+                      <p className="text-[11px] sm:text-[12px] text-slate-400">{s.sub}</p>
                     </div>
                   </div>
                 </div>
@@ -460,11 +460,11 @@ export default function Home() {
                         <item.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                       </div>
                     </div>
-                    <h3 className="text-[13px] sm:text-base font-extrabold text-deep-navy mb-1.5 sm:mb-2 whitespace-pre-line leading-tight">{item.title}</h3>
-                    <p className="text-[11px] sm:text-xs text-slate-500 leading-relaxed flex-1">{item.desc}</p>
+                    <h3 className="text-[14px] sm:text-base font-extrabold text-deep-navy mb-1.5 sm:mb-2 whitespace-pre-line leading-tight">{item.title}</h3>
+                    <p className="text-[12px] sm:text-xs text-slate-500 leading-relaxed flex-1">{item.desc}</p>
 
                     <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-slate-100">
-                      <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold text-accent-blue">
+                      <span className="inline-flex items-center gap-1 text-[11px] sm:text-[12px] font-bold text-accent-blue">
                         POINT {String(i + 1).padStart(2, "0")} <IconArrowRight className="w-3 h-3" />
                       </span>
                     </div>
@@ -549,16 +549,16 @@ export default function Home() {
                       <div className="relative w-full h-full rounded-2xl bg-linear-to-br from-accent-blue/20 to-accent-blue/5 border border-accent-blue/30 group-hover:from-accent-blue group-hover:to-blue-600 flex items-center justify-center transition-all duration-500 shadow-lg shadow-accent-blue/20">
                         <s.Icon className="w-6 h-6 sm:w-7 sm:h-7 text-accent-blue group-hover:text-white transition-colors duration-300" />
                       </div>
-                      <div className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-linear-to-br from-white to-slate-200 text-deep-navy text-[10px] font-black flex items-center justify-center shadow-lg">
+                      <div className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-linear-to-br from-white to-slate-200 text-deep-navy text-[11px] font-black flex items-center justify-center shadow-lg">
                         {i + 1}
                       </div>
                     </div>
 
-                    <p className="text-[13px] sm:text-sm font-extrabold text-white mb-1">{s.title}</p>
-                    <p className="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">{s.sub}</p>
+                    <p className="text-[14px] sm:text-sm font-extrabold text-white mb-1">{s.title}</p>
+                    <p className="text-[11px] sm:text-[12px] text-slate-400 leading-relaxed">{s.sub}</p>
 
                     <div className="mt-3 pt-3 border-t border-white/5">
-                      <span className="text-[9px] font-bold text-accent-blue tracking-widest">STEP {String(i + 1).padStart(2, "0")}</span>
+                      <span className="text-[10px] font-bold text-accent-blue tracking-widest">STEP {String(i + 1).padStart(2, "0")}</span>
                     </div>
                   </div>
                 </div>
@@ -653,12 +653,12 @@ export default function Home() {
                     ) : null}
                   </div>
 
-                  <h3 className="font-extrabold text-deep-navy text-[13px] sm:text-sm mb-1">{ch.name}</h3>
-                  <p className="text-[10px] sm:text-[11px] text-slate-400 mb-3 sm:mb-4 leading-relaxed">{ch.purpose}</p>
+                  <h3 className="font-extrabold text-deep-navy text-[14px] sm:text-sm mb-1">{ch.name}</h3>
+                  <p className="text-[11px] sm:text-[12px] text-slate-400 mb-3 sm:mb-4 leading-relaxed">{ch.purpose}</p>
 
                   {/* Footer with number + arrow */}
                   <div className="flex items-center justify-between pt-2 sm:pt-3 border-t border-slate-100">
-                    <span className={`text-[10px] sm:text-[11px] font-extrabold bg-linear-to-br ${ch.color} bg-clip-text text-transparent`}>
+                    <span className={`text-[11px] sm:text-[12px] font-extrabold bg-linear-to-br ${ch.color} bg-clip-text text-transparent`}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div className={`w-6 h-6 rounded-full bg-slate-50 group-hover:bg-linear-to-br group-hover:${ch.color} flex items-center justify-center transition-all duration-300`}>
@@ -761,10 +761,10 @@ export default function Home() {
                       </div>
 
                       <div className="flex-1 min-w-0">
-                        <span className="inline-block text-[9px] font-extrabold text-accent-blue tracking-widest mb-1">
+                        <span className="inline-block text-[10px] font-extrabold text-accent-blue tracking-widest mb-1">
                           {item.tag}
                         </span>
-                        <p className="text-[13px] sm:text-sm text-deep-navy font-semibold leading-snug">{item.text}</p>
+                        <p className="text-[14px] sm:text-sm text-deep-navy font-semibold leading-snug">{item.text}</p>
                       </div>
                     </div>
                   </div>
@@ -825,7 +825,7 @@ export default function Home() {
                 <div className="relative bg-white rounded-2xl border border-white shadow-3d overflow-hidden bevel-edge group-hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
                   {/* Industry badge top */}
                   <div className="px-5 sm:px-6 pt-5 pb-3">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold text-accent-blue bg-accent-blue/10 border border-accent-blue/20">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold text-accent-blue bg-accent-blue/10 border border-accent-blue/20">
                       <span className="w-1 h-1 rounded-full bg-accent-blue" />
                       {c.industry}
                     </div>
@@ -834,20 +834,20 @@ export default function Home() {
                   {/* Title block */}
                   <div className="px-5 sm:px-6 pb-4">
                     <h3 className="text-lg font-extrabold text-deep-navy mb-1.5 leading-tight">{c.title}</h3>
-                    <p className="text-[12px] text-slate-500 mb-3 leading-relaxed">{c.subtitle}</p>
-                    <p className="text-[12px] text-slate-600 leading-relaxed">{c.desc}</p>
+                    <p className="text-[13px] text-slate-500 mb-3 leading-relaxed">{c.subtitle}</p>
+                    <p className="text-[13px] text-slate-600 leading-relaxed">{c.desc}</p>
                   </div>
 
                   {/* Channel combo */}
                   <div className="px-5 sm:px-6 py-4 bg-linear-to-br from-slate-50 to-blue-50/30 border-t border-slate-100">
-                    <p className="text-[9px] font-extrabold text-slate-400 tracking-widest uppercase mb-2.5">채널 조합</p>
+                    <p className="text-[10px] font-extrabold text-slate-400 tracking-widest uppercase mb-2.5">채널 조합</p>
                     <div className="grid grid-cols-4 gap-1.5">
                       {c.channels.map((ch, idx) => (
                         <div key={ch + idx} className="flex flex-col items-center gap-1">
                           <div className="w-9 h-9 rounded-lg bg-white border border-slate-100 flex items-center justify-center shadow-sm">
                             <img src={`/images/logos/${ch}.svg`} alt="" className="h-4 w-auto" />
                           </div>
-                          <span className="text-[8px] text-slate-500 font-medium leading-tight text-center">{c.channelLabels[idx]}</span>
+                          <span className="text-[9px] text-slate-500 font-medium leading-tight text-center">{c.channelLabels[idx]}</span>
                         </div>
                       ))}
                     </div>
@@ -855,19 +855,19 @@ export default function Home() {
 
                   {/* Metrics */}
                   <div className="px-5 sm:px-6 py-4 bg-white border-t border-slate-100">
-                    <p className="text-[9px] font-extrabold text-slate-400 tracking-widest uppercase mb-2.5">운영 성과</p>
+                    <p className="text-[10px] font-extrabold text-slate-400 tracking-widest uppercase mb-2.5">운영 성과</p>
                     <div className="grid grid-cols-4 gap-2">
                       {c.metrics.map((m, idx) => (
                         <div key={idx} className="text-center">
                           <p className="text-sm font-black text-accent-blue leading-none">{m.value}</p>
-                          <p className="text-[8px] text-slate-400 mt-1 leading-tight">{m.label}</p>
+                          <p className="text-[9px] text-slate-400 mt-1 leading-tight">{m.label}</p>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* CTA bottom */}
-                  <Link href="/cases" className="mt-auto block px-5 sm:px-6 py-3.5 bg-linear-to-r from-accent-blue to-blue-600 text-white text-center text-[12px] font-bold hover:shadow-lg hover:shadow-accent-blue/20 transition-shadow">
+                  <Link href="/cases" className="mt-auto block px-5 sm:px-6 py-3.5 bg-linear-to-r from-accent-blue to-blue-600 text-white text-center text-[13px] font-bold hover:shadow-lg hover:shadow-accent-blue/20 transition-shadow">
                     CASE {String(i + 1).padStart(2, "0")} 자세히 보기 →
                   </Link>
                 </div>
@@ -982,7 +982,7 @@ export default function Home() {
                     {/* Industry + stars */}
                     <div className="flex items-center gap-1.5 mb-3 flex-wrap">
                       <div className="px-2.5 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20">
-                        <span className="text-[10px] font-extrabold text-accent-blue tracking-wider uppercase">{t.industry}</span>
+                        <span className="text-[11px] font-extrabold text-accent-blue tracking-wider uppercase">{t.industry}</span>
                       </div>
                       <div className="flex gap-0.5">
                         {[...Array(5)].map((_, n) => (
@@ -1001,14 +1001,14 @@ export default function Home() {
                         </svg>
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className={`font-extrabold text-deep-navy leading-tight ${t.size === "sm" ? "text-[12px]" : "text-sm"}`}>{t.name}</p>
-                        <p className="text-[10px] text-slate-500 leading-tight">{t.desc}</p>
+                        <p className={`font-extrabold text-deep-navy leading-tight ${t.size === "sm" ? "text-[13px]" : "text-sm"}`}>{t.name}</p>
+                        <p className="text-[11px] text-slate-500 leading-tight">{t.desc}</p>
                       </div>
                     </div>
 
-                    <p className={`font-extrabold text-deep-navy mb-2 leading-tight ${t.size === "sm" ? "text-[13px]" : "text-base"}`}>{t.summary}</p>
+                    <p className={`font-extrabold text-deep-navy mb-2 leading-tight ${t.size === "sm" ? "text-[14px]" : "text-base"}`}>{t.summary}</p>
                     {t.quote && (
-                      <p className={`text-slate-600 leading-relaxed ${t.size === "sm" ? "text-[11px]" : "text-[12px] sm:text-[13px]"} ${t.size === "sm" ? "mb-2" : "mb-4"}`}>
+                      <p className={`text-slate-600 leading-relaxed ${t.size === "sm" ? "text-[12px]" : "text-[13px] sm:text-[14px]"} ${t.size === "sm" ? "mb-2" : "mb-4"}`}>
                         &ldquo;{t.quote}&rdquo;
                       </p>
                     )}
@@ -1017,7 +1017,7 @@ export default function Home() {
                   {/* Footer with stat (only large cards) */}
                   {t.stat && (
                     <div className="relative pt-3 border-t border-slate-100 flex items-center justify-between">
-                      <span className="text-[10px] text-slate-500 font-medium flex items-center gap-1">
+                      <span className="text-[11px] text-slate-500 font-medium flex items-center gap-1">
                         <svg className="w-3 h-3 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                           <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
