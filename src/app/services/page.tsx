@@ -159,59 +159,55 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            {/* RIGHT — 6각 궤도 다이어그램 (3D 기울임 + 회전) */}
+            {/* RIGHT — 6각 hub-and-spoke 다이어그램 (재설계: 중앙 dominant + 미니멀 카드) */}
             <div className="hidden lg:flex lg:col-span-5 justify-center items-center mt-12 lg:mt-0">
-              <div className="relative w-full aspect-square max-w-[560px]" style={{ perspective: "1400px" }}>
-                {/* 다층 글로우 — halo (스테이지 레벨, 회전 X) */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-accent-blue/15 rounded-full blur-[80px]" aria-hidden="true" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[55%] h-[55%] bg-accent-blue/25 rounded-full blur-[60px]" aria-hidden="true" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[35%] h-[35%] bg-accent-blue/35 rounded-full blur-[40px]" aria-hidden="true" />
+              <div className="relative w-full aspect-square max-w-[560px]">
+                {/* 다층 halo (중앙 강조) */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-accent-blue/8 rounded-full blur-[100px]" aria-hidden="true" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[50%] bg-accent-blue/20 rounded-full blur-[70px]" aria-hidden="true" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] h-[30%] bg-accent-blue/30 rounded-full blur-[40px]" aria-hidden="true" />
 
-                {/* SVG 점선 연결 (스테이지 레벨, 회전 X) */}
+                {/* SVG 연결 — 부드러운 곡선 + 미세 dot */}
                 <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
                   <defs>
-                    <radialGradient id="lineGrad" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.7" />
-                      <stop offset="100%" stopColor="#60a5fa" stopOpacity="0.15" />
-                    </radialGradient>
-                    <filter id="dotGlow">
-                      <feGaussianBlur stdDeviation="0.5" />
-                    </filter>
+                    <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#60a5fa" stopOpacity="0" />
+                      <stop offset="50%" stopColor="#60a5fa" stopOpacity="0.5" />
+                      <stop offset="100%" stopColor="#60a5fa" stopOpacity="0" />
+                    </linearGradient>
                   </defs>
+                  {/* 외곽 점선 원 — 미세하게 (궤도 힌트) */}
+                  <circle cx="50" cy="50" r="38" fill="none" stroke="#60a5fa" strokeOpacity="0.18" strokeWidth="0.3" strokeDasharray="0.6 1.6" />
+                  {/* 각 카드 위치에 점 (궤도 위) */}
                   {[0, 60, 120, 180, 240, 300].map((deg) => {
                     const rad = ((deg - 90) * Math.PI) / 180;
-                    const rStart = 14;
-                    const rEnd = 33;
-                    const x1 = 50 + rStart * Math.cos(rad);
-                    const y1 = 50 + rStart * Math.sin(rad);
-                    const x2 = 50 + rEnd * Math.cos(rad);
-                    const y2 = 50 + rEnd * Math.sin(rad);
-                    const midX = 50 + ((rStart + rEnd) / 2) * Math.cos(rad);
-                    const midY = 50 + ((rStart + rEnd) / 2) * Math.sin(rad);
+                    const r = 38;
+                    const x = 50 + r * Math.cos(rad);
+                    const y = 50 + r * Math.sin(rad);
                     return (
                       <g key={deg}>
-                        <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="url(#lineGrad)" strokeWidth="0.5" strokeDasharray="0.6 1.2" strokeLinecap="round" />
-                        <circle cx={midX} cy={midY} r="1.2" fill="#60a5fa" opacity="0.4" filter="url(#dotGlow)" />
-                        <circle cx={midX} cy={midY} r="0.55" fill="#bfdbfe" />
+                        <circle cx={x} cy={y} r="1.6" fill="#60a5fa" opacity="0.25" />
+                        <circle cx={x} cy={y} r="0.7" fill="#bfdbfe" opacity="0.9" />
                       </g>
                     );
                   })}
                 </svg>
 
-                {/* 6개 카드 — 흰 카드 + 큰 컬러 로고 + 두툼한 바닥 컬러 바 + 강한 네온 글로우 */}
+                {/* 6개 카드 — 미니멀 다크 글래스 + 컬러 아이콘 블록 + 살짝 다른 각도 */}
                 {[
-                  { name: "meta", label: "메타 광고", bar: "bg-[#0866FF]", glow: "#0866FF", tilt: -4 },
-                  { name: "naver", label: "네이버 광고", bar: "bg-[#03C75A]", glow: "#03C75A", tilt: 5 },
-                  { name: "kakaotalk", label: "카카오 광고", bar: "bg-[#FEE500]", glow: "#FEE500", tilt: -3 },
-                  { name: "youtube", label: "유튜브 광고", bar: "bg-[#FF0000]", glow: "#FF0000", tilt: 3 },
-                  { name: "google", label: "구글 광고", bar: "bg-linear-to-r from-[#4285F4] via-[#EA4335] to-[#FBBC05]", glow: "#4285F4", tilt: -5 },
-                  { name: "instagram", label: "인스타그램 광고", bar: "bg-linear-to-r from-[#F58529] via-[#DD2A7B] to-[#8134AF]", glow: "#DD2A7B", tilt: 4 },
+                  { name: "meta", label: "메타 광고", color: "from-[#0866FF] to-[#1d4ed8]", glow: "#0866FF", tilt: -3 },
+                  { name: "naver", label: "네이버 광고", color: "from-[#03C75A] to-[#15803d]", glow: "#03C75A", tilt: 3 },
+                  { name: "kakaotalk", label: "카카오 광고", color: "from-[#FFD60A] to-[#FEE500]", glow: "#FEE500", tilt: -2 },
+                  { name: "youtube", label: "유튜브 광고", color: "from-[#FF0000] to-[#b91c1c]", glow: "#FF0000", tilt: 2 },
+                  { name: "google", label: "구글 광고", color: "from-[#4285F4] to-[#1d4ed8]", glow: "#4285F4", tilt: -3 },
+                  { name: "instagram", label: "인스타그램 광고", color: "from-[#F58529] via-[#DD2A7B] to-[#8134AF]", glow: "#DD2A7B", tilt: 3 },
                 ].map((item, i) => {
                   const deg = i * 60 - 90;
                   const rad = (deg * Math.PI) / 180;
-                  const r = 39;
+                  const r = 41; // 중앙이 dominant라 카드는 살짝 외곽으로
                   const x = 50 + r * Math.cos(rad);
                   const y = 50 + r * Math.sin(rad);
+                  const useDark = item.name !== "kakaotalk"; // 카카오 노란색은 어두운 로고
                   return (
                     <div
                       key={item.name}
@@ -224,33 +220,37 @@ export default function ServicesPage() {
                       }}
                     >
                       <div className="relative">
-                        {/* 강한 네온 글로우 (카드 밑에서 색이 뿜어져 나오는 효과) */}
+                        {/* 컬러 halo */}
                         <div
-                          className="absolute -inset-3 rounded-2xl opacity-60 blur-2xl"
+                          className="absolute -inset-2 rounded-2xl opacity-40 blur-xl"
                           style={{ background: item.glow }}
                           aria-hidden="true"
                         />
-                        {/* 하단 컬러 글로우 더 강조 */}
+                        {/* 카드 본체 — 다크 글래스 */}
                         <div
-                          className="absolute -bottom-3 left-4 right-4 h-6 rounded-full blur-xl opacity-80"
-                          style={{ background: item.glow }}
-                          aria-hidden="true"
-                        />
-                        {/* 어두운 그림자 */}
-                        <div className="absolute inset-0 translate-y-3 rounded-2xl bg-black/50 blur-md" aria-hidden="true" />
-
-                        {/* 카드 본체 — 크게, 흰색, 두툼한 컬러 바 */}
-                        <div
-                          className="relative bg-white rounded-2xl w-[136px] overflow-hidden transition-transform duration-300 group-hover:-translate-y-1.5"
-                          style={{ boxShadow: `inset 0 1px 0 rgba(255,255,255,1), 0 14px 32px rgba(15,23,42,0.55), 0 0 24px ${item.glow}55` }}
+                          className="relative w-[108px] rounded-2xl overflow-hidden transition-transform duration-300 group-hover:-translate-y-1 bg-linear-to-br from-white/[0.10] to-white/[0.04] backdrop-blur-md border border-white/15"
+                          style={{ boxShadow: `inset 0 1px 0 rgba(255,255,255,0.15), 0 12px 28px rgba(0,0,0,0.45), 0 0 20px ${item.glow}30` }}
                         >
-                          <div className="flex flex-col items-center gap-2.5 pt-5 pb-4 px-3">
-                            <img src={`/images/logos/${item.name}.svg`} alt="" className="w-14 h-14 object-contain" />
-                            <span className="text-[13px] font-extrabold text-deep-navy whitespace-nowrap tracking-tight">{item.label}</span>
-                          </div>
-                          {/* 두툼한 브랜드 컬러 바닥 바 + 안쪽 하이라이트 */}
-                          <div className={`relative h-2.5 ${item.bar}`}>
-                            <span className="absolute inset-x-0 top-0 h-px bg-white/40" aria-hidden="true" />
+                          <div className="flex flex-col items-center gap-2 pt-3.5 pb-3 px-3">
+                            {/* 입체 컬러 아이콘 블록 */}
+                            <div className="relative">
+                              <div
+                                className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl opacity-50 blur-[3px]"
+                                style={{ background: item.glow }}
+                                aria-hidden="true"
+                              />
+                              <div
+                                className={`relative w-12 h-12 rounded-xl bg-linear-to-br ${item.color} flex items-center justify-center`}
+                                style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 4px rgba(0,0,0,0.2)" }}
+                              >
+                                <img
+                                  src={`/images/logos/${item.name}.svg`}
+                                  alt=""
+                                  className={`w-6 h-6 ${useDark ? "brightness-0 invert" : ""} drop-shadow-sm`}
+                                />
+                              </div>
+                            </div>
+                            <span className="text-[11px] font-extrabold text-white whitespace-nowrap tracking-tight">{item.label}</span>
                           </div>
                         </div>
                       </div>
@@ -258,25 +258,27 @@ export default function ServicesPage() {
                   );
                 })}
 
-                {/* 중앙 로고 — 스테이지 레벨 (회전 X, 항상 정면) */}
+                {/* 중앙 로고 — DOMINANT (176px, 카드보다 큼) */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
                   <div className="relative">
-                    {/* 외곽 halo ring */}
-                    <div className="absolute -inset-3 rounded-full border border-accent-blue/30 animate-spin [animation-duration:24s]" aria-hidden="true" />
-                    <div className="absolute -inset-6 rounded-full border border-accent-blue/15" aria-hidden="true" />
-                    {/* pulsing glow */}
-                    <div className="absolute inset-0 rounded-full bg-accent-blue/50 blur-2xl animate-pulse-soft" aria-hidden="true" />
-                    <div className="absolute inset-0 rounded-full bg-sky-400/30 blur-xl" aria-hidden="true" />
+                    {/* 회전 외곽 ring */}
+                    <div className="absolute -inset-4 rounded-full border border-accent-blue/25 animate-spin [animation-duration:30s]" aria-hidden="true" />
+                    <div className="absolute -inset-8 rounded-full border border-accent-blue/12" aria-hidden="true" />
+                    <div className="absolute -inset-12 rounded-full border border-accent-blue/6" aria-hidden="true" />
 
-                    {/* 본체 */}
+                    {/* 강한 다층 glow */}
+                    <div className="absolute -inset-4 rounded-full bg-accent-blue/55 blur-3xl animate-pulse-soft" aria-hidden="true" />
+                    <div className="absolute inset-0 rounded-full bg-sky-400/35 blur-2xl" aria-hidden="true" />
+
+                    {/* 본체 — 176px (w-44) */}
                     <div
-                      className="relative w-32 h-32 rounded-full bg-linear-to-br from-accent-blue via-blue-600 to-blue-800 flex items-center justify-center border-2 border-white/30"
+                      className="relative w-44 h-44 rounded-full bg-linear-to-br from-accent-blue via-blue-600 to-blue-800 flex items-center justify-center border-2 border-white/30"
                       style={{
                         boxShadow:
-                          "inset 0 2px 0 rgba(255,255,255,0.35), inset 0 -4px 8px rgba(0,0,0,0.2), 0 12px 40px rgba(37,99,235,0.55), 0 0 80px rgba(96,165,250,0.35)",
+                          "inset 0 3px 0 rgba(255,255,255,0.35), inset 0 -6px 12px rgba(0,0,0,0.25), 0 16px 48px rgba(37,99,235,0.6), 0 0 100px rgba(96,165,250,0.4)",
                       }}
                     >
-                      <LogoMark variant="white" className="w-16 drop-shadow-lg" />
+                      <LogoMark variant="white" className="w-24 drop-shadow-2xl" />
                     </div>
                   </div>
                 </div>
