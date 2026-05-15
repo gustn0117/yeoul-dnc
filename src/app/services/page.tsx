@@ -1104,36 +1104,34 @@ export default function ServicesPage() {
       <section className="py-16 sm:py-20 lg:py-28 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
-            {/* Google visualization — 사진 매칭: B&W 회의 이미지(좌상) + 검색박스 오버레이(좌하) + 폰 Google 검색(우중) + 좌측 부유 아이콘들 */}
+            {/* Google visualization — 비율 정리 (가로형 컨테이너, B&W 이미지 키움, 폰 폭 줄임) */}
             <div className="lg:col-span-5 order-1 mb-12 lg:mb-0 relative">
-              <div className="relative mx-auto w-full max-w-[520px] aspect-square">
+              <div className="relative mx-auto w-full max-w-[560px] aspect-[6/5]">
                 {/* Background subtle blob */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-blue-400/15 rounded-full blur-3xl" />
                 {/* Dot pattern */}
-                <div className="absolute top-4 right-4 w-20 h-16 opacity-30" style={{ backgroundImage: "radial-gradient(circle, #93c5fd 1px, transparent 1.5px)", backgroundSize: "8px 8px" }} />
-                <div className="absolute bottom-2 right-8 w-16 h-12 opacity-25" style={{ backgroundImage: "radial-gradient(circle, #93c5fd 1px, transparent 1.5px)", backgroundSize: "8px 8px" }} />
+                <div className="absolute top-2 right-2 w-20 h-14 opacity-30" style={{ backgroundImage: "radial-gradient(circle, #93c5fd 1px, transparent 1.5px)", backgroundSize: "8px 8px" }} />
+                <div className="absolute bottom-0 right-12 w-16 h-10 opacity-25" style={{ backgroundImage: "radial-gradient(circle, #93c5fd 1px, transparent 1.5px)", backgroundSize: "8px 8px" }} />
 
-                {/* Concentric blue rings (좌측 floating icons orbit) */}
-                <div className="absolute top-[42%] left-[8%] w-44 h-44 rounded-full border border-dashed border-blue-300/40" />
-                <div className="absolute top-[40%] left-[6%] w-48 h-48 rounded-full border border-dashed border-blue-300/30" />
-                <div className="absolute top-1/2 left-1/3 w-2 h-2 rounded-full bg-blue-400 -translate-y-12 shadow-md shadow-blue-400/50" />
-                <div className="absolute top-1/2 left-1/3 w-1.5 h-1.5 rounded-full bg-blue-400 translate-y-20 -translate-x-6 shadow-md shadow-blue-400/50" />
+                {/* 좌측 점선 동심원 궤도 */}
+                <div className="absolute top-[38%] left-[6%] w-40 h-40 rounded-full border border-dashed border-blue-300/40" />
+                <div className="absolute top-[36%] left-[3%] w-44 h-44 rounded-full border border-dashed border-blue-300/25" />
 
-                {/* B&W 회의 이미지 (좌상단) */}
-                <div className="absolute top-[2%] left-[2%] w-[58%] aspect-[5/4] z-10" style={{ animation: "float 7s ease-in-out infinite" }}>
+                {/* B&W 회의 이미지 (좌상단, 키움) */}
+                <div className="absolute top-[3%] left-[2%] w-[54%] aspect-[5/4] z-10" style={{ animation: "float 7s ease-in-out infinite" }}>
                   <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl shadow-slate-900/30 border-2 border-white">
-                    <Image src="/images/0515/team-presentation-3.png" alt="" fill className="object-cover grayscale" sizes="300px" />
+                    <Image src="/images/0515/team-presentation-3.png" alt="" fill className="object-cover grayscale" sizes="320px" />
                     <div className="absolute inset-0 bg-black/10" />
                   </div>
                 </div>
 
-                {/* Google G logo top-right of 사진 */}
-                <div className="absolute top-[6%] left-[42%] w-12 h-12 bg-white rounded-2xl shadow-xl flex items-center justify-center z-30 animate-float-slow">
-                  <img src="/images/logos/google.svg" alt="" className="w-7 h-7" />
+                {/* Google G logo — B&W 우상단에 부유 */}
+                <div className="absolute top-[5%] left-[48%] w-11 h-11 bg-white rounded-2xl shadow-xl flex items-center justify-center z-30 animate-float-slow">
+                  <img src="/images/logos/google.svg" alt="" className="w-6 h-6" />
                 </div>
 
-                {/* 검색박스 (B&W 이미지 좌하단) */}
-                <div className="absolute top-[36%] left-[-2%] bg-white rounded-xl shadow-xl border border-slate-100 px-3 py-2 flex items-center gap-2 z-20" style={{ animation: "float 5.5s ease-in-out infinite 1s" }}>
+                {/* 검색박스 카드 (B&W 좌하단) */}
+                <div className="absolute top-[44%] left-[-2%] bg-white rounded-xl shadow-xl border border-slate-100 px-3 py-2 flex items-center gap-2 z-20" style={{ animation: "float 5.5s ease-in-out infinite 1s" }}>
                   <div className="flex gap-1 shrink-0">
                     <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
                     <span className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
@@ -1143,14 +1141,14 @@ export default function ServicesPage() {
                   <span className="text-[10px] text-slate-400 whitespace-nowrap">광고 컬렉션 검색...</span>
                 </div>
 
-                {/* 좌측 부유 채널 아이콘 (Google Ads, YouTube, Discovery) */}
-                <div className="absolute top-[44%] left-[2%] w-9 h-9 bg-white rounded-xl shadow-lg flex items-center justify-center z-30 animate-float">
+                {/* 좌측 부유 채널 아이콘 */}
+                <div className="absolute top-[58%] left-[2%] w-9 h-9 bg-white rounded-xl shadow-lg flex items-center justify-center z-30 animate-float">
                   <img src="/images/logos/google-ads.svg" alt="" className="w-5 h-5" />
                 </div>
-                <div className="absolute top-[56%] left-[12%] w-9 h-9 bg-white rounded-xl shadow-lg flex items-center justify-center z-30" style={{ animation: "float 5s ease-in-out infinite 0.8s" }}>
+                <div className="absolute top-[68%] left-[12%] w-9 h-9 bg-white rounded-xl shadow-lg flex items-center justify-center z-30" style={{ animation: "float 5s ease-in-out infinite 0.8s" }}>
                   <img src="/images/logos/youtube.svg" alt="" className="w-5 h-5" />
                 </div>
-                <div className="absolute top-[68%] left-[4%] w-9 h-9 bg-white rounded-xl shadow-lg flex items-center justify-center z-30" style={{ animation: "float 6s ease-in-out infinite 1.5s" }}>
+                <div className="absolute top-[80%] left-[4%] w-9 h-9 bg-white rounded-xl shadow-lg flex items-center justify-center z-30" style={{ animation: "float 6s ease-in-out infinite 1.5s" }}>
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
                     <rect x="4" y="4" width="6" height="6" rx="1" fill="#4285F4" />
                     <rect x="14" y="4" width="6" height="6" rx="1" fill="#EA4335" />
@@ -1159,57 +1157,51 @@ export default function ServicesPage() {
                   </svg>
                 </div>
 
-                {/* 폰 — Google 검색 결과 (우중앙) */}
-                <div className="absolute top-[24%] right-[4%] w-[40%] aspect-[9/19] z-40" style={{ transform: "rotate(2deg)" }}>
+                {/* 폰 — Google 검색 (우측, 폭 줄임, B&W 우측과 겹침) */}
+                <div className="absolute top-[14%] right-[2%] w-[32%] aspect-[9/19] z-40" style={{ transform: "rotate(2deg)" }}>
                   <div className="relative w-full h-full" style={{ animation: "float 6s ease-in-out infinite 0.5s" }}>
-                    <div className="relative w-full h-full rounded-[24px] bg-slate-900 shadow-2xl shadow-slate-900/40 p-[5px] border border-slate-700">
-                      <div className="relative w-full h-full rounded-[19px] overflow-hidden bg-white">
+                    <div className="relative w-full h-full rounded-[22px] bg-slate-900 shadow-2xl shadow-slate-900/40 p-[5px] border border-slate-700">
+                      <div className="relative w-full h-full rounded-[17px] overflow-hidden bg-white">
                         {/* Notch */}
-                        <div className="absolute top-1 left-1/2 -translate-x-1/2 w-12 h-2.5 bg-slate-900 rounded-full z-30" />
+                        <div className="absolute top-1 left-1/2 -translate-x-1/2 w-10 h-2 bg-slate-900 rounded-full z-30" />
                         {/* Google header */}
-                        <div className="absolute top-0 left-0 right-0 pt-5 pb-2 px-3 flex items-center justify-center bg-white border-b border-slate-100">
-                          <div className="flex items-center gap-1">
-                            <span className="text-[10px] font-bold">
-                              <span className="text-[#4285F4]">G</span>
-                              <span className="text-[#EA4335]">o</span>
-                              <span className="text-[#FBBC04]">o</span>
-                              <span className="text-[#4285F4]">g</span>
-                              <span className="text-[#34A853]">l</span>
-                              <span className="text-[#EA4335]">e</span>
-                            </span>
-                          </div>
+                        <div className="absolute top-0 left-0 right-0 pt-4 pb-1.5 px-2.5 flex items-center justify-center bg-white border-b border-slate-100">
+                          <span className="text-[9px] font-bold tracking-tight">
+                            <span className="text-[#4285F4]">G</span>
+                            <span className="text-[#EA4335]">o</span>
+                            <span className="text-[#FBBC04]">o</span>
+                            <span className="text-[#4285F4]">g</span>
+                            <span className="text-[#34A853]">l</span>
+                            <span className="text-[#EA4335]">e</span>
+                          </span>
                         </div>
                         {/* Search bar */}
-                        <div className="absolute top-[34px] left-2 right-2 bg-slate-50 rounded-full px-2 py-1 flex items-center gap-1 border border-slate-200">
+                        <div className="absolute top-[30px] left-1.5 right-1.5 bg-slate-50 rounded-full px-2 py-1 flex items-center gap-1 border border-slate-200">
                           <svg className="w-2 h-2 text-slate-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /></svg>
                           <span className="text-[6px] text-slate-700">광고</span>
-                          <svg className="w-1.5 h-1.5 text-slate-400 ml-auto" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /></svg>
                         </div>
                         {/* Tabs */}
-                        <div className="absolute top-[58px] left-2 right-2 flex items-center gap-2 text-[6px]">
+                        <div className="absolute top-[50px] left-1.5 right-1.5 flex items-center gap-1.5 text-[6px]">
                           <span className="text-blue-500 font-bold border-b border-blue-500 pb-0.5">전체</span>
                           <span className="text-slate-500">이미지</span>
                           <span className="text-slate-500">동영상</span>
                           <span className="text-slate-500">쇼핑</span>
-                          <span className="text-slate-500">뉴스</span>
                         </div>
                         {/* Sponsored result */}
-                        <div className="absolute top-[80px] left-2 right-2 space-y-2">
-                          <div>
-                            <span className="text-[5px] text-slate-700 font-bold">스폰서</span>
-                            <p className="text-[6px] text-blue-500 mt-0.5">www.yeouldnc.co.kr</p>
-                            <p className="text-[7px] font-bold text-deep-navy leading-tight mt-0.5">여울디앤씨 마케팅 파트너</p>
-                            <p className="text-[5px] text-slate-500 leading-tight mt-0.5">검색, 디스플레이, 유튜브까지 통합 캠페인으로 비즈니스 성장을 함께합니다.</p>
-                            {/* mini banner */}
-                            <div className="mt-1 h-8 rounded bg-linear-to-r from-blue-50 to-slate-100 grid grid-cols-2 gap-0.5 p-0.5">
-                              <div className="bg-blue-100 rounded-sm" />
-                              <div className="bg-slate-200 rounded-sm" />
-                            </div>
-                            <div className="mt-1 flex gap-0.5">
-                              <span className="text-[5px] text-slate-600 bg-slate-50 border border-slate-200 px-1 rounded">검색 광고</span>
-                              <span className="text-[5px] text-slate-600 bg-slate-50 border border-slate-200 px-1 rounded">디스플레이</span>
-                              <span className="text-[5px] text-slate-600 bg-slate-50 border border-slate-200 px-1 rounded">유튜브</span>
-                            </div>
+                        <div className="absolute top-[70px] left-1.5 right-1.5">
+                          <span className="text-[5px] text-slate-700 font-bold bg-slate-100 px-1 rounded">스폰서</span>
+                          <p className="text-[6px] text-blue-500 mt-0.5">www.yeouldnc.co.kr</p>
+                          <p className="text-[6.5px] font-bold text-deep-navy leading-tight mt-0.5">여울디앤씨 마케팅 파트너</p>
+                          <p className="text-[5px] text-slate-500 leading-tight mt-0.5">검색, 디스플레이, 유튜브까지<br />통합 캠페인으로 비즈니스<br />성장을 함께합니다.</p>
+                          {/* mini banner */}
+                          <div className="mt-1 h-7 rounded bg-linear-to-r from-blue-50 to-slate-100 grid grid-cols-2 gap-0.5 p-0.5">
+                            <div className="bg-blue-100 rounded-sm" />
+                            <div className="bg-slate-200 rounded-sm" />
+                          </div>
+                          <div className="mt-1 flex gap-0.5 flex-wrap">
+                            <span className="text-[5px] text-slate-600 bg-slate-50 border border-slate-200 px-0.5 rounded">검색</span>
+                            <span className="text-[5px] text-slate-600 bg-slate-50 border border-slate-200 px-0.5 rounded">디스플레이</span>
+                            <span className="text-[5px] text-slate-600 bg-slate-50 border border-slate-200 px-0.5 rounded">유튜브</span>
                           </div>
                         </div>
                         {/* Bottom nav */}
