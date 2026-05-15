@@ -1511,36 +1511,34 @@ export default function ServicesPage() {
                     style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.08}s backwards` }}
                   >
                     <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/10" />
-                    <div className="relative grid grid-cols-12 items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-100 shadow-md group-hover:-translate-y-0.5 transition-transform duration-300">
-                      {/* Number */}
-                      <div className="col-span-1 text-2xl sm:text-3xl font-black text-accent-blue leading-none tracking-tight">
+                    <div className="relative flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-100 shadow-md group-hover:-translate-y-0.5 transition-transform duration-300 min-h-[88px]">
+                      {/* Number — 충분한 폭 */}
+                      <div className="w-9 sm:w-10 shrink-0 text-2xl sm:text-[28px] font-black text-accent-blue leading-none tracking-tight">
                         {String(i + 1).padStart(2, "0")}
                       </div>
                       {/* Industry icon — 컬러 박스 */}
-                      <div className="col-span-1 flex justify-center">
-                        <div className={`w-11 h-11 rounded-xl ${item.iconBg} ${item.iconColor} flex items-center justify-center`}>
-                          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
-                            {item.iconType === "building" && <path strokeLinecap="round" strokeLinejoin="round" d="M3 21h18M3 21V7l9-4 9 4v14M9 21v-6h6v6M9 9h.01M15 9h.01M9 13h.01M15 13h.01" />}
-                            {item.iconType === "hospital" && <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5V18a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18V7.5m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v1.5M21 7.5H3m9 4.5v6m-3-3h6" />}
-                            {item.iconType === "edu" && <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />}
-                            {item.iconType === "store" && <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72" />}
-                            {item.iconType === "consult" && <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M9.879 16.121A3 3 0 1012.015 11L11.288 9.273M16 11.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />}
-                          </svg>
-                        </div>
+                      <div className={`w-12 h-12 rounded-xl ${item.iconBg} ${item.iconColor} flex items-center justify-center shrink-0`}>
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
+                          {item.iconType === "building" && <path strokeLinecap="round" strokeLinejoin="round" d="M3 21h18M3 21V7l9-4 9 4v14M9 21v-6h6v6M9 9h.01M15 9h.01M9 13h.01M15 13h.01" />}
+                          {item.iconType === "hospital" && <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5V18a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18V7.5m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v1.5M21 7.5H3m9 4.5v6m-3-3h6" />}
+                          {item.iconType === "edu" && <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />}
+                          {item.iconType === "store" && <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72" />}
+                          {item.iconType === "consult" && <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M9.879 16.121A3 3 0 1012.015 11L11.288 9.273M16 11.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />}
+                        </svg>
                       </div>
-                      {/* Left: 업종명 + bullets */}
-                      <div className="col-span-4">
+                      {/* 업종명 + bullets */}
+                      <div className="flex-[1.1] min-w-0">
                         <p className="text-[15px] sm:text-base font-extrabold text-deep-navy mb-1">{item.industry}</p>
                         {item.bullets.map((b) => (
                           <p key={b} className="text-[11px] sm:text-[12px] text-slate-500 leading-tight">· {b}</p>
                         ))}
                       </div>
                       {/* "또는" pill */}
-                      <div className="col-span-2 flex justify-center">
-                        <span className="text-[10px] sm:text-[11px] font-bold text-accent-blue bg-accent-blue/10 border border-accent-blue/20 rounded-full px-2 py-1">또는</span>
+                      <div className="shrink-0">
+                        <span className="text-[10px] sm:text-[11px] font-bold text-accent-blue bg-accent-blue/10 border border-accent-blue/20 rounded-full px-2.5 py-1">또는</span>
                       </div>
-                      {/* Right: result */}
-                      <div className="col-span-4">
+                      {/* result */}
+                      <div className="flex-[1.4] min-w-0">
                         <p className="text-[11px] sm:text-[12px] text-slate-600 leading-relaxed">{item.result}</p>
                       </div>
                     </div>
