@@ -19,7 +19,7 @@ const operations = [
     logos: ["meta", "kakaotalk"],
     point: "DB 유입 → 상담 전환",
     target: "관심 고객 확보",
-    img: "/images/stock/landing-page.jpg",
+    img: "/images/0515/op-apartment.png",
   },
   {
     no: "02",
@@ -29,7 +29,7 @@ const operations = [
     logos: ["naver", "instagram"],
     point: "검색 유입 → 신뢰 형성",
     target: "예약 문의 확보",
-    img: "/images/stock/consultation.jpg",
+    img: "/images/0515/op-clinic.png",
   },
   {
     no: "03",
@@ -39,7 +39,7 @@ const operations = [
     logos: ["meta", "kakaotalk"],
     point: "문의 유입 → 상담 연결",
     target: "수강생 모집",
-    img: "/images/stock/creative-design.jpg",
+    img: "/images/0515/op-education.png",
   },
   {
     no: "04",
@@ -49,7 +49,7 @@ const operations = [
     logos: ["naver", "meta"],
     point: "지역 노출 강화",
     target: "방문 고객 확보",
-    img: "/images/stock/local-store.jpg",
+    img: "/images/0515/op-store.png",
   },
   {
     no: "05",
@@ -59,7 +59,7 @@ const operations = [
     logos: ["naver", "meta", "kakaotalk"],
     point: "문의 확보 → 상담 전환",
     target: "리드 고객 확보",
-    img: "/images/stock/consultation.jpg",
+    img: "/images/0515/op-consult.png",
   },
 ];
 

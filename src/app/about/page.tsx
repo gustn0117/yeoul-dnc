@@ -34,7 +34,7 @@ const caseSummary = [
       { name: "kakaotalk", label: "LMS 운영", color: "from-yellow-400 to-amber-500" },
       { name: "google", label: "리타겟팅", color: "from-sky-500 to-blue-500" },
     ],
-    img: "/images/stock/real-estate.jpg",
+    img: "/images/0515/ind-apartment.png",
   },
   {
     industry: "병원",
@@ -47,7 +47,7 @@ const caseSummary = [
       { name: "meta", label: "디스플레이", color: "from-blue-500 to-indigo-600" },
       { name: "google", label: "검색 광고", color: "from-sky-500 to-blue-500" },
     ],
-    img: "/images/stock/consultation.jpg",
+    img: "/images/0515/ind-clinic.png",
   },
   {
     industry: "지역 자영업",
@@ -60,7 +60,7 @@ const caseSummary = [
       { name: "naver", label: "네이버 광고", color: "from-green-500 to-emerald-600" },
       { name: "kakaotalk", label: "브랜딩 운영", color: "from-yellow-400 to-amber-500" },
     ],
-    img: "/images/stock/local-store.jpg",
+    img: "/images/0515/ind-store.png",
   },
   {
     industry: "그 외 모든 업종",
@@ -515,7 +515,7 @@ export default function AboutPage() {
             {/* Visual side with layered mockups */}
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/15 ring-1 ring-white/50">
-                <Image src="/images/stock/strategy-board.jpg" alt="전략 회의" width={800} height={533} className="w-full h-auto" />
+                <Image src="/images/0515/team-presentation-1.png" alt="전략 회의" width={800} height={800} className="w-full h-auto" />
                 <div className="absolute inset-0 bg-linear-to-t from-deep-navy/20 to-transparent" />
               </div>
 
@@ -664,7 +664,7 @@ export default function AboutPage() {
 
               {/* Main image (data-driven) */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-accent-blue/20 ring-1 ring-white/10">
-                <Image src="/images/stock/team-strategy.jpg" alt="" width={800} height={533} className="w-full h-auto" />
+                <Image src="/images/0515/team-presentation-2.png" alt="" width={800} height={800} className="w-full h-auto" />
                 <div className="absolute inset-0 bg-linear-to-t from-deep-navy/60 via-transparent to-transparent" />
               </div>
 
