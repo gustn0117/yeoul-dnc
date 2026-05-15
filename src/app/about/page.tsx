@@ -107,23 +107,6 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
-
-              {/* Quick highlight stats */}
-              <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-md">
-                {[
-                  { value: "6+", label: "운영 채널" },
-                  { value: "100+", label: "누적 캠페인" },
-                  { value: "2~4x", label: "목표 ROAS" },
-                ].map((s, i) => (
-                  <div key={i} className="relative">
-                    <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
-                    <div className="relative bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-3 text-center">
-                      <p className="text-lg sm:text-xl font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent">{s.value}</p>
-                      <p className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">{s.label}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* Brand mark (subtle 3D) */}

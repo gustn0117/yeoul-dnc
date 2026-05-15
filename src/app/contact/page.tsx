@@ -313,18 +313,19 @@ export default function ContactPage() {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 mb-5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
-                <span className="text-[12px] font-bold text-slate-300 tracking-wider uppercase">CONTACT · 무료 상담</span>
+                <span className="text-[12px] font-bold text-slate-300 tracking-wider uppercase">지금 무료 상담</span>
               </div>
-              <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-hero text-white mb-3 sm:mb-4 tracking-tight">
+              <h1 className="text-2xl sm:text-3xl lg:text-[2.75rem] font-extrabold leading-hero text-white mb-4 sm:mb-5 tracking-tight">
+                복잡하게 고민하지 마시고,<br />
+                현재 상황부터<br />
                 <span className="relative inline-block">
-                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">문의하기</span>
+                  <span className="relative z-10 bg-linear-to-r from-accent-blue via-sky-400 to-accent-blue bg-clip-text text-transparent">편하게 말씀해 주세요</span>
                   <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/25 z-0 rounded-sm" />
                 </span>
               </h1>
-              <p className="text-base sm:text-lg text-white/90 font-semibold">광고가 처음이셔도 괜찮습니다</p>
-              <p className="text-[14px] sm:text-sm text-slate-400 mt-2 leading-relaxed mb-6">
-                업종, 예산, 현재 고민을 남겨주시면<br className="sm:hidden" />
-                {" "}맞는 방향부터 정리해드립니다
+              <p className="text-[14px] sm:text-base text-slate-400 mt-2 leading-relaxed mb-6 max-w-xl">
+                업종과 광고 상황을 확인한 뒤,<br className="hidden sm:inline" />
+                {" "}<span className="font-semibold text-white">필요한 방향부터 빠르게 정리</span>해드립니다.
               </p>
 
               {/* Trust badges */}
@@ -384,7 +385,7 @@ export default function ContactPage() {
                   <div className="space-y-3 mb-5">
                     {[
                       {
-                        label: "전화",
+                        label: "대표 번호",
                         value: "1668-5832",
                         color: "from-accent-blue to-blue-600",
                         icon: (
@@ -400,16 +401,6 @@ export default function ContactPage() {
                         icon: (
                           <svg className="w-4 h-4 text-[#3C1E1E]" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 3C6.48 3 2 6.58 2 10.9c0 2.78 1.8 5.22 4.51 6.6-.2.73-.72 2.65-.82 3.06-.13.52.19.51.4.37.17-.11 2.69-1.83 3.78-2.57.69.1 1.4.15 2.13.15 5.52 0 10-3.58 10-7.9S17.52 3 12 3z" />
-                          </svg>
-                        ),
-                      },
-                      {
-                        label: "이메일",
-                        value: "info@yeouldnc.com",
-                        color: "from-violet-500 to-purple-600",
-                        icon: (
-                          <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                           </svg>
                         ),
                       },
@@ -429,18 +420,37 @@ export default function ContactPage() {
                     ))}
                   </div>
 
-                  {/* Stats */}
-                  <div className="pt-4 border-t border-white/10 grid grid-cols-3 gap-2 text-center">
+                  {/* 신뢰 지표 — 별점/후기/응답 */}
+                  <div className="pt-4 border-t border-white/10 grid grid-cols-3 gap-2 text-center mb-4">
                     {[
-                      { v: "100+", l: "누적 캠페인" },
-                      { v: "2~4x", l: "목표 ROAS" },
-                      { v: "24h", l: "빠른 응답" },
+                      { v: "4.8", l: "평균 평점", sub: "(5점 만점)", color: "text-amber-400", icon: "★" },
+                      { v: "100+", l: "광고주 후기", color: "text-accent-blue", icon: "👥" },
+                      { v: "24h", l: "평균 응답 시간", color: "text-emerald-400", icon: "🕒" },
                     ].map((s, i) => (
                       <div key={i}>
-                        <p className="text-base font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent">{s.v}</p>
-                        <p className="text-[10px] text-slate-500">{s.l}</p>
+                        <p className={`text-lg font-extrabold ${s.color} leading-none`}>{s.v}</p>
+                        <p className="text-[10px] text-slate-400 mt-1.5 leading-tight">{s.l}</p>
+                        {s.sub && <p className="text-[9px] text-slate-500 leading-tight">{s.sub}</p>}
                       </div>
                     ))}
+                  </div>
+
+                  {/* 상담 가능 채널 */}
+                  <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <p className="text-[11px] text-slate-400">상담 가능 채널</p>
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-md bg-white flex items-center justify-center">
+                        <img src="/images/logos/naver.svg" alt="네이버" className="h-3.5 w-auto" />
+                      </div>
+                      <div className="w-6 h-6 rounded-md bg-[#FEE500] flex items-center justify-center">
+                        <svg className="w-3.5 h-3.5 text-[#3C1E1E]" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 3C6.48 3 2 6.58 2 10.9c0 2.78 1.8 5.22 4.51 6.6-.2.73-.72 2.65-.82 3.06-.13.52.19.51.4.37.17-.11 2.69-1.83 3.78-2.57.69.1 1.4.15 2.13.15 5.52 0 10-3.58 10-7.9S17.52 3 12 3z" />
+                        </svg>
+                      </div>
+                      <div className="w-6 h-6 rounded-md bg-white flex items-center justify-center">
+                        <img src="/images/logos/google.svg" alt="구글" className="h-3.5 w-auto" />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
