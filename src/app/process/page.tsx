@@ -212,105 +212,102 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      {/* Steps detail (3D isometric with vertical connector) */}
+      {/* Steps detail — 사진 매칭: 좌측 timeline + 카드 (아이콘 원 + 텍스트 + 이미지 + 워터마크) */}
       <section className="relative py-12 sm:py-16 lg:py-24 bg-linear-to-b from-white to-[#f5f9ff] overflow-hidden">
         <div className="absolute top-20 right-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
 
         <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="space-y-10 sm:space-y-16 lg:space-y-0 lg:relative">
-            {/* Vertical connector line (desktop) */}
-            <div className="hidden lg:block absolute left-8.5 top-0 bottom-0 w-0.5 bg-linear-to-b from-accent-blue/40 via-accent-blue/20 to-accent-blue/5" />
+          {/* 좌측 dot 패턴 장식 */}
+          <div className="hidden lg:block absolute left-0 top-12 w-6 h-12 opacity-30" style={{ backgroundImage: "radial-gradient(circle, #93c5fd 1px, transparent 1.5px)", backgroundSize: "6px 6px" }} />
 
-            {steps.map((s, i) => (
-              <div
-                key={i}
-                className={`lg:grid lg:grid-cols-12 lg:gap-8 lg:relative ${i > 0 ? "lg:pt-8" : ""} lg:pb-12`}
-                style={{ animation: `fade-in-up 0.6s ease-out ${i * 0.12}s backwards` }}
-              >
-                {/* Number badge (desktop) - floating over line */}
-                <div className="hidden lg:flex lg:col-span-1 justify-center relative">
-                  <div className="sticky top-28">
-                    <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-2xl bg-linear-to-br ${s.color} opacity-60 blur-[1px]`} />
-                    <div className={`relative w-16 h-16 rounded-2xl bg-linear-to-br ${s.color} flex items-center justify-center shadow-xl border-4 border-white z-10`}>
-                      <span className="text-white font-black text-xl">{s.step}</span>
+          {/* 좌측 vertical timeline (number badges + line) */}
+          <div className="flex gap-5 sm:gap-8">
+            <div className="relative hidden md:flex flex-col items-center w-12 sm:w-16 shrink-0 pt-6">
+              {/* 연결선 */}
+              <div className="absolute left-1/2 -translate-x-1/2 top-12 bottom-12 w-0.5 bg-accent-blue/30" />
+              {steps.map((s, i) => (
+                <div key={s.step} className="relative w-full flex-1 flex flex-col items-center" style={{ marginBottom: i < steps.length - 1 ? 0 : 0 }}>
+                  {/* Number badge */}
+                  <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent-blue flex items-center justify-center shadow-md z-10">
+                    <span className="text-white font-extrabold text-base sm:text-lg">{s.step}</span>
+                  </div>
+                  {/* Small dot below number */}
+                  <div className="w-2.5 h-2.5 rounded-full bg-white border-2 border-accent-blue mt-3 z-10" />
+                </div>
+              ))}
+            </div>
+
+            {/* 우측 카드 stack */}
+            <div className="flex-1 min-w-0 space-y-5 sm:space-y-6">
+              {steps.map((s, i) => (
+                <div
+                  key={s.step}
+                  className="relative group"
+                  style={{ animation: `fade-in-up 0.6s ease-out ${i * 0.1}s backwards` }}
+                >
+                  {/* 모바일 number badge */}
+                  <div className="md:hidden flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-accent-blue flex items-center justify-center shadow-md">
+                      <span className="text-white font-extrabold text-base">{s.step}</span>
                     </div>
                   </div>
-                </div>
 
-                {/* Content */}
-                <div className="lg:col-span-11">
-                  <div className="relative group">
-                    {/* 3D depth */}
-                    <div className={`absolute inset-0 translate-x-1.5 translate-y-2 rounded-2xl bg-linear-to-br ${s.color} opacity-15 blur-[3px]`} />
-                    <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-2xl bg-linear-to-br ${s.color} opacity-8`} />
+                  {/* 카드 */}
+                  <div className="relative bg-white rounded-2xl border border-slate-100 shadow-md group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden">
+                    {/* 큰 숫자 워터마크 (우측, 이미지 뒤) */}
+                    <div className="absolute top-3 right-3 sm:top-5 sm:right-8 text-[5rem] sm:text-[6.5rem] font-black text-slate-100 leading-none select-none pointer-events-none">
+                      {s.step}
+                    </div>
 
-                    <div className="relative p-5 sm:p-6 lg:p-8 rounded-2xl border border-white bg-white shadow-xl shadow-deep-navy/5 overflow-hidden group-hover:-translate-y-1 transition-transform duration-300">
-                      {/* Huge background number */}
-                      <div className={`absolute -top-4 -right-4 text-[10rem] font-black bg-linear-to-br ${s.color} bg-clip-text text-transparent opacity-[0.06] leading-none select-none pointer-events-none`}>
-                        {s.step}
+                    <div className="relative grid grid-cols-1 sm:grid-cols-[auto_1fr_auto] gap-4 sm:gap-5 items-center p-4 sm:p-5 lg:p-6">
+                      {/* 좌측 아이콘 원형 */}
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
+                        <s.Icon className="w-7 h-7 sm:w-8 sm:h-8 text-accent-blue" />
                       </div>
-                      {/* Corner blob */}
-                      <div className={`absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-linear-to-br ${s.color} opacity-10 blur-2xl`} />
 
-                      <div className="relative lg:grid lg:grid-cols-5 lg:gap-8 lg:items-center">
-                        {/* Text */}
-                        <div className={`lg:col-span-3 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
-                          <div className="flex items-center gap-3 mb-3 lg:hidden">
-                            <div className="relative w-11 h-11">
-                              <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-linear-to-br ${s.color} opacity-60 blur-[1px]`} />
-                              <div className={`relative w-full h-full rounded-xl bg-linear-to-br ${s.color} flex items-center justify-center shadow-md`}>
-                                <s.Icon className="w-5 h-5 text-white" />
-                              </div>
-                            </div>
-                            <div>
-                              <span className={`text-[12px] font-extrabold bg-linear-to-br ${s.color} bg-clip-text text-transparent tracking-widest uppercase`}>STEP {s.step}</span>
-                            </div>
-                          </div>
-                          <span className={`hidden lg:inline-flex text-xs font-extrabold bg-linear-to-br ${s.color} bg-clip-text text-transparent tracking-widest uppercase mb-2`}>STEP {s.step}</span>
-                          <h3 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-deep-navy mb-2 leading-tight">{s.title}</h3>
-                          <p className="text-[14px] sm:text-sm text-deep-navy font-semibold mb-2 leading-relaxed">{s.main}</p>
-                          <p className="text-[12px] sm:text-xs text-slate-500 mb-4 sm:mb-5 leading-relaxed">{s.detail}</p>
-                          <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                            {s.tags.map((tag) => (
-                              <span
-                                key={tag}
-                                className={`px-2.5 sm:px-3 py-1 bg-linear-to-br ${s.color.replace("500", "50").replace("600", "100").replace("400", "50")} text-[11px] sm:text-[12px] rounded-full border border-slate-100 font-bold`}
-                              >
-                                <span className={`bg-linear-to-br ${s.color} bg-clip-text text-transparent`}>{tag}</span>
-                              </span>
-                            ))}
-                          </div>
+                      {/* 중앙 텍스트 */}
+                      <div className="min-w-0">
+                        <p className="text-[10px] sm:text-[11px] font-extrabold text-accent-blue tracking-widest uppercase mb-1">STEP {s.step}</p>
+                        <h3 className="text-lg sm:text-xl font-extrabold text-deep-navy mb-2 leading-tight">{s.title}</h3>
+                        <p className="text-[12px] sm:text-[13px] text-slate-600 leading-relaxed mb-2">{s.main}</p>
+                        <p className="text-[11px] sm:text-[12px] text-slate-400 leading-relaxed mb-3">{s.detail}</p>
+                        {/* 태그 */}
+                        <div className="flex flex-wrap gap-1.5">
+                          {s.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-2.5 py-1 bg-accent-blue/8 text-accent-blue text-[10px] sm:text-[11px] rounded-full font-bold"
+                            >
+                              {tag}
+                            </span>
+                          ))}
                         </div>
-                        {/* Visual - with 3D frame */}
-                        <div className={`lg:col-span-2 mt-5 sm:mt-6 lg:mt-0 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                          <div className="relative">
-                            <div className={`absolute inset-0 translate-x-1 translate-y-2 rounded-xl bg-linear-to-br ${s.color} opacity-20 blur-[2px]`} />
-                            <div className="relative rounded-xl overflow-hidden aspect-4/3 bg-slate-900 shadow-xl border-4 border-white">
-                              <Image
-                                src={[
+                      </div>
+
+                      {/* 우측 이미지 + 아이콘 배지 */}
+                      <div className="relative w-full sm:w-48 lg:w-56 aspect-[5/4] sm:aspect-[4/3] rounded-xl overflow-hidden shadow-md shrink-0">
+                        <Image
+                          src={[
                             "/images/0515/team-presentation-1.png",
                             "/images/0515/team-presentation-3.png",
                             "/images/stock/creative-design.jpg",
                             "/images/stock/analytics-screen.jpg",
                             "/images/stock/monitor-data.jpg",
                           ][i]}
-                                alt={s.title}
-                                fill
-                                className="object-cover"
-                              />
-                              <div className="absolute inset-0 bg-linear-to-t from-deep-navy/30 to-transparent" />
-                              <div className={`absolute top-2 left-2 w-8 h-8 rounded-lg bg-linear-to-br ${s.color} flex items-center justify-center shadow-lg`}>
-                                <s.Icon className="w-4 h-4 text-white" />
-                              </div>
-                            </div>
-                          </div>
+                          alt={s.title}
+                          fill
+                          className="object-cover"
+                        />
+                        {/* 이미지 좌상단 아이콘 배지 */}
+                        <div className="absolute top-2 left-2 w-8 h-8 rounded-lg bg-white shadow-md flex items-center justify-center">
+                          <s.Icon className="w-4 h-4 text-accent-blue" />
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
