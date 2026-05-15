@@ -167,96 +167,84 @@ export default function ServicesPage() {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[55%] h-[55%] bg-accent-blue/25 rounded-full blur-[60px]" aria-hidden="true" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[35%] h-[35%] bg-accent-blue/35 rounded-full blur-[40px]" aria-hidden="true" />
 
-                {/* 약간 비스듬한 정적 디스크 (회전 X) */}
-                <div className="absolute inset-0" style={{ transform: "rotateX(14deg) rotateZ(-6deg)", transformStyle: "preserve-3d" }}>
-                  {/* 외곽 점선 궤도 */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[78%] h-[78%] rounded-full border border-dashed border-accent-blue/25" aria-hidden="true" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[55%] h-[55%] rounded-full border border-accent-blue/10" aria-hidden="true" />
-
-                  {/* SVG 점선 연결 */}
-                  <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                    <defs>
-                      <radialGradient id="lineGrad" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.7" />
-                        <stop offset="100%" stopColor="#60a5fa" stopOpacity="0.15" />
-                      </radialGradient>
-                      <filter id="dotGlow">
-                        <feGaussianBlur stdDeviation="0.5" />
-                      </filter>
-                    </defs>
-                    {[0, 60, 120, 180, 240, 300].map((deg) => {
-                      const rad = ((deg - 90) * Math.PI) / 180;
-                      const rStart = 14;
-                      const rEnd = 33;
-                      const x1 = 50 + rStart * Math.cos(rad);
-                      const y1 = 50 + rStart * Math.sin(rad);
-                      const x2 = 50 + rEnd * Math.cos(rad);
-                      const y2 = 50 + rEnd * Math.sin(rad);
-                      const midX = 50 + ((rStart + rEnd) / 2) * Math.cos(rad);
-                      const midY = 50 + ((rStart + rEnd) / 2) * Math.sin(rad);
-                      return (
-                        <g key={deg}>
-                          <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="url(#lineGrad)" strokeWidth="0.5" strokeDasharray="0.6 1.2" strokeLinecap="round" />
-                          <circle cx={midX} cy={midY} r="1.2" fill="#60a5fa" opacity="0.4" filter="url(#dotGlow)" />
-                          <circle cx={midX} cy={midY} r="0.55" fill="#bfdbfe" />
-                        </g>
-                      );
-                    })}
-                  </svg>
-
-                  {/* 6개 카드 — 6각 정적 배치, 디스크 기울임을 상쇄해 정면 유지 */}
-                  {[
-                    { name: "meta", label: "메타 광고", color: "from-blue-500 to-indigo-600", glow: "shadow-blue-500/30" },
-                    { name: "naver", label: "네이버 광고", color: "from-green-500 to-emerald-600", glow: "shadow-emerald-500/30" },
-                    { name: "kakaotalk", label: "카카오 광고", color: "from-yellow-400 to-amber-500", glow: "shadow-amber-500/30" },
-                    { name: "youtube", label: "유튜브 광고", color: "from-red-500 to-rose-600", glow: "shadow-rose-500/30" },
-                    { name: "google", label: "구글 광고", color: "from-sky-500 to-blue-500", glow: "shadow-sky-500/30" },
-                    { name: "instagram", label: "인스타그램 광고", color: "from-pink-500 via-rose-500 to-orange-500", glow: "shadow-pink-500/30" },
-                  ].map((item, i) => {
-                    const deg = i * 60 - 90;
-                    const rad = (deg * Math.PI) / 180;
-                    const r = 39;
-                    const x = 50 + r * Math.cos(rad);
-                    const y = 50 + r * Math.sin(rad);
+                {/* SVG 점선 연결 (스테이지 레벨, 회전 X) */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <radialGradient id="lineGrad" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.7" />
+                      <stop offset="100%" stopColor="#60a5fa" stopOpacity="0.15" />
+                    </radialGradient>
+                    <filter id="dotGlow">
+                      <feGaussianBlur stdDeviation="0.5" />
+                    </filter>
+                  </defs>
+                  {[0, 60, 120, 180, 240, 300].map((deg) => {
+                    const rad = ((deg - 90) * Math.PI) / 180;
+                    const rStart = 14;
+                    const rEnd = 33;
+                    const x1 = 50 + rStart * Math.cos(rad);
+                    const y1 = 50 + rStart * Math.sin(rad);
+                    const x2 = 50 + rEnd * Math.cos(rad);
+                    const y2 = 50 + rEnd * Math.sin(rad);
+                    const midX = 50 + ((rStart + rEnd) / 2) * Math.cos(rad);
+                    const midY = 50 + ((rStart + rEnd) / 2) * Math.sin(rad);
                     return (
-                      <div
-                        key={item.name}
-                        className="absolute z-10 group"
-                        style={{
-                          top: `${y}%`,
-                          left: `${x}%`,
-                          transformStyle: "preserve-3d",
-                          transform: "translate(-50%, -50%) rotateZ(6deg) rotateX(-14deg)",
-                          animation: `float ${5 + (i % 3)}s ease-in-out infinite ${i * 0.45}s`,
-                        }}
-                      >
-                        <div className="relative">
-                          {/* 3중 그림자 */}
-                          <div className="absolute inset-0 translate-x-1.5 translate-y-3 rounded-2xl bg-black/40 blur-lg" aria-hidden="true" />
-                          <div className={`absolute inset-0 translate-x-0.5 translate-y-1.5 rounded-2xl bg-linear-to-br ${item.color} opacity-25 blur-sm`} aria-hidden="true" />
-
-                          <div
-                            className="relative flex flex-col items-center gap-1.5 bg-linear-to-br from-white to-slate-50 rounded-2xl px-3.5 py-3 w-[100px] transition-transform duration-300 group-hover:-translate-y-1"
-                            style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,1), 0 8px 20px rgba(15,23,42,0.4), 0 2px 6px rgba(15,23,42,0.3)" }}
-                          >
-                            {/* 아이콘 — 입체 그라디언트 박스 */}
-                            <div className="relative">
-                              <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-linear-to-br ${item.color} opacity-50 blur-[2px]`} aria-hidden="true" />
-                              <div
-                                className={`relative w-11 h-11 rounded-xl bg-linear-to-br ${item.color} flex items-center justify-center shadow-lg ${item.glow}`}
-                                style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 4px rgba(0,0,0,0.15)" }}
-                              >
-                                <img src={`/images/logos/${item.name}.svg`} alt="" className={`w-5 h-5 drop-shadow-sm ${item.name === "kakaotalk" || item.name === "google" ? "" : "brightness-0 invert"}`} />
-                              </div>
-                            </div>
-                            {/* 라벨 */}
-                            <span className="text-[11px] font-extrabold text-deep-navy whitespace-nowrap tracking-tight">{item.label}</span>
-                          </div>
-                        </div>
-                      </div>
+                      <g key={deg}>
+                        <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="url(#lineGrad)" strokeWidth="0.5" strokeDasharray="0.6 1.2" strokeLinecap="round" />
+                        <circle cx={midX} cy={midY} r="1.2" fill="#60a5fa" opacity="0.4" filter="url(#dotGlow)" />
+                        <circle cx={midX} cy={midY} r="0.55" fill="#bfdbfe" />
+                      </g>
                     );
                   })}
-                </div>
+                </svg>
+
+                {/* 6개 카드 — 6각 배치, 각 카드 개별 살짝 다른 각도로 비스듬히 */}
+                {[
+                  { name: "meta", label: "메타 광고", barColor: "bg-[#0866FF]", glowColor: "shadow-[#0866FF]/40", glowBg: "bg-[#0866FF]/30", tilt: -4 },
+                  { name: "naver", label: "네이버 광고", barColor: "bg-[#03C75A]", glowColor: "shadow-[#03C75A]/40", glowBg: "bg-[#03C75A]/30", tilt: 6 },
+                  { name: "kakaotalk", label: "카카오 광고", barColor: "bg-[#FEE500]", glowColor: "shadow-[#FEE500]/40", glowBg: "bg-[#FEE500]/30", tilt: -5 },
+                  { name: "youtube", label: "유튜브 광고", barColor: "bg-[#FF0000]", glowColor: "shadow-[#FF0000]/40", glowBg: "bg-[#FF0000]/30", tilt: 4 },
+                  { name: "google", label: "구글 광고", barColor: "bg-linear-to-r from-[#4285F4] via-[#EA4335] to-[#FBBC05]", glowColor: "shadow-[#4285F4]/40", glowBg: "bg-[#4285F4]/30", tilt: -6 },
+                  { name: "instagram", label: "인스타그램 광고", barColor: "bg-linear-to-r from-[#F58529] via-[#DD2A7B] to-[#8134AF]", glowColor: "shadow-[#DD2A7B]/40", glowBg: "bg-[#DD2A7B]/30", tilt: 5 },
+                ].map((item, i) => {
+                  const deg = i * 60 - 90;
+                  const rad = (deg * Math.PI) / 180;
+                  const r = 39;
+                  const x = 50 + r * Math.cos(rad);
+                  const y = 50 + r * Math.sin(rad);
+                  return (
+                    <div
+                      key={item.name}
+                      className="absolute z-10 group"
+                      style={{
+                        top: `${y}%`,
+                        left: `${x}%`,
+                        transform: `translate(-50%, -50%) rotate(${item.tilt}deg)`,
+                        animation: `float ${5 + (i % 3)}s ease-in-out infinite ${i * 0.45}s`,
+                      }}
+                    >
+                      <div className="relative">
+                        {/* 후방 컬러 글로우 */}
+                        <div className={`absolute -inset-2 rounded-2xl ${item.glowBg} blur-xl opacity-70`} aria-hidden="true" />
+                        {/* 후방 어두운 그림자 */}
+                        <div className="absolute inset-0 translate-y-2 rounded-2xl bg-black/40 blur-md" aria-hidden="true" />
+
+                        {/* 카드 본체 */}
+                        <div
+                          className={`relative bg-white rounded-2xl w-[120px] overflow-hidden transition-transform duration-300 group-hover:-translate-y-1 shadow-xl ${item.glowColor}`}
+                          style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,1), 0 12px 28px rgba(15,23,42,0.5)" }}
+                        >
+                          <div className="flex flex-col items-center gap-2 pt-4 pb-4 px-3">
+                            <img src={`/images/logos/${item.name}.svg`} alt="" className="w-12 h-12 object-contain" />
+                            <span className="text-[12px] font-extrabold text-deep-navy whitespace-nowrap tracking-tight">{item.label}</span>
+                          </div>
+                          {/* 브랜드 컬러 바닥 라인 */}
+                          <div className={`h-1.5 ${item.barColor}`} />
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
 
                 {/* 중앙 로고 — 스테이지 레벨 (회전 X, 항상 정면) */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
