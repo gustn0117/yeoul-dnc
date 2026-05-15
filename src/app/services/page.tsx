@@ -1469,30 +1469,40 @@ export default function ServicesPage() {
                     bullets: ["DB 수집 · 방문 예약 · LMS 전환 운영"],
                     result: "관심 고객 유입부터 계약 상담까지 메타 · 네이버 · LMS 기반 통합 운영",
                     iconType: "building",
+                    iconBg: "bg-blue-50",
+                    iconColor: "text-blue-600",
                   },
                   {
                     industry: "병원",
                     bullets: ["예약 문의 확보", "신뢰 기반 브랜딩 운영"],
                     result: "플레이스 · 블로그 기반 의료 마케팅 — 지역 검색 노출 · 상담 문의 최적화",
                     iconType: "hospital",
+                    iconBg: "bg-emerald-50",
+                    iconColor: "text-emerald-600",
                   },
                   {
                     industry: "교육",
                     bullets: ["수강 상담", "카카오 채널 연동 운영"],
                     result: "수강생 모집 중심 광고 운영 — 상담 유입 · 리드 확보 · 전환 최적화",
                     iconType: "edu",
+                    iconBg: "bg-amber-50",
+                    iconColor: "text-amber-600",
                   },
                   {
                     industry: "지역 자영업",
                     bullets: ["지역 타겟 광고", "신규 고객 유입 확대"],
                     result: "플레이스 기반 지역 마케팅 — 생활권 고객 확보 · 방문 유도 최적화",
                     iconType: "store",
+                    iconBg: "bg-orange-50",
+                    iconColor: "text-orange-600",
                   },
                   {
                     industry: "상담형 서비스",
                     bullets: ["문의 전환", "리드 확보 최적화"],
                     result: "고객 문의 확보 중심 운영 — 상담 신청 · DB 유입 · 전환 관리",
                     iconType: "consult",
+                    iconBg: "bg-violet-50",
+                    iconColor: "text-violet-600",
                   },
                 ].map((item, i) => (
                   <div
@@ -1500,32 +1510,38 @@ export default function ServicesPage() {
                     className="group relative"
                     style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.08}s backwards` }}
                   >
-                    <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-accent-blue/10" />
-                    <div className="relative flex items-start gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-white border border-white shadow-3d group-hover:-translate-y-0.5 transition-transform duration-300">
+                    <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/10" />
+                    <div className="relative grid grid-cols-12 items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-100 shadow-md group-hover:-translate-y-0.5 transition-transform duration-300">
                       {/* Number */}
-                      <div className="text-xl font-black text-accent-blue shrink-0 leading-none tracking-tight pt-0.5">
+                      <div className="col-span-1 text-2xl sm:text-3xl font-black text-accent-blue leading-none tracking-tight">
                         {String(i + 1).padStart(2, "0")}
                       </div>
-                      {/* Industry icon */}
-                      <div className="w-10 h-10 rounded-xl bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center shrink-0">
-                        <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
-                          {item.iconType === "building" && <path strokeLinecap="round" strokeLinejoin="round" d="M3 21h18M3 21V7l9-4 9 4v14M9 21v-6h6v6M9 9h.01M15 9h.01M9 13h.01M15 13h.01" />}
-                          {item.iconType === "hospital" && <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5V18a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18V7.5m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v1.5M21 7.5H3m9 4.5v6m-3-3h6" />}
-                          {item.iconType === "edu" && <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342" />}
-                          {item.iconType === "store" && <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72" />}
-                          {item.iconType === "consult" && <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M9.879 16.121A3 3 0 1012.015 11L11.288 9.273M16 11.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />}
-                        </svg>
-                      </div>
-                      {/* Industry content */}
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <p className="text-[14px] sm:text-sm font-extrabold text-deep-navy">{item.industry}</p>
-                          {item.bullets.map((b) => (
-                            <span key={b} className="text-[11px] text-slate-400">· {b}</span>
-                          ))}
+                      {/* Industry icon — 컬러 박스 */}
+                      <div className="col-span-1 flex justify-center">
+                        <div className={`w-11 h-11 rounded-xl ${item.iconBg} ${item.iconColor} flex items-center justify-center`}>
+                          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
+                            {item.iconType === "building" && <path strokeLinecap="round" strokeLinejoin="round" d="M3 21h18M3 21V7l9-4 9 4v14M9 21v-6h6v6M9 9h.01M15 9h.01M9 13h.01M15 13h.01" />}
+                            {item.iconType === "hospital" && <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5V18a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18V7.5m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v1.5M21 7.5H3m9 4.5v6m-3-3h6" />}
+                            {item.iconType === "edu" && <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />}
+                            {item.iconType === "store" && <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72" />}
+                            {item.iconType === "consult" && <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M9.879 16.121A3 3 0 1012.015 11L11.288 9.273M16 11.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />}
+                          </svg>
                         </div>
-                        <div className="hidden sm:block w-8 h-px bg-slate-200 my-1" />
-                        <p className="text-[11px] sm:text-[12px] text-slate-500 leading-relaxed mt-1">{item.result}</p>
+                      </div>
+                      {/* Left: 업종명 + bullets */}
+                      <div className="col-span-4">
+                        <p className="text-[15px] sm:text-base font-extrabold text-deep-navy mb-1">{item.industry}</p>
+                        {item.bullets.map((b) => (
+                          <p key={b} className="text-[11px] sm:text-[12px] text-slate-500 leading-tight">· {b}</p>
+                        ))}
+                      </div>
+                      {/* "또는" pill */}
+                      <div className="col-span-2 flex justify-center">
+                        <span className="text-[10px] sm:text-[11px] font-bold text-accent-blue bg-accent-blue/10 border border-accent-blue/20 rounded-full px-2 py-1">또는</span>
+                      </div>
+                      {/* Right: result */}
+                      <div className="col-span-4">
+                        <p className="text-[11px] sm:text-[12px] text-slate-600 leading-relaxed">{item.result}</p>
                       </div>
                     </div>
                   </div>
@@ -1561,52 +1577,82 @@ export default function ServicesPage() {
                 </span>
               </h2>
 
-              {/* 3D framed image */}
+              {/* 노트북 이미지 + LIVE 배지 (사진 매칭) */}
               <div className="relative mb-6 group">
                 <div className="absolute inset-0 translate-x-2 translate-y-3 rounded-2xl bg-linear-to-br from-accent-blue to-blue-600 opacity-20 blur-[3px]" />
-                <div className="relative rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <Image src="/images/stock/monitor-data.jpg" alt="데이터 모니터링" width={800} height={500} className="w-full h-auto" />
-                  <div className="absolute inset-0 bg-linear-to-t from-deep-navy/40 via-transparent to-transparent" />
-                  {/* Floating stats */}
-                  <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm rounded-lg px-2.5 py-1.5 shadow-lg">
-                    <p className="text-[10px] text-slate-400 font-medium">LIVE</p>
-                    <p className="text-xs font-extrabold text-accent-blue flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-soft" /> 최적화 중
+                  {/* LIVE 최적화 중 floating badge */}
+                  <div className="absolute top-3 right-3 bg-white rounded-xl px-3 py-2 shadow-xl">
+                    <p className="text-[10px] flex items-center gap-1 text-deep-navy font-bold">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> LIVE
+                    </p>
+                    <p className="text-[11px] flex items-center gap-1 text-accent-blue font-extrabold mt-0.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent-blue animate-pulse-soft" /> 최적화 중
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Step rows - more detailed */}
-              <div className="space-y-2.5">
+              {/* 5-step 리스트 (사진 매칭: 파랑 번호 박스 + 아이콘 + 제목 + 설명) */}
+              <div className="space-y-3">
                 {[
-                  { step: "전략 수립", desc: "시장/경쟁사까지 분석을 통한 광고 전략 기획" },
-                  { step: "소재 제작", desc: "타겟에 최적화된 광고 소재 기획 및 제작" },
-                  { step: "채널 세팅", desc: "광고 채널 설정 및 캠페인 구조 세팅" },
-                  { step: "운영 및 최적화", desc: "데이터 기반 운영으로 성과 지속 개선" },
-                  { step: "결과 체크", desc: "성과 리포트 제공 및 다음 전략 제안" },
+                  {
+                    step: "전략 수립",
+                    desc: "시장/경쟁사/타겟 분석을 통한 광고 전략 기획",
+                    icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.5" fill="currentColor" /></svg>,
+                  },
+                  {
+                    step: "소재 제작",
+                    desc: "타겟에 최적화된 광고 소재 기획 및 제작",
+                    icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" /></svg>,
+                  },
+                  {
+                    step: "채널 세팅",
+                    desc: "광고 채널 설정 및 캠페인 구조 세팅",
+                    icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.125A59.769 59.769 0 0121.485 12 59.768 59.768 0 013.27 20.875L5.999 12zm0 0h7.5" /></svg>,
+                  },
+                  {
+                    step: "운영 및 최적화",
+                    desc: "데이터 기반 운영으로 성과 지속 개선",
+                    icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.306a11.95 11.95 0 015.814-5.518l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941" /></svg>,
+                  },
+                  {
+                    step: "결과 체크",
+                    desc: "성과 리포트 제공 및 다음 전략 제안",
+                    icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+                  },
                 ].map((s, i) => (
-                  <div key={s.step} className="flex items-start gap-3 p-3 rounded-xl bg-white border border-slate-100 shadow-sm">
-                    <div className="w-8 h-8 rounded-lg bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-md shrink-0">
-                      <span className="text-white text-[11px] font-black">{i + 1}</span>
+                  <div key={s.step} className="flex items-center gap-3 sm:gap-4">
+                    {/* 파랑 번호 박스 */}
+                    <div className="w-9 h-9 rounded-lg bg-accent-blue flex items-center justify-center shrink-0 shadow-md">
+                      <span className="text-white text-[14px] font-black">{i + 1}</span>
                     </div>
+                    {/* 컬러 아이콘 원형 */}
+                    <div className="w-11 h-11 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
+                      {s.icon}
+                    </div>
+                    {/* 텍스트 */}
                     <div className="flex-1 min-w-0">
-                      <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy leading-tight">{s.step}</p>
-                      <p className="text-[11px] sm:text-[12px] text-slate-500 mt-0.5 leading-tight">{s.desc}</p>
+                      <p className="text-[15px] sm:text-base font-extrabold text-deep-navy leading-tight">{s.step}</p>
+                      <p className="text-[12px] sm:text-[13px] text-slate-500 mt-0.5 leading-tight">{s.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-5 relative">
-                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-accent-blue/15" />
-                <div className="relative flex items-center gap-3 p-3.5 rounded-xl bg-white border border-accent-blue/20">
-                  <div className="w-10 h-10 rounded-xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shrink-0 shadow-md">
-                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+              {/* 데이터 기반 성과 관리 카드 */}
+              <div className="mt-6 relative">
+                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/15" />
+                <div className="relative flex items-start gap-3 p-4 sm:p-5 rounded-2xl bg-white border border-slate-100 shadow-md">
+                  <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
+                    <svg className="w-6 h-6 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                    </svg>
                   </div>
                   <div>
-                    <p className="text-[14px] sm:text-sm font-extrabold text-deep-navy">데이터 기반 성과 관리</p>
-                    <p className="text-[11px] sm:text-[12px] text-slate-500 mt-0.5">실시간 데이터 분석과 지속적인 최적화로 광고 효율을 극대화합니다.</p>
+                    <p className="text-[15px] sm:text-base font-extrabold text-deep-navy">데이터 기반 성과 관리</p>
+                    <p className="text-[12px] sm:text-[13px] text-slate-500 mt-1 leading-relaxed">실시간 데이터 분석과 지속적인 최적화로 광고 효율을 극대화합니다.</p>
                   </div>
                 </div>
               </div>
