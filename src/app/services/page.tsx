@@ -161,77 +161,112 @@ export default function ServicesPage() {
 
             {/* RIGHT — 6각 궤도 다이어그램 (중앙 로고 + 6 플랫폼 카드 + 점선 연결) */}
             <div className="hidden lg:flex lg:col-span-5 justify-center items-center mt-12 lg:mt-0">
-              <div className="relative w-full aspect-square max-w-[460px]">
-                {/* 중앙 글로우 */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 bg-accent-blue/25 rounded-full blur-3xl" aria-hidden="true" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-accent-blue/30 rounded-full blur-2xl" aria-hidden="true" />
+              <div className="relative w-full aspect-square max-w-[560px]">
+                {/* 다층 글로우 — halo */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-accent-blue/15 rounded-full blur-[80px]" aria-hidden="true" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[55%] h-[55%] bg-accent-blue/25 rounded-full blur-[60px]" aria-hidden="true" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[35%] h-[35%] bg-accent-blue/35 rounded-full blur-[40px]" aria-hidden="true" />
+
+                {/* 외곽 점선 원 (시각적 궤도) */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[78%] h-[78%] rounded-full border border-dashed border-white/8" aria-hidden="true" />
 
                 {/* 점선 연결 SVG — 중앙에서 6개 카드 위치로 */}
                 <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
                   <defs>
                     <radialGradient id="lineGrad" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.55" />
+                      <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.7" />
                       <stop offset="100%" stopColor="#60a5fa" stopOpacity="0.15" />
                     </radialGradient>
+                    <filter id="dotGlow">
+                      <feGaussianBlur stdDeviation="0.5" />
+                    </filter>
                   </defs>
                   {[0, 60, 120, 180, 240, 300].map((deg) => {
                     const rad = ((deg - 90) * Math.PI) / 180;
-                    const r = 38; // 카드까지의 반경(% — viewBox 단위)
-                    const x = 50 + r * Math.cos(rad);
-                    const y = 50 + r * Math.sin(rad);
-                    const midX = 50 + (r * 0.55) * Math.cos(rad);
-                    const midY = 50 + (r * 0.55) * Math.sin(rad);
+                    const rStart = 14;
+                    const rEnd = 33;
+                    const x1 = 50 + rStart * Math.cos(rad);
+                    const y1 = 50 + rStart * Math.sin(rad);
+                    const x2 = 50 + rEnd * Math.cos(rad);
+                    const y2 = 50 + rEnd * Math.sin(rad);
+                    const midX = 50 + ((rStart + rEnd) / 2) * Math.cos(rad);
+                    const midY = 50 + ((rStart + rEnd) / 2) * Math.sin(rad);
                     return (
                       <g key={deg}>
-                        <line x1="50" y1="50" x2={x} y2={y} stroke="url(#lineGrad)" strokeWidth="0.4" strokeDasharray="0.8 1.4" />
-                        <circle cx={midX} cy={midY} r="0.6" fill="#60a5fa" opacity="0.7" />
+                        <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="url(#lineGrad)" strokeWidth="0.5" strokeDasharray="0.6 1.2" strokeLinecap="round" />
+                        <circle cx={midX} cy={midY} r="1.2" fill="#60a5fa" opacity="0.4" filter="url(#dotGlow)" />
+                        <circle cx={midX} cy={midY} r="0.55" fill="#bfdbfe" />
                       </g>
                     );
                   })}
                 </svg>
 
-                {/* 6개 카드 — 6각형 배치 */}
+                {/* 6개 카드 — 6각형 배치 (세로 레이아웃: 아이콘 + 라벨) */}
                 {[
-                  { name: "meta", label: "메타 광고", color: "from-blue-500 to-indigo-600" },
-                  { name: "naver", label: "네이버 광고", color: "from-green-500 to-emerald-600" },
-                  { name: "kakaotalk", label: "카카오 광고", color: "from-yellow-400 to-amber-500" },
-                  { name: "youtube", label: "유튜브 광고", color: "from-red-500 to-rose-600" },
-                  { name: "google", label: "구글 광고", color: "from-sky-500 to-blue-500" },
-                  { name: "instagram", label: "인스타그램 광고", color: "from-pink-500 via-rose-500 to-orange-500" },
+                  { name: "meta", label: "메타 광고", color: "from-blue-500 to-indigo-600", glow: "shadow-blue-500/30" },
+                  { name: "naver", label: "네이버 광고", color: "from-green-500 to-emerald-600", glow: "shadow-emerald-500/30" },
+                  { name: "kakaotalk", label: "카카오 광고", color: "from-yellow-400 to-amber-500", glow: "shadow-amber-500/30" },
+                  { name: "youtube", label: "유튜브 광고", color: "from-red-500 to-rose-600", glow: "shadow-rose-500/30" },
+                  { name: "google", label: "구글 광고", color: "from-sky-500 to-blue-500", glow: "shadow-sky-500/30" },
+                  { name: "instagram", label: "인스타그램 광고", color: "from-pink-500 via-rose-500 to-orange-500", glow: "shadow-pink-500/30" },
                 ].map((item, i) => {
-                  const deg = i * 60 - 90; // 첫 카드 = 정상단
+                  const deg = i * 60 - 90;
                   const rad = (deg * Math.PI) / 180;
-                  const r = 38; // 반경(%)
+                  const r = 39;
                   const x = 50 + r * Math.cos(rad);
                   const y = 50 + r * Math.sin(rad);
                   return (
                     <div
                       key={item.name}
-                      className="absolute -translate-x-1/2 -translate-y-1/2 z-10"
-                      style={{ top: `${y}%`, left: `${x}%`, animation: `float ${5 + (i % 3)}s ease-in-out infinite ${i * 0.4}s` }}
+                      className="absolute -translate-x-1/2 -translate-y-1/2 z-10 group"
+                      style={{ top: `${y}%`, left: `${x}%`, animation: `float ${5 + (i % 3)}s ease-in-out infinite ${i * 0.45}s` }}
                     >
                       <div className="relative">
-                        <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-xl bg-black/40 blur-md" aria-hidden="true" />
-                        <div className="relative flex items-center gap-2 bg-linear-to-br from-white/[0.12] to-white/[0.05] backdrop-blur-md border border-white/20 rounded-xl pl-1.5 pr-3 py-1.5 shadow-xl">
-                          <div className={`shrink-0 relative w-8 h-8 rounded-lg bg-linear-to-br ${item.color} flex items-center justify-center shadow-md`}>
-                            <img src={`/images/logos/${item.name}.svg`} alt="" className={`w-4 h-4 ${item.name === "kakaotalk" || item.name === "google" ? "" : "brightness-0 invert"}`} />
+                        {/* 3중 그림자 */}
+                        <div className="absolute inset-0 translate-x-1.5 translate-y-3 rounded-2xl bg-black/40 blur-lg" aria-hidden="true" />
+                        <div className={`absolute inset-0 translate-x-0.5 translate-y-1.5 rounded-2xl bg-linear-to-br ${item.color} opacity-25 blur-sm`} aria-hidden="true" />
+
+                        <div
+                          className="relative flex flex-col items-center gap-1.5 bg-linear-to-br from-white to-slate-50 rounded-2xl px-3.5 py-3 w-[100px] transition-transform duration-300 group-hover:-translate-y-1"
+                          style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,1), 0 8px 20px rgba(15,23,42,0.4), 0 2px 6px rgba(15,23,42,0.3)" }}
+                        >
+                          {/* 아이콘 — 입체 그라디언트 박스 */}
+                          <div className="relative">
+                            <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-linear-to-br ${item.color} opacity-50 blur-[2px]`} aria-hidden="true" />
+                            <div
+                              className={`relative w-11 h-11 rounded-xl bg-linear-to-br ${item.color} flex items-center justify-center shadow-lg ${item.glow}`}
+                              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 4px rgba(0,0,0,0.15)" }}
+                            >
+                              <img src={`/images/logos/${item.name}.svg`} alt="" className={`w-5 h-5 drop-shadow-sm ${item.name === "kakaotalk" || item.name === "google" ? "" : "brightness-0 invert"}`} />
+                            </div>
                           </div>
-                          <span className="text-[11px] font-extrabold text-white whitespace-nowrap">{item.label}</span>
+                          {/* 라벨 */}
+                          <span className="text-[11px] font-extrabold text-deep-navy whitespace-nowrap tracking-tight">{item.label}</span>
                         </div>
                       </div>
                     </div>
                   );
                 })}
 
-                {/* 중앙 로고 — 글로우 강한 원형 배지 */}
+                {/* 중앙 로고 — 강한 다층 글로우 + 원형 배지 */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
                   <div className="relative">
-                    <div className="absolute inset-0 rounded-full bg-accent-blue/40 blur-2xl animate-pulse-soft" aria-hidden="true" />
+                    {/* 외곽 halo ring (회전) */}
+                    <div className="absolute -inset-3 rounded-full border border-accent-blue/30 animate-spin [animation-duration:24s]" aria-hidden="true" />
+                    <div className="absolute -inset-6 rounded-full border border-accent-blue/15" aria-hidden="true" />
+                    {/* pulsing glow */}
+                    <div className="absolute inset-0 rounded-full bg-accent-blue/50 blur-2xl animate-pulse-soft" aria-hidden="true" />
+                    <div className="absolute inset-0 rounded-full bg-sky-400/30 blur-xl" aria-hidden="true" />
+
+                    {/* 본체 */}
                     <div
-                      className="relative w-24 h-24 rounded-full bg-linear-to-br from-accent-blue to-blue-700 flex items-center justify-center border-2 border-white/25"
-                      style={{ boxShadow: "inset 0 2px 0 rgba(255,255,255,0.25), 0 8px 32px rgba(37,99,235,0.5), 0 0 60px rgba(96,165,250,0.3)" }}
+                      className="relative w-32 h-32 rounded-full bg-linear-to-br from-accent-blue via-blue-600 to-blue-800 flex items-center justify-center border-2 border-white/30"
+                      style={{
+                        boxShadow:
+                          "inset 0 2px 0 rgba(255,255,255,0.35), inset 0 -4px 8px rgba(0,0,0,0.2), 0 12px 40px rgba(37,99,235,0.55), 0 0 80px rgba(96,165,250,0.35)",
+                      }}
                     >
-                      <LogoMark variant="white" className="w-12" />
+                      <LogoMark variant="white" className="w-16 drop-shadow-lg" />
                     </div>
                   </div>
                 </div>
