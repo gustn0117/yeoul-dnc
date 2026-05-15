@@ -427,9 +427,9 @@ export default function Home() {
           <div className="text-center mb-12 sm:mb-14">
             <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">WHY US</p>
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
-              광고는 많이 하는 것보다,<br />
+              유입이 끝이 아니라,<br />
               <span className="relative inline-block">
-                <span className="relative z-10">맞게 하는 것이 더 중요</span>
+                <span className="relative z-10">상담 전환까지 설계</span>
                 <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
               </span>
               합니다
@@ -826,20 +826,44 @@ export default function Home() {
                 <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-accent-blue/15 blur-[2px]" />
 
                 <div className="relative bg-white rounded-2xl border border-slate-100 shadow-xl shadow-deep-navy/8 overflow-hidden group-hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
-                  {/* Top: industry tag + title + image (PDF 변경시안 매칭) */}
-                  <div className="relative grid grid-cols-5 gap-3 px-5 pt-5 pb-5 bg-linear-to-br from-[#f8fbff] to-white">
-                    <div className="col-span-3">
+                  {/* Top: 풀-블리드 이미지가 카드 상단을 채우고, 좌측·하단으로 흰색 페이드 (사용자 제공 사진 매칭) */}
+                  <div className="relative overflow-hidden min-h-65 bg-white">
+                    {/* 풀-블리드 배경 이미지 */}
+                    <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+                      <Image
+                        src={c.img}
+                        alt=""
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 400px"
+                        className="object-cover"
+                      />
+                      {/* 좌측 흰색 페이드 (텍스트 가독성용) */}
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background:
+                            "linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.96) 32%, rgba(255,255,255,0.55) 58%, rgba(255,255,255,0.15) 80%, transparent 100%)",
+                        }}
+                      />
+                      {/* 하단 흰색 페이드 (채널 섹션으로 자연스러운 전환) */}
+                      <div
+                        className="absolute inset-x-0 bottom-0 h-1/2"
+                        style={{
+                          background:
+                            "linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.75) 35%, rgba(255,255,255,0.2) 70%, transparent 100%)",
+                        }}
+                      />
+                    </div>
+
+                    {/* 텍스트 콘텐츠 — 이미지 위 좌측 */}
+                    <div className="relative px-5 sm:px-6 pt-6 sm:pt-7 pb-7 sm:pb-8 max-w-[62%]">
                       <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[12px] font-bold text-accent-blue bg-accent-blue/10 border border-accent-blue/15 mb-3">
                         <span className="w-1 h-1 rounded-full bg-accent-blue" />
                         {c.industry}
                       </div>
                       <h3 className="text-[19px] sm:text-xl font-extrabold text-deep-navy mb-1.5 leading-tight">{c.title}</h3>
                       <p className="text-[14px] text-deep-navy font-extrabold mb-3 leading-snug">{c.subtitle}</p>
-                      <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed">{c.desc}</p>
-                    </div>
-                    <div className="col-span-2 relative rounded-2xl overflow-hidden aspect-[3/4] sm:aspect-[5/6] shadow-md">
-                      <Image src={c.img} alt={c.industry} fill className="object-cover" sizes="(max-width: 1024px) 40vw, 200px" />
-                      <div className="absolute inset-0 bg-linear-to-tr from-deep-navy/10 via-transparent to-transparent" />
+                      <p className="text-[12px] sm:text-[13px] text-slate-600 leading-relaxed">{c.desc}</p>
                     </div>
                   </div>
 
