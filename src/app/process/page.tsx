@@ -152,7 +152,13 @@ export default function ProcessPage() {
                     <div className="relative flex-1 flex flex-col rounded-2xl overflow-hidden shadow-lg shadow-blue-900/8 border border-slate-100 group hover:-translate-y-1 transition-transform duration-300">
                       <div className="relative aspect-4/3 shrink-0">
                         <Image
-                          src={`/images/stock/${["consultation", "strategy-board", "creative-design", "dashboard", "monitor-data"][i]}.jpg`}
+                          src={[
+                            "/images/0515/team-presentation-1.png",
+                            "/images/0515/team-presentation-3.png",
+                            "/images/stock/creative-design.jpg",
+                            "/images/stock/analytics-screen.jpg",
+                            "/images/stock/monitor-data.jpg",
+                          ][i]}
                           alt={s.title}
                           fill
                           className="object-cover"
@@ -271,7 +277,13 @@ export default function ProcessPage() {
                             <div className={`absolute inset-0 translate-x-1 translate-y-2 rounded-xl bg-linear-to-br ${s.color} opacity-20 blur-[2px]`} />
                             <div className="relative rounded-xl overflow-hidden aspect-4/3 bg-slate-900 shadow-xl border-4 border-white">
                               <Image
-                                src={`/images/stock/${["consultation", "strategy-board", "creative-design", "dashboard", "monitor-data"][i]}.jpg`}
+                                src={[
+                            "/images/0515/team-presentation-1.png",
+                            "/images/0515/team-presentation-3.png",
+                            "/images/stock/creative-design.jpg",
+                            "/images/stock/analytics-screen.jpg",
+                            "/images/stock/monitor-data.jpg",
+                          ][i]}
                                 alt={s.title}
                                 fill
                                 className="object-cover"

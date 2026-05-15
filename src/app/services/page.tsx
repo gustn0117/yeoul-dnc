@@ -446,60 +446,60 @@ export default function ServicesPage() {
               </Link>
             </div>
 
-            {/* Tilted phone mockups */}
+            {/* Phone mockups — 3개 폰 가로 배치, 비율 9:16(이미지 매칭), 겹침 최소화 */}
             <div className="lg:col-span-6 relative">
-              <div className="relative mx-auto max-w-md aspect-square">
-                {/* Background decorative circle */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] rounded-full bg-linear-to-br from-green-50 to-emerald-50/40 z-0" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-500/10 rounded-full blur-3xl" />
+              <div className="relative mx-auto w-full max-w-[520px] aspect-[5/4]">
+                {/* Background decorative */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[88%] h-[80%] rounded-[3rem] bg-linear-to-br from-green-50 to-emerald-50/40 z-0" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-green-500/10 rounded-full blur-3xl" />
 
-                {/* Phone back — 검색 결과 화면 */}
+                {/* Phone LEFT — 좌측 기울임 */}
                 <div
-                  className="absolute top-[6%] right-[4%] w-36 sm:w-44 aspect-9/19 z-10 animate-float-slow"
-                  style={{ transform: "rotate(12deg)" }}
+                  className="absolute top-[8%] left-[2%] w-[26%] sm:w-[28%] aspect-[9/16] z-10 animate-float-slow"
+                  style={{ transform: "rotate(-8deg)" }}
                 >
-                  <div className="relative w-full h-full rounded-3xl bg-slate-900 shadow-2xl shadow-green-900/25 p-1.5 border border-slate-700">
-                    <div className="relative w-full h-full rounded-[18px] overflow-hidden bg-white">
-                      <Image src="/images/0515/naver-phone-3.png" alt="네이버 검색 결과" fill className="object-cover object-top" />
+                  <div className="relative w-full h-full rounded-[22px] bg-slate-900 shadow-2xl shadow-green-900/30 p-[5px] border border-slate-700">
+                    <div className="relative w-full h-full rounded-[17px] overflow-hidden bg-white">
+                      <Image src="/images/0515/naver-phone-2.png" alt="네이버 광고 영역" fill className="object-cover" sizes="160px" />
                     </div>
-                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-14 h-3 bg-slate-900 rounded-full z-10" />
+                    <div className="absolute top-1 left-1/2 -translate-x-1/2 w-12 h-2.5 bg-slate-900 rounded-full z-10" />
                   </div>
                 </div>
 
-                {/* Phone middle — 정면 (가장 큼) */}
+                {/* Phone CENTER — 정면 가장 큼 + 앞으로 */}
                 <div
-                  className="absolute top-[14%] left-1/2 w-40 sm:w-48 aspect-9/19 z-20"
+                  className="absolute top-[4%] left-1/2 w-[30%] sm:w-[32%] aspect-[9/16] z-30"
                   style={{ transform: "translate(-50%, 0) rotate(0deg)", animation: "float 6s ease-in-out infinite 1s" }}
                 >
-                  <div className="relative w-full h-full rounded-[26px] bg-slate-900 shadow-2xl shadow-green-900/30 p-1.5 border border-slate-700">
+                  <div className="relative w-full h-full rounded-[26px] bg-slate-900 shadow-2xl shadow-green-900/40 p-[6px] border border-slate-700">
                     <div className="relative w-full h-full rounded-[20px] overflow-hidden bg-white">
-                      <Image src="/images/0515/naver-phone-1.png" alt="네이버 검색 화면" fill className="object-cover object-top" />
-                    </div>
-                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-16 h-3.5 bg-slate-900 rounded-full z-10" />
-                  </div>
-                </div>
-
-                {/* Phone front — 좌측 기울임 */}
-                <div
-                  className="absolute bottom-[4%] left-[2%] w-36 sm:w-44 aspect-9/19 z-30"
-                  style={{ transform: "rotate(-10deg)", animation: "float 5s ease-in-out infinite 2s" }}
-                >
-                  <div className="relative w-full h-full rounded-3xl bg-slate-900 shadow-2xl shadow-green-900/25 p-1.5 border border-slate-700">
-                    <div className="relative w-full h-full rounded-[18px] overflow-hidden bg-white">
-                      <Image src="/images/0515/naver-phone-2.png" alt="네이버 광고 영역" fill className="object-cover object-top" />
+                      <Image src="/images/0515/naver-phone-1.png" alt="네이버 검색 화면" fill className="object-cover" sizes="180px" />
                     </div>
                     <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-14 h-3 bg-slate-900 rounded-full z-10" />
                   </div>
                 </div>
 
-                {/* Floating green stat */}
-                <div className="absolute top-4 left-0 bg-white rounded-xl shadow-xl shadow-green-900/10 px-3 py-2 border border-green-100 z-40 animate-float">
+                {/* Phone RIGHT — 우측 기울임 */}
+                <div
+                  className="absolute top-[8%] right-[2%] w-[26%] sm:w-[28%] aspect-[9/16] z-20"
+                  style={{ transform: "rotate(8deg)", animation: "float 5s ease-in-out infinite 2s" }}
+                >
+                  <div className="relative w-full h-full rounded-[22px] bg-slate-900 shadow-2xl shadow-green-900/30 p-[5px] border border-slate-700">
+                    <div className="relative w-full h-full rounded-[17px] overflow-hidden bg-white">
+                      <Image src="/images/0515/naver-phone-3.png" alt="네이버 검색 결과" fill className="object-cover" sizes="160px" />
+                    </div>
+                    <div className="absolute top-1 left-1/2 -translate-x-1/2 w-12 h-2.5 bg-slate-900 rounded-full z-10" />
+                  </div>
+                </div>
+
+                {/* Floating "검색 전환" stat */}
+                <div className="absolute top-2 left-2 bg-white rounded-xl shadow-xl shadow-green-900/15 px-3 py-2 border border-green-100 z-40 animate-float">
                   <p className="text-[10px] text-slate-400 font-medium">검색 전환</p>
                   <p className="text-sm font-extrabold text-[#03C75A]">매우 높음 ↑</p>
                 </div>
 
-                {/* PDF page 35: 200+ / 98% bottom stats card */}
-                <div className="absolute bottom-2 left-2 right-2 bg-white rounded-xl shadow-xl shadow-green-900/10 px-3 py-2 border border-green-100 z-40 grid grid-cols-2 gap-3" style={{ animation: "float 5s ease-in-out infinite 1.5s" }}>
+                {/* Bottom 200+ / 98% stats card */}
+                <div className="absolute bottom-1 left-2 right-2 bg-white rounded-xl shadow-xl shadow-green-900/15 px-3 py-2 border border-green-100 z-40 grid grid-cols-2 gap-3" style={{ animation: "float 5s ease-in-out infinite 1.5s" }}>
                   <div className="text-center">
                     <p className="text-base font-black text-[#03C75A] leading-none">200+</p>
                     <p className="text-[10px] text-slate-500 mt-0.5">운영 키워드</p>
@@ -630,57 +630,57 @@ export default function ServicesPage() {
               </Link>
             </div>
 
-            {/* Tilted phone mockups — Naver 레이아웃 미러, 3개 폰 (사용자 제공 이미지) */}
+            {/* Phone mockups — 3개 폰 가로 배치, 비율 9:16 (Naver 레이아웃 미러) */}
             <div className="lg:col-span-6 order-1 lg:order-2 relative">
-              <div className="relative mx-auto max-w-md aspect-square">
+              <div className="relative mx-auto w-full max-w-[520px] aspect-[5/4]">
                 {/* Background decorative blur */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] rounded-full bg-linear-to-br from-pink-50 to-purple-50/40 z-0" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pink-400/15 rounded-full blur-3xl" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[88%] h-[80%] rounded-[3rem] bg-linear-to-br from-pink-50 to-purple-50/40 z-0" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-pink-400/15 rounded-full blur-3xl" />
 
-                {/* Phone back — 우측 기울임 */}
+                {/* Phone LEFT */}
                 <div
-                  className="absolute top-[6%] right-[4%] w-36 sm:w-44 aspect-9/19 z-10 animate-float-slow"
-                  style={{ transform: "rotate(12deg)" }}
+                  className="absolute top-[8%] left-[2%] w-[26%] sm:w-[28%] aspect-[9/16] z-10 animate-float-slow"
+                  style={{ transform: "rotate(-8deg)" }}
                 >
-                  <div className="relative w-full h-full rounded-3xl bg-slate-900 shadow-2xl shadow-pink-900/25 p-1.5 border border-slate-700">
-                    <div className="relative w-full h-full rounded-[18px] overflow-hidden bg-white">
-                      <Image src="/images/0515/insta-phone-3.png" alt="인스타그램 광고 3" fill className="object-cover object-top" />
+                  <div className="relative w-full h-full rounded-[22px] bg-slate-900 shadow-2xl shadow-pink-900/30 p-[5px] border border-slate-700">
+                    <div className="relative w-full h-full rounded-[17px] overflow-hidden bg-white">
+                      <Image src="/images/0515/insta-phone-2.png" alt="인스타그램 광고 2" fill className="object-cover" sizes="160px" />
                     </div>
-                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-14 h-3 bg-slate-900 rounded-full z-10" />
+                    <div className="absolute top-1 left-1/2 -translate-x-1/2 w-12 h-2.5 bg-slate-900 rounded-full z-10" />
                   </div>
                 </div>
 
-                {/* Phone middle — 정면 가장 큼 */}
+                {/* Phone CENTER — 가장 큼 */}
                 <div
-                  className="absolute top-[14%] left-1/2 w-40 sm:w-48 aspect-9/19 z-20"
+                  className="absolute top-[4%] left-1/2 w-[30%] sm:w-[32%] aspect-[9/16] z-30"
                   style={{ transform: "translate(-50%, 0) rotate(0deg)", animation: "float 6s ease-in-out infinite 1s" }}
                 >
-                  <div className="relative w-full h-full rounded-[26px] bg-slate-900 shadow-2xl shadow-pink-900/30 p-1.5 border border-slate-700">
+                  <div className="relative w-full h-full rounded-[26px] bg-slate-900 shadow-2xl shadow-pink-900/40 p-[6px] border border-slate-700">
                     <div className="relative w-full h-full rounded-[20px] overflow-hidden bg-white">
-                      <Image src="/images/0515/insta-phone-1.png" alt="인스타그램 광고 1" fill className="object-cover object-top" />
+                      <Image src="/images/0515/insta-phone-1.png" alt="인스타그램 광고 1" fill className="object-cover" sizes="180px" />
                     </div>
-                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-16 h-3.5 bg-slate-900 rounded-full z-10" />
+                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-14 h-3 bg-slate-900 rounded-full z-10" />
                   </div>
                 </div>
 
-                {/* Phone front — 좌측 기울임 */}
+                {/* Phone RIGHT */}
                 <div
-                  className="absolute bottom-[4%] left-[2%] w-36 sm:w-44 aspect-9/19 z-30"
-                  style={{ transform: "rotate(-10deg)", animation: "float 5s ease-in-out infinite 2s" }}
+                  className="absolute top-[8%] right-[2%] w-[26%] sm:w-[28%] aspect-[9/16] z-20"
+                  style={{ transform: "rotate(8deg)", animation: "float 5s ease-in-out infinite 2s" }}
                 >
-                  <div className="relative w-full h-full rounded-3xl bg-slate-900 shadow-2xl shadow-pink-900/25 p-1.5 border border-slate-700">
-                    <div className="relative w-full h-full rounded-[18px] overflow-hidden bg-white">
-                      <Image src="/images/0515/insta-phone-2.png" alt="인스타그램 광고 2" fill className="object-cover object-top" />
+                  <div className="relative w-full h-full rounded-[22px] bg-slate-900 shadow-2xl shadow-pink-900/30 p-[5px] border border-slate-700">
+                    <div className="relative w-full h-full rounded-[17px] overflow-hidden bg-white">
+                      <Image src="/images/0515/insta-phone-3.png" alt="인스타그램 광고 3" fill className="object-cover" sizes="160px" />
                     </div>
-                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-14 h-3 bg-slate-900 rounded-full z-10" />
+                    <div className="absolute top-1 left-1/2 -translate-x-1/2 w-12 h-2.5 bg-slate-900 rounded-full z-10" />
                   </div>
                 </div>
 
                 {/* Floating IG/FB logos — 폰 외곽 */}
-                <div className="absolute top-4 right-0 w-11 h-11 bg-white rounded-2xl shadow-xl shadow-pink-900/15 flex items-center justify-center z-40 animate-float-slow">
+                <div className="absolute top-2 right-2 w-11 h-11 bg-white rounded-2xl shadow-xl shadow-pink-900/15 flex items-center justify-center z-40 animate-float-slow">
                   <img src="/images/logos/instagram.svg" alt="" className="w-6 h-6" />
                 </div>
-                <div className="absolute bottom-10 left-0 w-11 h-11 bg-white rounded-2xl shadow-xl shadow-blue-900/15 flex items-center justify-center z-40" style={{ animation: "float 5s ease-in-out infinite 1s" }}>
+                <div className="absolute bottom-4 left-2 w-11 h-11 bg-white rounded-2xl shadow-xl shadow-blue-900/15 flex items-center justify-center z-40" style={{ animation: "float 5s ease-in-out infinite 1s" }}>
                   <img src="/images/logos/facebook.svg" alt="" className="w-6 h-6" />
                 </div>
               </div>
@@ -741,60 +741,60 @@ export default function ServicesPage() {
       <section className="py-16 sm:py-20 lg:py-28 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
-            {/* Kakao 3 phone mockups — Naver 레이아웃 미러 (사용자 제공 이미지) */}
+            {/* Kakao 3 phone mockups — Naver 레이아웃 미러 (가로 배치 9:16) */}
             <div className="lg:col-span-6 order-1 relative mb-12 lg:mb-0">
-              <div className="relative mx-auto max-w-md aspect-square">
-                {/* Background decorative blur */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] rounded-full bg-linear-to-br from-yellow-50 to-amber-50/40 z-0" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-amber-400/15 rounded-full blur-3xl" />
+              <div className="relative mx-auto w-full max-w-[520px] aspect-[5/4]">
+                {/* Background decorative */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[88%] h-[80%] rounded-[3rem] bg-linear-to-br from-yellow-50 to-amber-50/40 z-0" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-amber-400/15 rounded-full blur-3xl" />
 
-                {/* Phone back — 우측 기울임 */}
+                {/* Phone LEFT */}
                 <div
-                  className="absolute top-[6%] right-[4%] w-36 sm:w-44 aspect-9/19 z-10 animate-float-slow"
-                  style={{ transform: "rotate(12deg)" }}
+                  className="absolute top-[8%] left-[2%] w-[26%] sm:w-[28%] aspect-[9/16] z-10 animate-float-slow"
+                  style={{ transform: "rotate(-8deg)" }}
                 >
-                  <div className="relative w-full h-full rounded-3xl bg-slate-900 shadow-2xl shadow-amber-900/25 p-1.5 border border-slate-700">
-                    <div className="relative w-full h-full rounded-[18px] overflow-hidden bg-white">
-                      <Image src="/images/0515/kakao-phone-3.png" alt="카카오 광고 3" fill className="object-cover object-top" />
+                  <div className="relative w-full h-full rounded-[22px] bg-slate-900 shadow-2xl shadow-amber-900/30 p-[5px] border border-slate-700">
+                    <div className="relative w-full h-full rounded-[17px] overflow-hidden bg-white">
+                      <Image src="/images/0515/kakao-phone-2.png" alt="카카오 광고 2" fill className="object-cover" sizes="160px" />
                     </div>
-                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-14 h-3 bg-slate-900 rounded-full z-10" />
+                    <div className="absolute top-1 left-1/2 -translate-x-1/2 w-12 h-2.5 bg-slate-900 rounded-full z-10" />
                   </div>
                 </div>
 
-                {/* Phone middle — 정면 가장 큼 */}
+                {/* Phone CENTER — 가장 큼 */}
                 <div
-                  className="absolute top-[14%] left-1/2 w-40 sm:w-48 aspect-9/19 z-20"
+                  className="absolute top-[4%] left-1/2 w-[30%] sm:w-[32%] aspect-[9/16] z-30"
                   style={{ transform: "translate(-50%, 0) rotate(0deg)", animation: "float 6s ease-in-out infinite 1s" }}
                 >
-                  <div className="relative w-full h-full rounded-[26px] bg-slate-900 shadow-2xl shadow-amber-900/30 p-1.5 border border-slate-700">
+                  <div className="relative w-full h-full rounded-[26px] bg-slate-900 shadow-2xl shadow-amber-900/40 p-[6px] border border-slate-700">
                     <div className="relative w-full h-full rounded-[20px] overflow-hidden bg-white">
-                      <Image src="/images/0515/kakao-phone-1.png" alt="카카오 광고 1" fill className="object-cover object-top" />
-                    </div>
-                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-16 h-3.5 bg-slate-900 rounded-full z-10" />
-                  </div>
-                </div>
-
-                {/* Phone front — 좌측 기울임 */}
-                <div
-                  className="absolute bottom-[4%] left-[2%] w-36 sm:w-44 aspect-9/19 z-30"
-                  style={{ transform: "rotate(-10deg)", animation: "float 5s ease-in-out infinite 2s" }}
-                >
-                  <div className="relative w-full h-full rounded-3xl bg-slate-900 shadow-2xl shadow-amber-900/25 p-1.5 border border-slate-700">
-                    <div className="relative w-full h-full rounded-[18px] overflow-hidden bg-white">
-                      <Image src="/images/0515/kakao-phone-2.png" alt="카카오 광고 2" fill className="object-cover object-top" />
+                      <Image src="/images/0515/kakao-phone-1.png" alt="카카오 광고 1" fill className="object-cover" sizes="180px" />
                     </div>
                     <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-14 h-3 bg-slate-900 rounded-full z-10" />
                   </div>
                 </div>
 
-                {/* Floating Kakao logo — 폰 외곽 */}
-                <div className="absolute top-4 right-0 w-11 h-11 bg-[#FEE500] rounded-2xl shadow-xl shadow-amber-900/20 flex items-center justify-center z-40 animate-float-slow">
+                {/* Phone RIGHT */}
+                <div
+                  className="absolute top-[8%] right-[2%] w-[26%] sm:w-[28%] aspect-[9/16] z-20"
+                  style={{ transform: "rotate(8deg)", animation: "float 5s ease-in-out infinite 2s" }}
+                >
+                  <div className="relative w-full h-full rounded-[22px] bg-slate-900 shadow-2xl shadow-amber-900/30 p-[5px] border border-slate-700">
+                    <div className="relative w-full h-full rounded-[17px] overflow-hidden bg-white">
+                      <Image src="/images/0515/kakao-phone-3.png" alt="카카오 광고 3" fill className="object-cover" sizes="160px" />
+                    </div>
+                    <div className="absolute top-1 left-1/2 -translate-x-1/2 w-12 h-2.5 bg-slate-900 rounded-full z-10" />
+                  </div>
+                </div>
+
+                {/* Floating Kakao logo */}
+                <div className="absolute top-2 right-2 w-11 h-11 bg-[#FEE500] rounded-2xl shadow-xl shadow-amber-900/20 flex items-center justify-center z-40 animate-float-slow">
                   <svg className="w-6 h-6 text-[#3C1E1E]" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 3C6.48 3 2 6.58 2 10.9c0 2.78 1.8 5.22 4.51 6.6-.2.73-.72 2.65-.82 3.06-.13.52.19.51.4.37.17-.11 2.69-1.83 3.78-2.57.69.1 1.4.15 2.13.15 5.52 0 10-3.58 10-7.9S17.52 3 12 3z" />
                   </svg>
                 </div>
-                {/* 실시간 stat - 폰 좌측 외곽 */}
-                <div className="absolute bottom-10 left-0 bg-white rounded-xl shadow-xl shadow-amber-900/10 px-3 py-2 border border-amber-100 z-40" style={{ animation: "float 5s ease-in-out infinite 1.4s" }}>
+                {/* 실시간 stat */}
+                <div className="absolute bottom-4 left-2 bg-white rounded-xl shadow-xl shadow-amber-900/10 px-3 py-2 border border-amber-100 z-40" style={{ animation: "float 5s ease-in-out infinite 1.4s" }}>
                   <p className="text-[10px] text-slate-400">상담 유입</p>
                   <p className="text-sm font-extrabold text-amber-600 leading-tight">실시간 ↑</p>
                 </div>

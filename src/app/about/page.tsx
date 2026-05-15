@@ -968,7 +968,11 @@ export default function AboutPage() {
                     {/* PDF page 31: 각 카드에 사진 추가 */}
                     <div className="relative mb-3 rounded-xl overflow-hidden aspect-video bg-slate-100">
                       <Image
-                        src={`/images/stock/${["consultation", "strategy-board", "monitor-data"][i]}.jpg`}
+                        src={[
+                          "/images/0515/team-presentation-1.png",
+                          "/images/0515/team-presentation-2.png",
+                          "/images/stock/analytics-screen.jpg",
+                        ][i]}
                         alt={p.title}
                         fill
                         className="object-cover"
