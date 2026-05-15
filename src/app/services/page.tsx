@@ -198,14 +198,14 @@ export default function ServicesPage() {
                   })}
                 </svg>
 
-                {/* 6개 카드 — 6각 배치, 각 카드 개별 살짝 다른 각도로 비스듬히 */}
+                {/* 6개 카드 — 흰 카드 + 큰 컬러 로고 + 두툼한 바닥 컬러 바 + 강한 네온 글로우 */}
                 {[
-                  { name: "meta", label: "메타 광고", barColor: "bg-[#0866FF]", glowColor: "shadow-[#0866FF]/40", glowBg: "bg-[#0866FF]/30", tilt: -4 },
-                  { name: "naver", label: "네이버 광고", barColor: "bg-[#03C75A]", glowColor: "shadow-[#03C75A]/40", glowBg: "bg-[#03C75A]/30", tilt: 6 },
-                  { name: "kakaotalk", label: "카카오 광고", barColor: "bg-[#FEE500]", glowColor: "shadow-[#FEE500]/40", glowBg: "bg-[#FEE500]/30", tilt: -5 },
-                  { name: "youtube", label: "유튜브 광고", barColor: "bg-[#FF0000]", glowColor: "shadow-[#FF0000]/40", glowBg: "bg-[#FF0000]/30", tilt: 4 },
-                  { name: "google", label: "구글 광고", barColor: "bg-linear-to-r from-[#4285F4] via-[#EA4335] to-[#FBBC05]", glowColor: "shadow-[#4285F4]/40", glowBg: "bg-[#4285F4]/30", tilt: -6 },
-                  { name: "instagram", label: "인스타그램 광고", barColor: "bg-linear-to-r from-[#F58529] via-[#DD2A7B] to-[#8134AF]", glowColor: "shadow-[#DD2A7B]/40", glowBg: "bg-[#DD2A7B]/30", tilt: 5 },
+                  { name: "meta", label: "메타 광고", bar: "bg-[#0866FF]", glow: "#0866FF", tilt: -4 },
+                  { name: "naver", label: "네이버 광고", bar: "bg-[#03C75A]", glow: "#03C75A", tilt: 5 },
+                  { name: "kakaotalk", label: "카카오 광고", bar: "bg-[#FEE500]", glow: "#FEE500", tilt: -3 },
+                  { name: "youtube", label: "유튜브 광고", bar: "bg-[#FF0000]", glow: "#FF0000", tilt: 3 },
+                  { name: "google", label: "구글 광고", bar: "bg-linear-to-r from-[#4285F4] via-[#EA4335] to-[#FBBC05]", glow: "#4285F4", tilt: -5 },
+                  { name: "instagram", label: "인스타그램 광고", bar: "bg-linear-to-r from-[#F58529] via-[#DD2A7B] to-[#8134AF]", glow: "#DD2A7B", tilt: 4 },
                 ].map((item, i) => {
                   const deg = i * 60 - 90;
                   const rad = (deg * Math.PI) / 180;
@@ -224,22 +224,34 @@ export default function ServicesPage() {
                       }}
                     >
                       <div className="relative">
-                        {/* 후방 컬러 글로우 */}
-                        <div className={`absolute -inset-2 rounded-2xl ${item.glowBg} blur-xl opacity-70`} aria-hidden="true" />
-                        {/* 후방 어두운 그림자 */}
-                        <div className="absolute inset-0 translate-y-2 rounded-2xl bg-black/40 blur-md" aria-hidden="true" />
-
-                        {/* 카드 본체 */}
+                        {/* 강한 네온 글로우 (카드 밑에서 색이 뿜어져 나오는 효과) */}
                         <div
-                          className={`relative bg-white rounded-2xl w-[120px] overflow-hidden transition-transform duration-300 group-hover:-translate-y-1 shadow-xl ${item.glowColor}`}
-                          style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,1), 0 12px 28px rgba(15,23,42,0.5)" }}
+                          className="absolute -inset-3 rounded-2xl opacity-60 blur-2xl"
+                          style={{ background: item.glow }}
+                          aria-hidden="true"
+                        />
+                        {/* 하단 컬러 글로우 더 강조 */}
+                        <div
+                          className="absolute -bottom-3 left-4 right-4 h-6 rounded-full blur-xl opacity-80"
+                          style={{ background: item.glow }}
+                          aria-hidden="true"
+                        />
+                        {/* 어두운 그림자 */}
+                        <div className="absolute inset-0 translate-y-3 rounded-2xl bg-black/50 blur-md" aria-hidden="true" />
+
+                        {/* 카드 본체 — 크게, 흰색, 두툼한 컬러 바 */}
+                        <div
+                          className="relative bg-white rounded-2xl w-[136px] overflow-hidden transition-transform duration-300 group-hover:-translate-y-1.5"
+                          style={{ boxShadow: `inset 0 1px 0 rgba(255,255,255,1), 0 14px 32px rgba(15,23,42,0.55), 0 0 24px ${item.glow}55` }}
                         >
-                          <div className="flex flex-col items-center gap-2 pt-4 pb-4 px-3">
-                            <img src={`/images/logos/${item.name}.svg`} alt="" className="w-12 h-12 object-contain" />
-                            <span className="text-[12px] font-extrabold text-deep-navy whitespace-nowrap tracking-tight">{item.label}</span>
+                          <div className="flex flex-col items-center gap-2.5 pt-5 pb-4 px-3">
+                            <img src={`/images/logos/${item.name}.svg`} alt="" className="w-14 h-14 object-contain" />
+                            <span className="text-[13px] font-extrabold text-deep-navy whitespace-nowrap tracking-tight">{item.label}</span>
                           </div>
-                          {/* 브랜드 컬러 바닥 라인 */}
-                          <div className={`h-1.5 ${item.barColor}`} />
+                          {/* 두툼한 브랜드 컬러 바닥 바 + 안쪽 하이라이트 */}
+                          <div className={`relative h-2.5 ${item.bar}`}>
+                            <span className="absolute inset-x-0 top-0 h-px bg-white/40" aria-hidden="true" />
+                          </div>
                         </div>
                       </div>
                     </div>
