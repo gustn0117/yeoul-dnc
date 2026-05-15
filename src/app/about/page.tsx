@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import SectionCTA from "@/components/SectionCTA";
 import { IconCheck, IconTarget, IconBarChart, IconLayers } from "@/components/Icons";
 import { LogoMark } from "@/components/Logo";
@@ -22,10 +23,58 @@ const strengths = [
 ];
 
 const caseSummary = [
-  { industry: "분양", desc: "DB 유입과 재접촉 구조 중심, 메타 리드폼 + 문자 후속", logos: ["meta"] },
-  { industry: "병원", desc: "예약 문의와 신뢰 형성, 네이버 검색형 + 메타 노출형", logos: ["naver", "instagram"] },
-  { industry: "지역 자영업", desc: "생활권 타겟팅, 당근 + 메타 조합형 운영", logos: ["danggeun"] },
-  { industry: "그 외 모든 업종", desc: "교육·상담형·B2B·쇼핑까지 업종에 맞춰 채널 조합 설계", logos: ["google", "kakaotalk"], isAll: true },
+  {
+    industry: "분양",
+    badge: "01",
+    title: "부동산 분양 광고 최적화 운영",
+    desc: "DB 유입과 재접촉 구조를 중심으로, 메타 리드폼과 문자 후속 시스템을 통해 분양 상담 전환까지 연결합니다.",
+    channels: [
+      { name: "meta", label: "메타 광고", color: "from-blue-500 to-indigo-600" },
+      { name: "naver", label: "네이버 광고", color: "from-green-500 to-emerald-600" },
+      { name: "kakaotalk", label: "LMS 운영", color: "from-yellow-400 to-amber-500" },
+      { name: "google", label: "리타겟팅", color: "from-sky-500 to-blue-500" },
+    ],
+    img: "/images/stock/real-estate.jpg",
+  },
+  {
+    industry: "병원",
+    badge: "02",
+    title: "병·의원 브랜딩 및 유입 최적화",
+    desc: "병원 광고는 검색 신뢰도와 반복 노출 브랜딩이 중요합니다. 플레이스·검색광고·메타 운영을 통해 예약 문의 전환을 도모합니다.",
+    channels: [
+      { name: "naver", label: "네이버 검색", color: "from-green-500 to-emerald-600" },
+      { name: "instagram", label: "메타 광고", color: "from-pink-500 via-rose-500 to-orange-500" },
+      { name: "meta", label: "디스플레이", color: "from-blue-500 to-indigo-600" },
+      { name: "google", label: "검색 광고", color: "from-sky-500 to-blue-500" },
+    ],
+    img: "/images/stock/consultation.jpg",
+  },
+  {
+    industry: "지역 자영업",
+    badge: "03",
+    title: "자영업 맞춤 지역 광고 솔루션",
+    desc: "당근 광고와 지역 타겟 광고를 활용해 생활권 고객에게 노출시키고, 매장 유입 중심 퍼포먼스 마케팅을 진행합니다.",
+    channels: [
+      { name: "danggeun", label: "당근 광고", color: "from-orange-500 to-red-500" },
+      { name: "meta", label: "메타 광고", color: "from-blue-500 to-indigo-600" },
+      { name: "naver", label: "네이버 광고", color: "from-green-500 to-emerald-600" },
+      { name: "kakaotalk", label: "브랜딩 운영", color: "from-yellow-400 to-amber-500" },
+    ],
+    img: "/images/stock/local-store.jpg",
+  },
+  {
+    industry: "그 외 모든 업종",
+    badge: "04",
+    title: "모든 업종 맞춤 종합 마케팅 솔루션",
+    desc: "네이버 + 구글 + LMS + 홈페이지제작 + 메타 등 상담 후 업종에 맞게 진행.",
+    channels: [
+      { name: "naver", label: "네이버", color: "from-green-500 to-emerald-600" },
+      { name: "google", label: "구글", color: "from-sky-500 to-blue-500" },
+      { name: "kakaotalk", label: "LMS", color: "from-yellow-400 to-amber-500" },
+      { name: "meta", label: "메타", color: "from-blue-500 to-indigo-600" },
+    ],
+    isAll: true,
+  },
 ];
 
 export default function AboutPage() {
@@ -381,9 +430,36 @@ export default function AboutPage() {
               </p>
               <div className="space-y-3 sm:space-y-4">
                 {[
-                  { text: "업종별 타겟 이해", num: "01" },
-                  { text: "소재 제작과 운영 통합", num: "02" },
-                  { text: "문의 이후 재접촉까지 고려한 설계", num: "03" },
+                  {
+                    num: "01",
+                    text: "업종별 타겟 이해",
+                    sub: "고객의 니즈와 검색의도·데이터를 기반으로 정확한 타겟을 설정합니다.",
+                    Icon: () => (
+                      <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    num: "02",
+                    text: "소재 제작과 운영 통합",
+                    sub: "전체 맞춤 소재 기획부터 제작, 운영까지 원스톱으로 진행합니다.",
+                    Icon: () => (
+                      <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    num: "03",
+                    text: "문의 이후 재접촉까지 고려한 설계",
+                    sub: "문의 이후 고객 여정을 설계하고, 재방문과 신뢰성을 강화하여 관계화 합니다.",
+                    Icon: () => (
+                      <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                      </svg>
+                    ),
+                  },
                 ].map((item, i) => (
                   <div
                     key={item.text}
@@ -391,17 +467,20 @@ export default function AboutPage() {
                     style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
                   >
                     <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-accent-blue/15" />
-                    <div className="relative flex items-center gap-4 p-4 sm:p-5 rounded-xl bg-white border border-slate-100 shadow-sm group-hover:shadow-lg group-hover:-translate-y-0.5 transition-all duration-300">
-                      <div className="text-3xl sm:text-4xl font-black text-accent-blue leading-none tracking-tight shrink-0">
+                    <div className="relative flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl bg-white border border-slate-100 shadow-sm group-hover:shadow-lg group-hover:-translate-y-0.5 transition-all duration-300">
+                      <div className="w-10 h-10 rounded-xl bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center shrink-0">
+                        <item.Icon />
+                      </div>
+                      <div className="text-[12px] sm:text-[13px] font-extrabold text-accent-blue leading-none pt-1 shrink-0 px-2 py-2 rounded-md bg-accent-blue/5">
                         {item.num}
                       </div>
-                      <div className="w-0.5 h-10 bg-linear-to-b from-accent-blue to-blue-600 rounded-full shrink-0" />
-                      <div className="flex-1">
-                        <p className="text-[14px] sm:text-sm text-deep-navy font-bold">{item.text}</p>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-[14px] sm:text-[15px] text-deep-navy font-extrabold mb-1 leading-tight">{item.text}</p>
+                        <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed">{item.sub}</p>
                       </div>
-                      <div className="w-9 h-9 rounded-xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-md shrink-0">
-                        <IconCheck className="w-4 h-4 text-white" />
-                      </div>
+                      <svg className="w-4 h-4 text-accent-blue/40 group-hover:text-accent-blue group-hover:translate-x-1 transition-all shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
                     </div>
                   </div>
                 ))}
@@ -524,48 +603,49 @@ export default function AboutPage() {
                 회의/기획/모니터링/리포트 중심으로 움직이는 실행 조직입니다.
               </p>
 
-              {/* Platform mini grid */}
+              {/* Platform 6-grid — 흰 카드 + 라벨 (PDF 변경시안 매칭) */}
               <div className="grid grid-cols-6 gap-2 sm:gap-3 mb-6">
                 {[
-                  { name: "naver", color: "from-green-500 to-emerald-600" },
-                  { name: "kakaotalk", color: "from-yellow-400 to-amber-500" },
-                  { name: "meta", color: "from-blue-500 to-indigo-600" },
-                  { name: "youtube", color: "from-red-500 to-rose-600" },
-                  { name: "google", color: "from-sky-500 to-blue-500" },
-                  { name: "instagram", color: "from-pink-500 to-rose-500" },
+                  { name: "naver", label: "네이버", brand: "bg-[#03C75A]" },
+                  { name: "kakaotalk", label: "카카오", brand: "bg-[#FEE500]" },
+                  { name: "meta", label: "메타", brand: "bg-[#0866FF]" },
+                  { name: "youtube", label: "유튜브", brand: "bg-[#FF0000]" },
+                  { name: "google", label: "구글", brand: "bg-white" },
+                  { name: "instagram", label: "인스타그램", brand: "bg-linear-to-br from-[#F58529] via-[#DD2A7B] to-[#8134AF]" },
                 ].map((p, i) => (
                   <div key={p.name} className="relative group" style={{ animation: `float ${4 + (i % 3)}s ease-in-out infinite ${i * 0.3}s` }}>
-                    <div className={`absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-lg bg-linear-to-br ${p.color} opacity-50`} />
-                    <div className="relative w-full aspect-square rounded-lg bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 flex items-center justify-center shadow-xl">
-                      <img src={`/images/logos/${p.name}.svg`} alt={p.name} className={`h-4 sm:h-5 w-auto ${p.name === "kakaotalk" ? "" : "brightness-0 invert"}`} />
+                    <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-black/40 blur-sm" aria-hidden="true" />
+                    <div className="relative bg-white rounded-xl flex flex-col items-center gap-1.5 p-2 sm:p-2.5 shadow-lg overflow-hidden">
+                      <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg ${p.brand} flex items-center justify-center`}>
+                        <img src={`/images/logos/${p.name}.svg`} alt={p.label} className={`h-5 w-auto ${p.name === "naver" || p.name === "meta" || p.name === "youtube" || p.name === "instagram" ? "brightness-0 invert" : ""}`} />
+                      </div>
+                      <span className="text-[10px] sm:text-[11px] font-extrabold text-deep-navy">{p.label}</span>
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* 3 stats */}
-              <div className="grid grid-cols-3 gap-3">
-                {[
-                  { value: "6+", label: "운영 플랫폼", sub: "주요 매체 운영 경험" },
-                  { value: "100+", label: "누적 캠페인", sub: "다양한 업종 캠페인" },
-                  { value: "2~4x", label: "목표 ROAS", sub: "업종별 평균 대비 성과" },
-                ].map((s, i) => (
-                  <div key={i} className="relative">
-                    <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
-                    <div className="relative bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-3">
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <svg className="w-3.5 h-3.5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          {i === 0 && <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87m-4-12a4 4 0 110 7.75M9 20H4v-2a4 4 0 014-4h.5a4 4 0 014 4v2zm0-12a4 4 0 11-8 0 4 4 0 018 0z" />}
-                          {i === 1 && <path strokeLinecap="round" strokeLinejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />}
-                          {i === 2 && <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.306a11.95 11.95 0 015.814-5.518l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941" />}
-                        </svg>
-                        <p className="text-base sm:text-lg font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent leading-none">{s.value}</p>
+              {/* 단일 가로 stat 카드 (PDF 변경시안 매칭) */}
+              <div className="relative">
+                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/20 blur-sm" aria-hidden="true" />
+                <div className="relative bg-white rounded-2xl shadow-xl p-4 sm:p-5 grid grid-cols-3 gap-3 divide-x divide-slate-100">
+                  {[
+                    { value: "6+", label: "운영 플랫폼", sub: "주요 매체 운영 경험", Icon: () => <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87m-4-12a4 4 0 110 7.75M9 20H4v-2a4 4 0 014-4h.5a4 4 0 014 4v2zm0-12a4 4 0 11-8 0 4 4 0 018 0z" /></svg> },
+                    { value: "100+", label: "누적 캠페인", sub: "다양한 업종의 성공 경험", Icon: () => <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 11l18-5v12L3 14v-3z M11.6 16.8a3 3 0 11-5.8-1.6" /></svg> },
+                    { value: "4.8", label: "평균 ROAS", sub: "업종 평균 대비 높은 성과", Icon: () => <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.306a11.95 11.95 0 015.814-5.518l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941" /></svg> },
+                  ].map((s, i) => (
+                    <div key={i} className={`flex items-center gap-3 ${i === 0 ? "" : "pl-3"}`}>
+                      <div className="w-10 h-10 rounded-xl bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center shrink-0">
+                        <s.Icon />
                       </div>
-                      <p className="text-[12px] text-white font-bold leading-tight">{s.label}</p>
-                      <p className="text-[10px] text-slate-400 mt-0.5">{s.sub}</p>
+                      <div className="min-w-0">
+                        <p className="text-lg sm:text-xl font-black text-deep-navy leading-none">{s.value}</p>
+                        <p className="text-[11px] sm:text-[12px] text-deep-navy font-bold mt-1">{s.label}</p>
+                        <p className="text-[9px] sm:text-[10px] text-slate-500 leading-tight">{s.sub}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -643,8 +723,13 @@ export default function AboutPage() {
               은 달라집니다
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 items-stretch">
-            {caseSummary.map((c, i) => (
+          <p className="text-center text-[13px] sm:text-[14px] text-slate-500 max-w-xl mx-auto leading-relaxed mb-10 sm:mb-12 -mt-6">
+            여울디앤씨는 업종의 특성과 목표에 맞는 최적의 전략을 설계하고 실행합니다.
+          </p>
+
+          {/* 4 cards — 이미지 + 채널 그리드 + CASE 화살표 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch mb-6">
+            {caseSummary.filter(c => !c.isAll).map((c, i) => (
               <div
                 key={c.industry}
                 className="group relative h-full"
@@ -652,27 +737,106 @@ export default function AboutPage() {
               >
                 <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-accent-blue/15 blur-[2px]" />
 
-                <div className="relative h-full bg-white p-6 sm:p-7 rounded-2xl border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden flex flex-col">
-                  <div className="relative flex flex-col flex-1">
-                    <div className="inline-flex items-center gap-1 mb-3 px-2.5 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 w-fit">
-                      <span className="text-[11px] font-extrabold text-accent-blue tracking-wider uppercase">{c.industry}</span>
+                <div className="relative h-full bg-white rounded-2xl border border-slate-100 shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden flex flex-col">
+                  {/* 이미지 */}
+                  <div className="relative aspect-[16/9]">
+                    {c.img && <Image src={c.img} alt={c.industry} fill className="object-cover" />}
+                    <div className="absolute inset-0 bg-linear-to-t from-deep-navy/30 via-transparent to-transparent" />
+                    {/* 업종 뱃지 */}
+                    <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur shadow-md">
+                      <span className="text-[10px] font-extrabold text-accent-blue">{c.badge}</span>
+                      <span className="text-[11px] font-extrabold text-deep-navy">{c.industry}</span>
                     </div>
-                    <div className="flex items-center gap-2 mb-3 bg-slate-50 rounded-lg px-2.5 py-1.5 w-fit">
-                      {c.logos.map((logo) => (
-                        <img key={logo} src={`/images/logos/${logo}.svg`} alt={logo} className="h-4 w-auto" />
+                  </div>
+
+                  <div className="flex flex-col flex-1 p-4 sm:p-5">
+                    <h3 className="text-[15px] sm:text-base font-extrabold text-deep-navy mb-1.5 leading-tight">{c.title}</h3>
+                    <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed mb-4 flex-1">{c.desc}</p>
+
+                    {/* 채널 아이콘 4개 */}
+                    <div className="grid grid-cols-4 gap-2 mb-4">
+                      {c.channels?.map((ch) => (
+                        <div key={ch.label} className="flex flex-col items-center gap-1">
+                          <div className={`w-8 h-8 rounded-lg bg-linear-to-br ${ch.color} flex items-center justify-center shadow-sm`}>
+                            <img src={`/images/logos/${ch.name}.svg`} alt="" className={`h-3.5 w-auto ${ch.name === "kakaotalk" ? "" : "brightness-0 invert"}`} />
+                          </div>
+                          <span className="text-[9px] text-slate-500 font-bold leading-tight text-center">{ch.label}</span>
+                        </div>
                       ))}
                     </div>
-                    <p className="text-[14px] sm:text-sm text-slate-600 leading-relaxed mb-4 flex-1">{c.desc}</p>
+
+                    {/* CASE NN → */}
                     <div className="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between">
-                      <span className="text-[11px] font-extrabold text-accent-blue tracking-widest">
-                        CASE {String(i + 1).padStart(2, "0")}
-                      </span>
+                      <span className="text-[11px] font-extrabold text-accent-blue tracking-widest">CASE {c.badge}</span>
+                      <svg className="w-4 h-4 text-accent-blue group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* 04 그 외 모든 업종 — 가로형 */}
+          {(() => {
+            const c = caseSummary.find(c => c.isAll);
+            if (!c) return null;
+            return (
+              <div className="relative">
+                <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-accent-blue/15 blur-[2px]" />
+                <div className="relative bg-white rounded-2xl border border-slate-100 shadow-xl shadow-deep-navy/5 p-5 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-center">
+                  {/* Left: badge + 제목 + 설명 */}
+                  <div className="lg:col-span-5">
+                    <div className="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20">
+                      <span className="text-[10px] font-extrabold text-accent-blue">{c.badge}</span>
+                      <span className="text-[11px] font-extrabold text-deep-navy">{c.industry}</span>
+                    </div>
+                    <h3 className="text-[16px] sm:text-lg font-extrabold text-deep-navy mb-2 leading-tight">{c.title}</h3>
+                    <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed">{c.desc}</p>
+                  </div>
+
+                  {/* Middle: 채널 로고 */}
+                  <div className="lg:col-span-4 flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
+                    {[
+                      { name: "naver", label: "네이버" },
+                      { name: "google", label: "구글" },
+                      { name: "kakaotalk", label: "LMS" },
+                      { name: "meta", label: "홈페이지제작" },
+                      { name: "instagram", label: "메타" },
+                    ].map((ch) => (
+                      <div key={ch.label} className="flex flex-col items-center gap-1">
+                        <div className="w-9 h-9 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center">
+                          <img src={`/images/logos/${ch.name}.svg`} alt="" className="h-4 w-auto" />
+                        </div>
+                        <span className="text-[9px] text-slate-500 font-bold">{ch.label}</span>
+                      </div>
+                    ))}
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="w-9 h-9 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-500">
+                        <span className="text-base font-extrabold">···</span>
+                      </div>
+                      <span className="text-[9px] text-slate-500 font-bold">기타 채널</span>
+                    </div>
+                  </div>
+
+                  {/* Right: CTA */}
+                  <div className="lg:col-span-3 bg-linear-to-br from-accent-blue/8 to-blue-50 rounded-xl p-4 border border-accent-blue/15">
+                    <p className="text-[12px] text-slate-500 leading-relaxed mb-2">
+                      상담을 통해 업종과 목표에 맞는<br />
+                      <span className="font-bold text-deep-navy">최적의 전략을 제안</span>드립니다.
+                    </p>
+                    <Link href="/contact" className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-accent-blue text-white text-[12px] font-extrabold rounded-lg hover:bg-blue-700 transition-colors">
+                      상담 문의하기
+                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
         </div>
       </section>
 
