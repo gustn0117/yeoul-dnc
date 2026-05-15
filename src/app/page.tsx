@@ -39,15 +39,16 @@ const caseStudies = [
   {
     industry: "분양·부동산",
     title: "분양 현장 맞춤 마케팅",
-    subtitle: "관심 고객 확보부터 상담 연결",
-    desc: "메타 리드폼과 관심 고객 확보로 시작해, 문자 후속과 카카오 채널까지 연결해 방문 상담 전환으로 이어지는 흐름을 구축합니다.",
+    subtitle: "관심 고객 DB 확보와 빠른 상담 연결",
+    desc: "메타 리드폼 광고로 관심 고객을 확보하고 문자 후속과 재타겟팅으로 방문과 상담으로 이어지는 흐름을 구축했습니다.",
+    img: "/images/stock/case-apartment.jpg",
     channels: ["meta", "naver", "kakaotalk", "google"],
-    channelLabels: ["메타 리드폼", "디스플레이", "문자 마케팅", "리타겟팅"],
+    channelLabels: ["메타 리드폼", "디스플레이", "문자 마케팅", "재타겟팅"],
     metrics: [
       { label: "목표 ROAS 달성", value: "4.2x" },
-      { label: "문의 증가 사례", value: "+58%" },
-      { label: "CPA 절감", value: "-32%" },
-      { label: "상담 연결", value: "120+" },
+      { label: "문의 증가율", value: "+58%" },
+      { label: "CPA 절감률", value: "-32%" },
+      { label: "실상담 전환", value: "120+" },
     ],
   },
   {
@@ -55,6 +56,7 @@ const caseStudies = [
     title: "병원 신규 환자 유입",
     subtitle: "검색·노출 광고로 예약 전환 극대화",
     desc: "네이버 검색과 메타 광고를 함께 운영하여 검색 고객과 잠재 고객을 동시에 유입시키고, 예약까지 이어지는 구조를 설계합니다.",
+    img: "/images/stock/case-clinic.jpg",
     channels: ["naver", "meta", "google", "kakaotalk"],
     channelLabels: ["네이버 검색", "메타 광고", "디스플레이", "카카오톡 채널"],
     metrics: [
@@ -69,6 +71,7 @@ const caseStudies = [
     title: "지역 매장 매출 증대",
     subtitle: "당근·메타 생활권 타겟팅으로 방문 고객 유도",
     desc: "당근 광고와 지역 타겟 광고를 활용해 생활권 고객에게 노출하고, 프로모션과 연계하여 방문과 매출을 끌어올립니다.",
+    img: "/images/stock/case-localstore.jpg",
     channels: ["danggeun", "instagram", "naver", "kakaotalk"],
     channelLabels: ["당근 광고", "인스타그램", "네이버 플레이스", "문자 마케팅"],
     metrics: [
@@ -822,53 +825,58 @@ export default function Home() {
               >
                 <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-accent-blue/15 blur-[2px]" />
 
-                <div className="relative bg-white rounded-2xl border border-white shadow-3d overflow-hidden bevel-edge group-hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
-                  {/* Industry badge top */}
-                  <div className="px-5 sm:px-6 pt-5 pb-3">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold text-accent-blue bg-accent-blue/10 border border-accent-blue/20">
-                      <span className="w-1 h-1 rounded-full bg-accent-blue" />
-                      {c.industry}
+                <div className="relative bg-white rounded-2xl border border-slate-100 shadow-xl shadow-deep-navy/8 overflow-hidden group-hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
+                  {/* Top: industry tag + title + image (PDF 변경시안 매칭) */}
+                  <div className="relative grid grid-cols-5 gap-3 px-5 pt-5 pb-5 bg-linear-to-br from-[#f8fbff] to-white">
+                    <div className="col-span-3">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[12px] font-bold text-accent-blue bg-accent-blue/10 border border-accent-blue/15 mb-3">
+                        <span className="w-1 h-1 rounded-full bg-accent-blue" />
+                        {c.industry}
+                      </div>
+                      <h3 className="text-[19px] sm:text-xl font-extrabold text-deep-navy mb-1.5 leading-tight">{c.title}</h3>
+                      <p className="text-[14px] text-deep-navy font-extrabold mb-3 leading-snug">{c.subtitle}</p>
+                      <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed">{c.desc}</p>
+                    </div>
+                    <div className="col-span-2 relative rounded-2xl overflow-hidden aspect-[3/4] sm:aspect-[5/6] shadow-md">
+                      <Image src={c.img} alt={c.industry} fill className="object-cover" sizes="(max-width: 1024px) 40vw, 200px" />
+                      <div className="absolute inset-0 bg-linear-to-tr from-deep-navy/10 via-transparent to-transparent" />
                     </div>
                   </div>
 
-                  {/* Title block */}
-                  <div className="px-5 sm:px-6 pb-4">
-                    <h3 className="text-lg font-extrabold text-deep-navy mb-1.5 leading-tight">{c.title}</h3>
-                    <p className="text-[13px] text-slate-500 mb-3 leading-relaxed">{c.subtitle}</p>
-                    <p className="text-[13px] text-slate-600 leading-relaxed">{c.desc}</p>
-                  </div>
-
-                  {/* Channel combo */}
-                  <div className="px-5 sm:px-6 py-4 bg-linear-to-br from-slate-50 to-blue-50/30 border-t border-slate-100">
-                    <p className="text-[10px] font-extrabold text-slate-400 tracking-widest uppercase mb-2.5">채널 조합</p>
-                    <div className="grid grid-cols-4 gap-1.5">
+                  {/* Channel combo (PDF 변경시안 — 흰 배경 카드, 큰 컬러 로고) */}
+                  <div className="px-5 sm:px-6 py-5 border-t border-slate-100">
+                    <p className="text-[13px] sm:text-[14px] font-extrabold text-deep-navy mb-3">채널 조합</p>
+                    <div className="grid grid-cols-4 gap-3">
                       {c.channels.map((ch, idx) => (
-                        <div key={ch + idx} className="flex flex-col items-center gap-1">
-                          <div className="w-9 h-9 rounded-lg bg-white border border-slate-100 flex items-center justify-center shadow-sm">
-                            <img src={`/images/logos/${ch}.svg`} alt="" className="h-4 w-auto" />
+                        <div key={ch + idx} className="flex flex-col items-center gap-2">
+                          <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shadow-sm">
+                            <img src={`/images/logos/${ch}.svg`} alt="" className="h-5 w-auto" />
                           </div>
-                          <span className="text-[9px] text-slate-500 font-medium leading-tight text-center">{c.channelLabels[idx]}</span>
+                          <span className="text-[11px] text-slate-700 font-bold leading-tight text-center">{c.channelLabels[idx]}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  {/* Metrics */}
-                  <div className="px-5 sm:px-6 py-4 bg-white border-t border-slate-100">
-                    <p className="text-[10px] font-extrabold text-slate-400 tracking-widest uppercase mb-2.5">운영 성과</p>
+                  {/* Metrics (PDF 변경시안 — 큰 블루 숫자) */}
+                  <div className="px-5 sm:px-6 py-5 border-t border-slate-100">
+                    <p className="text-[13px] sm:text-[14px] font-extrabold text-deep-navy mb-3">운영 성과</p>
                     <div className="grid grid-cols-4 gap-2">
                       {c.metrics.map((m, idx) => (
-                        <div key={idx} className="text-center">
-                          <p className="text-sm font-black text-accent-blue leading-none">{m.value}</p>
-                          <p className="text-[9px] text-slate-400 mt-1 leading-tight">{m.label}</p>
+                        <div key={idx} className="bg-linear-to-b from-blue-50/60 to-white rounded-xl py-3 px-1 text-center border border-blue-100/50">
+                          <p className="text-xl sm:text-[1.5rem] font-black text-accent-blue leading-none">{m.value}</p>
+                          <p className="text-[10px] sm:text-[11px] text-slate-500 mt-1.5 leading-tight">{m.label}</p>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  {/* CTA bottom */}
-                  <Link href="/cases" className="mt-auto block px-5 sm:px-6 py-3.5 bg-linear-to-r from-accent-blue to-blue-600 text-white text-center text-[13px] font-bold hover:shadow-lg hover:shadow-accent-blue/20 transition-shadow">
-                    CASE {String(i + 1).padStart(2, "0")} 자세히 보기 →
+                  {/* CTA bottom — 큰 블루 버튼 */}
+                  <Link
+                    href="/cases"
+                    className="group/cta mt-auto block px-5 sm:px-6 py-4 bg-linear-to-r from-accent-blue to-blue-600 text-white text-center text-[14px] sm:text-[15px] font-extrabold hover:shadow-lg hover:shadow-accent-blue/30 transition-shadow"
+                  >
+                    CASE {String(i + 1).padStart(2, "0")} &nbsp;자세히 보기 <span className="inline-block transition-transform group-hover/cta:translate-x-1">→</span>
                   </Link>
                 </div>
               </div>
