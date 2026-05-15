@@ -225,18 +225,61 @@ export default function AboutPage() {
                 결과를 만드는 광고는 시작부터 다릅니다.
               </p>
 
-              {/* 3 mission mini cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {/* 3 mission cards — 아이콘 + 제목 + 부제 (0515 피드백 반영) */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                 {[
-                  { label: "MISSION", text: "전환까지 책임지는 운영", color: "from-blue-500 to-indigo-600" },
-                  { label: "VISION", text: "업종 맞춤 광고 파트너", color: "from-violet-500 to-purple-600" },
-                  { label: "PROMISE", text: "데이터로 증명되는 성과", color: "from-emerald-500 to-teal-600" },
+                  {
+                    label: "MISSION",
+                    text: "전환까지 책임지는 운영",
+                    sub: "기획부터 운영까지 전환율을 최우선으로 합니다.",
+                    color: "from-blue-500 to-indigo-600",
+                    iconBg: "bg-blue-50",
+                    iconColor: "text-blue-600",
+                    icon: (
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <circle cx="12" cy="12" r="9" />
+                        <circle cx="12" cy="12" r="5" />
+                        <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    label: "VISION",
+                    text: "업종 맞춤 광고 파트너",
+                    sub: "업종과 목표에 맞는 전략으로 최적의 광고 성과를 만듭니다.",
+                    color: "from-violet-500 to-purple-600",
+                    iconBg: "bg-violet-50",
+                    iconColor: "text-violet-600",
+                    icon: (
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    label: "PROMISE",
+                    text: "데이터로 증명되는 성과",
+                    sub: "데이터 기반의 분석과 최적화로 확실한 성과를 약속합니다.",
+                    color: "from-emerald-500 to-teal-600",
+                    iconBg: "bg-emerald-50",
+                    iconColor: "text-emerald-600",
+                    icon: (
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                      </svg>
+                    ),
+                  },
                 ].map((m) => (
                   <div key={m.label} className="relative group">
-                    <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-linear-to-br ${m.color} opacity-15`} />
-                    <div className="relative bg-white rounded-xl p-3.5 border border-slate-100 shadow-sm group-hover:-translate-y-0.5 transition-transform duration-300">
-                      <span className={`text-[10px] font-extrabold bg-linear-to-br ${m.color} bg-clip-text text-transparent tracking-widest`}>{m.label}</span>
-                      <p className="text-[13px] sm:text-xs text-deep-navy font-bold mt-0.5 leading-tight">{m.text}</p>
+                    <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-linear-to-br ${m.color} opacity-15 blur-[2px]`} />
+                    <div className="relative bg-white rounded-xl p-4 sm:p-4.5 border border-slate-100 shadow-md group-hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
+                      <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg ${m.iconBg} ${m.iconColor} flex items-center justify-center mb-2.5`}>
+                        {m.icon}
+                      </div>
+                      <span className={`text-[10px] sm:text-[11px] font-extrabold bg-linear-to-br ${m.color} bg-clip-text text-transparent tracking-widest mb-1`}>{m.label}</span>
+                      <p className="text-[13px] sm:text-[14px] text-deep-navy font-extrabold leading-tight mb-1.5">{m.text}</p>
+                      <p className="text-[11px] sm:text-[12px] text-slate-500 leading-relaxed">{m.sub}</p>
                     </div>
                   </div>
                 ))}
@@ -260,7 +303,7 @@ export default function AboutPage() {
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14">
             <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">CORE VALUE</p>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-extrabold text-deep-navy mb-4 leading-tight">
               보여주기식 운영보다,<br />
               <span className="relative inline-block">
                 <span className="relative z-10">실제 반응이 남는 광고</span>
@@ -268,6 +311,10 @@ export default function AboutPage() {
               </span>
               를 지향합니다
             </h2>
+            <p className="text-[13px] sm:text-[14px] text-slate-500 max-w-xl mx-auto leading-relaxed">
+              여울디앤씨는 데이터와 경험을 바탕으로, 업종에 맞는 전략과 실행으로<br className="hidden sm:inline" />
+              {" "}광고의 본질적인 성과를 만들어냅니다.
+            </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
             {coreValues.map((v, i) => (
@@ -279,8 +326,9 @@ export default function AboutPage() {
                 <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-accent-blue/20 blur-[2px]" />
 
                 <div className="relative bg-white p-6 sm:p-8 rounded-2xl border border-white shadow-xl shadow-deep-navy/5 group-hover:-translate-y-1 transition-all duration-300 overflow-hidden min-h-60">
-                  <div className="absolute -top-4 -right-2 text-[7rem] sm:text-[8rem] font-black text-slate-50 leading-none select-none">
-                    {i + 1}
+                  {/* 큰 숫자 워터마크 — 우상단 (PDF 변경시안) */}
+                  <div className="absolute top-3 right-4 text-[3.5rem] sm:text-[4.5rem] font-black text-slate-100 leading-none select-none pointer-events-none">
+                    {String(i + 1).padStart(2, "0")}
                   </div>
 
                   <div className="relative">
@@ -290,13 +338,17 @@ export default function AboutPage() {
                         <v.Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                       </div>
                     </div>
-                    <h3 className="text-[16px] sm:text-base font-extrabold text-deep-navy mb-2 sm:mb-2.5">{v.title}</h3>
+                    <h3 className="text-[17px] sm:text-lg font-extrabold text-deep-navy mb-2.5 sm:mb-3">{v.title}</h3>
                     <p className="text-[13px] sm:text-[14px] text-slate-500 leading-relaxed">{v.desc}</p>
 
-                    <div className="mt-5 sm:mt-6 pt-4 border-t border-slate-100">
+                    {/* VALUE NN + 화살표 (PDF 변경시안) */}
+                    <div className="mt-5 sm:mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
                       <span className="inline-flex items-center gap-1 text-[11px] sm:text-[12px] font-extrabold text-accent-blue">
                         VALUE {String(i + 1).padStart(2, "0")}
                       </span>
+                      <svg className="w-4 h-4 text-accent-blue group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
                     </div>
                   </div>
                 </div>
