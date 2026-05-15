@@ -1712,11 +1712,11 @@ export default function ServicesPage() {
               {/* Desktop rows */}
               <div className="hidden sm:block divide-y divide-slate-100">
                 {[
-                  { industry: "분양", color: "from-blue-500 to-indigo-600", tag: "DB 수집", matches: { naver: 2, meta: 3, kakaotalk: 2, youtube: 1, google: 2, danggeun: 0 } },
-                  { industry: "병원", color: "from-emerald-500 to-teal-600", tag: "예약 문의", matches: { naver: 3, meta: 2, kakaotalk: 2, youtube: 1, google: 2, danggeun: 1 } },
-                  { industry: "교육", color: "from-violet-500 to-purple-600", tag: "상담 전환", matches: { naver: 2, meta: 2, kakaotalk: 3, youtube: 2, google: 2, danggeun: 0 } },
-                  { industry: "지역 자영업", color: "from-orange-500 to-red-500", tag: "생활권", matches: { naver: 1, meta: 2, kakaotalk: 1, youtube: 0, google: 1, danggeun: 3 } },
-                  { industry: "상담형 서비스", color: "from-sky-500 to-cyan-500", tag: "리드 수집", matches: { naver: 2, meta: 3, kakaotalk: 2, youtube: 1, google: 3, danggeun: 0 } },
+                  { industry: "분양", color: "from-blue-500 to-indigo-600", tag: "DB 수집", matches: { naver: 3, meta: 3, kakaotalk: 1, youtube: 1, google: 2, danggeun: 3 } },
+                  { industry: "병원", color: "from-emerald-500 to-teal-600", tag: "예약 문의", matches: { naver: 3, meta: 3, kakaotalk: 1, youtube: 1, google: 2, danggeun: 3 } },
+                  { industry: "교육", color: "from-violet-500 to-purple-600", tag: "상담 전환", matches: { naver: 3, meta: 2, kakaotalk: 3, youtube: 2, google: 2, danggeun: -1 } },
+                  { industry: "지역 자영업", color: "from-orange-500 to-red-500", tag: "생활권", matches: { naver: 3, meta: 2, kakaotalk: 1, youtube: -1, google: 2, danggeun: 3 } },
+                  { industry: "상담형 서비스", color: "from-sky-500 to-cyan-500", tag: "리드 수집", matches: { naver: 3, meta: 3, kakaotalk: 2, youtube: 1, google: 2, danggeun: 1 } },
                 ].map((row, i) => (
                   <div key={row.industry} className="grid grid-cols-8 gap-0 hover:bg-slate-50/50 transition-colors">
                     <div className="col-span-2 px-4 py-4 flex items-center gap-3">
