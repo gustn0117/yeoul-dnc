@@ -177,11 +177,11 @@ export default function ServicesPage() {
                     </linearGradient>
                   </defs>
                   {/* 외곽 점선 원 — 미세하게 (궤도 힌트) */}
-                  <circle cx="50" cy="50" r="38" fill="none" stroke="#60a5fa" strokeOpacity="0.18" strokeWidth="0.3" strokeDasharray="0.6 1.6" />
+                  <circle cx="50" cy="50" r="44" fill="none" stroke="#60a5fa" strokeOpacity="0.18" strokeWidth="0.3" strokeDasharray="0.6 1.6" />
                   {/* 각 카드 위치에 점 (궤도 위) */}
                   {[0, 60, 120, 180, 240, 300].map((deg) => {
                     const rad = ((deg - 90) * Math.PI) / 180;
-                    const r = 38;
+                    const r = 44;
                     const x = 50 + r * Math.cos(rad);
                     const y = 50 + r * Math.sin(rad);
                     return (
@@ -200,11 +200,11 @@ export default function ServicesPage() {
                   { name: "kakaotalk", label: "카카오 광고", color: "from-[#FFD60A] to-[#FEE500]", glow: "#FEE500", tilt: -2 },
                   { name: "youtube", label: "유튜브 광고", color: "from-[#FF0000] to-[#b91c1c]", glow: "#FF0000", tilt: 2 },
                   { name: "google", label: "구글 광고", color: "from-[#4285F4] to-[#1d4ed8]", glow: "#4285F4", tilt: -3 },
-                  { name: "instagram", label: "인스타그램 광고", color: "from-[#F58529] via-[#DD2A7B] to-[#8134AF]", glow: "#DD2A7B", tilt: 3 },
+                  { name: "instagram", label: "인스타 광고", color: "from-[#F58529] via-[#DD2A7B] to-[#8134AF]", glow: "#DD2A7B", tilt: 3 },
                 ].map((item, i) => {
                   const deg = i * 60 - 90;
                   const rad = (deg * Math.PI) / 180;
-                  const r = 41; // 중앙이 dominant라 카드는 살짝 외곽으로
+                  const r = 44; // 중앙 dominant 위해 카드는 외곽으로
                   const x = 50 + r * Math.cos(rad);
                   const y = 50 + r * Math.sin(rad);
                   const useDark = item.name !== "kakaotalk"; // 카카오 노란색은 어두운 로고
@@ -270,15 +270,15 @@ export default function ServicesPage() {
                     <div className="absolute -inset-4 rounded-full bg-accent-blue/55 blur-3xl animate-pulse-soft" aria-hidden="true" />
                     <div className="absolute inset-0 rounded-full bg-sky-400/35 blur-2xl" aria-hidden="true" />
 
-                    {/* 본체 — 176px (w-44) */}
+                    {/* 본체 — 144px (w-36, 카드와 균형) */}
                     <div
-                      className="relative w-44 h-44 rounded-full bg-linear-to-br from-accent-blue via-blue-600 to-blue-800 flex items-center justify-center border-2 border-white/30"
+                      className="relative w-36 h-36 rounded-full bg-linear-to-br from-accent-blue via-blue-600 to-blue-800 flex items-center justify-center border-2 border-white/30"
                       style={{
                         boxShadow:
                           "inset 0 3px 0 rgba(255,255,255,0.35), inset 0 -6px 12px rgba(0,0,0,0.25), 0 16px 48px rgba(37,99,235,0.6), 0 0 100px rgba(96,165,250,0.4)",
                       }}
                     >
-                      <LogoMark variant="white" className="w-24 drop-shadow-2xl" />
+                      <LogoMark variant="white" className="w-20 drop-shadow-2xl" />
                     </div>
                   </div>
                 </div>
