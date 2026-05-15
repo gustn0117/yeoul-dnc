@@ -1592,55 +1592,55 @@ export default function ServicesPage() {
                 </div>
               </div>
 
-              {/* 5-step 리스트 (사진 매칭: 파랑 번호 박스 + 아이콘 + 제목 + 설명) */}
-              <div className="space-y-3">
+              {/* 5-step 리스트 (사진 매칭: 파랑 번호 박스 + 아이콘 + 제목 + 설명) — 여유 있는 간격 */}
+              <div className="space-y-5 sm:space-y-6">
                 {[
                   {
                     step: "전략 수립",
                     desc: "시장/경쟁사/타겟 분석을 통한 광고 전략 기획",
-                    icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.5" fill="currentColor" /></svg>,
+                    icon: <svg className="w-6 h-6 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.5" fill="currentColor" /></svg>,
                   },
                   {
                     step: "소재 제작",
                     desc: "타겟에 최적화된 광고 소재 기획 및 제작",
-                    icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" /></svg>,
+                    icon: <svg className="w-6 h-6 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" /></svg>,
                   },
                   {
                     step: "채널 세팅",
                     desc: "광고 채널 설정 및 캠페인 구조 세팅",
-                    icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.125A59.769 59.769 0 0121.485 12 59.768 59.768 0 013.27 20.875L5.999 12zm0 0h7.5" /></svg>,
+                    icon: <svg className="w-6 h-6 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.125A59.769 59.769 0 0121.485 12 59.768 59.768 0 013.27 20.875L5.999 12zm0 0h7.5" /></svg>,
                   },
                   {
                     step: "운영 및 최적화",
                     desc: "데이터 기반 운영으로 성과 지속 개선",
-                    icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.306a11.95 11.95 0 015.814-5.518l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941" /></svg>,
+                    icon: <svg className="w-6 h-6 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.306a11.95 11.95 0 015.814-5.518l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941" /></svg>,
                   },
                   {
                     step: "결과 체크",
                     desc: "성과 리포트 제공 및 다음 전략 제안",
-                    icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+                    icon: <svg className="w-6 h-6 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
                   },
                 ].map((s, i) => (
-                  <div key={s.step} className="flex items-center gap-3 sm:gap-4">
-                    {/* 파랑 번호 박스 */}
-                    <div className="w-9 h-9 rounded-lg bg-accent-blue flex items-center justify-center shrink-0 shadow-md">
-                      <span className="text-white text-[14px] font-black">{i + 1}</span>
+                  <div key={s.step} className="flex items-center gap-4 sm:gap-5">
+                    {/* 파랑 번호 박스 — 키움 */}
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent-blue flex items-center justify-center shrink-0 shadow-md">
+                      <span className="text-white text-base sm:text-lg font-black">{i + 1}</span>
                     </div>
-                    {/* 컬러 아이콘 원형 */}
-                    <div className="w-11 h-11 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
+                    {/* 컬러 아이콘 원형 — 키움 */}
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
                       {s.icon}
                     </div>
-                    {/* 텍스트 */}
+                    {/* 텍스트 — 줄 간격 키움 */}
                     <div className="flex-1 min-w-0">
-                      <p className="text-[15px] sm:text-base font-extrabold text-deep-navy leading-tight">{s.step}</p>
-                      <p className="text-[12px] sm:text-[13px] text-slate-500 mt-0.5 leading-tight">{s.desc}</p>
+                      <p className="text-base sm:text-lg font-extrabold text-deep-navy leading-tight mb-1">{s.step}</p>
+                      <p className="text-[13px] sm:text-[14px] text-slate-500 leading-relaxed">{s.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* 데이터 기반 성과 관리 카드 */}
-              <div className="mt-6 relative">
+              {/* 데이터 기반 성과 관리 카드 — 상단 여백 확보 */}
+              <div className="mt-10 sm:mt-12 relative">
                 <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/15" />
                 <div className="relative flex items-start gap-3 p-4 sm:p-5 rounded-2xl bg-white border border-slate-100 shadow-md">
                   <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
