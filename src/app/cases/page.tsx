@@ -129,19 +129,36 @@ export default function CasesPage() {
                 업종별 고민에 맞춰<br className="sm:hidden" />
                 {" "}<span className="font-semibold text-white">채널 조합과 운영 흐름을 설계</span>합니다.
               </p>
-              {/* Stat strip - 4 stats (PDF page 45) */}
+              {/* Stat strip - 4 stats with icons (PDF page 21 변경시안 매칭) */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
                 {[
-                  { value: "5+", label: "주요 업종", sub: "다양한 업종 경험" },
-                  { value: "100+", label: "누적 캠페인", sub: "실제 기반 운영" },
-                  { value: "6개", label: "운영 채널", sub: "통합 마케팅 운영" },
-                  { value: "성과 중심", label: "퍼포먼스 마케팅", sub: "데이터 기반 최적화" },
+                  {
+                    value: "5+", label: "주요 업종", sub: "다양한 업종 경험",
+                    icon: <svg className="w-4 h-4 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87m-4-12a4 4 0 110 7.75M9 20H4v-2a4 4 0 014-4h.5a4 4 0 014 4v2zm0-12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>,
+                  },
+                  {
+                    value: "100+", label: "누적 캠페인", sub: "성과 기반 운영",
+                    icon: <svg className="w-4 h-4 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.306a11.95 11.95 0 015.814-5.518l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941" /></svg>,
+                  },
+                  {
+                    value: "6개", label: "운영 채널", sub: "통합 마케팅 운영",
+                    icon: <svg className="w-4 h-4 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" /></svg>,
+                  },
+                  {
+                    value: "성과 중심", label: "퍼포먼스 마케팅", sub: "데이터 기반 최적화",
+                    icon: <svg className="w-4 h-4 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" /></svg>,
+                  },
                 ].map((s, i) => (
                   <div key={i} className="relative">
                     <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
                     <div className="relative bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-3">
-                      <p className="text-base sm:text-lg font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent leading-none">{s.value}</p>
-                      <p className="text-[11px] sm:text-[12px] text-white font-bold mt-1">{s.label}</p>
+                      <div className="flex items-center gap-1.5 mb-1">
+                        <div className="w-7 h-7 rounded-lg bg-accent-blue/20 border border-accent-blue/30 flex items-center justify-center shrink-0">
+                          {s.icon}
+                        </div>
+                        <p className="text-base sm:text-lg font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent leading-none">{s.value}</p>
+                      </div>
+                      <p className="text-[11px] sm:text-[12px] text-white font-bold">{s.label}</p>
                       <p className="text-[10px] text-slate-400 mt-0.5">{s.sub}</p>
                     </div>
                   </div>

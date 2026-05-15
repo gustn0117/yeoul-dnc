@@ -257,58 +257,142 @@ export default function ServicesPage() {
             {" "}캠페인을 설계·집행·최적화합니다.
           </p>
 
-          {/* Isometric platform grid */}
-          <div className="relative mx-auto max-w-xl aspect-square">
+          {/* 8 플랫폼 hub-and-spoke + 중앙 로고 + 점선 연결 */}
+          <div className="relative mx-auto max-w-2xl aspect-square">
             {/* Center glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-accent-blue/10 rounded-full blur-3xl" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-accent-blue/12 rounded-full blur-3xl" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-accent-blue/20 rounded-full blur-2xl" />
 
-            {(() => {
-              const items = [
-                { name: "meta", color: "from-blue-500 to-indigo-600", pos: "top-[4%] left-1/2 -translate-x-1/2" },
-                { name: "facebook", color: "from-blue-500 to-blue-600", pos: "top-[22%] right-[8%]" },
-                { name: "youtube", color: "from-red-500 to-rose-600", pos: "top-[22%] left-[8%]" },
-                { name: "instagram", color: "from-pink-500 to-rose-500", pos: "top-1/2 -translate-y-1/2 right-[2%]" },
-                { name: "google", color: "from-sky-500 to-blue-500", pos: "top-1/2 -translate-y-1/2 left-[2%]" },
-                { name: "naver", color: "from-green-500 to-emerald-600", pos: "bottom-[22%] right-[8%]" },
-                { name: "kakaotalk", color: "from-yellow-400 to-amber-500", pos: "bottom-[22%] left-[8%]" },
-                { name: "danggeun", color: "from-orange-400 to-orange-600", pos: "bottom-[4%] left-1/2 -translate-x-1/2" },
-              ];
-              return items.map((item, i) => (
+            {/* 점선 SVG 연결 (8 방향) */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <circle cx="50" cy="50" r="40" fill="none" stroke="#60a5fa" strokeOpacity="0.15" strokeWidth="0.3" strokeDasharray="0.6 1.4" />
+              {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => {
+                const rad = ((deg - 90) * Math.PI) / 180;
+                const x1 = 50 + 13 * Math.cos(rad);
+                const y1 = 50 + 13 * Math.sin(rad);
+                const x2 = 50 + 38 * Math.cos(rad);
+                const y2 = 50 + 38 * Math.sin(rad);
+                return <line key={deg} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#60a5fa" strokeOpacity="0.35" strokeWidth="0.4" strokeDasharray="0.6 1.2" strokeLinecap="round" />;
+              })}
+            </svg>
+
+            {[
+              { name: "meta", label: "메타 광고", brand: "bg-[#0866FF]", deg: 0 },
+              { name: "facebook", label: "페이스북 광고", brand: "bg-[#1877F2]", deg: 45 },
+              { name: "instagram", label: "인스타그램 광고", brand: "bg-linear-to-br from-[#F58529] via-[#DD2A7B] to-[#8134AF]", deg: 90 },
+              { name: "kakaotalk", label: "카카오 광고", brand: "bg-[#FEE500]", deg: 135 },
+              { name: "danggeun", label: "당근 광고", brand: "bg-[#FF7E36]", deg: 180 },
+              { name: "naver", label: "네이버 광고", brand: "bg-[#03C75A]", deg: 225 },
+              { name: "google", label: "구글 광고", brand: "bg-white border border-slate-100", deg: 270 },
+              { name: "youtube", label: "유튜브 광고", brand: "bg-[#FF0000]", deg: 315 },
+            ].map((item, i) => {
+              const rad = ((item.deg - 90) * Math.PI) / 180;
+              const r = 42;
+              const x = 50 + r * Math.cos(rad);
+              const y = 50 + r * Math.sin(rad);
+              const useDark = item.name === "kakaotalk" || item.name === "google";
+              return (
                 <div
                   key={item.name}
-                  className={`absolute ${item.pos} w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 group`}
-                  style={{ animation: `float ${4 + (i % 3)}s ease-in-out infinite ${i * 0.3}s` }}
+                  className="absolute -translate-x-1/2 -translate-y-1/2 z-10 group"
+                  style={{ top: `${y}%`, left: `${x}%`, animation: `float ${4 + (i % 3)}s ease-in-out infinite ${i * 0.3}s` }}
                 >
-                  <div className="absolute inset-0 translate-y-2 rounded-[24%] bg-black/15 blur-md" />
-                  <div className={`absolute inset-0 translate-x-1 translate-y-1 rounded-[24%] bg-linear-to-br ${item.color} opacity-70`} />
-                  <div className="relative w-full h-full rounded-[24%] bg-white shadow-3d border border-white flex items-center justify-center p-4 group-hover:-translate-y-1 transition-transform duration-300 bevel-edge">
-                    <img src={`/images/logos/${item.name}.svg`} alt={item.name} className="max-w-full max-h-full object-contain" />
+                  <div className="relative">
+                    {/* 그림자 */}
+                    <div className="absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-black/15 blur-sm" />
+                    {/* 카드 */}
+                    <div className="relative flex flex-col items-center bg-white rounded-2xl shadow-xl p-2.5 sm:p-3 w-[88px] sm:w-[104px] group-hover:-translate-y-1 transition-transform duration-300">
+                      <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl ${item.brand} flex items-center justify-center mb-1.5`}>
+                        <img src={`/images/logos/${item.name}.svg`} alt="" className={`h-5 sm:h-6 w-auto ${useDark ? "" : "brightness-0 invert"}`} />
+                      </div>
+                      <span className="text-[10px] sm:text-[11px] font-extrabold text-deep-navy whitespace-nowrap">{item.label}</span>
+                    </div>
                   </div>
                 </div>
-              ));
-            })()}
+              );
+            })}
 
-            {/* Center mark */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32">
-              <div className="absolute inset-0 translate-y-1 rounded-full bg-accent-blue/30 blur-sm" />
-              <div className="relative w-full h-full rounded-full bg-white shadow-3d-lg shadow-accent-blue/30 border border-blue-100 flex items-center justify-center bevel-edge">
-                <LogoMark className="w-14 sm:w-16 lg:w-20" />
+            {/* 중앙 로고 — V 브랜드 마크 */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
+              <div className="relative">
+                <div className="absolute -inset-4 rounded-full bg-accent-blue/40 blur-2xl animate-pulse-soft" />
+                <div className="absolute -inset-1 rounded-full bg-sky-400/30 blur-xl" />
+                <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-linear-to-br from-accent-blue via-blue-600 to-blue-800 flex items-center justify-center border-2 border-white/40 shadow-2xl shadow-accent-blue/50">
+                  <LogoMark variant="white" className="w-14 sm:w-16 drop-shadow-lg" />
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Category pills */}
-          <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-2 sm:gap-3 mt-12 sm:mt-16">
+          {/* 5 카테고리 카드 (PDF 변경시안 매칭 — 아이콘 + 큰 라벨 + 부제) */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mt-12 sm:mt-16">
             {[
-              { label: "퍼포먼스 광고", desc: "전환 목적", color: "bg-blue-50 text-blue-700 border-blue-100" },
-              { label: "브랜드 인지도", desc: "노출·신뢰", color: "bg-red-50 text-red-700 border-red-100" },
-              { label: "DB 수집", desc: "리드 확보", color: "bg-violet-50 text-violet-700 border-violet-100" },
-              { label: "재접촉 마케팅", desc: "기존 고객", color: "bg-amber-50 text-amber-700 border-amber-100" },
-              { label: "업종 특화", desc: "부동산·지역", color: "bg-teal-50 text-teal-700 border-teal-100" },
+              {
+                label: "퍼포먼스 광고",
+                desc: "전환 목적의\n성과 중심 광고 운영",
+                bg: "bg-blue-50",
+                color: "text-blue-600",
+                icon: (
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.306a11.95 11.95 0 015.814-5.518l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941" />
+                  </svg>
+                ),
+              },
+              {
+                label: "브랜드 인지도",
+                desc: "노출 확대를 통한\n브랜드 신뢰 구축",
+                bg: "bg-pink-50",
+                color: "text-pink-600",
+                icon: (
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M9 8.25h.008v.008H9V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                  </svg>
+                ),
+              },
+              {
+                label: "DB 수집",
+                desc: "리드 확보 및\n잠재 고객 발굴",
+                bg: "bg-violet-50",
+                color: "text-violet-600",
+                icon: (
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                  </svg>
+                ),
+              },
+              {
+                label: "재접촉 마케팅",
+                desc: "기존 고객 대상\n맞춤 메시지 운영",
+                bg: "bg-amber-50",
+                color: "text-amber-600",
+                icon: (
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                  </svg>
+                ),
+              },
+              {
+                label: "업종 특화",
+                desc: "부동산·병원·자영업 등\n업종 맞춤 전략 수립",
+                bg: "bg-emerald-50",
+                color: "text-emerald-600",
+                icon: (
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                  </svg>
+                ),
+              },
             ].map((c) => (
-              <div key={c.label} className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl border ${c.color} text-center`}>
-                <p className="text-[12px] sm:text-xs font-bold">{c.label}</p>
-                <p className="text-[10px] sm:text-[11px] opacity-70">{c.desc}</p>
+              <div key={c.label} className="relative group">
+                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/12 blur-[2px]" />
+                <div className="relative bg-white rounded-2xl border border-slate-100 shadow-md p-4 sm:p-5 group-hover:-translate-y-1 transition-transform duration-300 text-center h-full flex flex-col">
+                  <div className={`w-12 h-12 mx-auto rounded-xl ${c.bg} ${c.color} flex items-center justify-center mb-2.5`}>
+                    {c.icon}
+                  </div>
+                  <p className="text-[13px] sm:text-[14px] font-extrabold text-deep-navy mb-1.5 leading-tight">{c.label}</p>
+                  <p className="text-[10px] sm:text-[11px] text-slate-500 leading-relaxed whitespace-pre-line flex-1">{c.desc}</p>
+                </div>
               </div>
             ))}
           </div>
