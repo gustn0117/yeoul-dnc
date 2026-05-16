@@ -391,78 +391,86 @@ export default function ProcessPage() {
             {/* Right: 원형 마케팅 플로우 다이어그램 (사진 매칭) */}
             <div className="hidden lg:block relative">
               <div className="absolute inset-0 bg-accent-blue/20 rounded-full blur-3xl" />
-              <div className="relative w-full aspect-square max-w-md mx-auto">
-                {/* 외곽 원 (글로우) */}
-                <div className="absolute inset-0 rounded-full" style={{ boxShadow: "0 0 60px rgba(96,165,250,0.4), inset 0 0 40px rgba(96,165,250,0.15)" }} />
-                <div className="absolute inset-0 rounded-full border-2 border-accent-blue/40" />
-                <div className="absolute inset-4 rounded-full border border-accent-blue/30" />
-                <div className="absolute inset-10 rounded-full border border-accent-blue/15" />
+              <div className="relative w-full aspect-square max-w-md mx-auto px-12 py-8">
+                {/* 원형 영역 (노드 공간 확보 위해 padding 내부에 그려짐) */}
+                <div className="relative w-full h-full">
+                  {/* 외곽 글로우 */}
+                  <div className="absolute inset-0 rounded-full" style={{ boxShadow: "0 0 60px rgba(96,165,250,0.4), inset 0 0 40px rgba(96,165,250,0.15)" }} />
+                  {/* 외곽 ring (노드가 올라앉을 원) */}
+                  <div className="absolute inset-0 rounded-full border-2 border-accent-blue/40" />
+                  {/* 중간 ring */}
+                  <div className="absolute inset-[8%] rounded-full border border-accent-blue/30" />
+                  {/* 내부 ring */}
+                  <div className="absolute inset-[18%] rounded-full border border-accent-blue/15" />
 
-                {/* 5개 위치에 connector dot (원 위) */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                  {[0, 72, 144, 216, 288].map((deg) => {
-                    const rad = ((deg - 90) * Math.PI) / 180;
-                    const r = 50; // 원 위
-                    const x = 50 + r * Math.cos(rad);
-                    const y = 50 + r * Math.sin(rad);
-                    return <circle key={deg} cx={x} cy={y} r="1.2" fill="#60a5fa" />;
-                  })}
-                </svg>
+                  {/* 5개 connector dot — 외곽 ring 위 (펜타곤 꼭짓점) */}
+                  <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    {[0, 72, 144, 216, 288].map((deg) => {
+                      const rad = ((deg - 90) * Math.PI) / 180;
+                      const r = 50;
+                      const x = 50 + r * Math.cos(rad);
+                      const y = 50 + r * Math.sin(rad);
+                      return <circle key={deg} cx={x} cy={y} r="1.2" fill="#60a5fa" />;
+                    })}
+                  </svg>
 
-                {/* 중앙 PERFORMANCE 텍스트 (원 안) */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-                  <p className="text-[10px] font-extrabold text-accent-blue tracking-[0.3em] mb-2">PERFORMANCE</p>
-                  <p className="text-base font-extrabold text-white leading-tight">성과 중심<br />마케팅 플로우</p>
-                </div>
-
-                {/* 5개 노드 — 원 위에 배치 (top: 12시, right-top: 1.5시, right-bot: 4.5시, left-bot: 7.5시, left-top: 10.5시) */}
-                {[
-                  {
-                    label: "전략 수립",
-                    num: "01",
-                    pos: "top-[-6%] left-1/2 -translate-x-1/2",
-                    labelPos: "top-[-4%] left-[58%]",
-                    icon: <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25" /></svg>,
-                  },
-                  {
-                    label: "광고 집행",
-                    num: "02",
-                    pos: "top-[24%] right-[-7%]",
-                    icon: <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>,
-                  },
-                  {
-                    label: "데이터 분석",
-                    num: "03",
-                    pos: "bottom-[18%] right-[-2%]",
-                    icon: <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>,
-                  },
-                  {
-                    label: "성과 최적화",
-                    num: "04",
-                    pos: "bottom-[18%] left-[-2%]",
-                    icon: <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.894.149c-.424.07-.764.383-.929.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.108-1.204l-.526-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" /></svg>,
-                  },
-                  {
-                    label: "리포트 & 인사이트",
-                    num: "05",
-                    pos: "top-[24%] left-[-7%]",
-                    icon: <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" /></svg>,
-                  },
-                ].map((n) => (
-                  <div key={n.num} className={`absolute ${n.pos} z-20`}>
-                    <div className="flex flex-col items-center gap-1">
-                      {/* 아이콘 박스 */}
-                      <div className="relative w-12 h-12 rounded-xl bg-linear-to-br from-accent-blue to-blue-700 flex items-center justify-center shadow-xl shadow-accent-blue/40 border border-accent-blue/40">
-                        {n.icon}
-                      </div>
-                      {/* 라벨 (아이콘 옆이 아닌 아래) */}
-                      <div className="bg-slate-900/60 backdrop-blur-sm rounded-md px-2 py-0.5 whitespace-nowrap">
-                        <p className="text-[9px] font-extrabold text-accent-blue leading-none">{n.num}</p>
-                        <p className="text-[10px] text-white font-bold leading-tight mt-0.5">{n.label}</p>
-                      </div>
-                    </div>
+                  {/* 중앙 PERFORMANCE */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+                    <p className="text-[10px] font-extrabold text-accent-blue tracking-[0.3em] mb-2">PERFORMANCE</p>
+                    <p className="text-base font-extrabold text-white leading-tight">성과 중심<br />마케팅 플로우</p>
                   </div>
-                ))}
+
+                  {/* 5 노드 — 트리그 좌표로 외곽 ring 위에 정확히 배치 */}
+                  {[
+                    {
+                      label: "전략 수립",
+                      num: "01",
+                      icon: <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25" /></svg>,
+                    },
+                    {
+                      label: "광고 집행",
+                      num: "02",
+                      icon: <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>,
+                    },
+                    {
+                      label: "데이터 분석",
+                      num: "03",
+                      icon: <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>,
+                    },
+                    {
+                      label: "성과 최적화",
+                      num: "04",
+                      icon: <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.894.149c-.424.07-.764.383-.929.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.108-1.204l-.526-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" /></svg>,
+                    },
+                    {
+                      label: "리포트 & 인사이트",
+                      num: "05",
+                      icon: <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" /></svg>,
+                    },
+                  ].map((n, i) => {
+                    const angle = i * 72;
+                    const rad = ((angle - 90) * Math.PI) / 180;
+                    const x = 50 + 50 * Math.cos(rad);
+                    const y = 50 + 50 * Math.sin(rad);
+                    return (
+                      <div
+                        key={n.num}
+                        className="absolute z-20"
+                        style={{ top: `${y}%`, left: `${x}%`, transform: "translate(-50%, -50%)" }}
+                      >
+                        <div className="relative flex flex-col items-center">
+                          <div className="w-12 h-12 rounded-xl bg-linear-to-br from-accent-blue to-blue-700 flex items-center justify-center shadow-xl shadow-accent-blue/40 border border-accent-blue/40">
+                            {n.icon}
+                          </div>
+                          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1.5 bg-slate-900/80 backdrop-blur-sm rounded-md px-2 py-1 whitespace-nowrap text-center">
+                            <p className="text-[9px] font-extrabold text-accent-blue leading-none">{n.num}</p>
+                            <p className="text-[11px] text-white font-bold leading-tight mt-0.5">{n.label}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
 
               {/* 하단 3 feature 카드 (다크 글래스) */}
