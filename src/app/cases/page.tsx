@@ -179,8 +179,8 @@ export default function CasesPage() {
           <div className="mt-8 sm:mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {[
               {
-                title: "실제 운영 경험이 만드는 차이",
-                desc: "업종별 특성과 목표에 맞는 전략 설계부터 최적화까지 검증된 운영 노하우로 성과를 만들어냅니다.",
+                title: "실제 운영 경험",
+                desc: "검증된 운영 노하우",
                 icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>,
               },
               {
@@ -199,9 +199,9 @@ export default function CasesPage() {
                 icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>,
               },
             ].map((f, idx) => (
-              <div key={idx} className="relative">
+              <div key={idx} className="relative h-full">
                 <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
-                <div className="relative bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-3 sm:p-4 flex items-start gap-3">
+                <div className="relative h-full bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-3 sm:p-4 flex items-center gap-3">
                   <div className="w-9 h-9 rounded-lg bg-accent-blue/15 border border-accent-blue/30 flex items-center justify-center shrink-0">
                     {f.icon}
                   </div>

@@ -136,34 +136,211 @@ export function IllustPhone({ className = "w-full h-auto" }: { className?: strin
 }
 
 export function IllustLaptop({ className = "w-full h-auto" }: { className?: string }) {
+  const donutR = 16;
+  const donutC = 2 * Math.PI * donutR;
+  const donutSegs = [
+    { c: "#3b82f6", v: 28, label: "네이버" },
+    { c: "#a855f7", v: 22, label: "메타" },
+    { c: "#facc15", v: 18, label: "카카오" },
+    { c: "#22c55e", v: 14, label: "구글" },
+    { c: "#ef4444", v: 12, label: "유튜브" },
+    { c: "#64748b", v: 6, label: "기타" },
+  ];
+  let donutOffset = 0;
+  const donutPaths = donutSegs.map((s, i) => {
+    const len = (s.v / 100) * donutC;
+    const el = (
+      <circle
+        key={i}
+        r={donutR}
+        fill="none"
+        stroke={s.c}
+        strokeWidth="6"
+        strokeDasharray={`${len} ${donutC - len}`}
+        strokeDashoffset={-donutOffset}
+        transform="rotate(-90)"
+      />
+    );
+    donutOffset += len;
+    return el;
+  });
+
   return (
-    <svg className={className} viewBox="0 0 440 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className={className} viewBox="0 0 480 340" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="scr" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#f8fafc" /><stop offset="100%" stopColor="#f1f5f9" /></linearGradient>
-        <filter id="ls"><feDropShadow dx="0" dy="12" stdDeviation="20" floodOpacity="0.1" /></filter>
+        <radialGradient id="lpHalo" cx="50%" cy="55%" r="55%">
+          <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.45" />
+          <stop offset="60%" stopColor="#1e3a8a" stopOpacity="0.12" />
+          <stop offset="100%" stopColor="#0f172a" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="lpBody" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#1f2937" />
+          <stop offset="100%" stopColor="#0b1220" />
+        </linearGradient>
+        <linearGradient id="lpScreen" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#0b1c36" />
+          <stop offset="100%" stopColor="#060f1f" />
+        </linearGradient>
+        <linearGradient id="lpLine" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#3b82f6" />
+          <stop offset="100%" stopColor="#60a5fa" />
+        </linearGradient>
+        <linearGradient id="lpArea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id="lpHinge" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#1e293b" />
+          <stop offset="100%" stopColor="#0a0f1c" />
+        </linearGradient>
+        <filter id="lpShadow"><feDropShadow dx="0" dy="18" stdDeviation="22" floodColor="#000" floodOpacity="0.5" /></filter>
+        <filter id="lpScrGlow"><feGaussianBlur stdDeviation="4" /></filter>
       </defs>
-      <g filter="url(#ls)">
-        {/* Screen */}
-        <rect x="60" y="10" width="320" height="200" rx="12" fill="#1e293b" />
-        <rect x="68" y="18" width="304" height="180" rx="6" fill="url(#scr)" />
-        {/* Screen content */}
-        <rect x="80" y="30" width="120" height="10" rx="5" fill="#e2e8f0" />
-        <rect x="80" y="50" width="280" height="80" rx="8" fill="#2563eb" opacity="0.08" />
-        <rect x="92" y="62" width="100" height="8" rx="4" fill="#2563eb" opacity="0.3" />
-        <rect x="92" y="78" width="70" height="6" rx="3" fill="#94a3b8" opacity="0.2" />
-        <rect x="92" y="94" width="50" height="16" rx="8" fill="#2563eb" />
-        <rect x="240" y="60" width="108" height="60" rx="6" fill="white" stroke="#e2e8f0" strokeWidth="1" />
-        {/* Mini chart in screen */}
-        <rect x="252" y="72" width="8" height="30" rx="2" fill="#2563eb" opacity="0.3" />
-        <rect x="266" y="62" width="8" height="40" rx="2" fill="#2563eb" opacity="0.5" />
-        <rect x="280" y="76" width="8" height="26" rx="2" fill="#2563eb" opacity="0.3" />
-        <rect x="294" y="56" width="8" height="46" rx="2" fill="#2563eb" opacity="0.7" />
-        <rect x="308" y="48" width="8" height="54" rx="2" fill="#2563eb" />
-        <rect x="80" y="145" width="130" height="40" rx="6" fill="white" stroke="#e2e8f0" strokeWidth="1" />
-        <rect x="220" y="145" width="130" height="40" rx="6" fill="white" stroke="#e2e8f0" strokeWidth="1" />
-        {/* Base */}
-        <path d="M30 210 L60 210 L80 230 L360 230 L380 210 L410 210 L420 240 L20 240 Z" fill="#334155" />
-        <rect x="170" y="232" width="100" height="4" rx="2" fill="#475569" />
+
+      {/* Halo / 배경 글로우 */}
+      <ellipse cx="240" cy="180" rx="240" ry="170" fill="url(#lpHalo)" />
+
+      {/* 장식: 곡선 (좌/우) */}
+      <g stroke="#60a5fa" strokeWidth="0.8" fill="none" opacity="0.3">
+        <path d="M 10 250 Q 80 180 170 200" strokeDasharray="3 3" />
+        <path d="M 470 260 Q 400 200 310 215" strokeDasharray="3 3" />
+        <path d="M 20 200 Q 100 230 180 220" strokeDasharray="2 4" opacity="0.5" />
+      </g>
+
+      {/* 장식: 떠있는 점들 */}
+      <g>
+        <circle cx="60" cy="100" r="2" fill="#60a5fa" opacity="0.7" />
+        <circle cx="420" cy="120" r="2" fill="#60a5fa" opacity="0.7" />
+        <circle cx="30" cy="180" r="1.5" fill="#93c5fd" opacity="0.6" />
+        <circle cx="450" cy="200" r="1.5" fill="#93c5fd" opacity="0.6" />
+        <circle cx="90" cy="50" r="1.2" fill="#60a5fa" opacity="0.4" />
+        <circle cx="400" cy="60" r="1.2" fill="#60a5fa" opacity="0.4" />
+      </g>
+
+      {/* 노트북 그림자 */}
+      <ellipse cx="240" cy="310" rx="200" ry="10" fill="#000" opacity="0.4" />
+
+      {/* === 노트북 본체 === */}
+      <g filter="url(#lpShadow)">
+        {/* 스크린 외곽 베젤 */}
+        <rect x="60" y="20" width="360" height="240" rx="10" fill="url(#lpBody)" />
+        {/* 내부 검정 베젤 */}
+        <rect x="68" y="28" width="344" height="224" rx="4" fill="#000" />
+        {/* 실제 스크린 */}
+        <rect x="70" y="30" width="340" height="220" rx="3" fill="url(#lpScreen)" />
+
+        {/* 스크린 글로우 (안쪽 빛) */}
+        <rect x="70" y="30" width="340" height="60" rx="3" fill="#3b82f6" opacity="0.06" />
+
+        {/* === 사이드바 === */}
+        <rect x="70" y="30" width="28" height="220" fill="#081428" />
+        <line x1="98" y1="30" x2="98" y2="250" stroke="#1e3a5f" strokeWidth="0.4" />
+        {/* 사이드바 로고 */}
+        <circle cx="84" cy="44" r="5" fill="#3b82f6" />
+        <circle cx="84" cy="44" r="2.5" fill="#fff" />
+        {/* 사이드바 메뉴 아이콘 (6개) */}
+        {[0, 1, 2, 3, 4, 5].map((i) => (
+          <g key={i}>
+            <rect
+              x="76"
+              y={66 + i * 22}
+              width="16"
+              height="14"
+              rx="2"
+              fill={i === 0 ? "#3b82f6" : "#0f2a4d"}
+              opacity={i === 0 ? 1 : 0.6}
+            />
+            <circle cx="84" cy={73 + i * 22} r="2.5" fill={i === 0 ? "#fff" : "#3b82f6"} opacity={i === 0 ? 1 : 0.5} />
+          </g>
+        ))}
+
+        {/* === 헤더 우상단: 기간 설정 === */}
+        <text x="345" y="50" fill="#64748b" fontSize="6" fontFamily="ui-sans-serif, system-ui">기간 설정</text>
+        <rect x="370" y="42" width="34" height="11" rx="2" fill="#0f2a4d" stroke="#1e3a5f" strokeWidth="0.3" />
+        <text x="374" y="50" fill="#cbd5e1" fontSize="5.5" fontFamily="ui-sans-serif, system-ui">최근 30일</text>
+        <polygon points="398,46.5 402,46.5 400,49.5" fill="#cbd5e1" />
+
+        {/* === Performance Overview === */}
+        <text x="108" y="55" fill="#fff" fontSize="8" fontWeight="700" fontFamily="ui-sans-serif, system-ui">Performance Overview</text>
+
+        {/* 4 KPI 카드 */}
+        {[
+          { x: 108, label: "총 전환", value: "128", delta: "+15.4%", up: true },
+          { x: 184, label: "전환수", value: "3,245", delta: "+10.2%", up: true },
+          { x: 260, label: "광고비", value: "₩24.7M", delta: "-6.7%", up: false },
+          { x: 336, label: "ROAS", value: "320%", delta: "+15.2%", up: true },
+        ].map((k) => (
+          <g key={k.x}>
+            <rect x={k.x} y={62} width="70" height="40" rx="3" fill="#0a1c38" stroke="#1e3a5f" strokeWidth="0.3" />
+            <text x={k.x + 6} y={73} fill="#94a3b8" fontSize="5.5" fontFamily="ui-sans-serif, system-ui">{k.label}</text>
+            <text x={k.x + 6} y={89} fill="#fff" fontSize="10" fontWeight="700" fontFamily="ui-sans-serif, system-ui">{k.value}</text>
+            <text x={k.x + 6} y={98} fill={k.up ? "#60a5fa" : "#f87171"} fontSize="4.5" fontFamily="ui-sans-serif, system-ui">{k.delta}</text>
+          </g>
+        ))}
+
+        {/* === Performance Trend (라인 차트) === */}
+        <rect x="108" y="112" width="174" height="128" rx="3" fill="#0a1c38" stroke="#1e3a5f" strokeWidth="0.3" />
+        <text x="114" y="124" fill="#fff" fontSize="6.5" fontWeight="700" fontFamily="ui-sans-serif, system-ui">Performance Trend</text>
+        {/* 그리드 라인 (수평) */}
+        {[150, 170, 190, 210].map((y) => (
+          <line key={y} x1="118" x2="276" y1={y} y2={y} stroke="#1e3a5f" strokeWidth="0.3" strokeDasharray="1 2" />
+        ))}
+        {/* 영역 fill */}
+        <path
+          d="M 122 190 L 142 180 L 162 198 L 182 175 L 202 188 L 222 165 L 242 180 L 262 152 L 272 168 L 272 226 L 122 226 Z"
+          fill="url(#lpArea)"
+        />
+        {/* 라인 */}
+        <path
+          d="M 122 190 L 142 180 L 162 198 L 182 175 L 202 188 L 222 165 L 242 180 L 262 152 L 272 168"
+          stroke="url(#lpLine)"
+          strokeWidth="1.4"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        {/* 라인 점 */}
+        {[
+          [122, 190], [142, 180], [162, 198], [182, 175], [202, 188], [222, 165], [242, 180], [262, 152], [272, 168],
+        ].map(([x, y], i) => (
+          <circle key={i} cx={x} cy={y} r="1.4" fill="#0a1c38" stroke="#60a5fa" strokeWidth="1" />
+        ))}
+        {/* 피크 강조 점 + 버블 */}
+        <circle cx="262" cy="152" r="2.6" fill="#fff" stroke="#3b82f6" strokeWidth="1.2" />
+        <rect x="246" y="138" width="28" height="10" rx="2" fill="#3b82f6" />
+        <text x="249" y="145" fill="#fff" fontSize="5.5" fontWeight="700" fontFamily="ui-sans-serif, system-ui">+15.2%</text>
+        {/* x축 라벨 */}
+        {["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월"].map((l, i) => (
+          <text key={l} x={122 + i * 20} y={234} fill="#475569" fontSize="4" fontFamily="ui-sans-serif, system-ui">{l}</text>
+        ))}
+
+        {/* === Channel Performance (도넛) === */}
+        <rect x="290" y="112" width="118" height="128" rx="3" fill="#0a1c38" stroke="#1e3a5f" strokeWidth="0.3" />
+        <text x="296" y="124" fill="#fff" fontSize="6.5" fontWeight="700" fontFamily="ui-sans-serif, system-ui">Channel Performance</text>
+        {/* 도넛 */}
+        <g transform="translate(320, 180)">
+          {donutPaths}
+          <circle r="10" fill="#0a1c38" />
+        </g>
+        {/* Legend */}
+        {donutSegs.map((s, i) => (
+          <g key={s.label}>
+            <circle cx="357" cy={148 + i * 12} r="2" fill={s.c} />
+            <text x="362" y={150.5 + i * 12} fill="#cbd5e1" fontSize="5" fontFamily="ui-sans-serif, system-ui">{s.label}</text>
+          </g>
+        ))}
+      </g>
+
+      {/* === 노트북 베이스 (힌지/하판) === */}
+      <g filter="url(#lpShadow)">
+        <path
+          d="M 24 260 L 60 260 L 78 280 L 402 280 L 420 260 L 456 260 L 466 292 L 14 292 Z"
+          fill="url(#lpHinge)"
+        />
+        {/* 터치패드 영역 표시 */}
+        <rect x="196" y="282" width="88" height="3" rx="1.5" fill="#000" opacity="0.6" />
+        {/* 카메라/노치 */}
+        <circle cx="240" cy="25" r="0.8" fill="#1e3a5f" />
       </g>
     </svg>
   );
