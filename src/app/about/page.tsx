@@ -158,89 +158,157 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Brand mark — 궤도 + 글로우 오브 (레퍼런스 매칭) */}
-            <div className="hidden lg:flex lg:col-span-5 justify-center items-center">
-              <div className="relative w-[22rem] h-[22rem]">
-                {/* 배경 글로우 (큰 원형) */}
+            {/* Brand mark — 3D 입체 궤도 + 글로우 오브 */}
+            <div className="hidden lg:flex lg:col-span-5 justify-center items-center perspective-1200">
+              <div
+                className="relative w-[30rem] h-[30rem] preserve-3d"
+                style={{ transform: "rotateX(8deg) rotateY(-6deg)", transformStyle: "preserve-3d" }}
+              >
+                {/* 다층 배경 글로우 */}
                 <div className="absolute inset-0 bg-accent-blue/30 rounded-full blur-3xl" />
-                <div className="absolute inset-8 bg-accent-blue/20 rounded-full blur-2xl" />
+                <div className="absolute inset-12 bg-blue-500/25 rounded-full blur-3xl" />
+                <div className="absolute inset-20 bg-sky-400/20 rounded-full blur-2xl" />
 
-                {/* SVG 궤도 */}
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 320 320" aria-hidden="true">
+                {/* SVG 궤도 (뒤쪽 레이어) */}
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400" aria-hidden="true">
                   <defs>
                     <radialGradient id="abtCenterGlow" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor="#93c5fd" stopOpacity="0.9" />
+                      <stop offset="0%" stopColor="#93c5fd" stopOpacity="0.95" />
                       <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.55" />
                       <stop offset="100%" stopColor="#1e3a8a" stopOpacity="0" />
                     </radialGradient>
-                    <radialGradient id="abtOrbRim" cx="50%" cy="50%" r="50%">
-                      <stop offset="60%" stopColor="#0a1c36" />
-                      <stop offset="100%" stopColor="#1d4ed8" />
-                    </radialGradient>
                     <radialGradient id="abtDotGlow" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor="#dbeafe" stopOpacity="1" />
-                      <stop offset="40%" stopColor="#60a5fa" stopOpacity="0.9" />
-                      <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
+                      <stop offset="35%" stopColor="#bfdbfe" stopOpacity="0.95" />
+                      <stop offset="70%" stopColor="#3b82f6" stopOpacity="0.5" />
+                      <stop offset="100%" stopColor="#1e3a8a" stopOpacity="0" />
                     </radialGradient>
-                    <filter id="abtSoftGlow" x="-50%" y="-50%" width="200%" height="200%">
-                      <feGaussianBlur stdDeviation="3" />
+                    <linearGradient id="abtOrbitFade" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stopColor="#93c5fd" stopOpacity="0.9" />
+                      <stop offset="50%" stopColor="#60a5fa" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.7" />
+                    </linearGradient>
+                    <filter id="abtSoft" x="-50%" y="-50%" width="200%" height="200%">
+                      <feGaussianBlur stdDeviation="2.5" />
+                    </filter>
+                    <filter id="abtSoftLarge" x="-50%" y="-50%" width="200%" height="200%">
+                      <feGaussianBlur stdDeviation="6" />
                     </filter>
                   </defs>
 
-                  {/* 기울어진 타원 궤도들 (큰 → 작은) */}
-                  <ellipse cx="160" cy="160" rx="148" ry="62" transform="rotate(-22 160 160)"
+                  {/* 6개 기울어진 타원 궤도 (뒤쪽) */}
+                  <ellipse cx="200" cy="200" rx="190" ry="78" transform="rotate(-25 200 200)"
+                    stroke="url(#abtOrbitFade)" strokeWidth="1" fill="none" opacity="0.7" />
+                  <ellipse cx="200" cy="200" rx="180" ry="118" transform="rotate(12 200 200)"
+                    stroke="#3b82f6" strokeWidth="0.7" fill="none" strokeDasharray="2 3" opacity="0.5" />
+                  <ellipse cx="200" cy="200" rx="170" ry="55" transform="rotate(22 200 200)"
                     stroke="#60a5fa" strokeWidth="0.7" fill="none" opacity="0.55" />
-                  <ellipse cx="160" cy="160" rx="140" ry="92" transform="rotate(10 160 160)"
-                    stroke="#3b82f6" strokeWidth="0.6" fill="none" strokeDasharray="2 3" opacity="0.45" />
-                  <ellipse cx="160" cy="160" rx="125" ry="50" transform="rotate(18 160 160)"
-                    stroke="#60a5fa" strokeWidth="0.5" fill="none" opacity="0.45" />
-                  <ellipse cx="160" cy="160" rx="118" ry="72" transform="rotate(-38 160 160)"
-                    stroke="#93c5fd" strokeWidth="0.5" fill="none" strokeDasharray="1 4" opacity="0.4" />
-                  <ellipse cx="160" cy="160" rx="105" ry="40" transform="rotate(-5 160 160)"
-                    stroke="#60a5fa" strokeWidth="0.45" fill="none" opacity="0.4" />
+                  <ellipse cx="200" cy="200" rx="160" ry="90" transform="rotate(-40 200 200)"
+                    stroke="#93c5fd" strokeWidth="0.6" fill="none" strokeDasharray="1 4" opacity="0.45" />
+                  <ellipse cx="200" cy="200" rx="148" ry="48" transform="rotate(-8 200 200)"
+                    stroke="#60a5fa" strokeWidth="0.55" fill="none" opacity="0.4" />
+                  <ellipse cx="200" cy="200" rx="135" ry="105" transform="rotate(28 200 200)"
+                    stroke="#3b82f6" strokeWidth="0.5" fill="none" strokeDasharray="3 5" opacity="0.35" />
 
-                  {/* 글로우 점 (궤도 위) — 큰 점 3개 */}
+                  {/* 큰 글로우 점들 (블러 레이어) */}
                   <g>
-                    {/* 우상단 큰 점 */}
-                    <circle cx="262" cy="100" r="14" fill="url(#abtDotGlow)" />
-                    <circle cx="262" cy="100" r="5" fill="#dbeafe" />
-                    <circle cx="262" cy="100" r="2.5" fill="#fff" />
+                    <circle cx="330" cy="125" r="22" fill="url(#abtDotGlow)" filter="url(#abtSoftLarge)" />
+                    <circle cx="65" cy="235" r="22" fill="url(#abtDotGlow)" filter="url(#abtSoftLarge)" />
+                    <circle cx="350" cy="225" r="14" fill="url(#abtDotGlow)" filter="url(#abtSoft)" opacity="0.85" />
+                    <circle cx="250" cy="350" r="16" fill="url(#abtDotGlow)" filter="url(#abtSoftLarge)" opacity="0.8" />
+                    <circle cx="120" cy="80" r="10" fill="url(#abtDotGlow)" filter="url(#abtSoft)" opacity="0.7" />
+                  </g>
 
-                    {/* 좌중단 큰 점 */}
-                    <circle cx="56" cy="190" r="14" fill="url(#abtDotGlow)" />
-                    <circle cx="56" cy="190" r="5" fill="#dbeafe" />
-                    <circle cx="56" cy="190" r="2.5" fill="#fff" />
-
-                    {/* 우중단 작은 점 */}
-                    <circle cx="280" cy="180" r="9" fill="url(#abtDotGlow)" opacity="0.85" />
-                    <circle cx="280" cy="180" r="3" fill="#bfdbfe" />
-
-                    {/* 하단 작은 점 */}
-                    <circle cx="200" cy="278" r="10" fill="url(#abtDotGlow)" opacity="0.8" />
-                    <circle cx="200" cy="278" r="3.5" fill="#bfdbfe" />
+                  {/* 점의 코어 (선명) */}
+                  <g>
+                    <circle cx="330" cy="125" r="6" fill="#dbeafe" />
+                    <circle cx="330" cy="125" r="3" fill="#fff" />
+                    <circle cx="65" cy="235" r="6" fill="#dbeafe" />
+                    <circle cx="65" cy="235" r="3" fill="#fff" />
+                    <circle cx="350" cy="225" r="4" fill="#bfdbfe" />
+                    <circle cx="350" cy="225" r="2" fill="#fff" />
+                    <circle cx="250" cy="350" r="4.5" fill="#bfdbfe" />
+                    <circle cx="250" cy="350" r="2" fill="#fff" />
+                    <circle cx="120" cy="80" r="2.5" fill="#fff" opacity="0.9" />
                   </g>
                 </svg>
 
-                {/* 중앙 오브 (logo) */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[10.5rem] h-[10.5rem]">
-                  {/* 외곽 ring 글로우 */}
-                  <div className="absolute inset-0 rounded-full" style={{
-                    background: "radial-gradient(circle at 35% 30%, rgba(147,197,253,0.9) 0%, rgba(59,130,246,0.5) 30%, rgba(30,58,138,0) 70%)",
+                {/* ========== 중앙 3D 오브 (logo) ========== */}
+                <div
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64"
+                  style={{ transform: "translate(-50%, -50%) translateZ(40px)" }}
+                >
+                  {/* 외곽 큰 글로우 halo */}
+                  <div className="absolute -inset-6 rounded-full opacity-90" style={{
+                    background: "radial-gradient(circle at 38% 30%, rgba(191,219,254,0.95) 0%, rgba(96,165,250,0.55) 28%, rgba(30,58,138,0) 65%)",
                   }} />
-                  {/* 두꺼운 ring border */}
-                  <div className="absolute inset-3 rounded-full border-[3px] border-accent-blue/60" style={{
-                    boxShadow: "0 0 40px rgba(96,165,250,0.7), inset 0 0 30px rgba(96,165,250,0.4)",
-                  }} />
-                  {/* 안쪽 깊이 ring */}
-                  <div className="absolute inset-6 rounded-full bg-linear-to-br from-[#0a1c36] via-[#0a1428] to-[#020611] border border-accent-blue/30 flex items-center justify-center" style={{
-                    boxShadow: "inset 0 0 50px rgba(59,130,246,0.4), 0 0 30px rgba(96,165,250,0.3)",
-                  }}>
-                    {/* 중앙 highlight glow */}
-                    <div className="absolute inset-2 rounded-full opacity-70" style={{
-                      background: "radial-gradient(circle at 40% 35%, rgba(191,219,254,0.6), transparent 55%)",
-                    }} />
-                    <LogoMark variant="white" className="relative w-20 drop-shadow-[0_0_12px_rgba(147,197,253,0.8)]" />
+
+                  {/* 두꺼운 글로잉 ring (외곽 베젤) */}
+                  <div
+                    className="absolute inset-2 rounded-full border-[4px] border-accent-blue/70"
+                    style={{
+                      boxShadow:
+                        "0 0 60px rgba(96,165,250,0.85), 0 0 120px rgba(59,130,246,0.5), inset 0 0 40px rgba(147,197,253,0.55), inset 0 -6px 12px rgba(0,0,0,0.55), inset 0 6px 12px rgba(191,219,254,0.4)",
+                    }}
+                  />
+
+                  {/* 중간 깊이 ring (입체 베벨) */}
+                  <div
+                    className="absolute inset-5 rounded-full"
+                    style={{
+                      background:
+                        "radial-gradient(circle at 30% 25%, rgba(147,197,253,0.45) 0%, rgba(30,58,138,0.0) 55%), linear-gradient(135deg, #1e40af 0%, #0a1428 60%, #020611 100%)",
+                      boxShadow:
+                        "inset 0 0 60px rgba(59,130,246,0.45), inset 0 -10px 25px rgba(0,0,0,0.65), inset 0 10px 20px rgba(96,165,250,0.35), 0 0 40px rgba(96,165,250,0.45)",
+                    }}
+                  />
+
+                  {/* 안쪽 깊이 영역 (구체 표면) */}
+                  <div
+                    className="absolute inset-8 rounded-full flex items-center justify-center overflow-hidden"
+                    style={{
+                      background:
+                        "radial-gradient(circle at 35% 30%, #1e40af 0%, #0a1c36 35%, #020611 80%)",
+                      boxShadow:
+                        "inset 0 0 50px rgba(59,130,246,0.55), inset 0 -8px 20px rgba(0,0,0,0.8), inset 0 8px 20px rgba(191,219,254,0.35)",
+                    }}
+                  >
+                    {/* 구체 위쪽 specular highlight (대각선 빛) */}
+                    <div
+                      className="absolute -top-1 left-1/4 w-3/4 h-1/2 rounded-full opacity-60"
+                      style={{
+                        background: "radial-gradient(ellipse at 30% 20%, rgba(191,219,254,0.85), transparent 55%)",
+                        filter: "blur(8px)",
+                      }}
+                    />
+                    {/* 구체 좌상단 brighter highlight */}
+                    <div
+                      className="absolute top-2 left-3 w-1/3 h-1/4 rounded-full opacity-80"
+                      style={{
+                        background: "radial-gradient(ellipse at center, rgba(255,255,255,0.7), transparent 60%)",
+                        filter: "blur(6px)",
+                      }}
+                    />
+                    {/* 구체 하단 어두운 그림자 */}
+                    <div
+                      className="absolute bottom-0 left-0 right-0 h-1/2 rounded-b-full opacity-70"
+                      style={{
+                        background: "radial-gradient(ellipse at 50% 100%, rgba(0,0,0,0.75), transparent 65%)",
+                      }}
+                    />
+
+                    {/* LogoMark — drop-shadow로 글로우 */}
+                    <LogoMark
+                      variant="white"
+                      className="relative w-28 drop-shadow-[0_0_18px_rgba(147,197,253,0.95)]"
+                    />
                   </div>
+
+                  {/* 오브 바닥 그림자 (그라운드) */}
+                  <div
+                    className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-4 rounded-full opacity-60 blur-md"
+                    style={{ background: "radial-gradient(ellipse, rgba(59,130,246,0.7), transparent 70%)" }}
+                  />
                 </div>
               </div>
             </div>
