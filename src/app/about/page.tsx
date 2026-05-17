@@ -161,8 +161,8 @@ export default function AboutPage() {
             {/* Brand mark — 3D 입체 궤도 + 글로우 오브 */}
             <div className="hidden lg:flex lg:col-span-5 justify-center items-center perspective-1200">
               <div
-                className="relative w-[30rem] h-[30rem] preserve-3d"
-                style={{ transform: "rotateX(8deg) rotateY(-6deg)", transformStyle: "preserve-3d" }}
+                className="relative w-152 h-152 preserve-3d -mx-12"
+                style={{ transform: "rotateX(10deg) rotateY(-8deg)", transformStyle: "preserve-3d" }}
               >
                 {/* 다층 배경 글로우 */}
                 <div className="absolute inset-0 bg-accent-blue/30 rounded-full blur-3xl" />
@@ -235,8 +235,8 @@ export default function AboutPage() {
 
                 {/* ========== 중앙 3D 오브 (logo) ========== */}
                 <div
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64"
-                  style={{ transform: "translate(-50%, -50%) translateZ(40px)" }}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80"
+                  style={{ transform: "translate(-50%, -50%) translateZ(55px)" }}
                 >
                   {/* 외곽 큰 글로우 halo */}
                   <div className="absolute -inset-6 rounded-full opacity-90" style={{
@@ -300,7 +300,7 @@ export default function AboutPage() {
                     {/* LogoMark — drop-shadow로 글로우 */}
                     <LogoMark
                       variant="white"
-                      className="relative w-28 drop-shadow-[0_0_18px_rgba(147,197,253,0.95)]"
+                      className="relative w-36 drop-shadow-[0_0_24px_rgba(147,197,253,1)]"
                     />
                   </div>
 
