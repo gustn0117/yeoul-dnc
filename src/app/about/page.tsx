@@ -379,7 +379,7 @@ export default function AboutPage() {
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 sm:mb-5 leading-tight">
                 광고는 집행보다<br />
                 <span className="relative inline-block">
-                  <span className="relative z-10">구조가 중요</span>
+                  <span className="relative z-10 text-accent-blue">구조가 중요</span>
                   <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
                 </span>
                 합니다
@@ -392,7 +392,7 @@ export default function AboutPage() {
                 결과를 만드는 광고는 시작부터 다릅니다.
               </p>
 
-              {/* 3 mission cards — 아이콘 + 제목 + 부제 (0515 피드백 반영) */}
+              {/* 3 mission cards — 아이콘 제거 (피드백 반영) + 텍스트 사이즈 UP */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                 {[
                   {
@@ -400,53 +400,26 @@ export default function AboutPage() {
                     text: "전환까지 책임지는 운영",
                     sub: "기획부터 운영까지 전환율을 최우선으로 합니다.",
                     color: "from-blue-500 to-indigo-600",
-                    iconBg: "bg-blue-50",
-                    iconColor: "text-blue-600",
-                    icon: (
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <circle cx="12" cy="12" r="9" />
-                        <circle cx="12" cy="12" r="5" />
-                        <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-                      </svg>
-                    ),
                   },
                   {
                     label: "VISION",
                     text: "업종 맞춤 광고 파트너",
                     sub: "업종과 목표에 맞는 전략으로 최적의 광고 성과를 만듭니다.",
                     color: "from-violet-500 to-purple-600",
-                    iconBg: "bg-violet-50",
-                    iconColor: "text-violet-600",
-                    icon: (
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                    ),
                   },
                   {
                     label: "PROMISE",
                     text: "데이터로 증명되는 성과",
-                    sub: "데이터 기반의 분석과 최적화로 확실한 성과를 약속합니다.",
+                    sub: "데이터 기반 분석과 최적화로 확실한 성과를 약속합니다.",
                     color: "from-emerald-500 to-teal-600",
-                    iconBg: "bg-emerald-50",
-                    iconColor: "text-emerald-600",
-                    icon: (
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
-                      </svg>
-                    ),
                   },
                 ].map((m) => (
                   <div key={m.label} className="relative group">
                     <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-linear-to-br ${m.color} opacity-15 blur-[2px]`} />
-                    <div className="relative bg-white rounded-xl p-4 sm:p-4.5 border border-slate-100 shadow-md group-hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
-                      <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg ${m.iconBg} ${m.iconColor} flex items-center justify-center mb-2.5`}>
-                        {m.icon}
-                      </div>
-                      <span className={`text-[10px] sm:text-[11px] font-extrabold bg-linear-to-br ${m.color} bg-clip-text text-transparent tracking-widest mb-1`}>{m.label}</span>
-                      <p className="text-[13px] sm:text-[14px] text-deep-navy font-extrabold leading-tight mb-1.5">{m.text}</p>
-                      <p className="text-[11px] sm:text-[12px] text-slate-500 leading-relaxed">{m.sub}</p>
+                    <div className="relative bg-white rounded-xl p-5 sm:p-6 border border-slate-100 shadow-md group-hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
+                      <span className={`text-[11px] sm:text-[12px] font-extrabold bg-linear-to-br ${m.color} bg-clip-text text-transparent tracking-widest mb-2`}>{m.label}</span>
+                      <p className="text-[16px] sm:text-[17px] text-deep-navy font-extrabold leading-tight mb-2">{m.text}</p>
+                      <p className="text-[13px] sm:text-[14px] text-slate-500 leading-relaxed">{m.sub}</p>
                     </div>
                   </div>
                 ))}
@@ -473,7 +446,7 @@ export default function AboutPage() {
             <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-extrabold text-deep-navy mb-4 leading-tight">
               보여주기식 운영보다,<br />
               <span className="relative inline-block">
-                <span className="relative z-10">실제 반응이 남는 광고</span>
+                <span className="relative z-10 text-accent-blue">실제 반응이 남는 광고</span>
                 <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
               </span>
               를 지향합니다
@@ -545,7 +518,7 @@ export default function AboutPage() {
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
                 채널만 운영하는 것이 아니라,<br />
                 <span className="relative inline-block">
-                  <span className="relative z-10">업종에 맞는 구조</span>
+                  <span className="relative z-10 text-accent-blue">업종에 맞는 구조</span>
                   <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
                 </span>
                 까지<br className="sm:hidden" />
@@ -560,32 +533,17 @@ export default function AboutPage() {
                   {
                     num: "01",
                     text: "업종별 타겟 이해",
-                    sub: "고객의 니즈와 검색의도·데이터를 기반으로 정확한 타겟을 설정합니다.",
-                    Icon: () => (
-                      <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.5" fill="currentColor" />
-                      </svg>
-                    ),
+                    sub: "고객 니즈·검색의도·데이터 기반 정확한 타겟 설정",
                   },
                   {
                     num: "02",
                     text: "소재 제작과 운영 통합",
-                    sub: "전체 맞춤 소재 기획부터 제작, 운영까지 원스톱으로 진행합니다.",
-                    Icon: () => (
-                      <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                      </svg>
-                    ),
+                    sub: "맞춤 소재 기획·제작·운영까지 원스톱 진행",
                   },
                   {
                     num: "03",
-                    text: "문의 이후 재접촉까지 고려한 설계",
-                    sub: "문의 이후 고객 여정을 설계하고, 재방문과 신뢰성을 강화하여 관계화 합니다.",
-                    Icon: () => (
-                      <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-                      </svg>
-                    ),
+                    text: "문의 이후 재접촉까지 설계",
+                    sub: "고객 여정 설계·재방문·신뢰성 강화로 관계화",
                   },
                 ].map((item, i) => (
                   <div
@@ -594,18 +552,15 @@ export default function AboutPage() {
                     style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
                   >
                     <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-accent-blue/15" />
-                    <div className="relative flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl bg-white border border-slate-100 shadow-sm group-hover:shadow-lg group-hover:-translate-y-0.5 transition-all duration-300">
-                      <div className="w-10 h-10 rounded-xl bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center shrink-0">
-                        <item.Icon />
-                      </div>
-                      <div className="text-[12px] sm:text-[13px] font-extrabold text-accent-blue leading-none pt-1 shrink-0 px-2 py-2 rounded-md bg-accent-blue/5">
+                    <div className="relative flex items-center gap-3 sm:gap-4 p-5 sm:p-6 rounded-xl bg-white border border-slate-100 shadow-sm group-hover:shadow-lg group-hover:-translate-y-0.5 transition-all duration-300">
+                      <div className="text-[14px] sm:text-[15px] font-extrabold text-accent-blue leading-none shrink-0 px-3 py-2.5 rounded-lg bg-accent-blue/8">
                         {item.num}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-[14px] sm:text-[15px] text-deep-navy font-extrabold mb-1 leading-tight">{item.text}</p>
-                        <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed">{item.sub}</p>
+                        <p className="text-[16px] sm:text-[17px] text-deep-navy font-extrabold mb-1 leading-tight">{item.text}</p>
+                        <p className="text-[13px] sm:text-[14px] text-slate-500 leading-relaxed">{item.sub}</p>
                       </div>
-                      <svg className="w-4 h-4 text-accent-blue/40 group-hover:text-accent-blue group-hover:translate-x-1 transition-all shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <svg className="w-5 h-5 text-accent-blue/40 group-hover:text-accent-blue group-hover:translate-x-1 transition-all shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
@@ -752,28 +707,7 @@ export default function AboutPage() {
                 ))}
               </div>
 
-              {/* 단일 가로 stat 카드 (PDF 변경시안 매칭) */}
-              <div className="relative">
-                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/20 blur-sm" aria-hidden="true" />
-                <div className="relative bg-white rounded-2xl shadow-xl p-4 sm:p-5 grid grid-cols-3 gap-3 divide-x divide-slate-100">
-                  {[
-                    { value: "6+", label: "운영 플랫폼", sub: "주요 매체 운영 경험", Icon: () => <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87m-4-12a4 4 0 110 7.75M9 20H4v-2a4 4 0 014-4h.5a4 4 0 014 4v2zm0-12a4 4 0 11-8 0 4 4 0 018 0z" /></svg> },
-                    { value: "100+", label: "누적 캠페인", sub: "다양한 업종의 성공 경험", Icon: () => <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 11l18-5v12L3 14v-3z M11.6 16.8a3 3 0 11-5.8-1.6" /></svg> },
-                    { value: "4.8", label: "평균 ROAS", sub: "업종 평균 대비 높은 성과", Icon: () => <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.306a11.95 11.95 0 015.814-5.518l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941" /></svg> },
-                  ].map((s, i) => (
-                    <div key={i} className={`flex items-center gap-3 ${i === 0 ? "" : "pl-3"}`}>
-                      <div className="w-10 h-10 rounded-xl bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center shrink-0">
-                        <s.Icon />
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-lg sm:text-xl font-black text-deep-navy leading-none">{s.value}</p>
-                        <p className="text-[11px] sm:text-[12px] text-deep-navy font-bold mt-1">{s.label}</p>
-                        <p className="text-[9px] sm:text-[10px] text-slate-500 leading-tight">{s.sub}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              {/* KPI 박스 — 피드백 반영 삭제 */}
             </div>
 
             {/* Right: floating performance card */}
@@ -844,7 +778,7 @@ export default function AboutPage() {
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
               업종별 목적에 따라<br />
               <span className="relative inline-block">
-                <span className="relative z-10">필요한 채널과 운영 방식</span>
+                <span className="relative z-10 text-accent-blue">필요한 채널과 운영 방식</span>
                 <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
               </span>
               은 달라집니다
@@ -998,7 +932,7 @@ export default function AboutPage() {
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
               우리가 일하는 방식은<br className="sm:hidden" />
               {" "}<span className="relative inline-block">
-                <span className="relative z-10">3가지 원칙</span>
+                <span className="relative z-10 text-accent-blue">3가지 원칙</span>
                 <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
               </span>
               을 따릅니다

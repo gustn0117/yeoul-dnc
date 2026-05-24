@@ -246,7 +246,7 @@ export default function ServicesPage() {
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 sm:mb-5 leading-tight">
             메타, 구글, 네이버, 카카오, 당근, 유튜브까지<br />
             <span className="relative inline-block">
-              <span className="relative z-10">국내외 주요 광고 플랫폼</span>
+              <span className="relative z-10 text-accent-blue">국내외 주요 광고 플랫폼</span>
               <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
             </span>
             {" "}운영
@@ -418,30 +418,17 @@ export default function ServicesPage() {
                   <span className="text-[#03C75A]">네이버 마케팅</span>
                 </span>
               </h2>
-              <p className="text-[14px] sm:text-sm text-slate-500 leading-relaxed mb-6 sm:mb-7">
-                한국 사용자의 대부분이 사용하는 포털사이트로<br className="hidden sm:inline" />
-                {" "}<span className="font-semibold text-deep-navy">고객이 검색을 하는 순간</span>부터{" "}
-                <span className="font-semibold text-deep-navy">고객과 브랜드의 접점</span>을 확보할 수 있습니다.
-                또한, 네이버는 광고 배너부터 검색어, 체험단까지 통합적인 마케팅이 가능하여 고객에게 다방면으로 자연스럽게 노출이 됩니다.
+              <p className="text-[15px] sm:text-[16px] text-slate-500 leading-relaxed mb-7">
+                고객이 <span className="font-bold text-deep-navy">검색하는 순간부터</span> 브랜드와의 접점을 확보합니다.
+                구매 전 리서치 단계와 지역 중심 마케팅에 강합니다.
               </p>
-              <div className="space-y-3 mb-6">
-                {[
-                  "정보를 찾으러 오는 고객을 대상으로 구매 전 리서치 단계 공략에 유리",
-                  "제품, 서비스뿐 아니라 지역 중심 마케팅도 용이",
-                ].map((text) => (
-                  <div key={text} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-[#03C75A]/15 flex items-center justify-center shrink-0 mt-0.5">
-                      <IconCheck className="w-3 h-3 text-[#03C75A]" />
-                    </div>
-                    <p className="text-[14px] sm:text-sm text-slate-700 leading-relaxed">{text}</p>
-                  </div>
-                ))}
+              <div className="flex flex-wrap gap-2 mb-7">
+                <span className="px-4 py-2 bg-[#03C75A]/8 text-[#03C75A] text-[14px] sm:text-[15px] font-extrabold rounded-full border border-[#03C75A]/20">파워링크</span>
+                <span className="px-4 py-2 bg-[#03C75A]/8 text-[#03C75A] text-[14px] sm:text-[15px] font-extrabold rounded-full border border-[#03C75A]/20">브랜드검색</span>
+                <span className="px-4 py-2 bg-[#03C75A]/8 text-[#03C75A] text-[14px] sm:text-[15px] font-extrabold rounded-full border border-[#03C75A]/20">성과형 디스플레이</span>
               </div>
-              <div className="flex flex-wrap gap-1.5 mb-6">
-                <Tag>파워링크</Tag><Tag>브랜드검색</Tag><Tag>성과형 디스플레이</Tag>
-              </div>
-              <Link href="/contact" className="group inline-flex items-center gap-2 text-sm text-[#03C75A] font-bold hover:gap-3 transition-all">
-                네이버 광고 상담받기 <IconArrowRight className="w-3.5 h-3.5" />
+              <Link href="/contact" className="group inline-flex items-center gap-2 text-base text-[#03C75A] font-bold hover:gap-3 transition-all">
+                네이버 광고 상담받기 <IconArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
@@ -577,61 +564,13 @@ export default function ServicesPage() {
                   <span className="bg-linear-to-r from-[#833AB4] via-[#E1306C] to-[#F77737] bg-clip-text text-transparent">메타 마케팅</span>
                 </span>
               </h2>
-              <p className="text-[14px] sm:text-sm text-slate-500 leading-relaxed mb-7">
-                <span className="font-semibold text-deep-navy">Meta(인스타그램 · 페이스북) 플랫폼</span>에 노출되는 맞춤형 광고로,<br className="hidden sm:inline" />
-                {" "}타겟의 관심사와 행동 데이터를 기반으로{" "}
-                <span className="font-semibold text-deep-navy">높은 전환을 유도하는 성과 중심</span> 광고입니다.
-                브랜드 인지도부터 구매 전환까지 다양한 마케팅 목적 달성이 가능합니다.
+              <p className="text-[15px] sm:text-[16px] text-slate-500 leading-relaxed mb-7">
+                <span className="font-bold text-deep-navy">관심사·행동·위치 기반 정밀 타겟팅</span>으로
+                인스타그램·페이스북에서 높은 전환을 유도합니다.
               </p>
 
-              {/* 3 feature cards (reference style) */}
-              <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
-                {[
-                  {
-                    title: "관심사, 행동, 위치 기반",
-                    main: "정밀 타겟팅 가능",
-                    color: "from-pink-500 to-rose-500",
-                    icon: (
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <circle cx="12" cy="12" r="9" strokeLinecap="round" strokeLinejoin="round" />
-                        <circle cx="12" cy="12" r="5" strokeLinecap="round" strokeLinejoin="round" />
-                        <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-                      </svg>
-                    ),
-                  },
-                  {
-                    title: "최대 규모의 SNS",
-                    main: "인스타그램, 페이스북에서 브랜드 노출",
-                    color: "from-blue-500 to-indigo-600",
-                    icon: (
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6 0a4 4 0 100-8 4 4 0 000 8zm6-4a3 3 0 100-6 3 3 0 000 6zM5 12a3 3 0 100-6 3 3 0 000 6z" />
-                      </svg>
-                    ),
-                  },
-                  {
-                    title: "구매 개연성이 높은 고객에게",
-                    main: "전달되어 높은 전환율",
-                    color: "from-emerald-500 to-teal-500",
-                    icon: (
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    ),
-                  },
-                ].map((f, i) => (
-                  <div key={i} className="bg-white rounded-xl p-3 sm:p-4 border border-slate-100 text-center shadow-sm shadow-slate-200">
-                    <div className={`w-9 h-9 sm:w-10 sm:h-10 mx-auto rounded-lg bg-linear-to-br ${f.color} flex items-center justify-center mb-2.5 shadow-md`}>
-                      {f.icon}
-                    </div>
-                    <p className="text-[11px] sm:text-[12px] text-slate-400 mb-0.5 leading-tight">{f.title}</p>
-                    <p className="text-[12px] sm:text-xs text-deep-navy font-bold leading-snug">{f.main}</p>
-                  </div>
-                ))}
-              </div>
-
-              <Link href="/contact" className="group inline-flex items-center gap-2 text-sm text-blue-600 font-bold hover:gap-3 transition-all mt-6">
-                메타 광고 상담받기 <IconArrowRight className="w-3.5 h-3.5" />
+              <Link href="/contact" className="group inline-flex items-center gap-2 text-base text-blue-600 font-bold hover:gap-3 transition-all">
+                메타 광고 상담받기 <IconArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
@@ -825,40 +764,45 @@ export default function ServicesPage() {
               </p>
               <p className="text-sm text-slate-500 mb-2">빠른 커뮤니케이션이 중요한 업종에</p>
               <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-extrabold leading-tight text-deep-navy mb-5">
-                카카오톡 채널 기반<br />
-                <span className="inline-flex items-center gap-2 mt-1">
-                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[#FEE500]">
+                <span className="inline-flex items-center gap-2 mb-2">
+                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#FEE500]">
                     <svg className="w-5 h-5 text-[#3C1E1E]" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 3C6.48 3 2 6.58 2 10.9c0 2.78 1.8 5.22 4.51 6.6-.2.73-.72 2.65-.82 3.06-.13.52.19.51.4.37.17-.11 2.69-1.83 3.78-2.57.69.1 1.4.15 2.13.15 5.52 0 10-3.58 10-7.9S17.52 3 12 3z" />
                     </svg>
                   </span>
-                  <span className="text-[#FBB034]">상담 유입</span>과{" "}
-                  <span className="text-[#FBB034]">재접촉</span>
+                  <span className="text-[#FBB034]">카카오 마케팅</span>
                 </span>
+                <br />
+                카카오톡 채널 기반<br />
+                상담 유입과 재접촉
               </h2>
-              <p className="text-[14px] sm:text-sm text-slate-500 leading-relaxed mb-6">
-                <span className="font-semibold text-deep-navy">카카오톡 채널을 활용</span>해 상담 유입부터 기존 고객 재접촉까지 운영합니다.
-                키워드 광고와 채널 메시지를 결합해 빠른 전환을 유도합니다.
-              </p>
-              <div className="space-y-3 mb-6">
-                {[
-                  "상담 유입이 중요한 업종에 최적화",
-                  "기존 고객 재접촉 및 후속 메시지 발송",
-                  "카카오톡 채널 연동으로 빠른 커뮤니케이션",
-                ].map((text) => (
-                  <div key={text} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center shrink-0 mt-0.5">
-                      <IconCheck className="w-3 h-3 text-amber-600" />
-                    </div>
-                    <p className="text-[14px] sm:text-sm text-slate-700 leading-relaxed">{text}</p>
+              <div className="space-y-3 mb-7">
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
+                    <IconCheck className="w-4 h-4 text-amber-600" />
                   </div>
-                ))}
+                  <p className="text-[15px] sm:text-[16px] text-slate-700 font-bold leading-relaxed">상담 유입이 중요한 업종에 최적화</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
+                    <IconCheck className="w-4 h-4 text-amber-600" />
+                  </div>
+                  <p className="text-[15px] sm:text-[16px] text-slate-700 font-bold leading-relaxed">기존 고객 재접촉·후속 메시지 발송</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
+                    <IconCheck className="w-4 h-4 text-amber-600" />
+                  </div>
+                  <p className="text-[15px] sm:text-[16px] text-slate-700 font-bold leading-relaxed">카카오톡 채널 연동으로 빠른 커뮤니케이션</p>
+                </div>
               </div>
-              <div className="flex flex-wrap gap-1.5 mb-6">
-                <Tag>키워드 광고</Tag><Tag>디스플레이 광고</Tag><Tag>카카오톡 채널 메시지</Tag><Tag>비즈메시지</Tag>
+              <div className="flex flex-wrap gap-2 mb-7">
+                <span className="px-4 py-2 bg-amber-50 text-amber-700 text-[14px] sm:text-[15px] font-extrabold rounded-full border border-amber-200">키워드 광고</span>
+                <span className="px-4 py-2 bg-amber-50 text-amber-700 text-[14px] sm:text-[15px] font-extrabold rounded-full border border-amber-200">카카오톡 채널 메시지</span>
+                <span className="px-4 py-2 bg-amber-50 text-amber-700 text-[14px] sm:text-[15px] font-extrabold rounded-full border border-amber-200">비즈메시지</span>
               </div>
-              <Link href="/contact" className="group inline-flex items-center gap-2 text-sm text-amber-600 font-bold hover:gap-3 transition-all">
-                카카오 광고 상담받기 <IconArrowRight className="w-3.5 h-3.5" />
+              <Link href="/contact" className="group inline-flex items-center gap-2 text-base text-amber-600 font-bold hover:gap-3 transition-all">
+                카카오 광고 상담받기 <IconArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -1286,7 +1230,7 @@ export default function ServicesPage() {
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
               그 외 운영 가능한<br className="sm:hidden" />
               {" "}<span className="relative inline-block">
-                <span className="relative z-10">광고 채널</span>
+                <span className="relative z-10 text-accent-blue">광고 채널</span>
                 <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
               </span>
             </h2>
@@ -1455,14 +1399,14 @@ export default function ServicesPage() {
             {/* 업종별 */}
             <div className="mb-12 lg:mb-0">
               <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">INDUSTRY</p>
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-deep-navy mb-6 leading-tight">
-                같은 광고라도, 업종이 다르면<br />
-                <span className="relative inline-block">
-                  <span className="relative z-10">설계가 달라집니다</span>
-                  <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
-                </span>
+              <h2 className="text-2xl sm:text-3xl lg:text-[2rem] font-extrabold text-deep-navy mb-3 leading-tight">
+                같은 광고라도,<br />
+                업종이 다르면 <span className="text-accent-blue">설계가 달라집니다</span>
               </h2>
-              <div className="space-y-3">
+              <p className="text-[14px] sm:text-[15px] text-slate-500 mb-6 leading-relaxed">
+                업종별 맞춤 설계로 더 효과적인 광고를 만듭니다.
+              </p>
+              <div className="rounded-2xl border border-slate-100 shadow-md overflow-hidden bg-white">
                 {[
                   {
                     industry: "분양",
@@ -1505,20 +1449,16 @@ export default function ServicesPage() {
                     iconColor: "text-violet-600",
                   },
                 ].map((item, i) => (
-                  <div
+                  <a
                     key={item.industry}
-                    className="group relative"
+                    href="/cases"
+                    className="group relative block border-b border-slate-100 last:border-b-0"
                     style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.08}s backwards` }}
                   >
-                    <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/10" />
-                    <div className="relative flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-100 shadow-md group-hover:-translate-y-0.5 transition-transform duration-300 min-h-[88px]">
-                      {/* Number — 충분한 폭 */}
-                      <div className="w-9 sm:w-10 shrink-0 text-2xl sm:text-[28px] font-black text-accent-blue leading-none tracking-tight">
-                        {String(i + 1).padStart(2, "0")}
-                      </div>
-                      {/* Industry icon — 컬러 박스 */}
-                      <div className={`w-12 h-12 rounded-xl ${item.iconBg} ${item.iconColor} flex items-center justify-center shrink-0`}>
-                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
+                    <div className="relative flex items-center gap-4 sm:gap-5 p-5 sm:p-6 bg-white hover:bg-slate-50/60 transition-colors">
+                      {/* Industry icon — 큰 원형 (21p 예시 매칭) */}
+                      <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full ${item.iconBg} ${item.iconColor} flex items-center justify-center shrink-0`}>
+                        <svg className="w-7 h-7 sm:w-8 sm:h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
                           {item.iconType === "building" && <path strokeLinecap="round" strokeLinejoin="round" d="M3 21h18M3 21V7l9-4 9 4v14M9 21v-6h6v6M9 9h.01M15 9h.01M9 13h.01M15 13h.01" />}
                           {item.iconType === "hospital" && <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5V18a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18V7.5m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v1.5M21 7.5H3m9 4.5v6m-3-3h6" />}
                           {item.iconType === "edu" && <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />}
@@ -1526,23 +1466,21 @@ export default function ServicesPage() {
                           {item.iconType === "consult" && <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M9.879 16.121A3 3 0 1012.015 11L11.288 9.273M16 11.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />}
                         </svg>
                       </div>
-                      {/* 업종명 + bullets */}
-                      <div className="flex-[1.1] min-w-0">
-                        <p className="text-[15px] sm:text-base font-extrabold text-deep-navy mb-1">{item.industry}</p>
-                        {item.bullets.map((b) => (
-                          <p key={b} className="text-[11px] sm:text-[12px] text-slate-500 leading-tight">· {b}</p>
-                        ))}
+                      {/* 번호 + 업종명 + 한 줄 설명 (위/아래) */}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-baseline gap-3 mb-1">
+                          <span className="text-xl sm:text-2xl font-black text-accent-blue leading-none">{String(i + 1).padStart(2, "0")}</span>
+                          <p className="text-[18px] sm:text-[20px] font-extrabold text-deep-navy leading-tight">{item.industry}</p>
+                        </div>
+                        <p className="text-[14px] sm:text-[15px] text-slate-500 leading-snug">{item.bullets.join(" · ")}</p>
+                        <p className="text-[13px] sm:text-[14px] text-slate-400 leading-snug mt-0.5">{item.result}</p>
                       </div>
-                      {/* "또는" pill */}
-                      <div className="shrink-0">
-                        <span className="text-[10px] sm:text-[11px] font-bold text-accent-blue bg-accent-blue/10 border border-accent-blue/20 rounded-full px-2.5 py-1">또는</span>
-                      </div>
-                      {/* result */}
-                      <div className="flex-[1.4] min-w-0">
-                        <p className="text-[11px] sm:text-[12px] text-slate-600 leading-relaxed">{item.result}</p>
-                      </div>
+                      {/* 화살표 */}
+                      <svg className="w-5 h-5 text-slate-300 group-hover:text-accent-blue group-hover:translate-x-1 transition-all shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
 
@@ -1564,96 +1502,60 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            {/* 운영방식 */}
+            {/* 운영방식 (23p 예시 매칭 — 숫자만, 아이콘 X, 사이즈 UP) */}
             <div>
-              <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-3">PROCESS</p>
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-deep-navy mb-6 leading-tight">
-                분석부터 제작, 운영,<br className="sm:hidden" />
-                {" "}<span className="relative inline-block">
-                  <span className="relative z-10">보완까지 한 번에</span>
-                  <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
-                </span>
+              <p className="text-xs font-extrabold tracking-[0.3em] text-accent-blue mb-4">PROCESS</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-[2rem] font-extrabold text-deep-navy mb-8 leading-tight">
+                분석부터 제작,<br />
+                운영, 보완까지 한 번에
               </h2>
 
-              {/* 노트북 이미지 + LIVE 배지 (사진 매칭) */}
-              <div className="relative mb-6 group">
-                <div className="absolute inset-0 translate-x-2 translate-y-3 rounded-2xl bg-linear-to-br from-accent-blue to-blue-600 opacity-20 blur-[3px]" />
+              {/* 노트북 이미지 (LIVE 칩 제거) */}
+              <div className="relative mb-8 group">
+                <div className="absolute inset-0 translate-x-2 translate-y-3 rounded-2xl bg-linear-to-br from-accent-blue to-blue-600 opacity-15 blur-[3px]" />
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <Image src="/images/stock/monitor-data.jpg" alt="데이터 모니터링" width={800} height={500} className="w-full h-auto" />
-                  {/* LIVE 최적화 중 floating badge */}
-                  <div className="absolute top-3 right-3 bg-white rounded-xl px-3 py-2 shadow-xl">
-                    <p className="text-[10px] flex items-center gap-1 text-deep-navy font-bold">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> LIVE
-                    </p>
-                    <p className="text-[11px] flex items-center gap-1 text-accent-blue font-extrabold mt-0.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-accent-blue animate-pulse-soft" /> 최적화 중
-                    </p>
-                  </div>
                 </div>
               </div>
 
-              {/* 5-step 리스트 (사진 매칭: 파랑 번호 박스 + 아이콘 + 제목 + 설명) — 여유 있는 간격 */}
-              <div className="space-y-5 sm:space-y-6">
+              {/* 5-step 리스트 — 파랑 번호 박스 + 제목 + 설명만 (아이콘 X, 구분선) */}
+              <div className="divide-y divide-slate-100 border-y border-slate-100">
                 {[
-                  {
-                    step: "전략 수립",
-                    desc: "시장/경쟁사/타겟 분석을 통한 광고 전략 기획",
-                    icon: <svg className="w-6 h-6 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.5" fill="currentColor" /></svg>,
-                  },
-                  {
-                    step: "소재 제작",
-                    desc: "타겟에 최적화된 광고 소재 기획 및 제작",
-                    icon: <svg className="w-6 h-6 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" /></svg>,
-                  },
-                  {
-                    step: "채널 세팅",
-                    desc: "광고 채널 설정 및 캠페인 구조 세팅",
-                    icon: <svg className="w-6 h-6 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.125A59.769 59.769 0 0121.485 12 59.768 59.768 0 013.27 20.875L5.999 12zm0 0h7.5" /></svg>,
-                  },
-                  {
-                    step: "운영 및 최적화",
-                    desc: "데이터 기반 운영으로 성과 지속 개선",
-                    icon: <svg className="w-6 h-6 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.306a11.95 11.95 0 015.814-5.518l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941" /></svg>,
-                  },
-                  {
-                    step: "결과 체크",
-                    desc: "성과 리포트 제공 및 다음 전략 제안",
-                    icon: <svg className="w-6 h-6 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
-                  },
+                  { step: "전략 수립", desc: "시장 · 경쟁사 · 타겟 분석을 통한 광고 전략 기획" },
+                  { step: "소재 제작", desc: "타겟에 최적화된 광고 소재 기획 및 제작" },
+                  { step: "채널 세팅", desc: "광고 채널 설정 및 캠페인 구조 세팅" },
+                  { step: "운영 및 최적화", desc: "데이터 기반 운영으로 성과 지속 개선" },
+                  { step: "결과 보고", desc: "성과 리포트 제공 및 다음 전략 제안" },
                 ].map((s, i) => (
-                  <div key={s.step} className="flex items-center gap-4 sm:gap-5">
-                    {/* 파랑 번호 박스 — 키움 */}
-                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent-blue flex items-center justify-center shrink-0 shadow-md">
-                      <span className="text-white text-base sm:text-lg font-black">{i + 1}</span>
+                  <div key={s.step} className="flex items-center gap-4 sm:gap-5 py-5 sm:py-6">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-accent-blue flex items-center justify-center shrink-0 shadow-md">
+                      <span className="text-white text-lg sm:text-xl font-black">{i + 1}</span>
                     </div>
-                    {/* 컬러 아이콘 원형 — 키움 */}
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
-                      {s.icon}
-                    </div>
-                    {/* 텍스트 — 줄 간격 키움 */}
                     <div className="flex-1 min-w-0">
-                      <p className="text-base sm:text-lg font-extrabold text-deep-navy leading-tight mb-1">{s.step}</p>
-                      <p className="text-[13px] sm:text-[14px] text-slate-500 leading-relaxed">{s.desc}</p>
+                      <p className="text-[17px] sm:text-[19px] font-extrabold text-deep-navy leading-tight mb-1">{s.step}</p>
+                      <p className="text-[14px] sm:text-[15px] text-slate-500 leading-relaxed">{s.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* 데이터 기반 성과 관리 카드 — 상단 여백 확보 */}
-              <div className="mt-10 sm:mt-12 relative">
-                <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-2xl bg-accent-blue/15" />
-                <div className="relative flex items-start gap-3 p-4 sm:p-5 rounded-2xl bg-white border border-slate-100 shadow-md">
-                  <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
-                    <svg className="w-6 h-6 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-[15px] sm:text-base font-extrabold text-deep-navy">데이터 기반 성과 관리</p>
-                    <p className="text-[12px] sm:text-[13px] text-slate-500 mt-1 leading-relaxed">실시간 데이터 분석과 지속적인 최적화로 광고 효율을 극대화합니다.</p>
-                  </div>
+              {/* CTA 칩 (23p 예시 매칭) */}
+              <a href="/contact" className="mt-8 sm:mt-10 relative flex items-center gap-4 p-5 sm:p-6 rounded-2xl bg-white border border-slate-100 shadow-md group hover:-translate-y-0.5 transition-transform">
+                <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
+                  <svg className="w-6 h-6 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                  </svg>
                 </div>
-              </div>
+                <div className="flex-1">
+                  <p className="text-[15px] sm:text-base font-extrabold text-deep-navy">광고 운영이 고민되시나요?</p>
+                  <p className="text-[14px] sm:text-[15px] text-accent-blue font-extrabold mt-0.5">지금 바로 문의해 주세요.</p>
+                </div>
+                <div className="w-11 h-11 rounded-full bg-accent-blue flex items-center justify-center shrink-0 group-hover:translate-x-0.5 transition-transform">
+                  <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -1676,7 +1578,7 @@ export default function ServicesPage() {
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
               우리 업종에는<br className="sm:hidden" />
               {" "}<span className="relative inline-block">
-                <span className="relative z-10">어떤 채널이 맞을까요</span>
+                <span className="relative z-10 text-accent-blue">어떤 채널이 맞을까요</span>
                 <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
               </span>
               ?

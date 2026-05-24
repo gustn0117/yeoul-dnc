@@ -83,7 +83,7 @@ export default function FAQSection() {
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
             문의 전에 많이 물어보신{" "}
             <span className="relative inline-block">
-              <span className="relative z-10">자주 묻는 질문</span>
+              <span className="relative z-10 text-accent-blue">자주 묻는 질문</span>
               <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
             </span>
           </h2>

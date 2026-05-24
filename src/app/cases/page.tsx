@@ -134,32 +134,29 @@ export default function CasesPage() {
                 {[
                   {
                     value: "5+", label: "주요 업종", sub: "다양한 업종 경험",
-                    icon: <svg className="w-4 h-4 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87m-4-12a4 4 0 110 7.75M9 20H4v-2a4 4 0 014-4h.5a4 4 0 014 4v2zm0-12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>,
+                    icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87m-4-12a4 4 0 110 7.75M9 20H4v-2a4 4 0 014-4h.5a4 4 0 014 4v2zm0-12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>,
                   },
                   {
                     value: "100+", label: "누적 캠페인", sub: "성과 기반 운영",
-                    icon: <svg className="w-4 h-4 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.306a11.95 11.95 0 015.814-5.518l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941" /></svg>,
+                    icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.306a11.95 11.95 0 015.814-5.518l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941" /></svg>,
                   },
                   {
                     value: "6개", label: "운영 채널", sub: "통합 마케팅 운영",
-                    icon: <svg className="w-4 h-4 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" /></svg>,
+                    icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" /></svg>,
                   },
                   {
                     value: "성과 중심", label: "퍼포먼스 마케팅", sub: "데이터 기반 최적화",
-                    icon: <svg className="w-4 h-4 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" /></svg>,
+                    icon: <svg className="w-5 h-5 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" /></svg>,
                   },
                 ].map((s, i) => (
-                  <div key={i} className="relative">
+                  <div key={i} className="relative h-full">
                     <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
-                    <div className="relative bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-3">
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <div className="w-7 h-7 rounded-lg bg-accent-blue/20 border border-accent-blue/30 flex items-center justify-center shrink-0">
-                          {s.icon}
-                        </div>
-                        <p className="text-base sm:text-lg font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent leading-none">{s.value}</p>
+                    <div className="relative h-full bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-4 sm:p-5 flex flex-col gap-2">
+                      <div className="w-10 h-10 rounded-lg bg-accent-blue/20 border border-accent-blue/30 flex items-center justify-center">
+                        {s.icon}
                       </div>
-                      <p className="text-[11px] sm:text-[12px] text-white font-bold">{s.label}</p>
-                      <p className="text-[10px] text-slate-400 mt-0.5">{s.sub}</p>
+                      <p className="text-xl sm:text-2xl font-extrabold bg-linear-to-br from-white to-accent-blue bg-clip-text text-transparent leading-none">{s.value}</p>
+                      <p className="text-[14px] sm:text-[15px] text-white font-bold leading-tight">{s.label}</p>
                     </div>
                   </div>
                 ))}
@@ -201,14 +198,12 @@ export default function CasesPage() {
             ].map((f, idx) => (
               <div key={idx} className="relative h-full">
                 <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
-                <div className="relative h-full bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-3 sm:p-4 flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-accent-blue/15 border border-accent-blue/30 flex items-center justify-center shrink-0">
+                <div className="relative h-full bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-4 sm:p-5 flex flex-col gap-2">
+                  <div className="w-10 h-10 rounded-lg bg-accent-blue/15 border border-accent-blue/30 flex items-center justify-center">
                     {f.icon}
                   </div>
-                  <div className="min-w-0">
-                    <p className="text-[13px] sm:text-[14px] font-extrabold text-white mb-0.5 leading-tight">{f.title}</p>
-                    <p className="text-[11px] text-slate-400 leading-snug">{f.desc}</p>
-                  </div>
+                  <p className="text-[16px] sm:text-[17px] font-extrabold text-white leading-tight">{f.title}</p>
+                  <p className="text-[13px] sm:text-[14px] text-slate-400 leading-snug">{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -224,7 +219,7 @@ export default function CasesPage() {
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-3 leading-tight">
               다양한 업종의 광고 운영과 제작 경험을 바탕으로<br className="hidden sm:inline" />
               {" "}<span className="relative inline-block">
-                <span className="relative z-10">방향을 제안</span>
+                <span className="relative z-10 text-accent-blue">방향을 제안</span>
                 <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
               </span>
               합니다
@@ -289,7 +284,7 @@ export default function CasesPage() {
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
               업종에 맞는<br className="sm:hidden" />
               {" "}<span className="relative inline-block">
-                <span className="relative z-10">채널 조합과 운영 흐름</span>
+                <span className="relative z-10 text-accent-blue">채널 조합과 운영 흐름</span>
                 <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
               </span>
             </h2>
@@ -308,51 +303,46 @@ export default function CasesPage() {
                   {/* Image side */}
                   <div className={`relative aspect-video lg:aspect-auto lg:min-h-72 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
                     <Image src={op.img} alt={op.industry} fill className="object-cover" />
-                    <div className="absolute inset-0 bg-linear-to-br from-deep-navy/30 via-transparent to-transparent" />
-                    {/* Big number watermark */}
-                    <div className="absolute top-3 right-4 text-6xl sm:text-7xl font-black text-white/30 leading-none">
-                      {op.no}
+                    <div className="absolute inset-0 bg-linear-to-br from-deep-navy/40 via-deep-navy/10 to-transparent" />
+                    {/* 번호 + 업종 라벨 (좌상단 칩) */}
+                    <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm shadow-md">
+                      <span className="text-[14px] font-extrabold text-accent-blue tracking-tight">{op.no}</span>
+                      <span className="w-1 h-1 rounded-full bg-slate-300" />
+                      <span className="text-[12px] font-extrabold text-deep-navy">{op.industry}</span>
                     </div>
                   </div>
 
                   {/* Content side */}
                   <div className={`relative p-6 sm:p-8 lg:p-10 flex flex-col ${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                    {/* Industry badge + logos */}
-                    <div className="flex items-center gap-2 mb-4 flex-wrap">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20">
-                        <span className="w-1 h-1 rounded-full bg-accent-blue" />
-                        <span className="text-[11px] font-extrabold text-accent-blue tracking-wider uppercase">{op.industry}</span>
-                      </span>
-                      <div className="flex items-center gap-1.5 bg-slate-50 rounded-full px-2 py-1 border border-slate-100">
-                        {op.logos.map((logo) => (
-                          <img key={logo} src={`/images/logos/${logo}.svg`} alt={logo} className="h-3.5 sm:h-4 w-auto" />
-                        ))}
-                      </div>
-                    </div>
+                    <h3 className="text-xl sm:text-2xl lg:text-[1.625rem] font-extrabold text-deep-navy mb-3 leading-tight">{op.title}</h3>
 
-                    <h3 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-deep-navy mb-2 sm:mb-3 leading-tight">{op.title}</h3>
-                    <p className="text-[14px] sm:text-sm text-slate-500 mb-5 sm:mb-6 leading-relaxed">{op.desc}</p>
+                    {/* logos chip */}
+                    <div className="flex items-center gap-1.5 bg-slate-50 rounded-full px-3 py-1.5 border border-slate-100 mb-5 self-start">
+                      {op.logos.map((logo) => (
+                        <img key={logo} src={`/images/logos/${logo}.svg`} alt={logo} className="h-4 sm:h-5 w-auto" />
+                      ))}
+                    </div>
 
                     {/* KPI badges */}
                     <div className="mt-auto grid grid-cols-2 gap-3">
                       <div className="relative">
                         <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/15" />
-                        <div className="relative bg-white rounded-xl p-3 border border-slate-100 shadow-sm">
-                          <div className="flex items-center gap-1.5 mb-1">
+                        <div className="relative bg-white rounded-xl p-4 border border-slate-100 shadow-sm">
+                          <div className="flex items-center gap-1.5 mb-1.5">
                             <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
                             <p className="text-[11px] text-slate-400 font-bold tracking-wider uppercase">핵심</p>
                           </div>
-                          <p className="text-[12px] sm:text-xs text-deep-navy font-extrabold leading-tight">{op.point}</p>
+                          <p className="text-[14px] sm:text-[15px] text-deep-navy font-extrabold leading-tight">{op.point}</p>
                         </div>
                       </div>
                       <div className="relative">
                         <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/15" />
-                        <div className="relative bg-white rounded-xl p-3 border border-slate-100 shadow-sm">
-                          <div className="flex items-center gap-1.5 mb-1">
+                        <div className="relative bg-white rounded-xl p-4 border border-slate-100 shadow-sm">
+                          <div className="flex items-center gap-1.5 mb-1.5">
                             <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
                             <p className="text-[11px] text-slate-400 font-bold tracking-wider uppercase">목표</p>
                           </div>
-                          <p className="text-[12px] sm:text-xs text-deep-navy font-extrabold leading-tight">{op.target}</p>
+                          <p className="text-[14px] sm:text-[15px] text-deep-navy font-extrabold leading-tight">{op.target}</p>
                         </div>
                       </div>
                     </div>
@@ -377,7 +367,7 @@ export default function CasesPage() {
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
               광고는 결과도 중요하지만,<br />
               시작은 <span className="relative inline-block">
-                <span className="relative z-10">퀄리티 있는 작업물</span>
+                <span className="relative z-10 text-accent-blue">퀄리티 있는 작업물</span>
                 <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
               </span>
               에서 달라집니다
@@ -411,16 +401,16 @@ export default function CasesPage() {
                     </div>
                   </div>
 
-                  <div className="p-4 sm:p-5 flex-1 flex flex-col">
-                    <p className="text-sm sm:text-base font-extrabold text-deep-navy leading-tight">{w.title}</p>
-                    <p className="text-[12px] sm:text-xs text-slate-500 mt-1.5 sm:mt-2 leading-relaxed flex-1">{w.desc}</p>
+                  <div className="p-5 sm:p-6 flex-1 flex flex-col">
+                    <p className="text-[17px] sm:text-[19px] font-extrabold text-deep-navy leading-tight">{w.title}</p>
+                    <p className="text-[14px] sm:text-[15px] text-slate-500 mt-2 sm:mt-3 leading-relaxed flex-1">{w.desc}</p>
 
-                    <div className="mt-3 pt-3 border-t border-slate-100">
-                      <p className="text-[10px] text-slate-400 font-bold tracking-widest uppercase mb-1">핵심 포인트</p>
-                      <p className="text-[12px] sm:text-xs text-accent-blue font-bold">{w.point}</p>
+                    <div className="mt-4 pt-4 border-t border-slate-100">
+                      <p className="text-[11px] text-slate-400 font-bold tracking-widest uppercase mb-1.5">핵심 포인트</p>
+                      <p className="text-[14px] sm:text-[15px] text-accent-blue font-bold">{w.point}</p>
                     </div>
-                    <div className="mt-3 flex items-center justify-between">
-                      <span className="text-[10px] font-extrabold text-accent-blue tracking-widest">
+                    <div className="mt-4 flex items-center justify-between">
+                      <span className="text-[12px] font-extrabold text-accent-blue tracking-widest">
                         WORK {String(i + 1).padStart(2, "0")}
                       </span>
                       <div className="w-6 h-6 rounded-full bg-slate-50 group-hover:bg-accent-blue flex items-center justify-center transition-colors">

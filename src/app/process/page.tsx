@@ -252,14 +252,9 @@ export default function ProcessPage() {
                     </div>
                   </div>
 
-                  {/* 카드 */}
+                  {/* 카드 — 워터마크 제거, 텍스트 사이즈 UP */}
                   <div className="relative bg-white rounded-2xl border border-slate-100 shadow-md group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden">
-                    {/* 큰 숫자 워터마크 (우측, 이미지 뒤) */}
-                    <div className="absolute top-3 right-3 sm:top-5 sm:right-8 text-[5rem] sm:text-[6.5rem] font-black text-slate-100 leading-none select-none pointer-events-none">
-                      {s.step}
-                    </div>
-
-                    <div className="relative grid grid-cols-1 sm:grid-cols-[auto_1fr_auto] gap-4 sm:gap-5 items-center p-4 sm:p-5 lg:p-6">
+                    <div className="relative grid grid-cols-1 sm:grid-cols-[auto_1fr_auto] gap-5 sm:gap-6 items-center p-5 sm:p-6 lg:p-7">
                       {/* 좌측 아이콘 원형 */}
                       <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
                         <s.Icon className="w-7 h-7 sm:w-8 sm:h-8 text-accent-blue" />
@@ -267,16 +262,15 @@ export default function ProcessPage() {
 
                       {/* 중앙 텍스트 */}
                       <div className="min-w-0">
-                        <p className="text-[10px] sm:text-[11px] font-extrabold text-accent-blue tracking-widest uppercase mb-1">STEP {s.step}</p>
-                        <h3 className="text-lg sm:text-xl font-extrabold text-deep-navy mb-2 leading-tight">{s.title}</h3>
-                        <p className="text-[12px] sm:text-[13px] text-slate-600 leading-relaxed mb-2">{s.main}</p>
-                        <p className="text-[11px] sm:text-[12px] text-slate-400 leading-relaxed mb-3">{s.detail}</p>
+                        <p className="text-[11px] sm:text-[12px] font-extrabold text-accent-blue tracking-widest uppercase mb-1.5">STEP {s.step}</p>
+                        <h3 className="text-xl sm:text-2xl font-extrabold text-deep-navy mb-2.5 leading-tight">{s.title}</h3>
+                        <p className="text-[15px] sm:text-[16px] text-slate-700 font-bold leading-relaxed mb-3">{s.main}</p>
                         {/* 태그 */}
-                        <div className="flex flex-wrap gap-1.5">
+                        <div className="flex flex-wrap gap-2">
                           {s.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="px-2.5 py-1 bg-accent-blue/8 text-accent-blue text-[10px] sm:text-[11px] rounded-full font-bold"
+                              className="px-3 py-1.5 bg-accent-blue/8 text-accent-blue text-[12px] sm:text-[13px] rounded-full font-bold"
                             >
                               {tag}
                             </span>
@@ -284,7 +278,7 @@ export default function ProcessPage() {
                         </div>
                       </div>
 
-                      {/* 우측 이미지 + 아이콘 배지 */}
+                      {/* 우측 이미지 */}
                       <div className="relative w-full sm:w-48 lg:w-56 aspect-[5/4] sm:aspect-[4/3] rounded-xl overflow-hidden shadow-md shrink-0">
                         <Image
                           src={[
@@ -298,10 +292,6 @@ export default function ProcessPage() {
                           fill
                           className="object-cover"
                         />
-                        {/* 이미지 좌상단 아이콘 배지 */}
-                        <div className="absolute top-2 left-2 w-8 h-8 rounded-lg bg-white shadow-md flex items-center justify-center">
-                          <s.Icon className="w-4 h-4 text-accent-blue" />
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -367,20 +357,20 @@ export default function ProcessPage() {
                 ].map((item, i) => (
                   <div key={item.num} className="group relative" style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}>
                     <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl bg-accent-blue/20" />
-                    <div className="relative flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 group-hover:border-accent-blue/40 transition-all">
-                      <div className="relative w-10 h-10 shrink-0">
+                    <div className="relative flex items-start gap-4 p-5 sm:p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 group-hover:border-accent-blue/40 transition-all">
+                      <div className="relative w-12 h-12 shrink-0">
                         <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-lg bg-accent-blue/60 blur-[1px]" />
                         <div className="relative w-full h-full rounded-lg bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-lg">
                           {item.icon}
                         </div>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-base font-black text-accent-blue leading-none">{item.num}</span>
-                          <span className="text-[10px] sm:text-[11px] font-extrabold text-accent-blue tracking-widest">{item.tag}</span>
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-lg font-black text-accent-blue leading-none">{item.num}</span>
+                          <span className="text-[11px] sm:text-[12px] font-extrabold text-accent-blue tracking-widest">{item.tag}</span>
                         </div>
-                        <p className="text-[14px] sm:text-sm text-white font-bold leading-snug mb-1">{item.title}</p>
-                        <p className="text-[12px] sm:text-xs text-slate-400 leading-relaxed">{item.desc}</p>
+                        <p className="text-[16px] sm:text-[17px] text-white font-extrabold leading-snug mb-1.5">{item.title}</p>
+                        <p className="text-[13px] sm:text-[14px] text-slate-400 leading-relaxed">{item.desc}</p>
                       </div>
                     </div>
                   </div>

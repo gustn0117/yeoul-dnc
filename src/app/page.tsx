@@ -429,7 +429,7 @@ export default function Home() {
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
               유입이 끝이 아니라,<br />
               <span className="relative inline-block">
-                <span className="relative z-10">상담 전환까지 설계</span>
+                <span className="relative z-10 text-accent-blue">상담 전환까지 설계</span>
                 <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
               </span>
               합니다
@@ -452,23 +452,20 @@ export default function Home() {
                 <div className="absolute inset-0 translate-x-0.5 translate-y-1.5 rounded-2xl bg-accent-blue/20 blur-[2px]" />
 
                 <div className="relative w-full bg-white rounded-2xl p-5 sm:p-7 border border-white shadow-3d overflow-hidden bevel-edge hover:-translate-y-1 transition-transform duration-300 flex flex-col">
-                  <div className="absolute -top-3 -right-3 text-6xl sm:text-7xl font-black text-slate-50 select-none leading-none">
-                    0{i + 1}
-                  </div>
-
                   <div className="relative flex-1 flex flex-col">
-                    <div className="relative w-11 h-11 sm:w-14 sm:h-14 mb-4 sm:mb-5">
+                    <div className="relative w-12 h-12 sm:w-14 sm:h-14 mb-4 sm:mb-5">
                       <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-xl sm:rounded-2xl bg-accent-blue/50 blur-[1px]" />
                       <div className="relative w-full h-full rounded-xl sm:rounded-2xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shadow-lg">
-                        <item.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                        <item.Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                       </div>
                     </div>
-                    <h3 className="text-[14px] sm:text-base font-extrabold text-deep-navy mb-1.5 sm:mb-2 whitespace-pre-line leading-tight">{item.title}</h3>
-                    <p className="text-[12px] sm:text-xs text-slate-500 leading-relaxed flex-1">{item.desc}</p>
+                    <h3 className="text-[17px] sm:text-[19px] font-extrabold text-deep-navy mb-2 sm:mb-3 whitespace-pre-line leading-tight">{item.title}</h3>
+                    {/* 데스크탑에서만 설명 표시 (모바일은 큰 제목만) */}
+                    <p className="hidden sm:block text-[13px] sm:text-[14px] text-slate-500 leading-relaxed flex-1">{item.desc}</p>
 
-                    <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-slate-100">
-                      <span className="inline-flex items-center gap-1 text-[11px] sm:text-[12px] font-bold text-accent-blue">
-                        POINT {String(i + 1).padStart(2, "0")} <IconArrowRight className="w-3 h-3" />
+                    <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-slate-100 mt-auto">
+                      <span className="inline-flex items-center gap-1 text-[12px] sm:text-[13px] font-bold text-accent-blue">
+                        POINT {String(i + 1).padStart(2, "0")} <IconArrowRight className="w-3.5 h-3.5" />
                       </span>
                     </div>
                   </div>
@@ -547,21 +544,23 @@ export default function Home() {
                   <div className="relative glass-3d-dark rounded-2xl p-5 sm:p-6 text-center border border-white/10 group-hover:border-accent-blue/40 group-hover:-translate-y-1 transition-all duration-300 overflow-hidden bevel-edge">
                     <div className="absolute inset-0 bg-linear-to-br from-accent-blue/0 via-accent-blue/5 to-accent-blue/0 opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4">
+                    {/* 번호 배지 — 상단 중앙 */}
+                    <div className="relative mx-auto w-8 h-8 rounded-full bg-white text-deep-navy text-[13px] font-black flex items-center justify-center shadow-lg mb-3">
+                      {i + 1}
+                    </div>
+
+                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-5">
                       <div className="absolute inset-0 translate-x-0.5 translate-y-0.5 rounded-2xl bg-linear-to-br from-accent-blue to-blue-600 opacity-50 blur-[1px]" />
                       <div className="relative w-full h-full rounded-2xl bg-linear-to-br from-accent-blue/20 to-accent-blue/5 border border-accent-blue/30 group-hover:from-accent-blue group-hover:to-blue-600 flex items-center justify-center transition-all duration-500 shadow-lg shadow-accent-blue/20">
                         <s.Icon className="w-6 h-6 sm:w-7 sm:h-7 text-accent-blue group-hover:text-white transition-colors duration-300" />
                       </div>
-                      <div className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-linear-to-br from-white to-slate-200 text-deep-navy text-[11px] font-black flex items-center justify-center shadow-lg">
-                        {i + 1}
-                      </div>
                     </div>
 
-                    <p className="text-[14px] sm:text-sm font-extrabold text-white mb-1">{s.title}</p>
-                    <p className="text-[11px] sm:text-[12px] text-slate-400 leading-relaxed">{s.sub}</p>
+                    <p className="text-[17px] sm:text-[18px] font-extrabold text-white mb-2 leading-tight">{s.title}</p>
+                    <p className="text-[13px] sm:text-[14px] text-slate-400 leading-relaxed">{s.sub}</p>
 
-                    <div className="mt-3 pt-3 border-t border-white/5">
-                      <span className="text-[10px] font-bold text-accent-blue tracking-widest">STEP {String(i + 1).padStart(2, "0")}</span>
+                    <div className="mt-4 pt-4 border-t border-white/10">
+                      <span className="text-[11px] font-bold text-accent-blue tracking-widest">STEP {String(i + 1).padStart(2, "0")}</span>
                     </div>
                   </div>
                 </div>
@@ -608,7 +607,7 @@ export default function Home() {
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
               업종과 목적에 따라,<br />
               <span className="relative inline-block">
-                <span className="relative z-10">필요한 채널만 선별</span>
+                <span className="relative z-10 text-accent-blue">필요한 채널만 선별</span>
                 <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
               </span>
               해 운영합니다
@@ -656,16 +655,16 @@ export default function Home() {
                     ) : null}
                   </div>
 
-                  <h3 className="font-extrabold text-deep-navy text-[14px] sm:text-sm mb-1">{ch.name}</h3>
-                  <p className="text-[11px] sm:text-[12px] text-slate-400 mb-3 sm:mb-4 leading-relaxed">{ch.purpose}</p>
+                  <h3 className="font-extrabold text-deep-navy text-[17px] sm:text-[18px] mb-1.5 leading-tight">{ch.name}</h3>
+                  <p className="text-[13px] sm:text-[14px] text-slate-500 mb-4 leading-relaxed">{ch.purpose}</p>
 
                   {/* Footer with number + arrow */}
-                  <div className="flex items-center justify-between pt-2 sm:pt-3 border-t border-slate-100">
-                    <span className={`text-[11px] sm:text-[12px] font-extrabold bg-linear-to-br ${ch.color} bg-clip-text text-transparent`}>
+                  <div className="flex items-center justify-between pt-3 border-t border-slate-100">
+                    <span className={`text-[13px] font-extrabold bg-linear-to-br ${ch.color} bg-clip-text text-transparent`}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <div className={`w-6 h-6 rounded-full bg-slate-50 group-hover:bg-linear-to-br group-hover:${ch.color} flex items-center justify-center transition-all duration-300`}>
-                      <IconArrowRight className="w-3 h-3 text-slate-400 group-hover:text-white transition-colors" />
+                    <div className={`w-7 h-7 rounded-full bg-slate-50 group-hover:bg-linear-to-br group-hover:${ch.color} flex items-center justify-center transition-all duration-300`}>
+                      <IconArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-white transition-colors" />
                     </div>
                   </div>
                 </div>
@@ -700,7 +699,7 @@ export default function Home() {
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-5 leading-tight">
                 이런 고민이 있다면,<br />
                 <span className="relative inline-block">
-                  <span className="relative z-10">지금 광고 방향</span>
+                  <span className="relative z-10 text-accent-blue">지금 광고 방향</span>
                   <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
                 </span>
                 부터<br className="hidden sm:inline" />
@@ -806,7 +805,7 @@ export default function Home() {
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy leading-tight">
                 업종에 맞는<br className="sm:hidden" />
                 {" "}<span className="relative inline-block">
-                  <span className="relative z-10">채널 조합과 운영 흐름</span>
+                  <span className="relative z-10 text-accent-blue">채널 조합과 운영 흐름</span>
                   <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
                 </span>
               </h2>
@@ -933,7 +932,7 @@ export default function Home() {
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-deep-navy mb-4 leading-tight">
               여울디앤씨와 함께한<br />
               <span className="relative inline-block">
-                <span className="relative z-10">실제 광고주 후기</span>
+                <span className="relative z-10 text-accent-blue">실제 광고주 후기</span>
                 <span className="absolute bottom-1 left-0 right-0 h-2.5 sm:h-3 bg-accent-blue/15 z-0 rounded-sm" />
               </span>
             </h2>
