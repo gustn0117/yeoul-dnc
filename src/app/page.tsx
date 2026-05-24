@@ -21,10 +21,10 @@ const channels = [
 ];
 
 const whyUs = [
-  { title: "업종 맞춤\n채널 제안", desc: "업종과 목적에 맞는 채널만 선별해 제안합니다. 불필요한 채널을 권유하지 않습니다.", Icon: IconTarget },
-  { title: "문의 전환\n중심 운영", desc: "노출이 아니라 실제 문의와 상담 전환을 설계합니다. 클릭만 많은 광고는 의미 없습니다.", Icon: IconZap },
-  { title: "소재 제작부터\n운영까지", desc: "광고 소재 제작, 세팅, 운영, 최적화까지 한 번에 진행합니다.", Icon: IconLayers },
-  { title: "데이터 기반\n최적화", desc: "반응 데이터를 분석하고, 효율이 나오는 방향으로 지속적으로 보완합니다.", Icon: IconBarChart },
+  { title: "업종 맞춤\n채널 제안", desc: "업종과 목적에 맞는 채널만 선별합니다.", Icon: IconTarget },
+  { title: "문의 전환\n중심 운영", desc: "노출보다 상담 전환 흐름을 우선합니다.", Icon: IconZap },
+  { title: "소재 제작부터\n운영까지", desc: "제작, 세팅, 운영을 한 번에 진행합니다.", Icon: IconLayers },
+  { title: "데이터 기반\n최적화", desc: "반응 데이터를 보며 지속적으로 보완합니다.", Icon: IconBarChart },
 ];
 
 const processSteps = [
@@ -459,11 +459,11 @@ export default function Home() {
                         <item.Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                       </div>
                     </div>
-                    <h3 className="text-[17px] sm:text-[19px] font-extrabold text-deep-navy mb-2 sm:mb-3 whitespace-pre-line leading-tight">{item.title}</h3>
+                    <h3 className="text-[18px] sm:text-[19px] font-extrabold text-deep-navy mb-2 sm:mb-3 whitespace-pre-line leading-tight">{item.title}</h3>
                     {/* 데스크탑에서만 설명 표시 (모바일은 큰 제목만) */}
                     <p className="hidden sm:block text-[13px] sm:text-[14px] text-slate-500 leading-relaxed flex-1">{item.desc}</p>
 
-                    <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-slate-100 mt-auto">
+                    <div className="hidden sm:block mt-5 pt-4 border-t border-slate-100 mt-auto">
                       <span className="inline-flex items-center gap-1 text-[12px] sm:text-[13px] font-bold text-accent-blue">
                         POINT {String(i + 1).padStart(2, "0")} <IconArrowRight className="w-3.5 h-3.5" />
                       </span>
@@ -855,14 +855,14 @@ export default function Home() {
                     </div>
 
                     {/* 텍스트 콘텐츠 — 이미지 위 좌측 */}
-                    <div className="relative px-5 sm:px-6 pt-6 sm:pt-7 pb-7 sm:pb-8 max-w-[62%]">
+                    <div className="relative px-5 sm:px-6 pt-6 sm:pt-7 pb-7 sm:pb-8 max-w-[74%] sm:max-w-[68%]">
                       <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[12px] font-bold text-accent-blue bg-accent-blue/10 border border-accent-blue/15 mb-3">
                         <span className="w-1 h-1 rounded-full bg-accent-blue" />
                         {c.industry}
                       </div>
-                      <h3 className="text-[19px] sm:text-xl font-extrabold text-deep-navy mb-1.5 leading-tight">{c.title}</h3>
-                      <p className="text-[14px] text-deep-navy font-extrabold mb-3 leading-snug">{c.subtitle}</p>
-                      <p className="text-[12px] sm:text-[13px] text-slate-600 leading-relaxed">{c.desc}</p>
+                      <h3 className="text-[21px] sm:text-xl font-extrabold text-deep-navy mb-2 leading-tight break-keep">{c.title}</h3>
+                      <p className="text-[15px] sm:text-[15px] text-deep-navy font-extrabold leading-snug break-keep">{c.subtitle}</p>
+                      <p className="hidden lg:block text-[13px] text-slate-600 leading-relaxed mt-3">{c.desc}</p>
                     </div>
                   </div>
 

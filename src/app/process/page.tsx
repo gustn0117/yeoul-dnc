@@ -11,36 +11,36 @@ export const metadata: Metadata = {
 const steps = [
   {
     step: "01", title: "상담 / 문의",
-    main: "먼저 업종과 예산, 목표부터 간단하게 확인합니다",
-    detail: "어떤 광고가 필요한지 바로 판단하기보다, 현재 상황과 원하는 방향을 먼저 파악한 뒤 상담을 진행합니다.",
+    main: "업종·예산·목표부터 확인합니다",
+    detail: "현재 상황과 원하는 방향을 먼저 파악한 뒤 상담을 진행합니다.",
     tags: ["업종", "예산", "목표 확인"],
     Icon: IconClipboard, color: "from-accent-blue to-blue-600",
   },
   {
     step: "02", title: "기획 / 전략",
-    main: "업종에 맞는 채널과 광고 방향을 정리합니다",
-    detail: "무조건 많은 채널을 제안하지 않고, 목표와 예산에 맞는 현실적인 운영 방식을 먼저 설계합니다.",
+    main: "맞는 채널과 광고 방향을 정리합니다",
+    detail: "목표와 예산에 맞는 현실적인 운영 방식을 먼저 설계합니다.",
     tags: ["타겟 설정", "채널 선별", "운영 구조 설계"],
     Icon: IconCompass, color: "from-accent-blue to-blue-600",
   },
   {
     step: "03", title: "제작 / 세팅",
-    main: "광고 소재와 세팅을 빠르게 준비합니다",
-    detail: "이미지, 영상, 문구, 랜딩 또는 폼 구성을 정리하고 실제 송출을 위한 세팅까지 진행합니다.",
+    main: "소재와 광고 세팅을 준비합니다",
+    detail: "이미지, 영상, 문구와 실제 송출 세팅까지 진행합니다.",
     tags: ["소재 제작", "문구 정리", "광고 세팅"],
     Icon: IconImage, color: "from-accent-blue to-blue-600",
   },
   {
     step: "04", title: "운영 / 최적화",
-    main: "광고는 시작보다 운영 과정에서 차이가 납니다",
-    detail: "집행 후 반응 데이터를 확인하고, 채널별 효율과 문의 흐름을 보며 예산/타겟/소재를 지속적으로 보완합니다.",
+    main: "운영 과정에서 효율을 보완합니다",
+    detail: "반응 데이터를 보며 예산, 타겟, 소재를 지속적으로 조정합니다.",
     tags: ["집행", "반응 확인", "효율 개선"],
     Icon: IconSettings, color: "from-accent-blue to-blue-600",
   },
   {
     step: "05", title: "결과 / 리포트",
-    main: "성과를 체크하고, 다음 운영 방향까지 연결합니다",
-    detail: "DB 유입, 상담 흐름, 반응 데이터를 바탕으로 운영 결과를 정리하고 필요한 보완 방향까지 함께 안내합니다.",
+    main: "성과와 다음 방향을 정리합니다",
+    detail: "운영 결과와 필요한 보완 방향을 함께 안내합니다.",
     tags: ["결과 체크", "피드백", "후속 운영 제안"],
     Icon: IconBarChart, color: "from-accent-blue to-blue-600",
   },
@@ -337,21 +337,21 @@ export default function ProcessPage() {
                     num: "01",
                     tag: "STRATEGY",
                     title: "업종별 맞춤 전략으로 광고 방향을 설계합니다",
-                    desc: "타겟 분석과 시장 데이터를 기반으로 최적의 채널 전략을 수립합니다.",
+                    desc: "타겟과 시장을 보고 채널 전략을 정리합니다.",
                     icon: <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><circle cx="12" cy="12" r="9" strokeLinecap="round" /><circle cx="12" cy="12" r="5" strokeLinecap="round" /><circle cx="12" cy="12" r="1.5" fill="currentColor" /></svg>,
                   },
                   {
                     num: "02",
                     tag: "OPERATION",
-                    title: "광고 운영 이후까지 지속적으로 관리합니다",
-                    desc: "광고 집행부터 예산 관리, 소재 운영까지 전문적으로 운영합니다.",
+                    title: "운영 이후까지 관리합니다",
+                    desc: "집행, 예산, 소재 흐름을 지속적으로 봅니다.",
                     icon: <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>,
                   },
                   {
                     num: "03",
                     tag: "DATA-DRIVEN",
-                    title: "데이터 기반 분석으로 광고 효율을 최적화합니다",
-                    desc: "실시간 데이터 분석과 인사이트 도출로 광고 성과를 극대화합니다.",
+                    title: "데이터로 효율을 개선합니다",
+                    desc: "반응 데이터를 기준으로 개선점을 찾습니다.",
                     icon: <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path strokeLinecap="round" strokeLinejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>,
                   },
                 ].map((item, i) => (
@@ -369,8 +369,8 @@ export default function ProcessPage() {
                           <span className="text-lg font-black text-accent-blue leading-none">{item.num}</span>
                           <span className="text-[11px] sm:text-[12px] font-extrabold text-accent-blue tracking-widest">{item.tag}</span>
                         </div>
-                        <p className="text-[16px] sm:text-[17px] text-white font-extrabold leading-snug mb-1.5">{item.title}</p>
-                        <p className="text-[13px] sm:text-[14px] text-slate-400 leading-relaxed">{item.desc}</p>
+                        <p className="text-[18px] sm:text-[17px] text-white font-extrabold leading-snug">{item.title}</p>
+                        <p className="hidden sm:block text-[14px] text-slate-400 leading-relaxed mt-1.5">{item.desc}</p>
                       </div>
                     </div>
                   </div>

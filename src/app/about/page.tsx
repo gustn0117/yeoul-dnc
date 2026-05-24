@@ -418,8 +418,8 @@ export default function AboutPage() {
                     <div className={`absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-linear-to-br ${m.color} opacity-15 blur-[2px]`} />
                     <div className="relative bg-white rounded-xl p-5 sm:p-6 border border-slate-100 shadow-md group-hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
                       <span className={`text-[11px] sm:text-[12px] font-extrabold bg-linear-to-br ${m.color} bg-clip-text text-transparent tracking-widest mb-2`}>{m.label}</span>
-                      <p className="text-[16px] sm:text-[17px] text-deep-navy font-extrabold leading-tight mb-2">{m.text}</p>
-                      <p className="text-[13px] sm:text-[14px] text-slate-500 leading-relaxed">{m.sub}</p>
+                      <p className="text-[18px] sm:text-[17px] text-deep-navy font-extrabold leading-tight">{m.text}</p>
+                      <p className="hidden sm:block text-[14px] text-slate-500 leading-relaxed mt-2">{m.sub}</p>
                     </div>
                   </div>
                 ))}
@@ -558,7 +558,7 @@ export default function AboutPage() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-[16px] sm:text-[17px] text-deep-navy font-extrabold mb-1 leading-tight">{item.text}</p>
-                        <p className="text-[13px] sm:text-[14px] text-slate-500 leading-relaxed">{item.sub}</p>
+                        <p className="hidden sm:block text-[13px] sm:text-[14px] text-slate-500 leading-relaxed">{item.sub}</p>
                       </div>
                       <svg className="w-5 h-5 text-accent-blue/40 group-hover:text-accent-blue group-hover:translate-x-1 transition-all shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -569,7 +569,7 @@ export default function AboutPage() {
               </div>
 
               {/* PDF page 28: 전문 컨설팅으로 광고 효율 극대화 부가 박스 */}
-              <div className="mt-5 relative">
+              <div className="mt-5 relative hidden sm:block">
                 <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-accent-blue/15" />
                 <div className="relative flex items-center gap-3 p-3.5 rounded-xl bg-linear-to-br from-accent-blue/5 to-blue-50 border border-accent-blue/20">
                   <div className="w-10 h-10 rounded-xl bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shrink-0 shadow-md">
@@ -686,7 +686,7 @@ export default function AboutPage() {
               </p>
 
               {/* Platform 6-grid — 흰 카드 + 라벨 (PDF 변경시안 매칭) */}
-              <div className="grid grid-cols-6 gap-2 sm:gap-3 mb-6">
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 mb-6">
                 {[
                   { name: "naver", label: "네이버", brand: "bg-[#03C75A]" },
                   { name: "kakaotalk", label: "카카오", brand: "bg-[#FEE500]" },
@@ -697,8 +697,8 @@ export default function AboutPage() {
                 ].map((p, i) => (
                   <div key={p.name} className="relative group" style={{ animation: `float ${4 + (i % 3)}s ease-in-out infinite ${i * 0.3}s` }}>
                     <div className="absolute inset-0 translate-x-0.5 translate-y-1 rounded-xl bg-black/40 blur-sm" aria-hidden="true" />
-                    <div className="relative bg-white rounded-xl flex flex-col items-center gap-1.5 p-2 sm:p-2.5 shadow-lg overflow-hidden">
-                      <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg ${p.brand} flex items-center justify-center`}>
+                    <div className="relative bg-white rounded-xl flex flex-col items-center gap-1.5 p-2.5 shadow-lg overflow-hidden">
+                      <div className={`w-10 h-10 rounded-lg ${p.brand} flex items-center justify-center`}>
                         <img src={`/images/logos/${p.name}.svg`} alt={p.label} className={`h-5 w-auto ${p.name === "naver" || p.name === "meta" || p.name === "youtube" || p.name === "instagram" ? "brightness-0 invert" : ""}`} />
                       </div>
                       <span className="text-[10px] sm:text-[11px] font-extrabold text-deep-navy">{p.label}</span>
@@ -721,7 +721,7 @@ export default function AboutPage() {
               </div>
 
               {/* PERFORMANCE floating card (top right) */}
-              <div className="absolute -top-4 -right-4 sm:-right-6 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl shadow-accent-blue/15 p-3 border border-white animate-float w-44">
+              <div className="hidden sm:block absolute -top-4 -right-4 sm:-right-6 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl shadow-accent-blue/15 p-3 border border-white animate-float w-44">
                 <p className="text-[10px] font-bold text-slate-400 tracking-wider uppercase">PERFORMANCE</p>
                 <p className="text-[12px] font-extrabold text-deep-navy">월간 광고 성과</p>
                 <div className="flex items-end gap-0.5 h-7 mt-2">
@@ -736,7 +736,7 @@ export default function AboutPage() {
               </div>
 
               {/* 데이터 기반 의사결정 floating card (bottom right) */}
-              <div className="absolute -bottom-4 -right-4 sm:-right-6 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl shadow-accent-blue/15 p-3 border border-white w-52" style={{ animation: "float 5s ease-in-out infinite 1s" }}>
+              <div className="hidden sm:block absolute -bottom-4 -right-4 sm:-right-6 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl shadow-accent-blue/15 p-3 border border-white w-52" style={{ animation: "float 5s ease-in-out infinite 1s" }}>
                 <div className="flex items-start gap-2.5">
                   <div className="w-9 h-9 rounded-lg bg-linear-to-br from-accent-blue to-blue-600 flex items-center justify-center shrink-0">
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

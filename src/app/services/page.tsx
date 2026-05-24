@@ -427,7 +427,7 @@ export default function ServicesPage() {
                 <span className="px-4 py-2 bg-[#03C75A]/8 text-[#03C75A] text-[14px] sm:text-[15px] font-extrabold rounded-full border border-[#03C75A]/20">브랜드검색</span>
                 <span className="px-4 py-2 bg-[#03C75A]/8 text-[#03C75A] text-[14px] sm:text-[15px] font-extrabold rounded-full border border-[#03C75A]/20">성과형 디스플레이</span>
               </div>
-              <Link href="/contact" className="group inline-flex items-center gap-2 text-base text-[#03C75A] font-bold hover:gap-3 transition-all">
+              <Link href="/contact" className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#03C75A]/10 text-base text-[#03C75A] font-extrabold hover:bg-[#03C75A] hover:text-white hover:gap-3 transition-all">
                 네이버 광고 상담받기 <IconArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -535,8 +535,8 @@ export default function ServicesPage() {
                   <div className="w-10 h-10 rounded-lg bg-[#03C75A]/10 border border-[#03C75A]/20 flex items-center justify-center mb-2.5">
                     {f.icon}
                   </div>
-                  <p className="text-[13px] sm:text-sm font-extrabold text-deep-navy mb-0.5 leading-tight">{f.title}</p>
-                  <p className="text-[11px] sm:text-[12px] text-slate-500 leading-snug">{f.desc}</p>
+                  <p className="text-[14px] sm:text-sm font-extrabold text-deep-navy leading-tight">{f.title}</p>
+                  <p className="hidden sm:block text-[12px] text-slate-500 leading-snug mt-1">{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -569,7 +569,7 @@ export default function ServicesPage() {
                 인스타그램·페이스북에서 높은 전환을 유도합니다.
               </p>
 
-              <Link href="/contact" className="group inline-flex items-center gap-2 text-base text-blue-600 font-bold hover:gap-3 transition-all">
+              <Link href="/contact" className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-blue-600/10 text-base text-blue-600 font-extrabold hover:bg-blue-600 hover:text-white hover:gap-3 transition-all">
                 메타 광고 상담받기 <IconArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -677,8 +677,8 @@ export default function ServicesPage() {
                   <div className="w-9 h-9 mx-auto rounded-lg bg-pink-50 border border-pink-100 flex items-center justify-center mb-2">
                     {f.icon}
                   </div>
-                  <p className="text-[12px] sm:text-[13px] font-extrabold text-deep-navy mb-0.5 leading-tight">{f.title}</p>
-                  <p className="text-[10px] sm:text-[11px] text-slate-500 leading-snug">{f.desc}</p>
+                  <p className="text-[13px] sm:text-[13px] font-extrabold text-deep-navy leading-tight">{f.title}</p>
+                  <p className="hidden sm:block text-[11px] text-slate-500 leading-snug mt-1">{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -801,7 +801,7 @@ export default function ServicesPage() {
                 <span className="px-4 py-2 bg-amber-50 text-amber-700 text-[14px] sm:text-[15px] font-extrabold rounded-full border border-amber-200">카카오톡 채널 메시지</span>
                 <span className="px-4 py-2 bg-amber-50 text-amber-700 text-[14px] sm:text-[15px] font-extrabold rounded-full border border-amber-200">비즈메시지</span>
               </div>
-              <Link href="/contact" className="group inline-flex items-center gap-2 text-base text-amber-600 font-bold hover:gap-3 transition-all">
+              <Link href="/contact" className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-amber-500/10 text-base text-amber-600 font-extrabold hover:bg-amber-500 hover:text-white hover:gap-3 transition-all">
                 카카오 광고 상담받기 <IconArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -841,8 +841,8 @@ export default function ServicesPage() {
                       </svg>
                     </div>
                   </div>
-                  <p className="text-[13px] sm:text-[14px] font-extrabold text-deep-navy mb-1.5 leading-tight">{f.title}</p>
-                  <p className="text-[11px] sm:text-[12px] text-slate-500 leading-relaxed flex-1 break-keep">{f.desc}</p>
+                  <p className="text-[14px] sm:text-[14px] font-extrabold text-deep-navy leading-tight break-keep">{f.title}</p>
+                  <p className="hidden sm:block text-[12px] text-slate-500 leading-relaxed flex-1 break-keep mt-1.5">{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -1410,8 +1410,8 @@ export default function ServicesPage() {
                 {[
                   {
                     industry: "분양",
-                    bullets: ["DB 수집 · 방문 예약 · LMS 전환 운영"],
-                    result: "관심 고객 유입부터 계약 상담까지 메타 · 네이버 · LMS 기반 통합 운영",
+                    bullets: ["DB 수집", "방문 예약", "LMS 전환"],
+                    result: "관심 고객 유입부터 계약 상담까지 통합 운영",
                     iconType: "building",
                     iconBg: "bg-blue-50",
                     iconColor: "text-blue-600",
@@ -1419,7 +1419,7 @@ export default function ServicesPage() {
                   {
                     industry: "병원",
                     bullets: ["예약 문의 확보", "신뢰 기반 브랜딩 운영"],
-                    result: "플레이스 · 블로그 기반 의료 마케팅 — 지역 검색 노출 · 상담 문의 최적화",
+                    result: "검색 노출과 상담 문의 최적화",
                     iconType: "hospital",
                     iconBg: "bg-emerald-50",
                     iconColor: "text-emerald-600",
@@ -1427,7 +1427,7 @@ export default function ServicesPage() {
                   {
                     industry: "교육",
                     bullets: ["수강 상담", "카카오 채널 연동 운영"],
-                    result: "수강생 모집 중심 광고 운영 — 상담 유입 · 리드 확보 · 전환 최적화",
+                    result: "상담 유입과 리드 확보 중심 운영",
                     iconType: "edu",
                     iconBg: "bg-amber-50",
                     iconColor: "text-amber-600",
@@ -1435,7 +1435,7 @@ export default function ServicesPage() {
                   {
                     industry: "지역 자영업",
                     bullets: ["지역 타겟 광고", "신규 고객 유입 확대"],
-                    result: "플레이스 기반 지역 마케팅 — 생활권 고객 확보 · 방문 유도 최적화",
+                    result: "생활권 고객 확보와 방문 유도",
                     iconType: "store",
                     iconBg: "bg-orange-50",
                     iconColor: "text-orange-600",
@@ -1443,7 +1443,7 @@ export default function ServicesPage() {
                   {
                     industry: "상담형 서비스",
                     bullets: ["문의 전환", "리드 확보 최적화"],
-                    result: "고객 문의 확보 중심 운영 — 상담 신청 · DB 유입 · 전환 관리",
+                    result: "상담 신청과 전환 관리",
                     iconType: "consult",
                     iconBg: "bg-violet-50",
                     iconColor: "text-violet-600",
@@ -1470,10 +1470,10 @@ export default function ServicesPage() {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-baseline gap-3 mb-1">
                           <span className="text-xl sm:text-2xl font-black text-accent-blue leading-none">{String(i + 1).padStart(2, "0")}</span>
-                          <p className="text-[18px] sm:text-[20px] font-extrabold text-deep-navy leading-tight">{item.industry}</p>
+                          <p className="text-[19px] sm:text-[20px] font-extrabold text-deep-navy leading-tight">{item.industry}</p>
                         </div>
-                        <p className="text-[14px] sm:text-[15px] text-slate-500 leading-snug">{item.bullets.join(" · ")}</p>
-                        <p className="text-[13px] sm:text-[14px] text-slate-400 leading-snug mt-0.5">{item.result}</p>
+                        <p className="text-[15px] text-slate-600 leading-snug font-semibold">{item.bullets.join(" · ")}</p>
+                        <p className="hidden sm:block text-[14px] text-slate-400 leading-snug mt-1">{item.result}</p>
                       </div>
                       {/* 화살표 */}
                       <svg className="w-5 h-5 text-slate-300 group-hover:text-accent-blue group-hover:translate-x-1 transition-all shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>

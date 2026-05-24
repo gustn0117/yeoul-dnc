@@ -67,28 +67,28 @@ const works = [
   {
     title: "홈페이지 제작",
     type: "Website",
-    desc: "브랜드의 첫 인상을 책임지는 홈페이지를 기획부터 디자인, 개발까지 맞춤형으로 제작합니다.",
+    desc: "기획부터 디자인, 개발까지 브랜드에 맞게 제작합니다.",
     point: "브랜드 신뢰 + 정보 전달",
     img: "/images/stock/landing-page.jpg",
   },
   {
     title: "홍보영상 제작",
     type: "Video",
-    desc: "브랜드의 메시지를 영상으로 전달하여 신뢰감과 전문성을 높이는 고퀄리티 홍보영상을 제작합니다.",
+    desc: "브랜드 메시지를 영상으로 정리해 신뢰감을 높입니다.",
     point: "브랜드 이미지 + 인지도 상승",
     img: "/images/stock/creative-design.jpg",
   },
   {
     title: "릴스·쇼츠영상 제작",
     type: "Reels",
-    desc: "짧은 시간 안에 강한 인상을 남기는 숏폼 콘텐츠로 SNS 노출과 문의 확보를 극대화합니다.",
+    desc: "짧은 영상으로 SNS 노출과 문의 확보를 돕습니다.",
     point: "유입 강화 + 문의 확보",
     img: "/images/stock/mobile-ads.jpg",
   },
   {
     title: "광고이미지 제작",
     type: "Ad Image",
-    desc: "시선을 사로잡는 디자인으로 클릭률과 전환율을 높이는 광고 배너 이미지를 제작합니다.",
+    desc: "광고 목적에 맞는 배너와 이미지를 제작합니다.",
     point: "시선 집중 + 클릭 유도 + 광고 성과 향상",
     img: "/images/stock/monitor-data.jpg",
   },
@@ -402,12 +402,12 @@ export default function CasesPage() {
                   </div>
 
                   <div className="p-5 sm:p-6 flex-1 flex flex-col">
-                    <p className="text-[17px] sm:text-[19px] font-extrabold text-deep-navy leading-tight">{w.title}</p>
-                    <p className="text-[14px] sm:text-[15px] text-slate-500 mt-2 sm:mt-3 leading-relaxed flex-1">{w.desc}</p>
+                    <p className="text-[20px] sm:text-[19px] font-extrabold text-deep-navy leading-tight break-keep">{w.title}</p>
+                    <p className="text-[15px] sm:text-[16px] text-slate-600 mt-2 sm:mt-3 leading-relaxed flex-1 break-keep">{w.desc}</p>
 
                     <div className="mt-4 pt-4 border-t border-slate-100">
                       <p className="text-[11px] text-slate-400 font-bold tracking-widest uppercase mb-1.5">핵심 포인트</p>
-                      <p className="text-[14px] sm:text-[15px] text-accent-blue font-bold">{w.point}</p>
+                      <p className="text-[15px] sm:text-[15px] text-accent-blue font-extrabold break-keep">{w.point}</p>
                     </div>
                     <div className="mt-4 flex items-center justify-between">
                       <span className="text-[12px] font-extrabold text-accent-blue tracking-widest">
