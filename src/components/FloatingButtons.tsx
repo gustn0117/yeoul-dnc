@@ -29,7 +29,9 @@ export default function FloatingButtons() {
 
       {/* KakaoTalk */}
       <a
-        href="#"
+        href="http://pf.kakao.com/_GxipxdX/chat"
+        target="_blank"
+        rel="noopener noreferrer"
         className="btn-premium flex items-center gap-2 pl-3 pr-3.5 sm:pl-4 sm:pr-4 py-2.5 bg-[#FEE500] text-[#3C1E1E] rounded-full shadow-lg shadow-amber-900/15 hover:shadow-xl text-[13px] sm:text-[14px] font-semibold"
         aria-label="카카오톡 상담"
       >

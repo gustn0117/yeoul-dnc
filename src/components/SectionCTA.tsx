@@ -87,7 +87,9 @@ export default function SectionCTA({
 
               {/* Secondary - Kakao */}
               <a
-                href="#"
+                href="http://pf.kakao.com/_GxipxdX/chat"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 sm:py-4 text-sm font-semibold rounded-xl border transition-all duration-300 ${
                   isDark
                     ? "text-white/90 border-white/15 bg-white/5 hover:bg-white/10 backdrop-blur-sm"

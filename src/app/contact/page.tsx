@@ -621,6 +621,7 @@ export default function ContactPage() {
                 sub: "1668-5832",
                 hint: "빠른 답변",
                 color: "from-accent-blue to-blue-600",
+                href: "tel:1668-5832",
               },
               {
                 icon: <svg className="w-5 h-5 text-[#3C1E1E]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 10.9c0 2.78 1.8 5.22 4.51 6.6-.2.73-.72 2.65-.82 3.06-.13.52.19.51.4.37.17-.11 2.69-1.83 3.78-2.57.69.1 1.4.15 2.13.15 5.52 0 10-3.58 10-7.9S17.52 3 12 3z" /></svg>,
@@ -629,6 +630,8 @@ export default function ContactPage() {
                 hint: "추천",
                 color: "from-yellow-400 to-amber-500",
                 special: true,
+                href: "http://pf.kakao.com/_GxipxdX/chat",
+                external: true,
               },
               {
                 icon: <IconClock className="w-5 h-5 text-white" />,
@@ -637,15 +640,9 @@ export default function ContactPage() {
                 hint: "주말 다음 영업일",
                 color: "from-violet-500 to-purple-600",
               },
-            ].map((item, i) => (
-              <div
-                key={item.title}
-                className="group relative"
-                style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
-              >
-                <div className={`absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-linear-to-br ${item.color} opacity-25 blur-[2px]`} />
-
-                <div className="relative bg-white p-5 sm:p-6 rounded-2xl border border-white shadow-lg shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden text-center">
+            ].map((item, i) => {
+              const inner = (
+                <div className="relative bg-white p-5 sm:p-6 rounded-2xl border border-white shadow-lg shadow-deep-navy/5 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden text-center h-full">
                   <div className={`absolute -top-6 -right-6 w-20 h-20 rounded-full bg-linear-to-br ${item.color} opacity-10 blur-xl`} />
 
                   {item.special && (
@@ -671,8 +668,28 @@ export default function ContactPage() {
                     )}
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+              return (
+                <div
+                  key={item.title}
+                  className="group relative"
+                  style={{ animation: `fade-in-up 0.5s ease-out ${i * 0.1}s backwards` }}
+                >
+                  <div className={`absolute inset-0 translate-x-1 translate-y-1.5 rounded-2xl bg-linear-to-br ${item.color} opacity-25 blur-[2px]`} />
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      className="block"
+                    >
+                      {inner}
+                    </a>
+                  ) : (
+                    inner
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
