@@ -13,7 +13,7 @@ export function LogoFull({ className = "h-9", variant = "color" }: { className?:
         width={size.w}
         height={size.h}
         className="h-full w-auto object-contain"
-        priority
+        preload
       />
     </Link>
   );

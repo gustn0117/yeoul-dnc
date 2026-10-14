@@ -1,28 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { normalizeInquiry, validateInquiry } from "@/lib/inquiry";
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-
-    const { company_name, contact_name, phone, industry, message, channel, budget, has_website } = body;
-
-    if (!company_name || !contact_name || !phone || !industry || !message) {
+    const body = await request.json().catch(() => null);
+    if (!body || typeof body !== "object") {
       return NextResponse.json({ error: "필수 항목을 모두 입력해주세요." }, { status: 400 });
+    }
+
+    // 공백만 입력·길이 초과·연락처 형식 오류를 서버에서도 막는다 (폼과 같은 규칙)
+    const errors = validateInquiry(body);
+    const firstError = Object.values(errors)[0];
+    if (firstError) {
+      return NextResponse.json({ error: firstError, fields: errors }, { status: 400 });
     }
 
     const { data, error } = await supabase
       .from("inquiries")
-      .insert({
-        company_name,
-        contact_name,
-        phone,
-        industry,
-        message,
-        channel: channel || null,
-        budget: budget || null,
-        has_website: has_website || null,
-      })
+      .insert(normalizeInquiry(body))
       .select()
       .single();
 

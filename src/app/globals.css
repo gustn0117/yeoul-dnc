@@ -1,711 +1,365 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────
+   여울디앤씨 디자인 시스템
+   - 구조: 토스 계열 그레이 + 큰 라운드 패널
+   - 브랜드: 로고 블루(#13438C) / 강조: 액센트 블루(#2563EB)
+   - 상담 CTA만 오렌지(#F97316)
+   ───────────────────────────────────────────── */
+
 @theme inline {
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+
+  --color-ink: #191f28;
+  --color-g50: #f9fafb;
+  --color-g100: #f2f4f6;
+  --color-g200: #e5e8eb;
+  --color-g300: #d1d6db;
+  --color-g400: #b0b8c1;
+  --color-g500: #8b95a1;
+  --color-g600: #6b7684;
+  --color-g700: #4e5968;
+  --color-g800: #333d4b;
+  --color-g900: #191f28;
+
+  --color-brand: #13438c;
+  --color-brand-press: #0b2a6b;
+  --color-brand-50: #eef3fb;
+  --color-brand-100: #dce6f6;
+  --color-accent: #2563eb;
+  --color-signal: #f97316;
+  --color-signal-press: #ea580c;
+  --color-night: #0f1d32;
+  --color-kakao: #fee500;
+
+  /* 어드민 페이지가 쓰는 기존 토큰 — 유지 */
   --color-deep-navy: #0f1d32;
   --color-navy: #1a3a5c;
   --color-accent-blue: #2563eb;
   --color-cta-orange: #f97316;
   --color-light-gray: #f8fafc;
   --color-border-gray: #e2e8f0;
-  --font-sans: "Pretendard", system-ui, -apple-system, sans-serif;
+
+  --radius-panel: 2.5rem;
+  --radius-card: 1.5rem;
+  --radius-btn: 0.875rem;
+  --radius-input: 0.75rem;
+
+  --shadow-pop: 0 10px 32px rgba(25, 31, 40, 0.1), 0 2px 6px rgba(25, 31, 40, 0.04);
+  --shadow-soft: 0 2px 14px rgba(25, 31, 40, 0.05);
+
+  /* 레퍼런스 기본 이징(부드러운 expo-out) / 버튼 누름 이징 */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-press: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* 타입 스케일 — 0515 피드백: 본문 최소 16px, 읽는 문장은 넉넉하게 */
+  --text-display: clamp(2.5rem, 1.6rem + 3.6vw, 5.5rem);
+  --text-display--line-height: 1.06;
+  --text-display--letter-spacing: -0.05em;
+  --text-display--font-weight: 800;
+  --text-h1: clamp(1.875rem, 1.25rem + 2.6vw, 3.75rem);
+  --text-h1--line-height: 1.14;
+  --text-h1--letter-spacing: -0.045em;
+  --text-h1--font-weight: 800;
+  --text-h2: clamp(1.875rem, 1.35rem + 2vw, 3.25rem);
+  --text-h2--line-height: 1.2;
+  --text-h2--letter-spacing: -0.045em;
+  --text-h2--font-weight: 800;
+  --text-h3: clamp(1.3125rem, 1.1rem + 0.6vw, 1.75rem);
+  --text-h3--line-height: 1.32;
+  --text-h3--letter-spacing: -0.035em;
+  --text-h3--font-weight: 700;
+  --text-lead: clamp(1.0625rem, 0.98rem + 0.3vw, 1.25rem);
+  --text-lead--line-height: 1.65;
+  --text-lead--letter-spacing: -0.02em;
+  --text-body: clamp(1rem, 0.9rem + 0.35vw, 1.125rem);
+  --text-body--line-height: 1.7;
+  --text-body--letter-spacing: -0.015em;
 }
 
-html { scroll-behavior: smooth; }
+/* ── Base ──
+   @layer base 안에 둬야 Tailwind 유틸리티(text-white, rounded-full 등)가 기본 스타일을 이길 수 있다 */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
 
-body {
-  background: #ffffff;
-  color: #1e293b;
-  font-family: "Pretendard", system-ui, -apple-system, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* 0515 피드백: 전역 폰트 8~10% 키움.
-     Tailwind의 text-xs/sm/base 등 rem 기반 클래스는 html font-size 확대로 비례 증가.
-     text-[Npx] 같은 픽셀 고정값은 별도 sed로 +1px 일괄 치환. */
-}
+  body {
+    background: #ffffff;
+    color: var(--color-g800);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
 
-/* 데스크탑: 16 → 17.5px (+9.4%), 모바일: 16px 유지(최소 16px 보장) */
-html { font-size: 16px; }
-@media (min-width: 640px) { html { font-size: 17.5px; } }
-
-::selection { background: rgba(37, 99, 235, 0.12); color: #0f1d32; }
-
-/* 0515 피드백: 텍스트 밑줄/강조 색상을 검정 → 액센트 블루로
-   페이지 본문 내 강조용 <u>, <strong>, .text-accent-underline 클래스에 적용 */
-u { text-decoration-color: #2563eb; text-decoration-thickness: 2px; text-underline-offset: 3px; }
-.text-accent-underline {
-  background-image: linear-gradient(to top, rgba(37,99,235,0.18) 0%, rgba(37,99,235,0.18) 35%, transparent 35%);
-  color: #2563eb;
-  font-weight: 800;
-}
-
-/* ── Subtle film grain (premium tactile feel) ── */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.022;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 200px 200px;
-}
-
-/* ── Typography overrides ── */
-h1 { line-height: 1.15 !important; letter-spacing: -0.02em; }
-h2 { line-height: 1.3 !important; letter-spacing: -0.015em; }
-h3 { line-height: 1.35 !important; letter-spacing: -0.01em; }
-p, li { line-height: 1.75 !important; }
-.leading-hero { line-height: 1.12 !important; letter-spacing: -0.025em; }
-.text-balance { text-wrap: balance; }
-
-/* ── Gradient text ── */
-.gradient-text {
-  background: linear-gradient(135deg, #2563eb 0%, #60a5fa 50%, #2563eb 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer-text 4s ease-in-out infinite;
-}
-
-/* ── Glass card ── */
-.glass {
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,0.07);
-}
-
-/* ── Section label line ── */
-.section-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-.section-label::before {
-  content: "";
-  width: 24px;
-  height: 2px;
-  background: #2563eb;
-  border-radius: 1px;
-}
-
-/* ── Card shine effect ── */
-.card-shine {
-  position: relative;
-  overflow: hidden;
-}
-.card-shine::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    to bottom right,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0) 40%,
-    rgba(255,255,255,0.05) 50%,
-    rgba(255,255,255,0) 60%,
-    rgba(255,255,255,0) 100%
-  );
-  transform: rotate(-45deg);
-  transition: transform 0.6s ease;
-}
-.card-shine:hover::after {
-  transform: rotate(-45deg) translate(50%, 50%);
-}
-
-/* ── Animations ── */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-6px) rotate(1deg); }
-}
-@keyframes shimmer-text {
-  0% { background-position: 0% center; }
-  50% { background-position: 200% center; }
-  100% { background-position: 0% center; }
-}
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes pulse-soft {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
-@keyframes slide-in-left {
-  from { opacity: 0; transform: translateX(-30px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-@keyframes slide-in-right {
-  from { opacity: 0; transform: translateX(30px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-@keyframes scale-in {
-  from { opacity: 0; transform: scale(0.92); }
-  to { opacity: 1; transform: scale(1); }
-}
-@keyframes count-up {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-
-.animate-float { animation: float 5s ease-in-out infinite; }
-.animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
-.animate-fade-in { animation: fade-in 0.5s ease-out forwards; }
-.animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; }
-.animate-pulse-soft { animation: pulse-soft 3s ease-in-out infinite; }
-.animate-slide-in-left { animation: slide-in-left 0.6s ease-out forwards; }
-.animate-slide-in-right { animation: slide-in-right 0.6s ease-out forwards; }
-.animate-scale-in { animation: scale-in 0.5s ease-out forwards; }
-
-/* ── 3D Card ── */
-.card-3d {
-  transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-.card-3d:hover {
-  transform: perspective(1000px) rotateY(-2deg) rotateX(2deg);
-  box-shadow: 12px 12px 40px rgba(0,0,0,0.08);
-}
-
-/* ── Gradient border ── */
-.gradient-border {
-  position: relative;
-  border: none !important;
-}
-.gradient-border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 1px;
-  border-radius: inherit;
-  background: linear-gradient(135deg, #2563eb20, #60a5fa10, #f9731610);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-
-/* ── Glow ── */
-.glow-blue { box-shadow: 0 0 60px rgba(37,99,235,0.08); }
-.glow-orange { box-shadow: 0 0 60px rgba(249,115,22,0.08); }
-
-/* ── 3D rotate on scroll illusion ── */
-@keyframes tilt-in {
-  from { transform: perspective(800px) rotateX(8deg) translateY(20px); opacity: 0; }
-  to { transform: perspective(800px) rotateX(0deg) translateY(0); opacity: 1; }
-}
-.animate-tilt-in { animation: tilt-in 0.7s ease-out forwards; }
-
-/* ── Divider decoration ── */
-.section-divider {
-  position: relative;
-}
-.section-divider::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, #2563eb, #60a5fa);
-  border-radius: 2px;
-}
-
-/* ── Responsive text balance ── */
-@supports (text-wrap: balance) {
-  h1, h2, h3 {
+  h1, h2, h3, h4 {
+    color: var(--color-ink);
     text-wrap: balance;
   }
-}
 
-/* ── Stat card counter animation ── */
-.stat-value {
-  animation: count-up 0.5s ease-out forwards;
-}
+  ::selection { background: rgba(37, 99, 235, 0.16); color: var(--color-ink); }
 
-/* ── Mobile touch-friendly card ── */
-@media (max-width: 640px) {
-  .card-3d:hover {
-    transform: none;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 6px;
   }
-  .card-3d:active {
-    transform: scale(0.98);
-  }
+
+  /* 고정 헤더 높이 — 메인 여백·sticky 요소·앵커 오프셋의 기준 */
+  :root { --header-h: 4rem; }
+  @media (width >= 64rem) { :root { --header-h: 4.75rem; } }
+  :target { scroll-margin-top: calc(var(--header-h) + 1.5rem); }
+
+  /* 0515 피드백: 밑줄·강조는 파랑 계열 */
+  u { text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
 }
 
-/* ── Smooth scroll offset for fixed header ── */
-:target {
-  scroll-margin-top: 5rem;
-}
-
-/* ── Better mobile spacing for sections ── */
-@media (max-width: 640px) {
-  section {
-    overflow-x: hidden;
-  }
-}
-
-/* ── Shimmer highlight on hover ── */
-@keyframes shimmer-pass {
-  from { transform: translateX(-100%) skewX(-12deg); }
-  to { transform: translateX(200%) skewX(-12deg); }
-}
-.shimmer-hover { position: relative; overflow: hidden; }
-.shimmer-hover::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 50%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
-  transform: translateX(-100%) skewX(-12deg);
-  transition: none;
-}
-.shimmer-hover:hover::before {
-  animation: shimmer-pass 0.8s ease-out;
-}
-
-/* ── Accordion expand ── */
-@keyframes accordion-down {
-  from { max-height: 0; opacity: 0; }
-  to { max-height: 500px; opacity: 1; }
-}
-.animate-accordion { animation: accordion-down 0.35s ease-out forwards; overflow: hidden; }
-
-/* ── Number counter pop ── */
-@keyframes number-pop {
-  0% { transform: scale(0.7); opacity: 0; }
-  70% { transform: scale(1.1); opacity: 1; }
-  100% { transform: scale(1); opacity: 1; }
-}
-.animate-number-pop { animation: number-pop 0.6s ease-out forwards; }
-
-/* ── Glow pulse (for CTAs) ── */
-@keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4); }
-  50% { box-shadow: 0 0 0 12px rgba(249, 115, 22, 0); }
-}
-.glow-pulse-orange { animation: glow-pulse 2.4s ease-in-out infinite; }
-
-@keyframes glow-pulse-blue {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
-  50% { box-shadow: 0 0 0 12px rgba(37, 99, 235, 0); }
-}
-.glow-pulse-blue { animation: glow-pulse-blue 2.4s ease-in-out infinite; }
-
-/* ── Scroll progress (top bar) ── */
-.scroll-progress {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  z-index: 60;
-  background: transparent;
-  pointer-events: none;
-}
-.scroll-progress-bar {
-  height: 100%;
-  background: linear-gradient(90deg, #2563eb, #60a5fa, #f97316);
-  transform-origin: 0 50%;
-  transform: scaleX(var(--progress, 0));
-  transition: transform 0.1s ease-out;
-}
-
-/* ── Marquee strip ── */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-.animate-marquee { animation: marquee 28s linear infinite; }
-
-/* ── Stamp effect ── */
-.rotate-stamp {
-  transform: rotate(-6deg);
-}
-
-/* ─────────────────────────────
-   REAL 3D UTILITIES
-   ───────────────────────────── */
-
-/* Perspective context for child 3D transforms */
-.perspective-800 { perspective: 800px; perspective-origin: 50% 40%; }
-.perspective-1200 { perspective: 1200px; perspective-origin: 50% 40%; }
-.preserve-3d { transform-style: preserve-3d; }
-
-/* Tilt presets - card feels lifted */
-.tilt-left { transform: perspective(1000px) rotateY(-8deg) rotateX(4deg); transform-style: preserve-3d; }
-.tilt-right { transform: perspective(1000px) rotateY(8deg) rotateX(4deg); transform-style: preserve-3d; }
-.tilt-up { transform: perspective(1000px) rotateX(-8deg); transform-style: preserve-3d; }
-
-/* Hover tilt - card rises and straightens */
-.tilt-hover {
-  transform: perspective(1000px) rotateY(-6deg) rotateX(6deg) translateZ(0);
-  transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.6s ease;
-  will-change: transform;
-}
-.tilt-hover:hover {
-  transform: perspective(1000px) rotateY(-2deg) rotateX(2deg) translateZ(30px) scale(1.02);
-}
-
-/* Isometric tilt (classic 30/60) */
-.iso-tilt {
-  transform: rotateX(55deg) rotateZ(-45deg);
-  transform-style: preserve-3d;
-}
-
-/* Floating element that rotates slowly in 3D */
-@keyframes rotate-3d {
-  0% { transform: perspective(800px) rotateY(0deg) rotateX(15deg); }
-  50% { transform: perspective(800px) rotateY(180deg) rotateX(15deg); }
-  100% { transform: perspective(800px) rotateY(360deg) rotateX(15deg); }
-}
-.animate-rotate-3d { animation: rotate-3d 18s linear infinite; transform-style: preserve-3d; }
-
-/* Multi-layer shadow - deep 3D lift */
-.shadow-3d-sm {
-  box-shadow:
-    0 1px 2px rgba(15, 29, 50, 0.06),
-    0 2px 4px rgba(15, 29, 50, 0.06),
-    0 4px 8px rgba(15, 29, 50, 0.04);
-}
-.shadow-3d {
-  box-shadow:
-    0 2px 4px rgba(15, 29, 50, 0.06),
-    0 6px 12px rgba(15, 29, 50, 0.06),
-    0 12px 24px rgba(15, 29, 50, 0.06),
-    0 24px 48px rgba(15, 29, 50, 0.04);
-}
-.shadow-3d-lg {
-  box-shadow:
-    0 2px 4px rgba(15, 29, 50, 0.04),
-    0 8px 16px rgba(15, 29, 50, 0.06),
-    0 16px 32px rgba(15, 29, 50, 0.08),
-    0 32px 64px rgba(15, 29, 50, 0.08),
-    0 60px 100px rgba(37, 99, 235, 0.05);
-}
-.shadow-3d-blue {
-  box-shadow:
-    0 2px 4px rgba(37, 99, 235, 0.12),
-    0 8px 16px rgba(37, 99, 235, 0.12),
-    0 16px 32px rgba(37, 99, 235, 0.1),
-    0 32px 64px rgba(37, 99, 235, 0.08);
-}
-
-/* Neumorphic surface */
-.neu-surface {
-  background: #f0f4ff;
-  box-shadow:
-    10px 10px 30px rgba(174, 190, 225, 0.55),
-    -10px -10px 30px rgba(255, 255, 255, 1),
-    inset 1px 1px 0 rgba(255, 255, 255, 0.9);
-}
-.neu-surface-dark {
-  background: #0a1428;
-  box-shadow:
-    10px 10px 30px rgba(3, 7, 18, 0.8),
-    -10px -10px 30px rgba(20, 35, 66, 0.5),
-    inset 1px 1px 0 rgba(96, 165, 250, 0.12);
-}
-
-/* 3D perspective floor grid */
-.floor-grid {
-  background-image:
-    linear-gradient(to right, rgba(96, 165, 250, 0.12) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(96, 165, 250, 0.12) 1px, transparent 1px);
-  background-size: 48px 48px;
-  transform: perspective(600px) rotateX(60deg);
-  transform-origin: center top;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 80%);
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 80%);
-}
-
-/* Rotating 3D cube */
-@keyframes cube-rotate {
-  0%   { transform: perspective(800px) rotateX(-20deg) rotateY(0deg); }
-  100% { transform: perspective(800px) rotateX(-20deg) rotateY(360deg); }
-}
-.cube-3d {
-  position: relative;
-  width: 80px;
-  height: 80px;
-  transform-style: preserve-3d;
-  animation: cube-rotate 14s linear infinite;
-}
-.cube-3d .face {
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backface-visibility: visible;
-  box-shadow: 0 0 30px rgba(37, 99, 235, 0.25);
-}
-.cube-3d .front  { transform: translateZ(40px); }
-.cube-3d .back   { transform: translateZ(-40px) rotateY(180deg); }
-.cube-3d .right  { transform: rotateY(90deg) translateZ(40px); }
-.cube-3d .left   { transform: rotateY(-90deg) translateZ(40px); }
-.cube-3d .top    { transform: rotateX(90deg) translateZ(40px); }
-.cube-3d .bottom { transform: rotateX(-90deg) translateZ(40px); }
-
-/* Beveled edge for cards */
-.bevel-edge {
-  position: relative;
-}
-.bevel-edge::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.05) 100%);
-  pointer-events: none;
-}
-
-/* 3D button - pressed effect */
-.btn-3d {
-  position: relative;
-  transform: translateY(0);
-  box-shadow: 0 5px 0 rgba(15, 29, 50, 0.15), 0 10px 30px rgba(37, 99, 235, 0.2);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-.btn-3d:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 0 rgba(15, 29, 50, 0.15), 0 14px 40px rgba(37, 99, 235, 0.3);
-}
-.btn-3d:active {
-  transform: translateY(3px);
-  box-shadow: 0 2px 0 rgba(15, 29, 50, 0.15), 0 4px 12px rgba(37, 99, 235, 0.2);
-}
-
-/* Glass 3D */
-.glass-3d {
-  background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%);
-  backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255,255,255,0.3);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    0 20px 40px rgba(15, 29, 50, 0.08),
-    0 8px 16px rgba(15, 29, 50, 0.04);
-}
-.glass-3d-dark {
-  background: linear-gradient(135deg, rgba(37,99,235,0.12) 0%, rgba(15,29,50,0.3) 100%);
-  backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid rgba(96, 165, 250, 0.18);
-  box-shadow:
-    inset 0 1px 0 rgba(96, 165, 250, 0.2),
-    0 20px 40px rgba(3, 7, 18, 0.4);
-}
-
-/* Disable 3D on mobile (perf + readability) */
-@media (max-width: 768px) {
-  .tilt-left, .tilt-right, .tilt-up, .tilt-hover, .iso-tilt {
-    transform: none;
-  }
-}
-
-/* ─────────────────────────────
-   POLISHED DESIGN SYSTEM
-   ───────────────────────────── */
-
-/* Premium card surface — soft layered shadow + subtle gradient */
-.card-premium {
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(248,250,255,0.98) 100%);
-  box-shadow:
-    0 1px 2px rgba(15, 29, 50, 0.04),
-    0 4px 12px rgba(15, 29, 50, 0.05),
-    0 12px 32px rgba(15, 29, 50, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
-}
-.card-premium:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    0 2px 4px rgba(15, 29, 50, 0.04),
-    0 8px 24px rgba(15, 29, 50, 0.08),
-    0 24px 48px rgba(15, 29, 50, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 1);
-}
-
-/* Refined inner glow on dark cards */
-.card-dark-premium {
-  background: linear-gradient(135deg, rgba(13, 34, 64, 0.95) 0%, rgba(6, 14, 30, 0.95) 100%);
-  box-shadow:
-    0 1px 0 rgba(96, 165, 250, 0.08) inset,
-    0 -1px 0 rgba(0, 0, 0, 0.3) inset,
-    0 4px 12px rgba(0, 0, 0, 0.3),
-    0 12px 32px rgba(37, 99, 235, 0.08);
-  border: 1px solid rgba(96, 165, 250, 0.1);
-}
-
-/* Premium button — multi-layer gradient with shine */
-.btn-premium {
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
-}
-.btn-premium::before {
-  content: "";
-  position: absolute;
-  top: 0; left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transform: skewX(-20deg);
-  transition: left 0.6s ease;
-}
-.btn-premium:hover::before {
-  left: 130%;
-}
-.btn-premium:hover {
-  transform: translateY(-2px);
-}
-
-/* Soft ring focus — for inputs/cards */
-.ring-soft {
-  box-shadow:
-    0 0 0 1px rgba(37, 99, 235, 0.1),
-    0 0 0 4px rgba(37, 99, 235, 0.05);
-}
-.ring-soft:focus,
-.ring-soft:focus-within {
-  box-shadow:
-    0 0 0 1px rgba(37, 99, 235, 0.4),
-    0 0 0 4px rgba(37, 99, 235, 0.1);
-}
-
-/* Subtle divider with gradient */
-.divider-gradient {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.2), transparent);
-}
-
-/* Section heading enhancement */
-.section-heading-line {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 8px;
-}
-.section-heading-line::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 32px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #2563eb, transparent);
-  border-radius: 2px;
-}
-
-/* Refined gradient text - more saturated */
-.gradient-text-premium {
-  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 35%, #60a5fa 65%, #2563eb 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer-text 6s ease-in-out infinite;
-}
-
-/* Soft scale on hover for clickables */
-.hover-lift {
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
-}
-.hover-lift:hover {
-  transform: translateY(-2px);
-}
-
-/* Reveal animation - reduced motion safe */
-@media (prefers-reduced-motion: no-preference) {
-  .reveal-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-  .reveal-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Refined backdrop blur for sticky headers */
-.glass-header {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border-bottom: 1px solid rgba(15, 29, 50, 0.06);
-}
-
-/* Smooth checkbox accent */
-input[type="checkbox"]:checked {
-  animation: checkbox-pop 0.3s ease-out;
-}
-@keyframes checkbox-pop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-  100% { transform: scale(1); }
-}
-
-/* Better text rendering */
-body {
-  text-rendering: optimizeLegibility;
-  font-feature-settings: "kern" 1, "liga" 1;
-}
-
-/* Refined link underline animation */
-.link-underline {
-  position: relative;
-}
-.link-underline::after {
-  content: "";
-  position: absolute;
-  left: 0; bottom: -2px;
+/* ── Layout ── */
+@utility wrap {
   width: 100%;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 48rem) { padding-inline: 2rem; }
 }
-.link-underline:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-/* Floating element shadow refinement */
-.shadow-float {
-  box-shadow:
-    0 0 0 1px rgba(15, 29, 50, 0.04),
-    0 4px 8px rgba(15, 29, 50, 0.04),
-    0 12px 24px rgba(15, 29, 50, 0.06),
-    0 24px 48px rgba(15, 29, 50, 0.04);
+@utility wrap-wide {
+  width: 100%;
+  max-width: 105rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 48rem) { padding-inline: 2rem; }
 }
 
-/* Improved smooth scroll for anchor jumps */
+/* 화면 가장자리에서 살짝 떨어진 큰 라운드 패널 */
+@utility panel {
+  margin-inline: 0.75rem;
+  border-radius: 1.75rem;
+  background: var(--color-g100);
+  @media (width >= 48rem) { margin-inline: 1.5rem; border-radius: var(--radius-panel); }
+}
+
+/* ── Components ── */
+@layer components {
+  /* 섹션 라벨 pill (레퍼런스의 작은 태그) */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.4375rem 0.875rem;
+    border-radius: 999px;
+    background: var(--color-brand-50);
+    color: var(--color-brand);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 3.25rem;
+    padding: 0 1.5rem;
+    border-radius: var(--radius-btn);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background-color 0.25s var(--ease-soft), color 0.25s var(--ease-soft), transform 0.25s var(--ease-soft), box-shadow 0.25s var(--ease-soft);
+  }
+  .btn:active { transform: scale(0.97); transition-timing-function: var(--ease-press); }
+  .btn-brand { background: var(--color-brand); color: #fff; }
+  .btn-brand:hover { background: var(--color-brand-press); }
+  .btn-signal { background: var(--color-signal); color: #fff; }
+  .btn-signal:hover { background: var(--color-signal-press); }
+  .btn-soft { background: var(--color-g100); color: var(--color-g800); }
+  .btn-soft:hover { background: var(--color-g200); }
+  .btn-line { background: #fff; color: var(--color-g800); box-shadow: inset 0 0 0 1px var(--color-g200); }
+  .btn-line:hover { box-shadow: inset 0 0 0 1px var(--color-g400); }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0 1.125rem;
+    border-radius: 999px;
+    background: var(--color-g100);
+    color: var(--color-g700);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .chip-on { background: var(--color-brand-50); color: var(--color-brand); }
+}
+
+/* ── Motion ── */
+
+/* 스크롤 등장: [data-reveal] 요소는 RevealObserver가 .is-in을 붙이면 나타남.
+   html.js(레이아웃 인라인 스크립트)가 있을 때만 숨겨서, JS가 없어도 내용은 보이게 한다. */
 @media (prefers-reduced-motion: no-preference) {
-  html { scroll-behavior: smooth; }
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+    transition: opacity 0.9s var(--ease-soft), transform 0.9s var(--ease-soft);
+    transition-delay: var(--reveal-delay, 0s);
+  }
+  .js [data-reveal="fade"] { transform: none; }
+  .js [data-reveal="scale"] { transform: scale(0.96); }
+  .js [data-reveal].is-in { opacity: 1; transform: none; }
 }
 
-/* Pretty scrollbar (webkit) */
-::-webkit-scrollbar { width: 12px; height: 12px; }
-::-webkit-scrollbar-track { background: #f1f5f9; }
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 8px;
-  border: 3px solid #f1f5f9;
+/* 무한 마퀴: 트랙 안에 같은 목록을 두 번 넣고 -50%까지 이동 */
+@keyframes marquee-x { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
+@keyframes marquee-y { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, -50%, 0); } }
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-x var(--marquee-duration, 40s) linear infinite;
+  animation-direction: var(--marquee-direction, normal);
 }
-::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+.marquee-col {
+  animation: marquee-y var(--marquee-duration, 30s) linear infinite;
+  animation-direction: var(--marquee-direction, normal);
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track,
+.marquee:hover .marquee-col,
+.marquee:focus-within .marquee-col { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .marquee-col { animation: none; }
+}
+
+@keyframes rise-in { from { opacity: 0; transform: translate3d(0, 24px, 0); } to { opacity: 1; transform: none; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pop-in { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: none; } }
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes progress-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-rise-in { animation: rise-in 0.9s var(--ease-soft) both; animation-delay: var(--delay, 0s); }
+  .animate-pop-in { animation: pop-in 0.5s var(--ease-soft) both; }
+}
+.animate-fade-in { animation: fade-in 0.4s ease-out both; }
+
+/* ── 파란 형광펜 강조 (0515 피드백: 강조는 파랑) ──
+   제목 속 .text-accent가 화면에 들어오면(RevealObserver가 .is-in 부여) 왼쪽부터 형광펜이 칠해진다 */
+:where(h1, h2) .text-accent {
+  background-image: linear-gradient(transparent 62%, rgba(37, 99, 235, 0.17) 62%, rgba(37, 99, 235, 0.17) 94%, transparent 94%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-size 1s var(--ease-soft) 0.35s;
+}
+:where(h1, h2) .text-accent.is-in,
+html:not(.js) :where(h1, h2) .text-accent { background-size: 100% 100%; }
+/* 네이비 바탕 위에서는 밝은 파랑 */
+.on-dark :where(h1, h2) .text-accent {
+  color: #8db8ff;
+  background-image: linear-gradient(transparent 62%, rgba(141, 184, 255, 0.2) 62%, rgba(141, 184, 255, 0.2) 94%, transparent 94%);
+}
+@media (prefers-reduced-motion: reduce) {
+  :where(h1, h2) .text-accent { transition: none; background-size: 100% 100%; }
+}
+
+/* ── 흐름 선 (로고 스우시 모티프): pathLength=1 경로를 그려 나감 ──
+   flow-load: 페이지 로드 시 / [data-draw]: 화면에 들어올 때 */
+.flow-path { stroke-dasharray: 1; stroke-dashoffset: 0; }
+@keyframes flow-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-draw] .flow-path { stroke-dashoffset: 1; transition: stroke-dashoffset 2.2s var(--ease-soft); transition-delay: var(--d, 0s); }
+  .js [data-draw].is-in .flow-path { stroke-dashoffset: 0; }
+  .js .flow-load .flow-path { animation: flow-draw 2.4s var(--ease-soft) both; animation-delay: var(--d, 0.1s); }
+}
+
+/* ── 홈 히어로: 포인트별 이미지 교차 전환 ── */
+.point-media { opacity: 0; transform: scale(1.05); transition: opacity 0.9s var(--ease-soft), transform 1.8s var(--ease-soft); }
+.point-media[data-on="true"] { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .point-media { transform: none; transition: opacity 0.3s ease; }
+}
+
+/* ── 홈 문장: 스크롤에 따라 단어가 회색 → 진하게 차오름 ── */
+.word-fill .w { color: var(--color-g300); transition: color 0.45s ease; }
+.word-fill .w.on { color: var(--color-ink); }
+.word-fill .w.key.on { color: var(--color-accent); }
+html:not(.js) .word-fill .w { color: var(--color-ink); }
+@media (prefers-reduced-motion: reduce) {
+  .word-fill .w { color: var(--color-ink); transition: none; }
+  .word-fill .w.key { color: var(--color-accent); }
+}
+
+/* ── 홈 채널 패널: 고른 패널이 넓게 펼쳐짐 ── */
+.ch-panel { flex: 1 1 0%; transition: flex-grow 0.75s var(--ease-soft), background-color 0.4s ease, color 0.4s ease; }
+.ch-panel[data-on="true"] { flex-grow: 4.4; }
+.ch-panel .ch-detail { opacity: 0; transform: translate3d(0, 16px, 0); transition: opacity 0.35s ease, transform 0.6s var(--ease-soft); }
+.ch-panel[data-on="true"] .ch-detail { opacity: 1; transform: none; transition-delay: 0.28s; }
+@media (prefers-reduced-motion: reduce) {
+  .ch-panel, .ch-panel .ch-detail { transition: none; }
+}
+
+/* ── 홈 타깃 좁히기: 점 그리드 ── */
+.t-dot { transition: transform 0.6s var(--ease-soft), background-color 0.45s ease, opacity 0.45s ease; transition-delay: var(--dd, 0s); }
+.t-dot[data-state="out"] { transform: scale(0.45); opacity: 0.35; }
+.t-dot[data-state="in"] { background-color: var(--color-accent); }
+@keyframes dot-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.35); } 50% { box-shadow: 0 0 0 6px rgba(37, 99, 235, 0); } }
+@media (prefers-reduced-motion: no-preference) {
+  .t-dot[data-state="final"] { background-color: var(--color-accent); animation: dot-pulse 1.6s ease-in-out infinite; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .t-dot { transition: none; }
+  .t-dot[data-state="final"] { background-color: var(--color-accent); }
+}
+
+/* ── 홈 성과 대시보드: 막대가 아래에서 자라남 ── */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-draw] .dash-bar { transform: scaleY(0); transform-origin: bottom; transition: transform 1s var(--ease-soft); transition-delay: var(--d, 0s); }
+  .js [data-draw].is-in .dash-bar { transform: none; }
+}
+
+/* ── 홈 진행 흐름: 화면에 들어오면 위쪽 선이 왼쪽부터 채워지고, 선이 닿는 순서대로 점이 켜짐 ── */
+.step-dot { background-color: var(--color-brand); }
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-draw] .step-fill { transform: scaleX(0); transform-origin: left; transition: transform 1.8s linear 0.2s; }
+  .js [data-draw].is-in .step-fill { transform: none; }
+  .js [data-draw] .step-dot { background-color: var(--color-g300); transition: background-color 0.35s ease; transition-delay: var(--dd, 0s); }
+  .js [data-draw].is-in .step-dot { background-color: var(--color-brand); }
+}
+
+/* ── 서비스 업종별 설계: 업종을 바꾸면 내용이 살짝 떠오르고, 추천 채널이 차례로 놓임 (잇는 선은 [data-draw]) ── */
+@keyframes soft-rise { from { opacity: 0; transform: translate3d(0, 12px, 0); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .planner-in { animation: soft-rise 0.45s var(--ease-soft) both; }
+  .planner-tile { animation: pop-in 0.45s var(--ease-soft) both; animation-delay: calc(var(--i, 0) * 0.35s + 0.05s); }
+}
+
+/* ── 홈 실제 광고 화면: 휴대폰 3대 부채꼴 ── */
+.fan-phone { transform: translate(-50%, -50%) translateX(var(--x)) rotate(var(--r)) scale(var(--s)); }
+@keyframes fan-in {
+  from { opacity: 0; transform: translate(-50%, -38%) translateX(0) rotate(0deg) scale(0.8); }
+  to { opacity: 1; transform: translate(-50%, -50%) translateX(var(--x)) rotate(var(--r)) scale(var(--s)); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .fan-phone { animation: fan-in 0.9s var(--ease-soft) both; animation-delay: var(--fd, 0s); }
+}
+
+/* 모바일 서랍 메뉴 */
+@keyframes drawer-in { from { transform: translate3d(100%, 0, 0); } to { transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .drawer-in { animation: drawer-in 0.45s var(--ease-soft) both; }
+}
+
+/* 가로 스크롤 영역 스크롤바 숨김 */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
