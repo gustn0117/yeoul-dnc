@@ -30,17 +30,9 @@ function solapi() {
   return { apiKey, apiSecret, pfId, templateId, sender, mode };
 }
 
-/** 관리자 화면 '알림 설정'에 보여줄 연동 상태 (값 자체는 내보내지 않음) */
+/** 관리자 화면 '알림 설정'에 보여줄 발송 방식 (설정값 자체는 내보내지 않음) */
 export function notifyStatus() {
-  const c = solapi();
-  return {
-    mode: c.mode,
-    hasKey: Boolean(c.apiKey && c.apiSecret),
-    hasChannel: Boolean(c.pfId),
-    hasTemplate: Boolean(c.templateId),
-    hasSender: Boolean(c.sender),
-    hasMake: Boolean(env("MAKE_WEBHOOK_URL")),
-  };
+  return { mode: solapi().mode, hasMake: Boolean(env("MAKE_WEBHOOK_URL")) };
 }
 
 export const isMobileNumber = (digits: string) => /^01[016789]\d{7,8}$/.test(digits);
