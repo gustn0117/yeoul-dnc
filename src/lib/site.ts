@@ -21,6 +21,7 @@ export const COMPANY = {
 export const TEL_HREF = `tel:${COMPANY.tel.replace(/-/g, "")}`;
 export const KAKAO_CHANNEL_URL = "https://pf.kakao.com/_GxipxdX";
 export const KAKAO_URL = `${KAKAO_CHANNEL_URL}/chat`;
+export const KAKAO_FRIEND_URL = `${KAKAO_CHANNEL_URL}/friend`;
 
 export type NavItem = { label: string; href: string };
 

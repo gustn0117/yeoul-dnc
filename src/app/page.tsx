@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import RenewalPopup from "@/components/RenewalPopup";
+import SitePopup from "@/components/popup/SitePopup";
 import HeroFlow from "@/components/home/HeroFlow";
 import WordFill from "@/components/home/WordFill";
 import ChannelPanels from "@/components/home/ChannelPanels";
@@ -120,7 +120,8 @@ const delay = (s: number) => ({ "--reveal-delay": `${s}s` }) as CSSProperties;
 export default function Home() {
   return (
     <>
-      <RenewalPopup />
+      {/* 메인 팝업: 관리자 화면(팝업 관리)에서 켜고 끄고 내용을 바꿈 */}
+      <SitePopup />
 
       {/* ━━ 첫 화면 ━━ */}
       <HeroFlow />

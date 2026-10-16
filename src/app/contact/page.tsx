@@ -4,7 +4,7 @@ import ConsultForm from "@/components/ConsultForm";
 import FlowLine from "@/components/ui/FlowLine";
 import SubHero from "@/components/ui/SubHero";
 import { CheckIcon, KakaoIcon, PhoneIcon } from "@/components/ui/icons";
-import { COMPANY, KAKAO_URL, TEL_HREF, pageMetadata } from "@/lib/site";
+import { COMPANY, KAKAO_FRIEND_URL, KAKAO_URL, TEL_HREF, pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata("문의하기 | 여울디앤씨", "업종과 광고 상황을 확인한 뒤, 필요한 방향부터 빠르게 정리해드립니다. 무료 광고 상담을 신청하세요.", "/contact");
 
@@ -77,6 +77,10 @@ export default function ContactPage() {
                 </span>
                 <span className="mt-2 block text-[22px] font-extrabold tracking-[-0.04em]">실시간 상담 가능</span>
                 <span className="mt-2 block text-[15px] text-white/55">채팅으로 편하게 물어보세요.</span>
+              </a>
+              <a href={KAKAO_FRIEND_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 px-1 text-[15px] font-semibold text-white/65 transition-colors hover:text-white">
+                <KakaoIcon className="h-4.5 w-4.5 text-kakao" />
+                카카오톡 채널 추가하고 소식 받기
               </a>
             </div>
             <div className="relative mt-7 border-t border-white/12 pt-6">

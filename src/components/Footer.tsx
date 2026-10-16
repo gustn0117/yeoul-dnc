@@ -3,7 +3,7 @@ import Image from "next/image";
 import ScrollTopButton from "@/components/ScrollTopButton";
 import FlowLine from "@/components/ui/FlowLine";
 import { ArrowUpIcon, KakaoIcon } from "@/components/ui/icons";
-import { COMPANY, KAKAO_URL, NAV, TEL_HREF } from "@/lib/site";
+import { COMPANY, KAKAO_FRIEND_URL, KAKAO_URL, NAV, TEL_HREF } from "@/lib/site";
 
 const info = [
   { label: "대표", value: COMPANY.ceo },
@@ -34,10 +34,15 @@ export default function Footer() {
             <a href={TEL_HREF} className="mt-1 block text-[44px] font-extrabold leading-none tracking-[-0.045em] transition-colors hover:text-[#8db8ff] sm:text-[60px]">
               {COMPANY.tel}
             </a>
-            <a href={KAKAO_URL} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center gap-2 text-[16px] font-semibold text-white/75 transition-colors hover:text-white">
-              <KakaoIcon className="h-5 w-5 text-kakao" />
-              카카오톡으로 바로 상담
-            </a>
+            <div className="mt-4 flex flex-wrap gap-x-5 lg:justify-end">
+              <a href={KAKAO_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 text-[16px] font-semibold text-white/75 transition-colors hover:text-white">
+                <KakaoIcon className="h-5 w-5 text-kakao" />
+                카카오톡으로 바로 상담
+              </a>
+              <a href={KAKAO_FRIEND_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-[16px] font-semibold text-white/60 transition-colors hover:text-white">
+                채널 추가하고 소식 받기
+              </a>
+            </div>
           </div>
         </div>
 

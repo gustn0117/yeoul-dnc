@@ -32,6 +32,27 @@ export type InquiryInput = {
 
 export type InquiryField = keyof InquiryInput;
 
+export type InquiryStatus = "new" | "in_progress" | "completed" | "cancelled";
+
+/** DB에 저장된 상담 접수 한 건 (yeoul_dnc.inquiries) */
+export type Inquiry = {
+  id: number;
+  company_name: string;
+  contact_name: string;
+  phone: string;
+  industry: string;
+  message: string;
+  channel: string | null;
+  budget: string | null;
+  has_website: string | null;
+  status: InquiryStatus;
+  admin_memo: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+export const INQUIRY_STATUSES: InquiryStatus[] = ["new", "in_progress", "completed", "cancelled"];
+
 export const EMPTY_INQUIRY: InquiryInput = {
   company_name: "",
   contact_name: "",
