@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
-  keywords: "AI 퍼포먼스 마케팅, 홈페이지 제작, 랜딩페이지, 광고 운영, 콘텐츠 제작, 분양 광고, DB 자동화, 여울디앤씨",
+  keywords: "종합광고, 온라인 광고 대행, 네이버 광고, 메타 광고, 카카오 광고, 유튜브 광고, LMS 문자광고, 영상 제작, 디자인 제작, 제안서 제작, 홈페이지 제작, 랜딩페이지, 고객관리 자동화, 여울디앤씨",
   // 페이지별 값은 각 페이지의 pageMetadata()가 덮어씀 (관리자·404 등은 이 기본값)
   openGraph: { type: "website", locale: "ko_KR", siteName: COMPANY.name, title: SITE_TITLE, description: SITE_DESCRIPTION, images: ["/og-image.png"] },
   twitter: { card: "summary_large_image" },

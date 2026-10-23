@@ -7,32 +7,62 @@
 
 <url>
   <loc>https://yeouldnc.com/</loc>
-  <lastmod>2026-10-14T00:00:00+00:00</lastmod>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://yeouldnc.com/about</loc>
-  <lastmod>2026-10-14T00:00:00+00:00</lastmod>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://yeouldnc.com/services</loc>
-  <lastmod>2026-10-14T00:00:00+00:00</lastmod>
+  <loc>https://yeouldnc.com/marketing</loc>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yeouldnc.com/production</loc>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yeouldnc.com/production/video</loc>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://yeouldnc.com/production/design</loc>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://yeouldnc.com/production/document</loc>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://yeouldnc.com/production/web</loc>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://yeouldnc.com/automation</loc>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://yeouldnc.com/cases</loc>
-  <lastmod>2026-10-14T00:00:00+00:00</lastmod>
-  <priority>0.80</priority>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <priority>0.70</priority>
 </url>
 <url>
-  <loc>https://yeouldnc.com/process</loc>
-  <lastmod>2026-10-14T00:00:00+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://yeouldnc.com/yeoulad</loc>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <priority>0.60</priority>
 </url>
 <url>
   <loc>https://yeouldnc.com/contact</loc>
-  <lastmod>2026-10-14T00:00:00+00:00</lastmod>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 

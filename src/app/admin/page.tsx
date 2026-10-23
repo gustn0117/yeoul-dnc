@@ -9,10 +9,11 @@ import SettingsPanel from "@/components/admin/SettingsPanel";
 import { UNAUTHORIZED_EVENT, adminApi } from "@/components/admin/api";
 import { Notice, inputCls } from "@/components/admin/ui";
 
-type Session = { authenticated: boolean; defaultPassword?: boolean };
+type Session = { authenticated: boolean; username?: string; defaultPassword?: boolean };
 type Tab = "inquiries" | "popup" | "settings";
 
-const loadSession = () => adminApi<Session>("/api/admin/session").then(({ data }): Session => ({ authenticated: Boolean(data.authenticated), defaultPassword: data.defaultPassword }));
+const loadSession = () =>
+  adminApi<Session>("/api/admin/session").then(({ data }): Session => ({ authenticated: Boolean(data.authenticated), username: data.username, defaultPassword: data.defaultPassword }));
 
 const TABS: { id: Tab; label: string }[] = [
   { id: "inquiries", label: "상담 접수" },
@@ -21,6 +22,7 @@ const TABS: { id: Tab; label: string }[] = [
 ];
 
 function LoginForm({ onSuccess }: { onSuccess: () => void }) {
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -31,7 +33,7 @@ function LoginForm({ onSuccess }: { onSuccess: () => void }) {
     const { ok, data } = await adminApi("/api/admin/session", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ password }),
+      body: JSON.stringify({ username, password }),
     });
     setBusy(false);
     if (!ok) return setError(data.error ?? "로그인하지 못했습니다.");
@@ -46,7 +48,23 @@ function LoginForm({ onSuccess }: { onSuccess: () => void }) {
         </div>
         <h1 className="mt-5 text-center text-[24px] font-extrabold tracking-[-0.04em] text-ink">관리자 로그인</h1>
         <p className="mt-1 text-center text-[15px] text-g600">여울디앤씨 홈페이지 관리</p>
-        <label htmlFor="admin-password" className="mt-7 block text-[15px] font-bold text-g800">
+        <label htmlFor="admin-username" className="mt-7 block text-[15px] font-bold text-g800">
+          아이디
+        </label>
+        <input
+          id="admin-username"
+          autoComplete="username"
+          autoCapitalize="none"
+          spellCheck={false}
+          value={username}
+          onChange={(e) => {
+            setUsername(e.target.value);
+            setError(null);
+          }}
+          className={`${inputCls} mt-2`}
+          autoFocus
+        />
+        <label htmlFor="admin-password" className="mt-4 block text-[15px] font-bold text-g800">
           비밀번호
         </label>
         <input
@@ -59,14 +77,13 @@ function LoginForm({ onSuccess }: { onSuccess: () => void }) {
             setError(null);
           }}
           className={`${inputCls} mt-2`}
-          autoFocus
         />
         {error && (
           <div className="mt-3">
             <Notice tone="error">{error}</Notice>
           </div>
         )}
-        <button type="submit" disabled={busy || !password} className="btn btn-brand mt-5 min-h-13 w-full text-[16px] disabled:opacity-50">
+        <button type="submit" disabled={busy || !username.trim() || !password} className="btn btn-brand mt-5 min-h-13 w-full text-[16px] disabled:opacity-50">
           {busy ? "확인 중…" : "로그인"}
         </button>
       </form>
@@ -74,7 +91,7 @@ function LoginForm({ onSuccess }: { onSuccess: () => void }) {
   );
 }
 
-/* 관리자 — 비밀번호는 서버에서 확인하고 로그인 쿠키(12시간)로 유지 */
+/* 관리자 — 아이디·비밀번호는 서버에서 확인하고 로그인 쿠키(12시간)로 유지 */
 export default function AdminPage() {
   const [session, setSession] = useState<Session | null>(null);
   const [tab, setTab] = useState<Tab>("inquiries");
@@ -106,6 +123,7 @@ export default function AdminPage() {
           <LogoMark className="w-9" alt="" />
           <h1 className="text-[17px] font-extrabold tracking-[-0.03em] text-ink">여울디앤씨 관리자</h1>
           <div className="ml-auto flex items-center gap-1">
+            {session.username && <span className="hidden px-2 text-[14px] font-semibold text-g500 md:inline">{session.username}</span>}
             <Link href="/" target="_blank" rel="noopener noreferrer" className="hidden min-h-10 items-center rounded-full px-3 text-[15px] font-semibold text-g600 hover:bg-g100 sm:inline-flex">
               사이트 보기 ↗
             </Link>
@@ -136,9 +154,9 @@ export default function AdminPage() {
       {session.defaultPassword && (
         <div className="border-b border-amber-200 bg-amber-50">
           <p className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-3 gap-y-1 px-4 py-3 text-[15px] font-semibold text-amber-900 sm:px-6">
-            초기 비밀번호(1234)를 사용 중입니다. 누구나 추측하기 쉬우니 바꿔 주세요.
+            초기 비밀번호(1234)를 사용 중입니다. 누구나 추측하기 쉬우니 아이디와 비밀번호를 바꿔 주세요.
             <button type="button" onClick={() => setTab("settings")} className="underline underline-offset-4">
-              비밀번호 바꾸기
+              계정 바꾸기
             </button>
           </p>
         </div>
@@ -147,7 +165,7 @@ export default function AdminPage() {
       <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
         {tab === "inquiries" && <InquiriesPanel onNewCount={setNewCount} />}
         {tab === "popup" && <PopupPanel />}
-        {tab === "settings" && <SettingsPanel onPasswordChanged={() => setSession((s) => (s ? { ...s, defaultPassword: false } : s))} />}
+        {tab === "settings" && <SettingsPanel username={session.username ?? ""} onAccountChanged={(username) => setSession((s) => (s ? { ...s, username, defaultPassword: false } : s))} />}
       </main>
     </div>
   );

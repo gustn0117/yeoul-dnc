@@ -4,13 +4,32 @@ Next.js 16 (App Router) · Tailwind CSS v4 · 셀프호스팅 Supabase(`yeoul_dn
 
 - 배포: `main`에 푸시하면 서버 webhook이 자동으로 빌드·반영 (`https://yeouldnc.com`)
 - 로컬 개발: `.env.local`을 만든 뒤 `npm run dev` (이 폴더에서는 수정이 반영되지 않으면 `.next/dev`를 지우고 다시 실행)
+  - 로컬도 운영과 같은 DB를 씁니다. 관리자 계정 변경·상담 접수 테스트는 운영 데이터에 그대로 반영되니 주의하세요.
+
+## 페이지 구성
+
+| 주소 | 내용 |
+| --- | --- |
+| `/` | 메인: 히어로, 함께하는 업종, 서비스 6가지, 작업물 미리보기, 진행 방식, 여울애드 안내, 상담 |
+| `/about` | 회사소개 |
+| `/marketing` | 광고·마케팅: 목적별 채널 찾기, 네이버·메타·카카오·구글·LMS·당근 등 매체별 안내 |
+| `/production` | 제작서비스 한눈에 보기 (하위: `/production/video`, `/design`, `/document`, `/web`) |
+| `/automation` | 고객관리·자동화 |
+| `/cases` | 포트폴리오 |
+| `/yeoulad` | 분양·부동산 전문 브랜드 여울애드 안내 → `https://yeoulads.com` |
+| `/contact` | 상담 신청 폼, 진행·보고·견적 안내(`#guide`), 자주 묻는 질문(`#faq`) |
+
+- 예전 주소 `/services` → `/marketing`, `/process` → `/contact#guide`로 영구 이동합니다 (`next.config.ts`).
+- 영상·디자인·문서 작업물은 실제 자료를 받기 전까지 "구성 예시" 표시를 단 예시 화면을 씁니다. 홈페이지 사례 이미지는 `public/images/works/web/`, 목록은 `src/lib/offerings.ts`의 `WEB_WORKS`.
 
 ## 관리자 (`/admin`)
 
-- 초기 비밀번호는 `1234` (서버 `ADMIN_PASSWORD`). 관리자 화면 **알림·계정 설정**에서 바꾸면 그 값이 우선합니다.
+- 아이디·비밀번호로 로그인합니다. 초기 계정은 서버 환경변수 `ADMIN_USERNAME`(기본 `admin`) / `ADMIN_PASSWORD`(기본 `1234`)이고, 관리자 화면 **알림·계정 설정**에서 바꾸면 그 값이 우선합니다.
+- 아이디 도입 전에 비밀번호만 바꿔 둔 경우(`admin_password`)에는 아이디 `admin`(또는 `ADMIN_USERNAME`) + 그 비밀번호로 로그인합니다.
+- 계정을 잊어버렸을 때: `site_settings`에서 `admin_account`(와 `admin_password`) 행을 지우면 환경변수 계정으로 돌아갑니다.
 - **상담 접수**: 홈페이지 상담 신청 목록, 상태(신규·진행중·완료·취소)·메모·삭제
 - **팝업 관리**: 메인 팝업 켜기/끄기, 노출 기간, 제목(`**강조**`)·내용·이미지·버튼 링크, 실시간 미리보기
-- **알림·계정 설정**: 새 접수 알림 받을 번호(최대 3개), 테스트 알림, 비밀번호 변경
+- **알림·계정 설정**: 새 접수 알림 받을 번호(최대 3개), 테스트 알림, 관리자 아이디·비밀번호 변경
 
 ## 서버 환경변수 (`/home/server/apps/yeoul-dnc/.env.production`)
 
@@ -19,6 +38,7 @@ git에 올리지 않는 파일입니다. Next standalone 빌드가 함께 넣고
 | 이름 | 설명 |
 | --- | --- |
 | `SUPABASE_SERVICE_ROLE_KEY` | 서버 전용 DB 키. 테이블은 RLS로 외부 접근을 막고 서버만 이 키로 읽고 씀 |
+| `ADMIN_USERNAME` | 관리자 초기 아이디 (기본 `admin`) |
 | `ADMIN_PASSWORD` | 관리자 초기 비밀번호 (기본 `1234`) |
 | `ADMIN_SESSION_SECRET` | 관리자 로그인 쿠키 서명용 임의 문자열 |
 | `SOLAPI_API_KEY` / `SOLAPI_API_SECRET` | 솔라피 API 키 |
@@ -56,5 +76,5 @@ git에 올리지 않는 파일입니다. Next standalone 빌드가 함께 넣고
 ## 데이터 (Supabase `yeoul_dnc`)
 
 - `inquiries`: 상담 접수 (요청 필드와 선택지 문자열은 `src/lib/inquiry.ts`와 맞춰 둘 것)
-- `site_settings`: `popup`, `popup_image`, `notify`, `admin_password`(관리자 화면에서 바꾼 비밀번호 해시)
+- `site_settings`: `popup`, `popup_image`, `notify`, `admin_account`(관리자 화면에서 바꾼 아이디·비밀번호 해시), `admin_password`(아이디 도입 전 비밀번호 해시, `admin_account`가 생기면 쓰지 않음)
 - 두 테이블 모두 RLS를 켜고 anon 권한을 없앴습니다. 브라우저에서 직접 DB에 접근하지 않습니다.

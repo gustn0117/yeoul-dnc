@@ -13,16 +13,16 @@ const MODE_TEXT: Record<Status["mode"], string> = {
   off: "아직 카카오톡 발송 설정 전입니다. 접수 내역은 '상담 접수' 탭에서 확인할 수 있습니다.",
 };
 
-/* 알림·계정 설정 — 알림 받을 번호·테스트 알림, 관리자 비밀번호 변경 */
-export default function SettingsPanel({ onPasswordChanged }: { onPasswordChanged: () => void }) {
+/* 알림·계정 설정 — 알림 받을 번호·테스트 알림, 관리자 아이디·비밀번호 변경 */
+export default function SettingsPanel({ username, onAccountChanged }: { username: string; onAccountChanged: (username: string) => void }) {
   const [status, setStatus] = useState<Status | null>(null);
   const [numbers, setNumbers] = useState<string[]>([]);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [numberMsg, setNumberMsg] = useState<Message>(null);
   const [testMsg, setTestMsg] = useState<Message>(null);
-  const [pwMsg, setPwMsg] = useState<Message>(null);
-  const [busy, setBusy] = useState<"numbers" | "test" | "password" | null>(null);
-  const [pw, setPw] = useState({ current: "", next: "", confirm: "" });
+  const [accountMsg, setAccountMsg] = useState<Message>(null);
+  const [busy, setBusy] = useState<"numbers" | "test" | "account" | null>(null);
+  const [account, setAccount] = useState({ username, next: "", confirm: "", current: "" });
 
   useEffect(() => {
     adminApi<{ status: Status; recipients: string[] }>("/api/admin/notify").then(({ ok, data }) => {
@@ -52,19 +52,22 @@ export default function SettingsPanel({ onPasswordChanged }: { onPasswordChanged
     setTestMsg({ tone: data.ok ? "success" : "error", text: data.message ?? data.error ?? "테스트 알림을 보내지 못했습니다." });
   }
 
-  async function changePassword() {
-    if (pw.next !== pw.confirm) return setPwMsg({ tone: "error", text: "새 비밀번호와 확인이 다릅니다." });
-    setBusy("password");
-    const { ok, data } = await adminApi("/api/admin/session", {
+  const idChanged = account.username.trim().toLowerCase() !== username;
+
+  async function saveAccount() {
+    if (account.next !== account.confirm) return setAccountMsg({ tone: "error", text: "새 비밀번호와 확인이 다릅니다." });
+    setBusy("account");
+    const { ok, data } = await adminApi<{ username: string }>("/api/admin/session", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ current: pw.current, next: pw.next }),
+      body: JSON.stringify({ username: account.username, next: account.next, current: account.current }),
     });
     setBusy(null);
-    if (!ok) return setPwMsg({ tone: "error", text: data.error ?? "비밀번호를 바꾸지 못했습니다." });
-    setPw({ current: "", next: "", confirm: "" });
-    setPwMsg({ tone: "success", text: "비밀번호를 바꿨습니다. 다음 로그인부터 새 비밀번호를 쓰세요." });
-    onPasswordChanged();
+    if (!ok || !data.username) return setAccountMsg({ tone: "error", text: data.error ?? "계정을 저장하지 못했습니다." });
+    const changed = idChanged && account.next ? `새 아이디(${data.username})와 새 비밀번호` : idChanged ? `새 아이디(${data.username})` : "새 비밀번호";
+    setAccount({ username: data.username, next: "", confirm: "", current: "" });
+    setAccountMsg({ tone: "success", text: `계정을 저장했습니다. 다음 로그인부터 ${changed}를 쓰세요.` });
+    onAccountChanged(data.username);
   }
 
   if (loadError) return <Notice tone="error">{loadError}</Notice>;
@@ -122,21 +125,34 @@ export default function SettingsPanel({ onPasswordChanged }: { onPasswordChanged
       </div>
 
       <div className="space-y-5">
-        <Card title="관리자 비밀번호 변경" desc="바꾼 비밀번호는 암호화해서 저장됩니다. 잊어버리면 개발 담당에게 초기화를 요청하세요.">
-          <div className="space-y-3">
-            <Field id="pw-current" label="현재 비밀번호">
-              <input id="pw-current" type="password" autoComplete="current-password" value={pw.current} onChange={(e) => setPw((p) => ({ ...p, current: e.target.value }))} className={inputCls} />
+        <Card title="관리자 계정" desc="로그인 아이디와 비밀번호를 바꿉니다. 비밀번호는 암호화해서 저장되며, 잊어버리면 개발 담당에게 초기화를 요청하세요.">
+          <p className="rounded-xl bg-g50 px-4 py-3 text-[15px] text-g700">
+            현재 아이디 <b className="ml-1 font-extrabold text-ink">{username}</b>
+          </p>
+          <div className="mt-5 space-y-3">
+            <Field id="account-username" label="아이디" hint="영문 소문자·숫자 4~20자 (. _ - 사용 가능)">
+              <input id="account-username" autoComplete="username" autoCapitalize="none" spellCheck={false} value={account.username} onChange={(e) => setAccount((a) => ({ ...a, username: e.target.value }))} className={inputCls} />
             </Field>
-            <Field id="pw-next" label="새 비밀번호" hint="6자 이상">
-              <input id="pw-next" type="password" autoComplete="new-password" value={pw.next} onChange={(e) => setPw((p) => ({ ...p, next: e.target.value }))} className={inputCls} />
+            <Field id="account-next" label="새 비밀번호" hint="6자 이상 · 아이디만 바꿀 때는 비워 두세요">
+              <input id="account-next" type="password" autoComplete="new-password" value={account.next} onChange={(e) => setAccount((a) => ({ ...a, next: e.target.value }))} className={inputCls} />
             </Field>
-            <Field id="pw-confirm" label="새 비밀번호 확인">
-              <input id="pw-confirm" type="password" autoComplete="new-password" value={pw.confirm} onChange={(e) => setPw((p) => ({ ...p, confirm: e.target.value }))} className={inputCls} />
+            <Field id="account-confirm" label="새 비밀번호 확인">
+              <input id="account-confirm" type="password" autoComplete="new-password" value={account.confirm} onChange={(e) => setAccount((a) => ({ ...a, confirm: e.target.value }))} className={inputCls} />
             </Field>
-            <button type="button" onClick={changePassword} disabled={busy !== null || !pw.current || pw.next.length < 6} className="btn btn-brand min-h-11 px-5 text-[15px] disabled:opacity-50">
-              {busy === "password" ? "바꾸는 중…" : "비밀번호 바꾸기"}
+            <div className="border-t border-g200 pt-4">
+              <Field id="account-current" label="현재 비밀번호" hint="저장하려면 지금 쓰는 비밀번호를 입력해 주세요.">
+                <input id="account-current" type="password" autoComplete="current-password" value={account.current} onChange={(e) => setAccount((a) => ({ ...a, current: e.target.value }))} className={inputCls} />
+              </Field>
+            </div>
+            <button
+              type="button"
+              onClick={saveAccount}
+              disabled={busy !== null || !account.current || !(idChanged || account.next) || (account.next !== "" && account.next.length < 6)}
+              className="btn btn-brand min-h-11 px-5 text-[15px] disabled:opacity-50"
+            >
+              {busy === "account" ? "저장 중…" : "계정 저장"}
             </button>
-            {pwMsg && <Notice tone={pwMsg.tone}>{pwMsg.text}</Notice>}
+            {accountMsg && <Notice tone={accountMsg.tone}>{accountMsg.text}</Notice>}
           </div>
         </Card>
       </div>

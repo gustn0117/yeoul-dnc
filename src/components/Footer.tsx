@@ -3,7 +3,47 @@ import Image from "next/image";
 import ScrollTopButton from "@/components/ScrollTopButton";
 import FlowLine from "@/components/ui/FlowLine";
 import { ArrowUpIcon, KakaoIcon } from "@/components/ui/icons";
-import { COMPANY, KAKAO_FRIEND_URL, KAKAO_URL, NAV, TEL_HREF } from "@/lib/site";
+import { COMPANY, KAKAO_FRIEND_URL, KAKAO_URL, TEL_HREF, YEOULAD_URL } from "@/lib/site";
+
+const LINK_GROUPS: { title: string; links: { label: string; href: string; external?: boolean }[] }[] = [
+  {
+    title: "광고·마케팅",
+    links: [
+      { label: "네이버 광고", href: "/marketing#naver" },
+      { label: "메타 광고", href: "/marketing#meta" },
+      { label: "카카오 광고", href: "/marketing#kakao" },
+      { label: "구글·유튜브 광고", href: "/marketing#google" },
+      { label: "LMS 문자광고", href: "/marketing#lms" },
+    ],
+  },
+  {
+    title: "제작서비스",
+    links: [
+      { label: "한눈에 보기", href: "/production" },
+      { label: "영상 제작", href: "/production/video" },
+      { label: "디자인 제작", href: "/production/design" },
+      { label: "문서 제작", href: "/production/document" },
+      { label: "홈페이지 제작", href: "/production/web" },
+    ],
+  },
+  {
+    title: "회사",
+    links: [
+      { label: "회사소개", href: "/about" },
+      { label: "고객관리·자동화", href: "/automation" },
+      { label: "포트폴리오", href: "/cases" },
+    ],
+  },
+  {
+    title: "상담",
+    links: [
+      { label: "상담 신청", href: "/contact" },
+      { label: "카카오톡 상담", href: KAKAO_URL, external: true },
+      { label: "카카오 채널 추가", href: KAKAO_FRIEND_URL, external: true },
+      { label: "자주 묻는 질문", href: "/contact#faq" },
+    ],
+  },
+];
 
 const info = [
   { label: "대표", value: COMPANY.ceo },
@@ -46,9 +86,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 grid gap-8 border-t border-white/10 pt-8 md:grid-cols-[1fr_auto] md:items-start">
+        <div className="mt-14 grid gap-10 border-t border-white/10 pt-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <div>
-            <p className="text-[17px] font-semibold text-white/85">{COMPANY.tagline}</p>
+            <p className="max-w-md text-[17px] font-semibold leading-relaxed text-white/85">{COMPANY.tagline}</p>
             <dl className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-[15px] text-white/60">
               {info.map((row) => (
                 <div key={row.label} className="flex gap-2">
@@ -65,17 +105,32 @@ export default function Footer() {
                 </div>
               ))}
             </dl>
+            {/* 분양·부동산은 전문 브랜드 여울애드에서 다룸 */}
+            <a href={YEOULAD_URL} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-[15px] font-semibold text-white/80 ring-1 ring-white/20 transition-colors hover:bg-white/10 hover:text-white">
+              패밀리 사이트 · 여울애드 (분양·부동산 전문) ↗
+            </a>
           </div>
-          <nav aria-label="하단 메뉴">
-            <ul className="flex flex-wrap gap-x-5 gap-y-1 text-[15px] font-semibold text-white/75 md:justify-end">
-              {NAV.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className="inline-flex min-h-11 items-center transition-colors hover:text-white">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <nav aria-label="하단 메뉴" className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
+            {LINK_GROUPS.map((group) => (
+              <div key={group.title}>
+                <p className="text-[15px] font-bold text-white">{group.title}</p>
+                <ul className="mt-2">
+                  {group.links.map((link) => (
+                    <li key={link.href}>
+                      {link.external ? (
+                        <a href={link.href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center text-[15px] text-white/65 transition-colors hover:text-white">
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link href={link.href} className="inline-flex min-h-10 items-center text-[15px] text-white/65 transition-colors hover:text-white">
+                          {link.label}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </nav>
         </div>
 

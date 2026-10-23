@@ -1,7 +1,7 @@
 import "server-only";
 import { db } from "@/lib/supabase";
 
-/* 사이트 설정(yeoul_dnc.site_settings) — key 하나에 JSON 값 하나 (popup, popup_image, notify, admin_password) */
+/* 사이트 설정(yeoul_dnc.site_settings) — key 하나에 JSON 값 하나 (popup, popup_image, notify, admin_account, admin_password) */
 
 export async function getSetting<T>(key: string): Promise<T | null> {
   const { data, error } = await db.from("site_settings").select("value").eq("key", key).maybeSingle();

@@ -200,7 +200,6 @@
     font-weight: 600;
     letter-spacing: -0.02em;
   }
-  .chip-on { background: var(--color-brand-50); color: var(--color-brand); }
 }
 
 /* ── Motion ── */
@@ -219,31 +218,9 @@
   .js [data-reveal].is-in { opacity: 1; transform: none; }
 }
 
-/* 무한 마퀴: 트랙 안에 같은 목록을 두 번 넣고 -50%까지 이동 */
-@keyframes marquee-x { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
-@keyframes marquee-y { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, -50%, 0); } }
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee-x var(--marquee-duration, 40s) linear infinite;
-  animation-direction: var(--marquee-direction, normal);
-}
-.marquee-col {
-  animation: marquee-y var(--marquee-duration, 30s) linear infinite;
-  animation-direction: var(--marquee-direction, normal);
-}
-.marquee:hover .marquee-track,
-.marquee:focus-within .marquee-track,
-.marquee:hover .marquee-col,
-.marquee:focus-within .marquee-col { animation-play-state: paused; }
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track, .marquee-col { animation: none; }
-}
-
 @keyframes rise-in { from { opacity: 0; transform: translate3d(0, 24px, 0); } to { opacity: 1; transform: none; } }
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes pop-in { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: none; } }
-@keyframes spin-slow { to { transform: rotate(360deg); } }
 @keyframes progress-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -290,17 +267,7 @@ html:not(.js) :where(h1, h2) .text-accent { background-size: 100% 100%; }
   .point-media { transform: none; transition: opacity 0.3s ease; }
 }
 
-/* ── 홈 문장: 스크롤에 따라 단어가 회색 → 진하게 차오름 ── */
-.word-fill .w { color: var(--color-g300); transition: color 0.45s ease; }
-.word-fill .w.on { color: var(--color-ink); }
-.word-fill .w.key.on { color: var(--color-accent); }
-html:not(.js) .word-fill .w { color: var(--color-ink); }
-@media (prefers-reduced-motion: reduce) {
-  .word-fill .w { color: var(--color-ink); transition: none; }
-  .word-fill .w.key { color: var(--color-accent); }
-}
-
-/* ── 홈 채널 패널: 고른 패널이 넓게 펼쳐짐 ── */
+/* ── 홈 서비스 패널: 고른 패널이 넓게 펼쳐짐 ── */
 .ch-panel { flex: 1 1 0%; transition: flex-grow 0.75s var(--ease-soft), background-color 0.4s ease, color 0.4s ease; }
 .ch-panel[data-on="true"] { flex-grow: 4.4; }
 .ch-panel .ch-detail { opacity: 0; transform: translate3d(0, 16px, 0); transition: opacity 0.35s ease, transform 0.6s var(--ease-soft); }
@@ -309,26 +276,7 @@ html:not(.js) .word-fill .w { color: var(--color-ink); }
   .ch-panel, .ch-panel .ch-detail { transition: none; }
 }
 
-/* ── 홈 타깃 좁히기: 점 그리드 ── */
-.t-dot { transition: transform 0.6s var(--ease-soft), background-color 0.45s ease, opacity 0.45s ease; transition-delay: var(--dd, 0s); }
-.t-dot[data-state="out"] { transform: scale(0.45); opacity: 0.35; }
-.t-dot[data-state="in"] { background-color: var(--color-accent); }
-@keyframes dot-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.35); } 50% { box-shadow: 0 0 0 6px rgba(37, 99, 235, 0); } }
-@media (prefers-reduced-motion: no-preference) {
-  .t-dot[data-state="final"] { background-color: var(--color-accent); animation: dot-pulse 1.6s ease-in-out infinite; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .t-dot { transition: none; }
-  .t-dot[data-state="final"] { background-color: var(--color-accent); }
-}
-
-/* ── 홈 성과 대시보드: 막대가 아래에서 자라남 ── */
-@media (prefers-reduced-motion: no-preference) {
-  .js [data-draw] .dash-bar { transform: scaleY(0); transform-origin: bottom; transition: transform 1s var(--ease-soft); transition-delay: var(--d, 0s); }
-  .js [data-draw].is-in .dash-bar { transform: none; }
-}
-
-/* ── 홈 진행 흐름: 화면에 들어오면 위쪽 선이 왼쪽부터 채워지고, 선이 닿는 순서대로 점이 켜짐 ── */
+/* ── 진행 단계: 화면에 들어오면 위쪽 선이 왼쪽부터 채워지고, 선이 닿는 순서대로 점이 켜짐 ── */
 .step-dot { background-color: var(--color-brand); }
 @media (prefers-reduced-motion: no-preference) {
   .js [data-draw] .step-fill { transform: scaleX(0); transform-origin: left; transition: transform 1.8s linear 0.2s; }
@@ -337,21 +285,11 @@ html:not(.js) .word-fill .w { color: var(--color-ink); }
   .js [data-draw].is-in .step-dot { background-color: var(--color-brand); }
 }
 
-/* ── 서비스 업종별 설계: 업종을 바꾸면 내용이 살짝 떠오르고, 추천 채널이 차례로 놓임 (잇는 선은 [data-draw]) ── */
+/* ── 목적별 채널 찾기·작업물 탭: 탭을 바꾸면 내용이 살짝 떠오르고, 채널 타일이 차례로 놓임 (잇는 선은 [data-draw]) ── */
 @keyframes soft-rise { from { opacity: 0; transform: translate3d(0, 12px, 0); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: no-preference) {
   .planner-in { animation: soft-rise 0.45s var(--ease-soft) both; }
   .planner-tile { animation: pop-in 0.45s var(--ease-soft) both; animation-delay: calc(var(--i, 0) * 0.35s + 0.05s); }
-}
-
-/* ── 홈 실제 광고 화면: 휴대폰 3대 부채꼴 ── */
-.fan-phone { transform: translate(-50%, -50%) translateX(var(--x)) rotate(var(--r)) scale(var(--s)); }
-@keyframes fan-in {
-  from { opacity: 0; transform: translate(-50%, -38%) translateX(0) rotate(0deg) scale(0.8); }
-  to { opacity: 1; transform: translate(-50%, -50%) translateX(var(--x)) rotate(var(--r)) scale(var(--s)); }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .fan-phone { animation: fan-in 0.9s var(--ease-soft) both; animation-delay: var(--fd, 0s); }
 }
 
 /* 모바일 서랍 메뉴 */
