@@ -4,10 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import type { KeyboardEvent, ReactNode } from "react";
-import { BannerMock, ExampleTag, ReelMock, ReportMock, SlideMock, VideoMock } from "@/components/mocks/Mocks";
-import PhoneFrame from "@/components/ui/PhoneFrame";
+import { ExampleTag, ReportMock } from "@/components/mocks/Mocks";
+import { AdTrio } from "@/components/portfolio/AdViews";
+import VideoPreview from "@/components/portfolio/VideoPreview";
 import { ArrowIcon } from "@/components/ui/icons";
 import { WEB_WORKS } from "@/lib/offerings";
+import { findDoc, findIndustry } from "@/lib/portfolio";
 
 type Work = {
   id: string;
@@ -33,8 +35,10 @@ const WORKS: Work[] = [
     link: { label: "영상 제작 자세히", href: "/production/video" },
     visual: (
       <div className="grid grid-cols-[0.62fr_1fr] items-center gap-4">
-        <ReelMock image="/images/0515/op-education.png" alt="상담하는 모습을 담은 세로 영상 장면" caption={<>첫 3초 안에<br />주제를 전달합니다</>} />
-        <VideoMock image="/images/0515/team-presentation-1.png" alt="회사 소개 영상의 회의 장면" title="기업·브랜드 홍보영상" />
+        <VideoPreview slug="product" label="제품 광고 영상" className="aspect-9/16 rounded-2xl" />
+        <figure className="relative aspect-video overflow-hidden rounded-2xl bg-g100">
+          <Image src="/images/production/video.webp" alt="기업 홍보영상 화면" fill sizes="(min-width: 1024px) 340px, 55vw" className="object-cover" />
+        </figure>
       </div>
     ),
   },
@@ -73,10 +77,15 @@ const WORKS: Work[] = [
     link: { label: "문서 제작 자세히", href: "/production/document" },
     visual: (
       <div className="grid gap-3">
-        <SlideMock kind="cover" title={"우리 회사를 한눈에 보여주는\n회사소개서"} />
+        <figure className="relative aspect-video overflow-hidden rounded-2xl bg-g100">
+          <Image src={findDoc("09").src} alt={findDoc("09").alt} fill sizes="(min-width: 1024px) 560px, 92vw" className="object-cover" />
+        </figure>
         <div className="grid grid-cols-2 gap-3">
-          <SlideMock kind="body" title="서비스 소개" tag={false} />
-          <SlideMock kind="chart" title="도표 페이지" tag={false} />
+          {[findDoc("04"), findDoc("10")].map((d) => (
+            <figure key={d.id} className="relative aspect-video overflow-hidden rounded-2xl bg-g100">
+              <Image src={d.src} alt={d.alt} fill sizes="(min-width: 1024px) 280px, 45vw" className="object-cover" />
+            </figure>
+          ))}
         </div>
       </div>
     ),
@@ -92,15 +101,7 @@ const WORKS: Work[] = [
       ["협의 항목", "사이즈 종류와 수량, 문구 작성 범위, 수정 범위"],
     ],
     link: { label: "디자인 제작 자세히", href: "/production/design" },
-    visual: (
-      <div className="grid grid-cols-[1fr_0.82fr] items-end gap-3">
-        <BannerMock ratio="1:1" image="/images/0515/ind-store.png" alt="카페 매장 사진을 쓴 광고 배너" headline="이번 주 매장 소식" caption="1:1 · 피드" />
-        <BannerMock ratio="4:5" image="/images/0515/op-store.png" alt="매장 운영자 사진을 쓴 광고 배너" headline="동네 고객 혜택" caption="4:5 · 피드" tag={false} />
-        <div className="col-span-2">
-          <BannerMock ratio="1.91:1" image="/images/stock/office-space.jpg" alt="사무 공간 사진을 쓴 가로 배너" headline="상담 신청 안내" caption="1.91:1 · 디스플레이" tag={false} />
-        </div>
-      </div>
-    ),
+    visual: <AdTrio kind="brand" item={findIndustry("dermatology")} />,
   },
   {
     id: "ads",
@@ -116,10 +117,10 @@ const WORKS: Work[] = [
     visual: (
       <div className="grid grid-cols-[0.75fr_1fr] items-center gap-4">
         <div className="relative">
-          <ExampleTag className="left-auto right-0 top-0 -translate-y-1/2">실제 노출 화면</ExampleTag>
-          <div className="grid grid-cols-2 gap-2">
-            <PhoneFrame src="/images/0515/naver-phone-2.png" alt="네이버 파워링크 광고 노출 화면" sizes="160px" />
-            <PhoneFrame src="/images/0515/insta-phone-1.png" alt="인스타그램 피드 광고 노출 화면" sizes="160px" className="translate-y-6" />
+          <ExampleTag className="left-auto right-0 top-0 -translate-y-1/2">노출 화면 예시</ExampleTag>
+          <div className="grid grid-cols-2 gap-1">
+            <Image src="/images/marketing/naver-1.webp" alt="네이버 검색광고 노출 화면 예시" width={600} height={1200} sizes="170px" className="h-auto w-full drop-shadow-xl" />
+            <Image src="/images/marketing/meta-3.webp" alt="인스타그램 피드 광고 노출 화면 예시" width={600} height={1200} sizes="170px" className="h-auto w-full translate-y-6 drop-shadow-xl" />
           </div>
         </div>
         <ReportMock />

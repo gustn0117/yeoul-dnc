@@ -3,10 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import ClosingCTA from "@/components/ClosingCTA";
-import { ExampleTag, ReelMock, VideoMock } from "@/components/mocks/Mocks";
+import { ExampleTag } from "@/components/mocks/Mocks";
+import VideoPreview from "@/components/portfolio/VideoPreview";
 import { CheckList, CompareTable, PRODUCTION_LINKS, PartHead, ProductionSubnav, ScopeLists, StepRow } from "@/components/production/Parts";
 import SubHero from "@/components/ui/SubHero";
 import { ArrowIcon } from "@/components/ui/icons";
+import { findVideo } from "@/lib/portfolio";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata(
@@ -48,6 +50,33 @@ export default function VideoPage() {
         }
       />
       <ProductionSubnav current="/production/video" />
+
+      {/* 제작 사례 — 영상마다 가장 보기 좋은 5초 미리보기 */}
+      <section className="panel py-20 sm:py-28" aria-labelledby="works-title">
+        <div className="wrap">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <PartHead id="works-title" label="제작 사례" title={<>직접 만든 영상을 <span className="text-accent">5초씩</span> 보여드립니다</>} desc="영상마다 가장 보기 좋은 구간을 골라 소리 없이 보여드립니다. 전체 영상은 상담에서 확인하실 수 있습니다." />
+            <Link href="/cases#video" className="btn btn-line min-h-12 px-5">
+              영상 포트폴리오 전체 보기
+              <ArrowIcon className="h-4.5 w-4.5" />
+            </Link>
+          </div>
+          <ul className="mt-12 grid grid-cols-2 gap-x-3 gap-y-6 sm:grid-cols-3 lg:grid-cols-6">
+            {["skin", "academy", "brow", "ai", "promo", "estate-4"].map((slug, i) => {
+              const v = findVideo(slug);
+              return (
+                <li key={slug} data-reveal style={delay(i * 0.05)}>
+                  <VideoPreview slug={slug} label={v.title} className="aspect-9/16 rounded-2xl" />
+                  <p className="mt-2.5 flex items-baseline justify-between gap-2">
+                    <span className="text-[15px] font-bold tracking-[-0.03em] text-ink">{v.title}</span>
+                    <span className="shrink-0 text-[13px] font-semibold text-g500">{v.tag}</span>
+                  </p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
 
       {/* 장면 구성 예시 */}
       <section className="py-20 sm:py-28" aria-labelledby="scene-title">
@@ -95,17 +124,19 @@ export default function VideoPage() {
           <PartHead id="types-title" label="영상 종류" title={<>쓰일 곳에 따라 <span className="text-accent">길이와 비율</span>이 다릅니다</>} />
           <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <li className="flex flex-col rounded-3xl bg-white p-5" data-reveal>
-              <ReelMock image="/images/0515/op-consult.png" alt="상담 장면 세로 영상" caption="소리 없이도 이해되는 자막" className="mx-auto w-3/5" />
+              <VideoPreview slug="story" label="스토리 광고" className="mx-auto aspect-9/16 w-3/5 rounded-2xl" />
               <h3 className="mt-5 text-[20px] font-extrabold tracking-[-0.035em] text-ink">릴스·쇼츠</h3>
               <p className="mt-2 text-[15px] leading-relaxed text-g700">세로형 짧은 영상. 첫 장면에서 핵심을 보여주고 자막으로 소리 없이도 이해되게 만듭니다.</p>
             </li>
             <li className="flex flex-col rounded-3xl bg-white p-5" data-reveal style={delay(0.07)}>
-              <VideoMock image="/images/0515/team-presentation-2.png" alt="회사 회의 장면 가로 영상" title="홍보영상" />
+              <figure className="relative aspect-video overflow-hidden rounded-xl bg-g100">
+                <Image src="/images/production/video.webp" alt="기업 홍보영상 화면" fill sizes="(min-width: 1024px) 280px, (min-width: 640px) 45vw, 90vw" className="object-cover" />
+              </figure>
               <h3 className="mt-5 text-[20px] font-extrabold tracking-[-0.035em] text-ink">기업·브랜드 홍보영상</h3>
               <p className="mt-2 text-[15px] leading-relaxed text-g700">회사가 하는 일과 일하는 방식을 소개하는 영상. 홈페이지, 제안 발표, 채용에 씁니다.</p>
             </li>
             <li className="flex flex-col rounded-3xl bg-white p-5" data-reveal style={delay(0.14)}>
-              <VideoMock image="/images/stock/creative-design.jpg" alt="상품 디자인 시안 장면" title="상품 영상" tag={false} />
+              <VideoPreview slug="product" label="제품 광고" className="mx-auto aspect-9/16 w-3/5 rounded-2xl" />
               <h3 className="mt-5 text-[20px] font-extrabold tracking-[-0.035em] text-ink">상품 홍보영상</h3>
               <p className="mt-2 text-[15px] leading-relaxed text-g700">상품의 사용 장면과 특징을 보여주는 영상. 상세페이지와 광고 소재로 함께 씁니다.</p>
             </li>

@@ -10,11 +10,11 @@ import { ArrowIcon } from "@/components/ui/icons";
 
 // 종합광고 실행사가 하는 일 5단계 — 사진은 고객사가 준비한 이미지로 교체 예정
 const POINTS = [
-  { title: "광고 기획", sub: "목표·대상·매체", desc: "목표와 대상을 정하고 맞는 매체 조합을 고릅니다.", image: "/images/0515/team-presentation-2.png", alt: "광고 운영 계획을 발표하는 회의" },
-  { title: "콘텐츠 제작", sub: "영상·디자인·문서", desc: "광고와 영업에 쓸 영상·디자인·문서를 만듭니다.", image: "/images/stock/creative-design.jpg", alt: "색상표와 디자인 시안이 놓인 책상" },
-  { title: "매체 운영", sub: "세팅·조정·보고", desc: "세팅부터 조정, 보고까지 직접 운영합니다.", image: "/images/0515/team-presentation-3.png", alt: "광고 성과 그래프를 띄워 놓고 분석하는 팀" },
-  { title: "홈페이지", sub: "소개·랜딩·신청폼", desc: "광고에서 이어지는 소개·랜딩·신청 페이지를 만듭니다.", image: "/images/stock/landing-page.jpg", alt: "웹페이지를 띄운 모니터가 놓인 작업 책상" },
-  { title: "고객관리", sub: "정리·알림·자동화", desc: "들어온 문의를 정리하고 안내 메시지를 자동으로 보냅니다.", image: "/images/0515/op-consult.png", alt: "헤드셋을 쓰고 고객 상담을 하는 상담원" },
+  { title: "광고 기획", sub: "목표·대상·매체", desc: "목표와 대상을 정하고 맞는 매체 조합을 고릅니다.", image: "/images/home/hero-plan.webp", alt: "광고 캠페인 방향을 함께 고르는 회의" },
+  { title: "콘텐츠 제작", sub: "영상·디자인·문서", desc: "광고와 영업에 쓸 영상·디자인·문서를 만듭니다.", image: "/images/home/hero-content.webp", alt: "스킨케어 광고 영상을 편집하는 작업 현장" },
+  { title: "매체 운영", sub: "세팅·조정·보고", desc: "세팅부터 조정, 보고까지 직접 운영합니다.", image: "/images/home/hero-media.webp", alt: "광고 성과 화면을 분석하는 마케터" },
+  { title: "홈페이지", sub: "소개·랜딩·신청폼", desc: "광고에서 이어지는 소개·랜딩·신청 페이지를 만듭니다.", image: "/images/home/hero-web.webp", alt: "PC와 휴대폰에 맞춰 만든 반응형 홈페이지" },
+  { title: "고객관리", sub: "정리·알림·자동화", desc: "들어온 문의를 정리하고 안내 메시지를 자동으로 보냅니다.", image: "/images/home/hero-crm.webp", alt: "고객 문의를 정리하는 고객관리 화면" },
 ];
 
 const LOGOS: { key: ChannelKey; label: string }[] = [

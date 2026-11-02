@@ -155,7 +155,7 @@ export default function Header() {
         }`}
       >
         <div className="wrap-wide flex h-16 items-center justify-between gap-6 lg:h-19">
-          <LogoFull className="h-8 shrink-0 sm:h-9 lg:h-10" variant="color" />
+          <LogoFull className="h-7.5 shrink-0 sm:h-8 lg:h-9.5" variant="color" />
 
           <nav aria-label="주 메뉴" className="relative hidden h-full lg:block" onMouseLeave={() => setHoverHref(null)}>
             <ul ref={navRef} className="flex h-full items-center">

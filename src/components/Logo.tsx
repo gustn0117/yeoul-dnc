@@ -2,8 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 export function LogoFull({ className = "h-9", variant = "color" }: { className?: string; variant?: "color" | "white" }) {
-  const src = variant === "white" ? "/images/logo-header-white-transparent.png" : "/images/logo-header.png";
-  const size = variant === "white" ? { w: 706, h: 203 } : { w: 800, h: 300 };
+  // 컬러 로고는 고객사 원본(2026-11)을 여백 없이 잘라 높이만큼 꽉 차게 보임
+  const src = variant === "white" ? "/images/logo-header-white-transparent.png" : "/images/logo-header-2026.png";
+  const size = variant === "white" ? { w: 706, h: 203 } : { w: 1281, h: 379 };
 
   return (
     <Link href="/" className={`block ${className}`}>

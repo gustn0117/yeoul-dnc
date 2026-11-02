@@ -24,8 +24,8 @@ export const SERVICES: Service[] = [
     outputs: "매체 운영안, 광고 소재, 계정 세팅, 운영 보고서",
     when: "문의가 부족한 경우",
     href: "/marketing",
-    image: "/images/stock/strategy-board.jpg",
-    alt: "광고 성과 그래프가 띄워진 노트북",
+    image: "/images/home/service-marketing.webp",
+    alt: "광고 캠페인 성과 화면을 분석하는 담당자",
   },
   {
     id: "video",
@@ -36,8 +36,8 @@ export const SERVICES: Service[] = [
     outputs: "릴스·쇼츠, 홍보영상, 콘텐츠 기획·대본",
     when: "홍보에 사용할 콘텐츠가 부족한 경우",
     href: "/production/video",
-    image: "/images/stock/youtube-video.jpg",
-    alt: "영상 편집 타임라인 화면",
+    image: "/images/home/service-video.webp",
+    alt: "스킨케어 제품을 촬영하는 영상 제작 현장",
   },
   {
     id: "design",
@@ -48,8 +48,8 @@ export const SERVICES: Service[] = [
     outputs: "광고 배너, 카드뉴스, SNS 콘텐츠, 리플렛·전단·현수막 디자인",
     when: "광고 소재와 홍보물이 필요한 경우",
     href: "/production/design",
-    image: "/images/stock/creative-design.jpg",
-    alt: "색상표와 디자인 시안이 놓인 책상",
+    image: "/images/home/service-design.webp",
+    alt: "네이비 톤으로 디자인한 인쇄물 시안",
   },
   {
     id: "document",
@@ -60,8 +60,8 @@ export const SERVICES: Service[] = [
     outputs: "PPT, 사업제안서, 회사소개서, 상담·브리핑 자료",
     when: "영업용 문서와 소개자료가 필요한 경우",
     href: "/production/document",
-    image: "/images/0515/team-presentation-1.png",
-    alt: "화면에 자료를 띄워 놓고 발표하는 회의",
+    image: "/images/home/service-document.webp",
+    alt: "인쇄한 제안서를 함께 검토하는 팀",
   },
   {
     id: "web",
@@ -72,8 +72,8 @@ export const SERVICES: Service[] = [
     outputs: "회사 홈페이지, 광고 랜딩페이지, 상담 신청폼, 예약 접수",
     when: "홈페이지에서 문의로 이어지지 않는 경우",
     href: "/production/web",
-    image: "/images/works/web/association.webp",
-    alt: "협회 홈페이지를 띄운 모니터",
+    image: "/images/home/service-web.webp",
+    alt: "PC와 휴대폰에 함께 띄운 홈페이지",
   },
   {
     id: "automation",
@@ -84,18 +84,18 @@ export const SERVICES: Service[] = [
     outputs: "SNS 댓글·DM 자동화, 시트 연동, 알림톡·문자 자동 발송, 맞춤 업무 자동화",
     when: "상담 기록과 후속 안내가 누락되는 경우",
     href: "/automation",
-    image: "/images/stock/kakao-chat.jpg",
-    alt: "메신저 앱이 모인 휴대폰 화면",
+    image: "/images/home/service-automation.webp",
+    alt: "노트북과 휴대폰에 띄운 고객관리 자동화 화면",
   },
 ];
 
 export const INDUSTRIES = [
-  { name: "병원·의료기관", examples: ["종합병원", "병의원", "피부과", "성형외과", "치과", "한의원"], image: "/images/0515/op-clinic.png", alt: "진료실에서 모니터를 보는 의사" },
-  { name: "교육·학원", examples: ["입시학원", "외국어학원", "예체능학원", "직업교육기관"], image: "/images/0515/op-education.png", alt: "헤드셋을 쓰고 수강 상담을 하는 상담원" },
-  { name: "공공기관·단체", examples: ["공공기관", "지자체", "협회", "재단", "비영리단체"], image: "/images/stock/boardroom.jpg", alt: "긴 회의 테이블이 놓인 회의실" },
-  { name: "외식·프랜차이즈", examples: ["음식점", "카페", "베이커리", "외식 브랜드", "프랜차이즈"], image: "/images/0515/ind-store.png", alt: "조명이 켜진 카페 매장 입구" },
-  { name: "매장·생활서비스", examples: ["미용실", "에스테틱", "헬스장", "필라테스", "반려동물 서비스"], image: "/images/0515/op-store.png", alt: "태블릿으로 매장을 관리하는 운영자" },
-  { name: "기업·브랜드", examples: ["일반기업", "제조업", "온라인 쇼핑몰", "제품 및 서비스 브랜드"], image: "/images/stock/office-space.jpg", alt: "유리벽으로 나뉜 사무 공간" },
+  { name: "병원·의료기관", examples: ["종합병원", "병의원", "피부과", "성형외과", "치과", "한의원"], image: "/images/home/industry-medical.webp", alt: "환자의 이야기를 듣는 의사" },
+  { name: "교육·학원", examples: ["입시학원", "외국어학원", "예체능학원", "직업교육기관"], image: "/images/home/industry-education.webp", alt: "책상에 모여 함께 공부하는 학생과 선생님" },
+  { name: "공공기관·단체", examples: ["공공기관", "지자체", "협회", "재단", "비영리단체"], image: "/images/home/industry-public.webp", alt: "회의 준비를 마친 공공기관 회의실" },
+  { name: "외식·프랜차이즈", examples: ["음식점", "카페", "베이커리", "외식 브랜드", "프랜차이즈"], image: "/images/home/industry-food.webp", alt: "해 질 녘 조명이 켜진 카페 베이커리" },
+  { name: "매장·생활서비스", examples: ["미용실", "에스테틱", "헬스장", "필라테스", "반려동물 서비스"], image: "/images/home/industry-store.webp", alt: "미용실에서 태블릿으로 예약을 확인하는 원장" },
+  { name: "기업·브랜드", examples: ["일반기업", "제조업", "온라인 쇼핑몰", "제품 및 서비스 브랜드"], image: "/images/home/industry-brand.webp", alt: "제품 패키지를 함께 검토하는 브랜드 기획팀" },
 ];
 
 /* 홈페이지 제작 사례 — 실제 제작 작업물(협력 제작사 포트폴리오). 설명은 작업물 소개 문구 기준 */

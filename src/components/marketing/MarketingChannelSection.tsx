@@ -1,58 +1,89 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import ChannelVisual from "@/components/marketing/ChannelVisual";
 import type { MarketingChannel } from "@/components/marketing/data";
-import { BlogMock, CalendarMock, LocalFeedMock, ReportMock, SmsMock } from "@/components/mocks/Mocks";
+import { CalendarMock, ReportMock } from "@/components/mocks/Mocks";
 import ChannelLogo from "@/components/ui/ChannelLogo";
 import { ArrowIcon } from "@/components/ui/icons";
 
 const delay = (s: number) => ({ "--reveal-delay": `${s}s` }) as CSSProperties;
 
-// 실제 광고 노출 화면 (고객사 제공 캡처). 가운데 폰이 첫 번째
+// 광고 노출 화면 예시 (고객사 제공, 휴대폰 테두리 포함). 가운데 폰이 첫 번째
+const shot = (src: string, alt: string) => ({ src: `/images/marketing/${src}.webp`, alt });
 const SHOTS = {
-  naver: [
-    { src: "/images/0515/naver-phone-2.png", alt: "네이버 파워링크 광고 노출 화면" },
-    { src: "/images/0515/naver-phone-1.png", alt: "네이버 브랜드검색 광고 노출 화면" },
-    { src: "/images/0515/naver-phone-3.png", alt: "네이버 메인 배너 광고 노출 화면" },
-  ],
-  meta: [
-    { src: "/images/0515/insta-phone-1.png", alt: "인스타그램 피드 광고 노출 화면" },
-    { src: "/images/0515/insta-phone-2.png", alt: "인스타그램 릴스 광고 노출 화면" },
-    { src: "/images/0515/insta-phone-3.png", alt: "인스타그램 브랜드 계정 프로필 화면" },
-  ],
-  kakao: [
-    { src: "/images/0515/kakao-phone-1.png", alt: "카카오톡 친구탭 배너 광고 노출 화면" },
-    { src: "/images/0515/kakao-phone-2.png", alt: "카카오톡 채팅탭 배너 광고 노출 화면" },
-    { src: "/images/0515/kakao-phone-3.png", alt: "카카오톡 더보기탭 배너 광고 노출 화면" },
-  ],
+  naver: [shot("naver-1", "네이버 모바일 검색광고 노출 화면 예시"), shot("naver-3", "네이버 브랜드검색 노출 화면 예시"), shot("naver-2", "네이버 모바일 피드 광고 노출 화면 예시")],
+  meta: [shot("meta-3", "인스타그램 피드 광고 노출 화면 예시"), shot("meta-1", "인스타그램 릴스 광고 노출 화면 예시"), shot("meta-2", "인스타그램 스토리 광고 노출 화면 예시")],
+  kakao: [shot("kakao-2", "카카오톡 채팅탭 배너 광고 노출 화면 예시"), shot("kakao-1", "카카오톡 친구탭 배너 광고 노출 화면 예시"), shot("kakao-3", "카카오톡 더보기탭 쇼핑 광고 노출 화면 예시")],
+  lms: [shot("lms-1", "쿠폰 안내 LMS 문자광고 예시"), shot("lms-2", "미용실 할인 안내 LMS 문자광고 예시"), shot("lms-3", "창업 설명회 안내 LMS 문자광고 예시")],
+  local: [shot("local-1", "당근 동네 피드에 노출된 안경점 광고 예시"), shot("local-2", "당근 동네 피드에 노출된 어학원 광고 예시"), shot("local-3", "당근 동네 피드에 노출된 식당 광고 예시")],
 } as const;
 
+const VIRAL = [
+  shot("viral-1", "피부과 상담 키워드 검색 결과에 노출된 블로그 콘텐츠 예시"),
+  shot("viral-2", "반영구 눈썹 키워드 검색 결과에 노출된 블로그 콘텐츠 예시"),
+  shot("viral-3", "공유오피스 키워드 검색 결과에 노출된 카페 콘텐츠 예시"),
+  shot("viral-4", "맛집 키워드 검색 결과에 노출된 카페 콘텐츠 예시"),
+];
+
 const CAPTION: Record<MarketingChannel["visual"], string> = {
-  naver: "광고 노출 화면 예시 · 검색·브랜드검색·메인 배너",
-  meta: "광고 노출 화면 예시 · 피드·릴스·브랜드 계정",
-  kakao: "광고 노출 화면 예시 · 카카오톡 탭별 배너",
-  google: "유튜브 광고 형식 · 범퍼·인스트림·Shorts",
-  lms: "장문·이미지 문자 구성. 설정 가능한 항목은 통신사·상품마다 다릅니다.",
-  local: "동네 피드 노출 형태",
+  naver: "광고 노출 화면 예시 · 검색광고·브랜드검색·모바일 피드",
+  meta: "광고 노출 화면 예시 · 피드·릴스·스토리",
+  kakao: "광고 노출 화면 예시 · 카카오톡 채팅탭·친구탭·더보기탭",
+  google: "유튜브 광고 노출 화면 예시 · 범퍼·인스트림·Shorts",
+  lms: "LMS 문자광고 예시 · 설정 가능한 항목은 통신사·상품마다 다릅니다.",
+  local: "당근 동네 피드 광고 노출 화면 예시",
   sns: "월간 게시 계획 구성",
-  viral: "대가 표시를 포함한 콘텐츠 구성",
+  viral: "검색 결과에 노출되는 블로그·카페 콘텐츠 예시",
   consult: "광고 진단·운영 보고서 구성 (광고주 정보 가림)",
 };
 
 function Visual({ kind }: { kind: MarketingChannel["visual"] }) {
-  if (kind === "naver" || kind === "meta" || kind === "kakao") {
+  if (kind === "naver" || kind === "meta" || kind === "kakao" || kind === "lms" || kind === "local") {
     const [a, b, c] = SHOTS[kind];
     return <ChannelVisual visual={{ kind: "phones", shots: [a, b, c] }} />;
   }
   if (kind === "google") return <ChannelVisual visual={{ kind: "youtube" }} />;
+  if (kind === "viral") {
+    return (
+      <div className="grid grid-cols-2 gap-3 rounded-[28px] bg-g100 p-3 sm:gap-4 sm:rounded-panel sm:p-6">
+        {VIRAL.map((v) => (
+          <Image key={v.src} src={v.src} alt={v.alt} width={1200} height={1062} sizes="(min-width: 1024px) 270px, 45vw" className="h-auto w-full rounded-xl shadow-soft" />
+        ))}
+      </div>
+    );
+  }
   const mock = {
-    lms: <SmsMock lines={["(광고)[업체명]", "신규 오픈·행사 안내 문구", "", "▶ 연결 페이지 링크", "", "무료수신거부 080-000-0000"]} />,
-    local: <LocalFeedMock />,
     sns: <CalendarMock className="mx-auto max-w-md" />,
-    viral: <BlogMock className="mx-auto max-w-md" />,
     consult: <ReportMock className="mx-auto max-w-md" />,
   }[kind];
   return <div className="rounded-[28px] bg-g100 px-5 py-12 sm:rounded-panel sm:px-10 sm:py-16">{mock}</div>;
+}
+
+/* 항목 하단 강조: 타겟팅 기능(매체 광고) / 서비스(운영·기획) */
+function PointBox({ point }: { point: MarketingChannel["point"] }) {
+  const service = point.label === "서비스";
+  return (
+    <div className="mt-4 flex items-start gap-4 rounded-2xl bg-night px-5 py-5 sm:px-6">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#8db8ff]" aria-hidden="true">
+        {service ? (
+          <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h10" />
+          </svg>
+        ) : (
+          <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+            <circle cx="12" cy="12" r="8" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="12" cy="12" r="0.8" fill="currentColor" />
+          </svg>
+        )}
+      </span>
+      <div>
+        <p className="text-[14px] font-bold tracking-[0.02em] text-[#8db8ff]">{point.label}</p>
+        <p className="mt-1 text-pretty text-[17px] font-bold leading-relaxed tracking-[-0.02em] text-white">{point.text}</p>
+      </div>
+    </div>
+  );
 }
 
 /* LMS는 '신규 대상 문자광고'와 '보유 고객 후속 안내'를 구분해 보여줌 */
@@ -118,6 +149,7 @@ export default function MarketingChannelSection({ channel, reverse = false }: { 
               </div>
             ))}
           </dl>
+          <PointBox point={channel.point} />
           {channel.id === "lms" && <LmsCompare />}
           {channel.note && <p className="mt-4 rounded-xl bg-g50 px-4 py-3 text-[14px] leading-relaxed text-g600">{channel.note}</p>}
           <Link href="/contact" className="group mt-6 inline-flex min-h-11 items-center gap-2 text-[17px] font-bold text-brand">

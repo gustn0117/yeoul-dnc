@@ -143,6 +143,7 @@ export default function Footer() {
             <ArrowUpIcon className="h-4 w-4" />
           </ScrollTopButton>
         </div>
+        <p className="mt-4 text-pretty text-[13px] leading-relaxed text-white/40">본 사이트 콘텐츠의 무단 복제·도용을 금지하며, 저작권 침해 시 「저작권법」 제123조·제125조에 따라 법적 조치로 대응합니다.</p>
       </div>
     </footer>
   );

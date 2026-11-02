@@ -15,12 +15,32 @@ Next.js 16 (App Router) · Tailwind CSS v4 · 셀프호스팅 Supabase(`yeoul_dn
 | `/marketing` | 광고·마케팅: 목적별 채널 찾기, 네이버·메타·카카오·구글·LMS·당근 등 매체별 안내 |
 | `/production` | 제작서비스 한눈에 보기 (하위: `/production/video`, `/design`, `/document`, `/web`) |
 | `/automation` | 고객관리·자동화 |
-| `/cases` | 포트폴리오 |
+| `/cases` | 포트폴리오 5개 분야 탭: 홈페이지·랜딩 / 브랜드형 광고 / 정보형 광고 / 영상 제작 / 문서·제안서 (`#web` `#brand` `#info` `#video` `#docs`로 바로 열림) |
 | `/yeoulad` | 분양·부동산 전문 브랜드 여울애드 안내 → `https://yeoulads.com` |
 | `/contact` | 상담 신청 폼, 진행·보고·견적 안내(`#guide`), 자주 묻는 질문(`#faq`) |
 
 - 예전 주소 `/services` → `/marketing`, `/process` → `/contact#guide`로 영구 이동합니다 (`next.config.ts`).
-- 영상·디자인·문서 작업물은 실제 자료를 받기 전까지 "구성 예시" 표시를 단 예시 화면을 씁니다. 홈페이지 사례 이미지는 `public/images/works/web/`, 목록은 `src/lib/offerings.ts`의 `WEB_WORKS`.
+- 카드뉴스·운영 보고서·콘텐츠 캘린더처럼 실제 자료가 아직 없는 곳만 "구성 예시" 표시를 단 예시 화면을 씁니다 (`src/components/mocks/Mocks.tsx`).
+
+## 포트폴리오 추가하기
+
+목록은 `src/lib/portfolio.ts`(광고·영상·문서)와 `src/lib/offerings.ts`의 `WEB_WORKS`(홈페이지)에 있고, 파일을 넣고 목록에 한 줄 추가하면 됩니다.
+
+| 분야 | 파일 위치 | 목록 |
+| --- | --- | --- |
+| 홈페이지·랜딩 | `public/images/works/web/{slug}.webp` (정사각) | `WEB_WORKS` |
+| 브랜드형·정보형 광고 | `public/images/portfolio/ads/{brand\|info}/{번호}-{slug}-{1x1\|9x16\|16x9}.webp` | `AD_INDUSTRIES` |
+| 영상 제작 | `public/videos/portfolio/{slug}.mp4` + 포스터 `public/images/portfolio/video/{slug}.webp` | `PORTFOLIO_VIDEOS` |
+| 문서·제안서 | `public/images/portfolio/docs/doc-{번호}.webp` (1280×720) | `DOC_WORKS` 개수 |
+
+- 광고 이미지는 가상 브랜드로 만든 업종별 디자인 예시라 화면에 그렇게 표기합니다. 실제 집행 사례·성과처럼 소개하지 마세요.
+- 영상은 원본을 올리지 않고, 가장 보기 좋은 5초만 잘라 소리 없이 미리보기로 씁니다 (화면에 보일 때만 반복 재생).
+
+```bash
+# 시작 초(-ss)부터 5초, 540×960 H.264 무음 + 포스터
+ffmpeg -ss 3 -t 5 -i 원본.mp4 -vf "scale=540:960:flags=lanczos,fps=30" -c:v libx264 -profile:v high -pix_fmt yuv420p -crf 25 -preset slow -movflags +faststart -an public/videos/portfolio/{slug}.mp4
+ffmpeg -ss 3.2 -i 원본.mp4 -frames:v 1 -vf scale=540:960 포스터.png   # → webp로 변환해 public/images/portfolio/video/{slug}.webp
+```
 
 ## 관리자 (`/admin`)
 

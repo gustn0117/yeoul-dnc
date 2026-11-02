@@ -3,11 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import ClosingCTA from "@/components/ClosingCTA";
-import { BannerMock, ReelMock, SlideMock, VideoMock } from "@/components/mocks/Mocks";
+import VideoPreview from "@/components/portfolio/VideoPreview";
 import { CheckList, PRODUCTION_LINKS, PartHead, ProductionSubnav } from "@/components/production/Parts";
 import SubHero from "@/components/ui/SubHero";
 import { ArrowIcon } from "@/components/ui/icons";
 import { WEB_WORKS } from "@/lib/offerings";
+import { findDoc } from "@/lib/portfolio";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata(
@@ -30,8 +31,10 @@ const FIELDS: { no: string; en: string; title: string; desc: string; chips: stri
     href: "/production/video",
     visual: (
       <div className="grid grid-cols-[0.6fr_1fr] items-center gap-3">
-        <ReelMock image="/images/0515/op-store.png" alt="매장을 소개하는 세로 영상 장면" caption={<>오늘의 매장<br />소식</>} />
-        <VideoMock image="/images/0515/team-presentation-2.png" alt="회사 소개 영상의 회의 장면" title="기업 홍보영상" />
+        <VideoPreview slug="skin" label="피부 정보 영상" className="aspect-9/16 rounded-2xl" />
+        <figure className="relative aspect-video overflow-hidden rounded-2xl bg-g100">
+          <Image src="/images/production/video.webp" alt="기업 홍보영상 화면" fill sizes="(min-width: 1024px) 320px, 55vw" className="object-cover" />
+        </figure>
       </div>
     ),
   },
@@ -46,8 +49,14 @@ const FIELDS: { no: string; en: string; title: string; desc: string; chips: stri
     href: "/production/design",
     visual: (
       <div className="grid grid-cols-2 items-end gap-3">
-        <BannerMock ratio="1:1" image="/images/0515/ind-store.png" alt="카페 매장 사진을 쓴 광고 배너" headline="이번 주 매장 소식" caption="1:1 · 피드" />
-        <BannerMock ratio="4:5" image="/images/0515/op-clinic.png" alt="진료실 사진을 쓴 광고 배너" headline="진료 안내" caption="4:5 · 피드" tag={false} />
+        <figure>
+          <Image src="/images/production/design-1.webp" alt="카페 신메뉴를 알리는 정사각 광고 디자인" width={1000} height={1000} sizes="(min-width: 1024px) 280px, 45vw" className="h-auto w-full rounded-2xl shadow-soft" />
+          <figcaption className="mt-2 text-[14px] font-semibold text-g600">1:1 · 피드</figcaption>
+        </figure>
+        <figure>
+          <Image src="/images/production/design-2.webp" alt="화장품을 소개하는 세로형 광고 디자인" width={960} height={1200} sizes="(min-width: 1024px) 280px, 45vw" className="h-auto w-full rounded-2xl shadow-soft" />
+          <figcaption className="mt-2 text-[14px] font-semibold text-g600">4:5 · 피드</figcaption>
+        </figure>
       </div>
     ),
   },
@@ -62,10 +71,15 @@ const FIELDS: { no: string; en: string; title: string; desc: string; chips: stri
     href: "/production/document",
     visual: (
       <div className="grid gap-3">
-        <SlideMock kind="cover" title={"읽는 사람이 바로 이해하는\n사업제안서"} />
+        <figure className="relative aspect-video overflow-hidden rounded-2xl bg-g100">
+          <Image src={findDoc("06").src} alt={findDoc("06").alt} fill sizes="(min-width: 1024px) 560px, 92vw" className="object-cover" />
+        </figure>
         <div className="grid grid-cols-2 gap-3">
-          <SlideMock kind="body" title="제안 내용" tag={false} />
-          <SlideMock kind="schedule" title="추진 일정" tag={false} />
+          {[findDoc("08"), findDoc("07")].map((d) => (
+            <figure key={d.id} className="relative aspect-video overflow-hidden rounded-2xl bg-g100">
+              <Image src={d.src} alt={d.alt} fill sizes="(min-width: 1024px) 280px, 45vw" className="object-cover" />
+            </figure>
+          ))}
         </div>
       </div>
     ),

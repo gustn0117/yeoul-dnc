@@ -36,20 +36,20 @@ const PRINCIPLES = [
   {
     title: "먼저 듣고 범위를 정합니다",
     desc: "업종, 목표, 일정, 예산을 확인하고 이번에 맡길 업무와 맡기지 않을 업무를 먼저 나눕니다. 범위가 분명해야 일정과 비용도 정확하게 안내할 수 있습니다.",
-    img: "/images/0515/op-consult.png",
-    alt: "헤드셋을 쓰고 상담하는 직원",
+    img: "/images/about/work-1.webp",
+    alt: "상담 테이블에서 고객의 이야기를 듣는 담당자",
   },
   {
     title: "과장 없이 제안합니다",
     desc: "노출 순위나 문의 수를 약속하지 않습니다. 매체가 제공하는 조건과 지금 가진 자료로 할 수 있는 일, 그리고 확인이 필요한 일을 구분해 설명합니다.",
-    img: "/images/0515/team-presentation-2.png",
-    alt: "화면을 띄워 놓고 제안 내용을 설명하는 회의",
+    img: "/images/about/work-2.webp",
+    alt: "노트북 화면을 보며 제안 내용을 설명하는 담당자",
   },
   {
     title: "반응을 보고 보완합니다",
     desc: "운영 데이터와 상담 현장의 피드백을 기준으로 소재, 문구, 화면을 고칩니다. 바꾼 내용과 이유는 보고서에 함께 남깁니다.",
-    img: "/images/stock/analytics-screen.jpg",
-    alt: "모니터에 띄운 광고 반응 분석 그래프",
+    img: "/images/about/work-3.webp",
+    alt: "모니터로 광고 반응 지표를 확인하는 담당자",
   },
 ];
 
@@ -106,17 +106,17 @@ export default function AboutPage() {
                     label="하는 일"
                     title={
                       <span id="intro-title">
-                        광고를 운영하는 팀이
+                        광고부터 제작, 고객관리까지
                         <br />
-                        <span className="text-accent">제작물과 접수 화면까지</span> 함께 봅니다
+                        <span className="text-accent">여울디앤씨가 함께합니다.</span>
                       </span>
                     }
                   />
                   <p className="mt-6 max-w-2xl text-lead text-white/72" data-reveal style={revealDelay(0.12)}>
-                    광고 소재가 바뀌면 랜딩페이지 문구도 맞춰 바뀌어야 하고, 문의가 늘면 응대 순서와 기록 방식도 정리되어야 합니다. 여울디앤씨는 이 연결 지점을 한 팀에서 다룹니다.
+                    목적에 맞는 광고를 기획·운영하고, 필요한 콘텐츠와 홈페이지를 만듭니다. 문의 접수와 고객관리까지 연결해 반복되는 업무를 줄입니다.
                   </p>
                   <p className="mt-4 text-[18px] font-bold tracking-[-0.03em] text-[#8db8ff]" data-reveal style={revealDelay(0.16)}>
-                    필요한 일만 따로 의뢰하셔도 같은 기준으로 진행합니다.
+                    필요한 서비스만 개별로 의뢰하실 수도 있습니다.
                   </p>
                 </div>
                 <div className="hidden lg:col-span-4 lg:flex lg:justify-end" data-reveal="scale">

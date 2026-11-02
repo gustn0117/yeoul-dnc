@@ -6,15 +6,15 @@ import type { ChannelKey } from "@/components/ui/ChannelLogo";
 type Shot = { src: string; alt: string };
 
 export type ChannelVisual =
-  /** 가운데 폰이 shots[0] */
+  /** 휴대폰 화면 예시 3장(배경이 투명한 PNG 원본을 webp로) — 가운데 폰이 shots[0] */
   | { kind: "phones"; shots: [Shot, Shot, Shot] }
-  | { kind: "youtube" }
-  | { kind: "google" };
+  | { kind: "youtube" };
 
+// 유튜브 광고 노출 화면 예시 (고객사 제공)
 export const YOUTUBE_FORMATS = [
-  { name: "범퍼", detail: "6초 짧은 광고", image: "/images/stock/youtube-video.jpg", alt: "영상 편집 타임라인 화면" },
-  { name: "인스트림", detail: "5초 후 건너뛰기", image: "/images/stock/creative-design.jpg", alt: "광고 소재 디자인 시안" },
-  { name: "Shorts", detail: "모바일 세로형", image: "/images/stock/mobile-ads.jpg", alt: "앱 아이콘이 보이는 스마트폰 화면" },
+  { name: "범퍼", detail: "6초 짧은 광고", image: "/images/marketing/youtube-1.webp", alt: "유튜브 범퍼 광고 노출 화면 예시" },
+  { name: "인스트림", detail: "5초 후 건너뛰기", image: "/images/marketing/youtube-2.webp", alt: "유튜브 인스트림 광고 노출 화면 예시" },
+  { name: "Shorts", detail: "모바일 세로형", image: "/images/marketing/youtube-3.webp", alt: "유튜브 Shorts 광고 노출 화면 예시" },
 ];
 
 export type InfoRow = { label: string; value: string; ours?: boolean };
@@ -27,6 +27,8 @@ export type MarketingChannel = {
   logos: ChannelKey[];
   intro: string;
   rows: InfoRow[];
+  /** 항목 하단 강조 안내 (고객사 최종 요청 문구) */
+  point: { label: string; text: string };
   note?: string;
   visual: "naver" | "meta" | "kakao" | "google" | "lms" | "local" | "sns" | "viral" | "consult";
 };
@@ -50,6 +52,7 @@ export const MARKETING_CHANNELS: MarketingChannel[] = [
       row("확인하는 성과", "노출, 클릭, CTR, 클릭당 비용, 문의·예약"),
     ],
     note: "노출 순위와 클릭 비용은 입찰가, 광고 품질, 경쟁 상황에 따라 달라지므로 순위나 문의 수를 보장하지 않습니다.",
+    point: { label: "타겟팅 기능", text: "검색어·지역·연령·성별 기반 타겟팅, 광고 상품에 따라 관심사·구매의도 활용" },
     visual: "naver",
   },
   {
@@ -67,6 +70,7 @@ export const MARKETING_CHANNELS: MarketingChannel[] = [
       row("여울디앤씨 업무", "캠페인 구조 설계, 이미지·릴스 소재 제작, 소재 비교 테스트, 전환 측정 설정 확인, 결과 분석", true),
       row("확인하는 성과", "노출, 도달, 클릭, CTR, 신청 수, 신청당 비용"),
     ],
+    point: { label: "타겟팅 기능", text: "지역·연령·성별·관심사와 고객 데이터를 활용한 맞춤 광고" },
     visual: "meta",
   },
   {
@@ -85,6 +89,7 @@ export const MARKETING_CHANNELS: MarketingChannel[] = [
       row("확인하는 성과", "노출, 클릭, CTR, 채널 추가, 문의"),
     ],
     note: "채널 메시지는 광고 메시지입니다. 접수 확인 같은 정보성 안내는 고객관리·자동화에서 다룹니다.",
+    point: { label: "타겟팅 기능", text: "지역·연령·성별·관심사 기반 타겟팅과 고객 데이터 활용 광고" },
     visual: "kakao",
   },
   {
@@ -103,6 +108,7 @@ export const MARKETING_CHANNELS: MarketingChannel[] = [
       row("확인하는 성과", "노출, 조회, 조회율, 클릭, 전환"),
     ],
     note: "광고 영상이 없다면 영상 제작과 함께 진행할 수 있습니다.",
+    point: { label: "타겟팅 기능", text: "검색어·지역·연령·성별·관심사·구매의도 기반 타겟팅" },
     visual: "google",
   },
   {
@@ -121,6 +127,7 @@ export const MARKETING_CHANNELS: MarketingChannel[] = [
       row("확인하는 성과", "발송 수, 링크 클릭, 문의"),
     ],
     note: "광고성 문자에는 ‘(광고)’ 표시, 보내는 사람, 수신 거부 방법을 함께 적습니다.",
+    point: { label: "타겟팅 기능", text: "지역·연령·성별에 맞는 광고 수신 동의 고객 대상 문자 발송" },
     visual: "lms",
   },
   {
@@ -138,6 +145,7 @@ export const MARKETING_CHANNELS: MarketingChannel[] = [
       row("여울디앤씨 업무", "노출 지역·대상 설정, 동네 고객에 맞춘 소재·문구 작성, 비즈프로필 정리, 결과 분석", true),
       row("확인하는 성과", "노출, 클릭, 문의·방문"),
     ],
+    point: { label: "타겟팅 기능 · 당근", text: "동네·지역·연령·성별 중심 타겟팅, 일부 캠페인 관심사 타겟팅" },
     visual: "local",
   },
   {
@@ -155,6 +163,7 @@ export const MARKETING_CHANNELS: MarketingChannel[] = [
       row("확인하는 성과", "도달, 반응(댓글·저장·공유), 팔로워 변화, 프로필 링크 클릭"),
     ],
     note: "게시물 제작만 맡기거나, 계획·게시·반응 확인 같은 운영만 맡길 수도 있습니다.",
+    point: { label: "서비스", text: "콘텐츠 기획·제작·게시, 고객 반응 관리 및 운영 성과 분석" },
     visual: "sns",
   },
   {
@@ -172,6 +181,7 @@ export const MARKETING_CHANNELS: MarketingChannel[] = [
       row("확인하는 성과", "조회, 검색 유입, 반응"),
     ],
     note: "협찬이나 대가를 받은 콘텐츠에는 경제적 이해관계를 표시합니다. 실제 이용하지 않은 후기를 만드는 방식은 진행하지 않습니다.",
+    point: { label: "서비스", text: "업종과 고객층에 맞는 블로그·SNS·커뮤니티 콘텐츠 기획 및 확산" },
     visual: "viral",
   },
   {
@@ -188,6 +198,7 @@ export const MARKETING_CHANNELS: MarketingChannel[] = [
       row("확인하는 성과", "매체 집계 전환과 실제 상담·예약 결과를 나눠 정리"),
     ],
     note: "보고서 구성과 보고 흐름은 상담문의에서 확인할 수 있습니다.",
+    point: { label: "서비스", text: "목표 고객 분석, 매체 선정, 예산 설계 및 광고 성과 개선" },
     visual: "consult",
   },
 ];

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import ClosingCTA from "@/components/ClosingCTA";
-import { SlideMock } from "@/components/mocks/Mocks";
 import { PRODUCTION_LINKS, PartHead, ProductionSubnav, ScopeLists } from "@/components/production/Parts";
 import SubHero from "@/components/ui/SubHero";
 import { ArrowIcon } from "@/components/ui/icons";
+import { findDoc } from "@/lib/portfolio";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata(
@@ -17,10 +18,10 @@ export const metadata: Metadata = pageMetadata(
 const delay = (s: number) => ({ "--reveal-delay": `${s}s` }) as CSSProperties;
 
 const TYPES = [
-  { title: "PPT 발표 자료", desc: "한 장에 한 메시지. 발표자가 말로 설명할 부분과 화면에 남길 부분을 나눠 구성합니다.", slide: { kind: "cover" as const, title: "핵심 메시지를\n한 장에 하나씩" } },
-  { title: "사업제안서", desc: "제출처의 평가 기준과 양식에 맞춰 현황, 제안, 일정, 수행 체계를 논리 순서대로 정리합니다.", slide: { kind: "schedule" as const, title: "추진 일정과 수행 체계" } },
-  { title: "회사소개서", desc: "회사가 하는 일, 서비스, 진행 방식, 연락처를 담습니다. 공개 가능한 실적과 인증만 넣습니다.", slide: { kind: "body" as const, title: "회사가 하는 일" } },
-  { title: "상담·브리핑 자료", desc: "상담사가 고객 앞에서 넘기며 설명하는 자료. 자주 받는 질문 순서대로 구성합니다.", slide: { kind: "chart" as const, title: "자주 묻는 내용 정리" } },
+  { title: "PPT 발표 자료", desc: "한 장에 한 메시지. 발표자가 말로 설명할 부분과 화면에 남길 부분을 나눠 구성합니다.", doc: "08" },
+  { title: "사업제안서", desc: "제출처의 평가 기준과 양식에 맞춰 현황, 제안, 일정, 수행 체계를 논리 순서대로 정리합니다.", doc: "06" },
+  { title: "회사소개서", desc: "회사가 하는 일, 서비스, 진행 방식, 연락처를 담습니다. 공개 가능한 실적과 인증만 넣습니다.", doc: "09" },
+  { title: "상담·브리핑 자료", desc: "상담사가 고객 앞에서 넘기며 설명하는 자료. 자주 받는 질문 순서대로 구성합니다.", doc: "03" },
 ];
 
 const SCOPES = [
@@ -61,12 +62,20 @@ export default function DocumentPage() {
           <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:gap-5">
             {TYPES.map((t, i) => (
               <li key={t.title} className="rounded-3xl border border-g200 bg-white p-5 sm:p-6" data-reveal style={delay(i * 0.07)}>
-                <SlideMock kind={t.slide.kind} title={t.slide.title} tag={i === 0} />
+                <figure className="relative aspect-video overflow-hidden rounded-2xl bg-g100">
+                  <Image src={findDoc(t.doc).src} alt={`${t.title} 디자인 예시 — 표지와 본문 페이지`} fill sizes="(min-width: 1024px) 560px, (min-width: 640px) 45vw, 90vw" className="object-cover" />
+                </figure>
                 <h3 className="mt-5 text-[21px] font-extrabold tracking-[-0.035em] text-ink">{t.title}</h3>
                 <p className="mt-2 text-[16px] leading-relaxed text-g700">{t.desc}</p>
               </li>
             ))}
           </ul>
+          <div className="mt-8 flex justify-center">
+            <Link href="/cases#docs" className="btn btn-line min-h-12 px-5">
+              문서·제안서 작업 더 보기
+              <ArrowIcon className="h-4.5 w-4.5" />
+            </Link>
+          </div>
         </div>
       </section>
 

@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ClosingCTA from "@/components/ClosingCTA";
-import { BannerMock, CardNewsMock, ExampleTag } from "@/components/mocks/Mocks";
+import { CardNewsMock, ExampleTag } from "@/components/mocks/Mocks";
 import { CheckList, CompareTable, PRODUCTION_LINKS, PartHead, ProductionSubnav } from "@/components/production/Parts";
 import SubHero from "@/components/ui/SubHero";
 import { ArrowIcon } from "@/components/ui/icons";
+import { AD_RATIOS, adImage, findIndustry } from "@/lib/portfolio";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata(
@@ -56,12 +57,23 @@ export default function DesignPage() {
       <section className="py-20 sm:py-28" aria-labelledby="banner-title">
         <div className="wrap">
           <PartHead id="banner-title" label="01 · 광고 배너" title={<>한 시안을 <span className="text-accent">매체별 사이즈</span>로</>} desc="메타, 카카오, 구글, 당근 등 매체마다 요구하는 비율이 다릅니다. 기준 시안을 정한 뒤 필요한 사이즈로 맞춰 전달합니다." />
-          <div className="mt-12 grid grid-cols-2 items-end gap-4 lg:grid-cols-[1fr_0.85fr_1.6fr]">
-            <BannerMock ratio="1:1" image="/images/0515/op-clinic.png" alt="진료실 사진을 쓴 정사각 배너" headline="진료 시간 안내" caption="1:1 · 피드" />
-            <BannerMock ratio="4:5" image="/images/0515/op-clinic.png" alt="진료실 사진을 쓴 세로 배너" headline="진료 시간 안내" caption="4:5 · 피드" tag={false} />
-            <div className="col-span-2 lg:col-span-1">
-              <BannerMock ratio="1.91:1" image="/images/0515/op-clinic.png" alt="진료실 사진을 쓴 가로 배너" headline="진료 시간 안내" caption="1.91:1 · 디스플레이" tag={false} />
-            </div>
+          {/* 같은 시안의 세 비율 — 데스크톱은 높이를 맞춰 한 줄로 (열 너비 = 가로/세로 비율) */}
+          <div className="mt-12 grid grid-cols-2 items-end gap-4 lg:grid-cols-[1fr_0.5625fr_1.778fr]">
+            {AD_RATIOS.map((r, i) => (
+              <figure key={r.id} className={i === 2 ? "col-span-2 lg:col-span-1" : ""}>
+                <Image src={adImage("brand", findIndustry("cafe"), r.id)} alt={`카페 브랜드 ${r.label} 비율 광고 디자인`} width={r.w} height={r.h} sizes={i === 2 ? "(min-width: 1024px) 520px, 90vw" : "(min-width: 1024px) 300px, 45vw"} className="h-auto w-full rounded-2xl shadow-soft" />
+                <figcaption className="mt-2 text-[14px] font-semibold text-g600">
+                  {r.label} · {r.use}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
+            <p className="text-[15px] text-g500">카페 브랜드 광고 · 가상 브랜드로 만든 디자인 예시입니다.</p>
+            <Link href="/cases#brand" className="inline-flex min-h-11 items-center gap-1.5 text-[16px] font-bold text-brand hover:underline">
+              업종별 광고 디자인 더 보기
+              <ArrowIcon className="h-4.5 w-4.5" />
+            </Link>
           </div>
         </div>
       </section>
