@@ -9,6 +9,8 @@ import {
   EMPTY_INQUIRY,
   MESSAGE_MAX,
   WEBSITE_OPTIONS,
+  splitChannels,
+  toggleChannel,
   validateInquiry,
   type InquiryField,
   type InquiryInput,
@@ -220,10 +222,10 @@ export default function ConsultForm({ variant = "compact" }: ConsultFormProps) {
             <p className="text-[19px] font-extrabold tracking-[-0.03em] text-ink">추가 정보</p>
             <p className="mt-1 text-[16px] text-g600">선택 항목을 작성해주시면 보다 정확한 상담이 가능합니다.</p>
           </div>
-          <OptionGroup legend="희망 광고 채널" value={form.channel} onReset={() => update("channel", "")}>
+          <OptionGroup legend="희망 광고 채널" hint="여러 개 선택 가능" value={form.channel} onReset={() => update("channel", "")}>
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
               {CHANNEL_OPTIONS.map((opt) => (
-                <OptionChip key={opt} name="channel" value={opt} checked={form.channel === opt} onChange={() => update("channel", opt)}>
+                <OptionChip key={opt} multiple name="channel" value={opt} checked={splitChannels(form.channel).includes(opt)} onChange={() => update("channel", toggleChannel(form.channel, opt))}>
                   {CHANNEL_LOGOS[opt] && (
                     // eslint-disable-next-line @next/next/no-img-element -- 24px 브랜드 SVG
                     <img src={`/images/logos/${CHANNEL_LOGOS[opt]}.svg`} alt="" className="h-5 w-5 object-contain" />
@@ -348,11 +350,14 @@ function Field({
   );
 }
 
-function OptionGroup({ legend, value, onReset, children }: { legend: string; value: string; onReset: () => void; children: ReactNode }) {
+function OptionGroup({ legend, hint, value, onReset, children }: { legend: string; hint?: string; value: string; onReset: () => void; children: ReactNode }) {
   return (
     <fieldset>
       <div className="mb-3 flex items-center justify-between">
-        <legend className="text-[16px] font-bold text-ink">{legend}</legend>
+        <legend className="text-[16px] font-bold text-ink">
+          {legend}
+          {hint && <span className="ml-2 text-[14px] font-semibold text-g500">{hint}</span>}
+        </legend>
         {value && (
           <button type="button" onClick={onReset} className="min-h-9 rounded-full px-3 text-[14px] font-semibold text-g600 hover:bg-g100">
             초기화
@@ -364,22 +369,30 @@ function OptionGroup({ legend, value, onReset, children }: { legend: string; val
   );
 }
 
+/* 선택 칩 — 기본은 하나만 고르는 라디오, multiple이면 여러 개 고르는 체크박스(고른 칩에 체크 표시) */
 function OptionChip({
   name,
   value,
   checked,
   onChange,
+  multiple = false,
   children,
 }: {
   name: string;
   value: string;
   checked: boolean;
   onChange: () => void;
+  multiple?: boolean;
   children: ReactNode;
 }) {
   return (
     <label className="relative block cursor-pointer">
-      <input type="radio" name={name} value={value} checked={checked} onChange={onChange} className="peer sr-only" />
+      <input type={multiple ? "checkbox" : "radio"} name={name} value={value} checked={checked} onChange={onChange} className="peer sr-only" />
+      {multiple && checked && (
+        <span className="absolute right-1.5 top-1.5 z-10 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-brand text-white" aria-hidden="true">
+          <CheckIcon className="h-3 w-3" />
+        </span>
+      )}
       <span className="flex min-h-13 items-center justify-center gap-2 rounded-input bg-g100 px-3 text-center text-[15px] font-semibold text-g700 transition-colors hover:bg-g200/70 peer-checked:bg-brand-50 peer-checked:text-brand peer-checked:ring-2 peer-checked:ring-brand/40 peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent">
         {children}
       </span>

@@ -13,6 +13,21 @@ export const CHANNEL_OPTIONS = [
   "잘 모르겠음",
 ] as const;
 
+// 희망 광고 채널은 여러 개 고를 수 있다 — DB(text)에는 선택지 순서대로 ", "로 이어 저장
+export const CHANNEL_SEPARATOR = ", ";
+export const CHANNEL_UNSURE = "잘 모르겠음";
+
+export const splitChannels = (value: string) => value.split(",").map((v) => v.trim()).filter(Boolean);
+
+/** 채널 하나를 넣고 빼기. '잘 모르겠음'은 다른 채널과 함께 고를 수 없다 */
+export function toggleChannel(value: string, option: string) {
+  const current = splitChannels(value);
+  let next = current.includes(option) ? current.filter((c) => c !== option) : [...current, option];
+  if (option === CHANNEL_UNSURE && next.includes(CHANNEL_UNSURE)) next = [CHANNEL_UNSURE];
+  else if (option !== CHANNEL_UNSURE) next = next.filter((c) => c !== CHANNEL_UNSURE);
+  return CHANNEL_OPTIONS.filter((o) => next.includes(o)).join(CHANNEL_SEPARATOR);
+}
+
 export const BUDGET_OPTIONS = ["100만원 미만", "100~300만원", "300~500만원", "500~1,000만원", "1,000만원 이상", "미정 / 상담 후 결정"] as const;
 
 export const WEBSITE_OPTIONS = ["보유", "미보유", "제작 예정"] as const;
@@ -96,6 +111,14 @@ export function validateInquiry(input: Partial<Record<InquiryField, unknown>>) {
 const pick = <T extends readonly string[]>(options: T, value: unknown) =>
   typeof value === "string" && (options as readonly string[]).includes(value) ? value : null;
 
+/** 채널 여러 개(문자열 또는 배열) → 선택지에 있는 것만 선택지 순서대로. '잘 모르겠음'은 다른 채널이 있으면 뺀다 */
+function pickChannels(value: unknown) {
+  const raw = Array.isArray(value) ? value.filter((v): v is string => typeof v === "string") : typeof value === "string" ? splitChannels(value) : [];
+  let chosen = CHANNEL_OPTIONS.filter((o) => raw.some((r) => r.trim() === o));
+  if (chosen.length > 1) chosen = chosen.filter((o) => o !== CHANNEL_UNSURE);
+  return chosen.length ? chosen.join(CHANNEL_SEPARATOR) : null;
+}
+
 /** 서버 저장용으로 공백 정리 + 선택지 밖의 값은 null */
 export function normalizeInquiry(input: Partial<Record<InquiryField, unknown>>) {
   const text = (v: unknown) => (typeof v === "string" ? v.trim() : "");
@@ -105,7 +128,7 @@ export function normalizeInquiry(input: Partial<Record<InquiryField, unknown>>) 
     phone: text(input.phone),
     industry: text(input.industry),
     message: text(input.message),
-    channel: pick(CHANNEL_OPTIONS, input.channel),
+    channel: pickChannels(input.channel),
     budget: pick(BUDGET_OPTIONS, input.budget),
     has_website: pick(WEBSITE_OPTIONS, input.has_website),
   };
